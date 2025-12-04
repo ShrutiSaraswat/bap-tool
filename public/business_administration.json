@@ -1,0 +1,202 @@
+{
+  "id": "cert_business_administration",
+  "credentialType": "Certificate",
+  "title": "Certificate: Business Administration",
+  "overviewAndProgramRelevance": "The Certificate in Business Administration provides learners with a solid foundation in accounting, marketing, information systems, organizational behaviour, economics, and core business functions. This credential prepares students for administrative, coordination, customer-facing, and entry-level analytical roles in a wide range of industries across British Columbia, including government, non-profits, Indigenous organizations, and small to medium enterprises. Students develop competencies in financial literacy, data-informed decision-making, marketing principles, management concepts, and the economic environment that shapes business activity. The certificate also serves as the first academic stack in the Business Administration Program and ladders directly into CNC’s Associate Certificates and Diploma options.",
+  "courses": {
+    "note": "Any 10 courses from the list OR completion of the Associate Certificate in Business Fundamentals and Associate Certificate in Business Essentials.",
+    "coursePool": [
+      {
+        "code": "COM 100",
+        "title": "Fundamentals of Business",
+        "description": "Overview of the Canadian business environment including ownership structures, management functions, ethics, globalization, and the core functional areas of business."
+      },
+      {
+        "code": "COM 105",
+        "title": "Computer Information Systems",
+        "description": "Introduces information systems, productivity tools, data visualization, analytics, and ethical considerations in technology use."
+      },
+      {
+        "code": "COM 110",
+        "title": "Financial Accounting",
+        "description": "Covers the accounting cycle, financial statements, GAAP, accrued transactions, assets, liabilities, equity, and cash flow analysis."
+      },
+      {
+        "code": "COM 115",
+        "title": "Organizational Behaviour",
+        "description": "Examines leadership, motivation, group dynamics, communication, conflict, culture, decision-making, and management skills."
+      },
+      {
+        "code": "COM 130",
+        "title": "Principles of Marketing",
+        "description": "Explores segmentation, consumer behaviour, marketing research, product management, branding, marketing communication, and digital strategies including AI."
+      },
+      {
+        "code": "ECON 100",
+        "title": "Principles of Microeconomics",
+        "description": "Analyzes supply and demand, elasticity, market structures, market failures, externalities, and government interventions."
+      },
+      {
+        "code": "ECON 101",
+        "title": "Principles of Macroeconomics",
+        "description": "Explores GDP, unemployment, inflation, monetary and fiscal policy, international trade, and economic growth."
+      },
+      {
+        "code": "ECON 105",
+        "title": "Business Statistics",
+        "description": "Introduces descriptive statistics, probability, hypothesis testing, sampling, and regression for business applications."
+      },
+      {
+        "code": "ENGL 113",
+        "title": "Writing and Communication",
+        "description": null
+      },
+      {
+        "code": "MATH 103",
+        "title": "Finite Mathematics",
+        "description": null
+      }
+    ]
+  },
+  "employmentPathwaysAndLabourMarketData": {
+    "summary": "Graduates can move into a broad set of entry-level roles that require business knowledge, administrative capability, financial literacy, communication skills, and analytical thinking. Labour-market data reflects verified provincial and regional employment trends.",
+    "occupations": [
+      {
+        "title": "Administrative Officer / Coordinator",
+        "relevantSkillsFromCertificate": "Business foundations, organizational behaviour, communication, information systems.",
+        "noc2021Code": "13100",
+        "projectedOpenings": {
+          "approximateNumber": 9460,
+          "region": "British Columbia",
+          "period": "2024-2034",
+          "source": "WorkBC"
+        },
+        "wageInfo": {
+          "medianHourlyWage": 31.25,
+          "annualSalaryApprox": 60170,
+          "region": "Cariboo",
+          "currency": "CAD",
+          "source": "Job Bank Wage Report"
+        }
+      },
+      {
+        "title": "Administrative Assistant / Office Support",
+        "relevantSkillsFromCertificate": "Document management, software literacy, statistics, business processes.",
+        "noc2021Code": "13110",
+        "projectedOpenings": {
+          "approximateNumber": 13410,
+          "region": "British Columbia",
+          "period": "2024-2034",
+          "source": "WorkBC"
+        },
+        "wageInfo": {
+          "medianAnnualSalaryApprox": 54538,
+          "currency": "CAD",
+          "region": "Cariboo",
+          "source": "Regional salary data"
+        }
+      },
+      {
+        "title": "Bookkeeping / Accounting Clerk",
+        "relevantSkillsFromCertificate": "Financial accounting, data accuracy, financial reporting.",
+        "noc2021Code": "14200",
+        "projectedOpenings": {
+          "approximateNumber": 10570,
+          "region": "British Columbia",
+          "period": "2024-2034",
+          "source": "WorkBC"
+        },
+        "wageInfo": {
+          "annualSalaryApprox": 52140,
+          "currency": "CAD",
+          "region": "Regional data"
+        }
+      },
+      {
+        "title": "Marketing / Communications Assistant",
+        "relevantSkillsFromCertificate": "Marketing principles, consumer behaviour, communication, digital tools.",
+        "noc2021Code": "11202",
+        "projectedOpenings": {
+          "approximateNumber": 200,
+          "region": "British Columbia",
+          "period": "Current postings snapshot",
+          "source": "Job Bank and Indeed"
+        },
+        "wageInfo": {
+          "rangeHourly": {
+            "min": 22.0,
+            "max": 30.0
+          },
+          "currency": "CAD",
+          "notes": "Entry wages typically 22 to 30 CAD per hour depending on employer and region."
+        }
+      },
+      {
+        "title": "Customer Service / Client Relations Representative",
+        "relevantSkillsFromCertificate": "Business fundamentals, communication, problem-solving, service orientation.",
+        "noc2021Code": "64409",
+        "projectedOpenings": {
+          "approximateNumber": null,
+          "region": "British Columbia",
+          "period": null,
+          "source": "BC service sectors"
+        },
+        "wageInfo": {
+          "annualSalaryApprox": 50054,
+          "currency": "CAD",
+          "notes": "Typical annual salary."
+        }
+      },
+      {
+        "title": "Junior Analyst / Data and Reporting Assistant",
+        "relevantSkillsFromCertificate": "Business statistics, Excel, data analysis, decision support.",
+        "noc2021Code": "41402",
+        "projectedOpenings": {
+          "approximateNumber": null,
+          "region": "British Columbia",
+          "period": null,
+          "source": "Provincial demand indicators"
+        },
+        "wageInfo": {
+          "rangeHourly": {
+            "min": 25.0,
+            "max": 35.0
+          },
+          "currency": "CAD",
+          "notes": "Support roles often 25 to 35 CAD per hour depending on setting."
+        }
+      }
+    ]
+  },
+  "interpretationNorthernBC": {
+    "summary": "Northern BC employers report stable and continuous demand for workers capable of supporting administrative, financial, and operational functions. Replacement demand remains strong across public sector offices, Indigenous organizations, healthcare administration, education, and service-related industries. Administrative and accounting support roles carry Good labour-market outlook ratings for the Cariboo region. Wage levels for business support roles have remained stable, with modest yearly growth based on Job Bank regional wage trends. Marketing and analyst roles are increasingly available through remote or hybrid work, expanding opportunities beyond local employers. The certificate provides the foundational skills required to enter these occupations while creating pathways to CNC’s advanced business credentials."
+  },
+  "upskillingAndPLARPathways": {
+    "supportsLearners": [
+      "Returning to education after workforce participation.",
+      "Seeking advancement from entry-level administrative or customer service roles.",
+      "Transitioning from retail, trades, or community services into business functions.",
+      "Pursuing recognized credentials to improve employability or access higher studies."
+    ],
+    "careerApplications": [
+      "Administrative professionals can build pathways toward coordinator or specialist roles in HR, finance, or operations.",
+      "Learners can transition to accounting support, client services, marketing coordination, or data administration roles.",
+      "Individuals can strengthen business fundamentals to support entrepreneurial ventures or small-business operations."
+    ],
+    "plarEvaluationChecklist": [
+      "Minimum of two years verified experience in administrative, customer service, business support, or financial roles.",
+      "Employer letters confirming responsibilities such as bookkeeping, reporting, communication, or coordination tasks.",
+      "Work samples such as spreadsheets, reports, operational documents, marketing assets, or financial statements.",
+      "Recognized training or certifications including MS Office, customer service, bookkeeping, or relevant industry courses.",
+      "Challenge exam or interview to demonstrate applied understanding of business foundations.",
+      "Prior learning must be current (within ten years), relevant, and verifiable."
+    ]
+  },
+  "summaryInsightEvidenceBased": {
+    "provincialDemand": "Over 33,000 combined openings across administrative (13,410), office management (9,460), and accounting support roles (10,570) through 2034.",
+    "regionalStability": "Administrative and financial support occupations continue to show Good labour-market outlooks in the Cariboo region, with steady wage growth and persistent replacement demand.",
+    "earningPotential": "Median wages range from 26 to 35 CAD per hour for administrative, HR, and financial support roles; analyst and marketing positions trend higher depending on employer and experience level.",
+    "skillApplicability": "The certificate provides a versatile skill base valued across private, public, and Indigenous organizations in northern BC."
+  },
+  "conclusion": "The Certificate in Business Administration is a regionally aligned, employment-ready credential that equips learners with essential business knowledge and transferrable skills for diverse roles across northern British Columbia. Backed by verified labour-market evidence, the certificate supports immediate workforce entry, progression into specialized associate certificates, and seamless laddering into CNC’s Business Administration Diploma. It serves as a foundational credential for learners seeking advancement, career transition, or continued business education within the BAP program structure."
+}

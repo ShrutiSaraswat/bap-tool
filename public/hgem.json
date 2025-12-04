@@ -1,0 +1,161 @@
+{
+  "id": "assoc_hospitality_guest_experience",
+  "credentialType": "Associate Certificate",
+  "title": "Associate Certificate: Hospitality and Guest Experience Management",
+  "overviewAndProgramRelevance": "This associate certificate develops applied skills for front-line and supervisory roles in hotels, restaurants, and other guest-focused operations. Learners build capability in project execution, hotel operations, and food and beverage management, with an emphasis on guest experience, service quality, and regulatory compliance. Across the three courses, students examine hotel management based on emerit standards, food and beverage operations and controls, and the use of basic project management tools to support small-scale initiatives and operational improvements in hospitality settings. Graduates gain transferable skills in leadership, scheduling, service standards, safety, and cost awareness that align with the labour needs of hotels, restaurants, resorts, and tourism employers in northern and central British Columbia.",
+  "courses": {
+    "required": [
+      {
+        "code": "COM 245",
+        "title": "Project Management Essentials",
+        "description": "Introduces project management concepts, PMBOK-based frameworks, and basic tools for planning and executing small projects that support operational objectives."
+      },
+      {
+        "code": "COM 275",
+        "title": "The Business of Hotel Management",
+        "description": "Focuses on the role of the hotel general manager, operations across departments, quality standards, legislation, human resources, sustainability practices, and emerit hotel management standards."
+      },
+      {
+        "code": "COM 280",
+        "title": "Food and Beverage Management",
+        "description": "Examines food and beverage operations, internal controls, menu design and costing, marketing, legal and safety requirements, and service management for profitability and guest satisfaction."
+      }
+    ],
+    "choiceGroups": []
+  },
+  "employmentPathwaysAndLabourMarketData": {
+    "summary": "Graduates can pursue roles in hotels, restaurants, and other accommodation and food service operations. The table outlines sample occupational pathways, related competencies from the certificate, and current labour market signals for British Columbia.",
+    "occupations": [
+      {
+        "title": "Restaurant and Food Service Manager",
+        "relevantSkillsFromCertificate": "Food and beverage operations, cost controls, menu analysis, marketing, supervision, and service quality (COM 280, COM 245).",
+        "noc2021Code": "60030",
+        "projectedOpenings": {
+          "approximateNumber": 10580,
+          "region": "British Columbia",
+          "period": "2024-2034",
+          "source": "WorkBC"
+        },
+        "wageInfo": {
+          "medianHourlyWage": 26.44,
+          "annualSalaryApprox": 55000,
+          "region": "British Columbia",
+          "currency": "CAD",
+          "source": "BC wage data and Vancouver examples",
+          "extra": "Typical salary range in Vancouver area about 54,800 CAD per year (about 26 CAD per hour), with some reaching about 69,000 CAD per year."
+        }
+      },
+      {
+        "title": "Accommodation Service Manager / Hotel Manager",
+        "relevantSkillsFromCertificate": "Hotel operations, legislation, OH&S, security, sustainability, leadership, project support for capital or improvement projects (COM 275, COM 245).",
+        "noc2021Code": "60031",
+        "projectedOpenings": {
+          "approximateNumber": 3840,
+          "region": "British Columbia",
+          "period": "2024-2034",
+          "source": "WorkBC"
+        },
+        "wageInfo": {
+          "medianHourlyWage": 32.97,
+          "annualSalaryApprox": 68600,
+          "region": "British Columbia",
+          "currency": "CAD",
+          "rangeHourly": {
+            "min": 19.23,
+            "max": 70.67
+          },
+          "averageAnnualApprox": 67040,
+          "source": "WorkBC and other wage reports"
+        }
+      },
+      {
+        "title": "Food Service Supervisor",
+        "relevantSkillsFromCertificate": "Team supervision, scheduling, basic operations, guest service, cost and quality awareness (COM 280, COM 245).",
+        "noc2021Code": "62020",
+        "projectedOpenings": {
+          "approximateNumber": 3640,
+          "region": "British Columbia",
+          "period": "2024-2034",
+          "source": "WorkBC"
+        },
+        "wageInfo": {
+          "rangeHourly": {
+            "min": 17.85,
+            "max": 27.78
+          },
+          "annualSalaryApproxHighEnd": {
+            "min": 45000,
+            "max": 55000
+          },
+          "currency": "CAD",
+          "notes": "Varies by region and employer."
+        }
+      },
+      {
+        "title": "Hotel Front Desk Clerk / Guest Services Agent",
+        "relevantSkillsFromCertificate": "Guest service, understanding of hotel operations and systems, customer relations, coordination with other departments and promotions (COM 275, COM 280).",
+        "noc2021Code": "64314",
+        "projectedOpenings": {
+          "approximateNumber": 1300,
+          "region": "British Columbia",
+          "period": "2024-2034",
+          "source": "WorkBC and Job Bank"
+        },
+        "wageInfo": {
+          "rangeHourly": {
+            "min": 18.0,
+            "max": 25.0
+          },
+          "currency": "CAD",
+          "notes": "Entry-level wages often similar to food service roles; varies significantly by hours and role."
+        }
+      }
+    ]
+  },
+  "regionalInterpretationNorthernBC": {
+    "regionsCovered": ["Cariboo", "Nechako", "Prince George"],
+    "highlights": [
+      "Accommodation and food services remain a key employer in BC’s Labour Market Outlook, with sustained hiring in hotel management, food service supervision, and guest services roles over the next decade.",
+      "In regions such as Cariboo and the broader North, outlooks for accommodation service managers and hotel front desk clerks are rated good or moderate, supported by tourism, resource-based travel, and steady local demand for dining and lodging.",
+      "For CNC’s catchment area, this means ongoing replacement demand as experienced supervisors and managers retire, along with new roles driven by population shifts, regional tourism, and service sector growth."
+    ],
+    "regionalContext": {
+      "employmentApprox": 76500,
+      "unemploymentRatePercent": 7.2,
+      "primarySectors": [
+        "healthcare",
+        "education",
+        "trade",
+        "forestry",
+        "construction",
+        "accommodation and food services"
+      ],
+      "hospitalityWorkforceNeeds": "Employers in hotels, motels, restaurants, and food and beverage services report ongoing hiring challenges tied to turnover, seasonality, and population mobility. These conditions create consistent entry-level and supervisory opportunities across guest services, hotel operations, and food and beverage roles."
+    },
+    "programAlignment": "The Associate Certificate in Hospitality and Guest Experience Management equips learners with the service, operations, and safety competencies needed for roles in accommodation and food service settings throughout the Cariboo region, supporting both immediate employment and pathways into more advanced study or supervisory positions."
+  },
+  "upskillingAndPLARPathways": {
+    "summary": "This associate certificate supports learners seeking entry into the hospitality sector, individuals returning to the workforce, and incumbent workers aiming to strengthen their operational or supervisory capabilities in accommodation and food service settings.",
+    "careerApplications": [
+      "Workers from retail, customer service, or tourism who want to transition into hotel, restaurant, or guest-service roles.",
+      "Frontline hospitality staff seeking advancement into supervisory positions in food and beverage, front desk, or hotel operations.",
+      "Small hospitality operators looking to improve service standards, cost control, and operational efficiency.",
+      "Individuals reskilling after career interruptions who require applied training tied to strong regional hiring demand."
+    ],
+    "plarEvaluationChecklist": [
+      "Minimum of two years verified experience in hospitality, food service, hotels, tourism, or guest-facing service roles.",
+      "Employer letters confirming responsibilities such as shift supervision, guest service, cash handling, basic cost tracking, or operational duties.",
+      "Work samples demonstrating relevant skills, such as service logs, shift schedules, simple event or promotion plans, or inventory records.",
+      "Recognized sector training such as Foodsafe, Serving It Right, emerit modules, or internal company training related to operations or service quality.",
+      "Challenge activity or interview to verify competency in service standards, safety, and basic operational procedures.",
+      "Prior learning must be current, relevant, and verifiable."
+    ]
+  },
+  "summaryInsightEvidenceBased": {
+    "provincialDemand": "The accommodation and food services sector continues to generate steady openings through 2034, driven by turnover and retirements. Hotel managers, food service managers, supervisors, and guest services staff all show ongoing hiring activity across BC.",
+    "regionalStability": "WorkBC identifies a stable accommodation and food service presence in the Cariboo region, with ongoing demand for hotel, restaurant, and guest service roles supported by regional travel, industry shifts, and community events.",
+    "earningPotential": "Typical wages for hospitality roles in BC range from 18 to 27 CAD per hour for frontline and supervisory positions, with hotel and food service managers earning 26 to 33 CAD per hour depending on establishment size and location.",
+    "careerProgression": "Structured pathways exist from entry-level guest service roles into supervisory, food and beverage, or hotel operations positions, making this certificate a practical first credential for upward mobility."
+  },
+  "conclusion": "The Associate Certificate: Hospitality and Guest Experience Management is regionally relevant, labour-market aligned, and grounded in verified employer demand across northern BC. The program prepares learners for immediate employment in hotel, restaurant, and guest service operations while supporting advancement into supervisory roles. The certificate also functions as an effective foundation for continued study within CNC’s Business Administration Program and provides clear upskilling and PLAR options for workers with industry experience."
+}
