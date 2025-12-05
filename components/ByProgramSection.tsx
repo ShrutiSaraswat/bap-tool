@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { TimeComparisonInline } from "./TimeComparisonInline";
 
 type Program = {
   id: string;
@@ -37,10 +38,10 @@ type Job = {
 };
 
 const earningBandLabels: Record<string, string> = {
-  entry: "Entry (around $18–22/hr)",
-  entry_to_medium: "Entry to medium ($20–26/hr)",
-  medium: "Medium (around $24–30/hr)",
-  medium_high: "Medium to high ($28–35+/hr)",
+  entry: "Entry (around $18-22/hr)",
+  entry_to_medium: "Entry to medium ($20-26/hr)",
+  medium: "Medium (around $24-30/hr)",
+  medium_high: "Medium to high ($28-35+/hr)",
 };
 
 const opportunityLabels: Record<string, string> = {
@@ -91,7 +92,7 @@ export function ByProgramSection() {
               Choose a program to see what kinds of jobs it connects to, typical
               earning potential, and how many opportunities there are in British
               Columbia and northern regions. All information is based on the BAP
-              labour-market analysis.
+              labour market analysis.
             </p>
           </div>
 
@@ -183,6 +184,11 @@ export function ByProgramSection() {
                   </div>
                 )}
 
+                {/* Dynamic time comparison vs 2 year and 4 year paths */}
+                <TimeComparisonInline
+                  approxMonths={selectedProgram.timeCommitment?.approxMonths}
+                />
+
                 {selectedProgram.courses &&
                   selectedProgram.courses.length > 0 && (
                     <div>
@@ -215,7 +221,7 @@ export function ByProgramSection() {
                   Job prospects &amp; opportunities
                 </p>
                 <p className="mt-1 text-xs text-slate-700">
-                  Based on the BAP labour-market analysis, these are examples of
+                  Based on the BAP labour market analysis, these are examples of
                   roles this program connects to.
                 </p>
               </div>
@@ -229,9 +235,9 @@ export function ByProgramSection() {
 
                 {relatedJobs.map((job) => {
                   const annual =
-                    job.medianAnnualSalary ??
-                    (job.medianHourlyWage
-                      ? job.medianHourlyWage * 40 * 52
+                    job!.medianAnnualSalary ??
+                    (job!.medianHourlyWage
+                      ? job!.medianHourlyWage * 40 * 52
                       : null);
 
                   return (
