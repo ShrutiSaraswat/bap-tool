@@ -40,7 +40,7 @@ export function FeaturesSection() {
           <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 border border-slate-200 shadow-sm">
             <Sparkles className="h-4 w-4 text-[#d71920]" />
             <span className="text-base font-medium tracking-[0.14em] uppercase text-slate-700">
-              What this page makes easier
+              What it makes easier
             </span>
           </div>
 

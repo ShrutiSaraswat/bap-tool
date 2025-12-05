@@ -10,13 +10,19 @@ const fadeUp = {
 
 export function HeroIntro() {
   return (
-    <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-br from-[#fef2f2] via-[#eff6ff] to-[#ecfeff]">
+    <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-br from-[#fff7f7] via-[#eff6ff] to-[#ecfeff]">
       {/* Background accents */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-[#005f63]/20 blur-3xl" />
-        <div className="absolute -left-40 top-32 h-72 w-72 rounded-full bg-[#d71920]/20 blur-3xl" />
-        <div className="absolute inset-x-16 bottom-[-6rem] h-72 rounded-[50%] bg-[#0f172a]/10 blur-3xl" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.65),_transparent_55%),linear-gradient(135deg,rgba(255,255,255,0.5)_0%,transparent_40%,transparent_60%,rgba(255,255,255,0.4)_100%)]" />
+        {/* Soft color blobs */}
+        <div className="absolute -left-16 -top-10 h-56 w-56 rounded-full bg-[#d71920]/20 blur-3xl" />
+        <div className="absolute right-[-32px] top-6 h-64 w-64 rounded-full bg-[#005f63]/20 blur-3xl" />
+        <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/45 blur-3xl" />
+
+        {/* Bottom soft band */}
+        <div className="absolute inset-x-6 bottom-[-4rem] h-40 rounded-[3rem] bg-gradient-to-r from-[#0f172a]/7 via-transparent to-[#0f172a]/7 blur-2xl" />
+
+        {/* Subtle radial tint over everything */}
+        <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.22),_transparent_60%)]" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 py-10 sm:py-12 lg:py-16 grid gap-10 lg:grid-cols-[3fr,2fr] items-center">
@@ -53,8 +59,8 @@ export function HeroIntro() {
           >
             This page helps future students and recruiters compare programs, job
             options, earning potential and opportunities in northern BC. You can
-            start with a short credential now and later stack into a 1-year
-            certificate or 2-year diploma when you are ready.
+            start with a short credential now and later stack into a 1 year
+            certificate or 2 year diploma when you are ready.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-1 flex flex-wrap gap-3">
@@ -72,7 +78,7 @@ export function HeroIntro() {
             </a>
           </motion.div>
 
-          {/* Quick facts - now full width */}
+          {/* Quick facts - full width */}
           <motion.div
             variants={fadeUp}
             className="mt-4 grid w-full gap-3 text-base text-slate-800 sm:grid-cols-3"
@@ -88,7 +94,7 @@ export function HeroIntro() {
             </div>
             <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
               <p className="font-semibold text-slate-900">
-                1-year certificate option
+                1 year certificate option
               </p>
               <p>
                 Shorter time commitment than most 2 year and 4 year business
@@ -97,7 +103,7 @@ export function HeroIntro() {
             </div>
             <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
               <p className="font-semibold text-slate-900">
-                Labour-market informed
+                Labour market informed
               </p>
               <p>
                 Uses NOC codes, wage bands and outlook data for northern BC and
@@ -111,7 +117,7 @@ export function HeroIntro() {
             className="pt-1 text-base text-slate-700 max-w-2xl"
           >
             All information comes from the Business Administration Program (BAP)
-            labour-market analysis. It is a planning tool to support
+            labour market analysis. It is a planning tool to support
             conversations with students and does not replace official CNC
             advising.
           </motion.p>
@@ -128,7 +134,7 @@ export function HeroIntro() {
           <div className="relative rounded-[1.6rem] bg-gradient-to-br from-white via-white/95 to-slate-50 border border-slate-200/80 shadow-[0_18px_40px_rgba(15,23,42,0.16)] overflow-hidden">
             <div className="bg-gradient-to-r from-[#005f63] via-[#0f172a] to-[#d71920] text-white px-5 py-3 flex items-center justify-between">
               <span className="text-base font-semibold tracking-[0.18em] uppercase">
-                How to use this page
+                How to use it
               </span>
               <span className="text-base opacity-80">
                 Directed search for BAP pathways
