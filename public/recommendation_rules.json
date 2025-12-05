@@ -1,0 +1,66 @@
+[
+  {
+    "id": "rule_people_and_hospitality",
+    "description": "Likes working with people, guests, hotels, events or restaurants.",
+    "keywords": [
+      "people",
+      "guests",
+      "hotel",
+      "front desk",
+      "restaurant",
+      "hospitality",
+      "tourism",
+      "events"
+    ],
+    "recommendProgramIds": ["assoc_hospitality_guest_experience"]
+  },
+  {
+    "id": "rule_numbers_and_finance",
+    "description": "Interested in numbers, money, banking, spreadsheets or finance.",
+    "keywords": [
+      "finance",
+      "bank",
+      "accounting",
+      "numbers",
+      "spreadsheets",
+      "budgets",
+      "bookkeeping"
+    ],
+    "recommendProgramIds": [
+      "assoc_business_essentials",
+      "assoc_business_fundamentals",
+      "cert_business_administration"
+    ]
+  },
+  {
+    "id": "rule_marketing_communication",
+    "description": "Likes social media, marketing, advertising or communication.",
+    "keywords": [
+      "marketing",
+      "social media",
+      "advertising",
+      "communications",
+      "content",
+      "branding"
+    ],
+    "recommendProgramIds": [
+      "assoc_business_fundamentals",
+      "cert_business_administration"
+    ]
+  },
+  {
+    "id": "rule_entrepreneurship",
+    "description": "Wants to start a business, side hustle or be self-employed.",
+    "keywords": [
+      "start a business",
+      "own a business",
+      "self employed",
+      "entrepreneur",
+      "side hustle"
+    ],
+    "recommendProgramIds": [
+      "assoc_business_essentials",
+      "assoc_business_fundamentals"
+    ]
+  }
+]

@@ -1,10 +1,10 @@
-import Hero from "@/components/Hero";
+import { CncHeader } from "@/components/Hero";
 import React from "react";
 
 const page = () => {
   return (
     <div>
-      <Hero />
+      <CncHeader />
     </div>
   );
 };

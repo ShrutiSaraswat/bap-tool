@@ -1,0 +1,14 @@
+{
+  "earningBands": [
+    { "id": "entry", "label": "Entry (around $18–22/hr)" },
+    { "id": "entry_to_medium", "label": "Entry to medium ($20–26/hr)" },
+    { "id": "medium", "label": "Medium (around $24–30/hr)" },
+    { "id": "medium_high", "label": "Medium to high ($28–35+/hr)" }
+  ],
+  "opportunityBands": [
+    { "id": "medium", "label": "Some opportunities in the region" },
+    { "id": "medium_high", "label": "Good opportunities in the region" },
+    { "id": "high", "label": "Strong opportunities in the region" },
+    { "id": "very_high", "label": "Very strong and stable demand" }
+  ]
+}

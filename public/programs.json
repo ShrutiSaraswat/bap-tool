@@ -1,0 +1,165 @@
+[
+  {
+    "id": "assoc_business_essentials",
+    "name": "Associate Certificate: Business Essentials",
+    "credentialType": "Associate Certificate",
+    "shortTagline": "Short, stackable program focusing on organizational behaviour, law, and finance.",
+    "timeCommitment": {
+      "label": "Less than 1 year (short, stackable)",
+      "approxMonths": 8
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 1,
+      "stacksInto": [
+        "cert_business_administration",
+        "diploma_business_administration"
+      ],
+      "stackMessage": "Start with a short certificate now and later stack into the Business Administration Certificate or Diploma instead of committing to a 2 or 4 year degree right away."
+    },
+    "region": "Northern BC (Cariboo, Nechako, Prince George)",
+    "overview": "Build foundational skills in organizational behaviour, business law, and finance or entrepreneurship. Ideal if you want to understand how workplaces function, make legally informed decisions, and explore financial or small-business pathways.",
+    "courses": [
+      { "code": "COM 222", "title": "Organizational Behaviour" },
+      { "code": "LAW 294", "title": "Business Law" },
+      {
+        "code": "FIN 257",
+        "title": "Finance 1",
+        "isChoice": true,
+        "choiceGroup": "finance_or_entrepreneurship"
+      },
+      {
+        "code": "MGT 150",
+        "title": "Introduction to Entrepreneurship",
+        "isChoice": true,
+        "choiceGroup": "finance_or_entrepreneurship"
+      }
+    ],
+    "jobIds": [
+      "administrative_officer",
+      "hr_officer",
+      "financial_sales_rep",
+      "small_business_owner"
+    ],
+    "earningBand": "medium_high",
+    "opportunityBand": "high"
+  },
+
+  {
+    "id": "assoc_business_fundamentals",
+    "name": "Associate Certificate: Business Fundamentals",
+    "credentialType": "Associate Certificate",
+    "shortTagline": "Accounting + marketing + core business skills for office, bookkeeping, and marketing support roles.",
+    "timeCommitment": {
+      "label": "Less than 1 year (short, stackable)",
+      "approxMonths": 8
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 1,
+      "stacksInto": [
+        "cert_business_administration",
+        "diploma_business_administration"
+      ],
+      "stackMessage": "A quick on-ramp into office, accounting, and marketing support roles that can later be built into a full certificate or diploma."
+    },
+    "region": "Northern BC (Cariboo, Nechako, Prince George)",
+    "overview": "Entry-level credential for accounting, marketing and general business operations. Fits administrative, bookkeeping and marketing support roles in public, private, and Indigenous organizations.",
+    "courses": [
+      { "code": "COM 105", "title": "Financial Accounting" },
+      { "code": "COM 130", "title": "Principles of Marketing" },
+      {
+        "code": "COM 105 CIS",
+        "title": "Computer Information Systems",
+        "isChoice": true,
+        "choiceGroup": "cis_or_fundamentals"
+      },
+      {
+        "code": "COM 100",
+        "title": "Fundamentals of Business",
+        "isChoice": true,
+        "choiceGroup": "cis_or_fundamentals"
+      }
+    ],
+    "jobIds": [
+      "administrative_assistant",
+      "accounting_clerk",
+      "marketing_assistant"
+    ],
+    "earningBand": "medium",
+    "opportunityBand": "high"
+  },
+
+  {
+    "id": "assoc_hospitality_guest_experience",
+    "name": "Associate Certificate: Hospitality and Guest Experience Management",
+    "credentialType": "Associate Certificate",
+    "shortTagline": "Hotels, restaurants, and guest-facing roles with a focus on service and operations.",
+    "timeCommitment": {
+      "label": "Less than 1 year (short, stackable)",
+      "approxMonths": 8
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 1,
+      "stacksInto": ["diploma_business_administration"],
+      "stackMessage": "Ideal if you want to get into hospitality quickly and later move into more advanced management or business studies."
+    },
+    "region": "Northern BC and provincial tourism regions",
+    "overview": "Develops applied skills for front-line and supervisory roles in hotels, restaurants and guest-service operations. Focus on hotel management, food & beverage operations, and project management for service improvements.",
+    "courses": [
+      { "code": "COM 245", "title": "Project Management Essentials" },
+      { "code": "COM 275", "title": "Business of Hotel Management" },
+      { "code": "COM 280", "title": "Food & Beverage Management" }
+    ],
+    "jobIds": [
+      "restaurant_manager",
+      "accommodation_service_manager",
+      "food_service_supervisor",
+      "hotel_front_desk_clerk"
+    ],
+    "earningBand": "entry_to_medium",
+    "opportunityBand": "medium_high"
+  },
+
+  {
+    "id": "cert_business_administration",
+    "name": "Certificate: Business Administration",
+    "credentialType": "Certificate",
+    "shortTagline": "10-course foundation in accounting, marketing, economics, statistics and core business skills.",
+    "timeCommitment": {
+      "label": "Approximately 1 year (still shorter than a 2-year diploma)",
+      "approxMonths": 12
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 2,
+      "stacksInto": ["diploma_business_administration"],
+      "stackMessage": "Complete this 1-year certificate and then ladder directly into the Business Administration Diploma or transfer to further business studies."
+    },
+    "region": "Northern BC and province-wide",
+    "overview": "Broad-based business foundation covering financial accounting, marketing, organizational behaviour, economics, statistics, and communication. Prepares students for administrative, bookkeeping, client service and junior analyst roles.",
+    "courses": [
+      { "code": "COM 100", "title": "Fundamentals of Business" },
+      { "code": "COM 105", "title": "Computer Information Systems" },
+      { "code": "COM 110", "title": "Financial Accounting" },
+      { "code": "COM 115", "title": "Organizational Behaviour" },
+      { "code": "COM 130", "title": "Principles of Marketing" },
+      { "code": "ECON 100", "title": "Principles of Microeconomics" },
+      { "code": "ECON 101", "title": "Principles of Macroeconomics" },
+      { "code": "ECON 105", "title": "Business Statistics" },
+      { "code": "ENGL 113", "title": "Writing and Communication" },
+      { "code": "MATH 103", "title": "Finite Mathematics" }
+    ],
+    "jobIds": [
+      "administrative_officer",
+      "administrative_assistant",
+      "accounting_clerk",
+      "marketing_assistant",
+      "client_relations_rep",
+      "junior_analyst"
+    ],
+    "earningBand": "medium_high",
+    "opportunityBand": "high"
+  }
+]
