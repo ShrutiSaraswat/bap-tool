@@ -1,120 +1,221 @@
 // components/HeroIntro.tsx
 "use client";
 
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export function HeroIntro() {
   return (
-    <section className="bg-slate-50 border-b border-slate-200">
-      <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 py-8 sm:py-10 lg:py-12 grid gap-8 lg:grid-cols-[3fr,2fr] items-center">
+    <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-br from-[#fef2f2] via-[#eff6ff] to-[#ecfeff]">
+      {/* Background accents */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -right-40 -top-40 h-80 w-80 rounded-full bg-[#005f63]/20 blur-3xl" />
+        <div className="absolute -left-40 top-32 h-72 w-72 rounded-full bg-[#d71920]/20 blur-3xl" />
+        <div className="absolute inset-x-16 bottom-[-6rem] h-72 rounded-[50%] bg-[#0f172a]/10 blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.65),_transparent_55%),linear-gradient(135deg,rgba(255,255,255,0.5)_0%,transparent_40%,transparent_60%,rgba(255,255,255,0.4)_100%)]" />
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 py-10 sm:py-12 lg:py-16 grid gap-10 lg:grid-cols-[3fr,2fr] items-center">
         {/* Left copy */}
-        <div>
-          <p className="text-xs font-semibold tracking-[0.18em] uppercase text-[#005f63]">
-            Business Administration Program (BAP) · CNC
-          </p>
-          <h1 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-900 leading-tight">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.06, delayChildren: 0.04 },
+            },
+          }}
+          className="space-y-6"
+        >
+          <motion.p
+            variants={fadeUp}
+            className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-base font-semibold tracking-[0.18em] uppercase text-[#005f63] shadow-sm"
+          >
+            Business Administration Program · CNC
+          </motion.p>
+
+          <motion.h1
+            variants={fadeUp}
+            className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight"
+          >
             Explore short, stackable{" "}
             <span className="text-[#d71920]">business pathways</span> at CNC.
-          </h1>
-          <p className="mt-3 text-sm sm:text-base text-slate-700 max-w-xl">
-            Compare programs, jobs, earning potential and regional opportunities
-            using the same labour-market information that the BAP team uses.
-            Start with a short credential now, with options to stack into a
-            1-year certificate or 2-year diploma later.
-          </p>
+          </motion.h1>
 
-          <div className="mt-5 flex flex-wrap gap-3">
+          <motion.p
+            variants={fadeUp}
+            className="text-base lg:text-lg text-slate-800 max-w-2xl"
+          >
+            This page helps future students and recruiters compare programs, job
+            options, earning potential and opportunities in northern BC. You can
+            start with a short credential now and later stack into a 1-year
+            certificate or 2-year diploma when you are ready.
+          </motion.p>
+
+          <motion.div variants={fadeUp} className="mt-1 flex flex-wrap gap-3">
             <a
               href="#programs"
-              className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-sm bg-[#d71920] text-white hover:bg-[#b8141b] transition"
+              className="inline-flex items-center rounded-md bg-[#d71920] px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-[#b8141b] hover:shadow-md transition"
             >
               Start with a program
             </a>
             <a
               href="#guided-match"
-              className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-sm border border-slate-300 text-slate-800 hover:bg-slate-100 transition"
+              className="inline-flex items-center rounded-md border border-slate-300 bg-white/80 px-5 py-3 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
             >
-              Not sure? Try guided match
+              Not sure yet? Try guided match
             </a>
-          </div>
+          </motion.div>
 
-          <div className="mt-5 grid gap-3 text-xs sm:text-[13px] text-slate-700 sm:grid-cols-3 max-w-xl">
-            <div className="border border-slate-200 bg-white px-3 py-2">
+          {/* Quick facts - now full width */}
+          <motion.div
+            variants={fadeUp}
+            className="mt-4 grid w-full gap-3 text-base text-slate-800 sm:grid-cols-3"
+          >
+            <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
               <p className="font-semibold text-slate-900">
                 3 associate certificates
               </p>
-              <p>Focused starts in business, essentials and hospitality.</p>
+              <p>
+                Business Essentials, Business Fundamentals and Hospitality and
+                Guest Experience Management.
+              </p>
             </div>
-            <div className="border border-slate-200 bg-white px-3 py-2">
+            <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
               <p className="font-semibold text-slate-900">
                 1-year certificate option
               </p>
-              <p>Shorter time commitment than 2 or 4-year degrees.</p>
+              <p>
+                Shorter time commitment than most 2 year and 4 year business
+                programs.
+              </p>
             </div>
-            <div className="border border-slate-200 bg-white px-3 py-2">
+            <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
               <p className="font-semibold text-slate-900">
                 Labour-market informed
               </p>
-              <p>Uses NOC codes, wages and outlook for northern BC.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Right panel – simple CNC style card */}
-        <div className="relative">
-          <div className="absolute -inset-2 bg-[#005f63]/5 rounded-lg" />
-          <div className="relative bg-white border border-slate-200 rounded-lg shadow-sm overflow-hidden">
-            <div className="bg-[#005f63] text-white px-4 py-2 text-xs font-semibold tracking-[0.18em] uppercase">
-              Directed Search
-            </div>
-            <div className="p-4 space-y-3 text-xs sm:text-sm">
-              <p className="text-slate-800 font-medium">
-                Choose how you want to explore:
+              <p>
+                Uses NOC codes, wage bands and outlook data for northern BC and
+                provincial labour markets.
               </p>
-              <ul className="space-y-1.5">
-                <li className="flex items-start gap-2">
-                  <span className="mt-[5px] h-1.5 w-1.5 rounded-full bg-[#d71920]" />
+            </div>
+          </motion.div>
+
+          <motion.p
+            variants={fadeUp}
+            className="pt-1 text-base text-slate-700 max-w-2xl"
+          >
+            All information comes from the Business Administration Program (BAP)
+            labour-market analysis. It is a planning tool to support
+            conversations with students and does not replace official CNC
+            advising.
+          </motion.p>
+        </motion.div>
+
+        {/* Right panel – how to use this page */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.16 }}
+          className="relative"
+        >
+          <div className="absolute -inset-4 rounded-[1.8rem] bg-gradient-to-br from-[#005f63]/30 via-[#d71920]/25 to-[#0f172a]/35 blur-xl" />
+          <div className="relative rounded-[1.6rem] bg-gradient-to-br from-white via-white/95 to-slate-50 border border-slate-200/80 shadow-[0_18px_40px_rgba(15,23,42,0.16)] overflow-hidden">
+            <div className="bg-gradient-to-r from-[#005f63] via-[#0f172a] to-[#d71920] text-white px-5 py-3 flex items-center justify-between">
+              <span className="text-base font-semibold tracking-[0.18em] uppercase">
+                How to use this page
+              </span>
+              <span className="text-base opacity-80">
+                Directed search for BAP pathways
+              </span>
+            </div>
+
+            <div className="p-5 space-y-4 text-base text-slate-800">
+              <p className="font-semibold">
+                Choose a starting point that matches how you like to explore:
+              </p>
+
+              <ol className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-8 w-8 shrink-0 rounded-full border border-[#d71920]/40 bg-[#d71920]/10 text-base font-semibold text-[#d71920] flex items-center justify-center">
+                    1
+                  </span>
                   <span>
-                    <strong>By program</strong> - see job prospects, earning
-                    potential and regional opportunities.
+                    <strong>By program</strong> - see time commitment, job
+                    prospects, earning potential and regional opportunities for
+                    a specific CNC business credential.
                   </span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-[5px] h-1.5 w-1.5 rounded-full bg-[#005f63]" />
+
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-8 w-8 shrink-0 rounded-full border border-[#005f63]/40 bg-[#005f63]/10 text-base font-semibold text-[#005f63] flex items-center justify-center">
+                    2
+                  </span>
                   <span>
-                    <strong>By job title</strong> - find which CNC program leads
-                    there.
+                    <strong>By skills you want to build</strong> - if you know
+                    you enjoy customer service, accounting, leadership or
+                    similar skills and want to see which programs strengthen
+                    them.
                   </span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-[5px] h-1.5 w-1.5 rounded-full bg-[#f4b41a]" />
+
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-8 w-8 shrink-0 rounded-full border border-[#f4b41a]/50 bg-[#f4b41a]/20 text-base font-semibold text-[#8a5a00] flex items-center justify-center">
+                    3
+                  </span>
                   <span>
-                    <strong>By earning potential</strong> - compare wage bands.
+                    <strong>By job title or earning potential</strong> - when
+                    you have a role or wage band in mind and want to find the
+                    CNC pathway that connects there.
                   </span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-[5px] h-1.5 w-1.5 rounded-full bg-slate-400" />
+
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-8 w-8 shrink-0 rounded-full border border-slate-400/50 bg-slate-100 text-base font-semibold text-slate-800 flex items-center justify-center">
+                    4
+                  </span>
                   <span>
-                    <strong>Guided match</strong> - tell us a bit about yourself
-                    and we suggest starting points.
+                    <strong>Guided match</strong> - type a short description of
+                    yourself and your interests, and the tool will suggest
+                    starting programs from the BAP list using static rules.
                   </span>
                 </li>
-              </ul>
-              <div className="pt-2 flex flex-wrap gap-2">
+              </ol>
+
+              <div className="pt-3 flex flex-wrap gap-3">
                 <a
                   href="#programs"
-                  className="inline-flex items-center px-3 py-1.5 text-xs font-semibold rounded-sm bg-[#d71920] text-white hover:bg-[#b8141b] transition"
+                  className="inline-flex items-center rounded-md bg-[#d71920] px-4 py-2.5 text-base font-semibold text-white hover:bg-[#b8141b] transition"
                 >
                   Explore by program
                 </a>
                 <a
+                  href="#skills"
+                  className="inline-flex items-center rounded-md border border-slate-300 bg-white px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
+                >
+                  Explore by skills
+                </a>
+                <a
                   href="#jobs"
-                  className="inline-flex items-center px-3 py-1.5 text-xs font-semibold rounded-sm border border-slate-300 text-slate-800 hover:bg-slate-100 transition"
+                  className="inline-flex items-center rounded-md border border-slate-200 bg-slate-50 px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
                 >
                   Explore by job title
                 </a>
               </div>
+
+              <p className="pt-1 text-base text-slate-700">
+                Staff can open this page during presentations or school visits
+                and walk students through options using the same information
+                shown in the colourful BAP framework materials.
+              </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
