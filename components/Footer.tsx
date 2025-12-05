@@ -6,7 +6,7 @@ import { ArrowUpRight, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 
 export function CncFooter() {
   return (
-    <footer className="relative mt-10 bg-slate-900 text-slate-100 border-t border-slate-800 overflow-hidden">
+    <footer className="relative bg-slate-900 text-slate-100 border-t border-slate-800 overflow-hidden">
       {/* subtle background glow */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-24 top-10 h-44 w-44 rounded-full bg-[#005f63]/40 blur-3xl" />
