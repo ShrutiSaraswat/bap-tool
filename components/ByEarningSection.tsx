@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { CircleDollarSign, TrendingUp, MapPin, BarChart3 } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 
 type Program = {
   id: string;
@@ -57,6 +58,42 @@ const opportunityLabels: Record<string, string> = {
   emerging: "Emerging or growing area",
 };
 
+// Motion variants (gentle, consistent)
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 export function ByEarningsSection() {
   const [programs, setPrograms] = useState<Program[]>([]);
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -93,9 +130,18 @@ export function ByEarningsSection() {
         <div className="absolute -right-32 bottom-0 h-60 w-60 rounded-full bg-[#d71920]/10 blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7">
+      <motion.div
+        className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {/* Heading + filter */}
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <motion.div
+          className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
+          variants={fadeUp}
+        >
           <div className="space-y-2 max-w-3xl">
             <p className="text-base font-semibold tracking-[0.18em] uppercase text-[#005f63] flex items-center gap-2">
               <BarChart3 className="h-4 w-4 text-[#005f63]" />
@@ -140,11 +186,14 @@ export function ByEarningsSection() {
               Ranges are based on median wages and typical labour market bands.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Empty state when no band selected */}
         {selectedBand === "" && (
-          <div className="border border-dashed border-slate-300 bg-white px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm">
+          <motion.div
+            className="border border-dashed border-slate-300 bg-white px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
+            variants={fadeUp}
+          >
             Use the dropdown above to choose an earning range. This section will
             show:
             <ul className="mt-2 space-y-1">
@@ -154,14 +203,14 @@ export function ByEarningsSection() {
               <li>- Example job titles and their typical median wages.</li>
               <li>- How opportunities look in BC for that earning range.</li>
             </ul>
-          </div>
+          </motion.div>
         )}
 
         {/* Selected band view */}
         {selectedBand !== "" && (
-          <div className="grid gap-6 lg:grid-cols-2">
+          <motion.div className="grid gap-6 lg:grid-cols-2" variants={fadeUp}>
             {/* Programs list */}
-            <div className="relative">
+            <motion.div className="relative" variants={cardVariants}>
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#005f63]/14 via-white to-[#d71920]/8 opacity-80" />
               <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.15)]">
                 <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
@@ -187,9 +236,10 @@ export function ByEarningsSection() {
                   )}
 
                   {programsForBand.map((program) => (
-                    <div
+                    <motion.div
                       key={program.id}
                       className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
+                      variants={cardVariants}
                     >
                       <div className="flex flex-wrap items-baseline justify-between gap-3">
                         <div>
@@ -236,14 +286,14 @@ export function ByEarningsSection() {
                           </span>
                         )}
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Jobs list */}
-            <div className="relative">
+            <motion.div className="relative" variants={cardVariants}>
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-slate-200/60 via-white to-slate-100 opacity-70" />
               <div className="relative border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(15,23,42,0.12)]">
                 <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
@@ -273,9 +323,10 @@ export function ByEarningsSection() {
                         : null);
 
                     return (
-                      <div
+                      <motion.div
                         key={job.id}
                         className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
+                        variants={cardVariants}
                       >
                         <div className="flex flex-wrap items-baseline justify-between gap-3">
                           <div>
@@ -332,15 +383,15 @@ export function ByEarningsSection() {
                             Region: {job.region}
                           </p>
                         )}
-                      </div>
+                      </motion.div>
                     );
                   })}
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         )}
-      </div>
+      </motion.div>
     </section>
   );
 }
