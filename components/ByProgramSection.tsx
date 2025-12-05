@@ -8,6 +8,7 @@ type Program = {
   id: string;
   name: string;
   credentialType?: string;
+  shortTagline?: string;
   overview?: string;
   timeCommitment?: {
     label?: string;
@@ -15,6 +16,8 @@ type Program = {
   };
   stackability?: {
     isStackable?: boolean;
+    stackLevel?: number;
+    stacksInto?: string[];
     stackMessage?: string;
   };
   region?: string;
@@ -22,6 +25,7 @@ type Program = {
   opportunityBand?: string;
   courses?: { code: string; title?: string }[];
   jobIds?: string[];
+  skills?: string[];
 };
 
 type Job = {
@@ -59,12 +63,13 @@ export function ByProgramSection() {
   const [selectedId, setSelectedId] = useState<string>("");
 
   useEffect(() => {
-    // Adjust paths if your filenames are different
+    // programs.json lives in /public
     fetch("/programs.json")
       .then((res) => res.json())
       .then((data: Program[]) => setPrograms(data))
       .catch((err) => console.error("Error loading programs.json", err));
 
+    // jobs.json lives in /public
     fetch("/jobs.json")
       .then((res) => res.json())
       .then((data: Job[]) => setJobs(data))
@@ -138,6 +143,11 @@ export function ByProgramSection() {
                 <h3 className="mt-1 text-lg sm:text-xl font-semibold text-slate-900">
                   {selectedProgram.name}
                 </h3>
+                {selectedProgram.shortTagline && (
+                  <p className="mt-1 text-xs sm:text-sm text-slate-700">
+                    {selectedProgram.shortTagline}
+                  </p>
+                )}
               </div>
               <div className="px-4 py-4 space-y-4 text-sm text-slate-800">
                 {selectedProgram.overview && (
@@ -234,33 +244,31 @@ export function ByProgramSection() {
                 )}
 
                 {relatedJobs.map((job) => {
+                  const j = job as Job;
                   const annual =
-                    job!.medianAnnualSalary ??
-                    (job!.medianHourlyWage
-                      ? job!.medianHourlyWage * 40 * 52
-                      : null);
+                    j.medianAnnualSalary ??
+                    (j.medianHourlyWage ? j.medianHourlyWage * 40 * 52 : null);
 
                   return (
                     <div
-                      key={job!.id}
+                      key={j.id}
                       className="border border-slate-200 rounded-md px-3 py-2.5 text-xs sm:text-[13px] space-y-1.5"
                     >
                       <div className="flex flex-wrap items-baseline justify-between gap-2">
                         <div>
                           <p className="font-semibold text-slate-900">
-                            {job!.title}
+                            {j.title}
                           </p>
-                          {job!.noc2021 && (
+                          {j.noc2021 && (
                             <p className="text-[11px] uppercase tracking-[0.16em] text-slate-500">
-                              NOC {job!.noc2021}
+                              NOC {j.noc2021}
                             </p>
                           )}
                         </div>
                         <div className="text-right text-[11px] text-slate-700">
-                          {job!.medianHourlyWage && (
+                          {j.medianHourlyWage && (
                             <p>
-                              Median wage: ${job!.medianHourlyWage.toFixed(2)}
-                              /hr
+                              Median wage: ${j.medianHourlyWage.toFixed(2)}/hr
                             </p>
                           )}
                           {annual && (
@@ -269,29 +277,29 @@ export function ByProgramSection() {
                         </div>
                       </div>
 
-                      {job!.description && (
-                        <p className="text-slate-700">{job!.description}</p>
+                      {j.description && (
+                        <p className="text-slate-700">{j.description}</p>
                       )}
 
                       <div className="flex flex-wrap gap-2 pt-1">
-                        {job!.projectedOpeningsBC != null && (
+                        {j.projectedOpeningsBC != null && (
                           <span className="inline-flex items-center rounded-full bg-slate-50 border border-slate-200 px-2.5 py-1 text-[11px] text-slate-800">
                             📍 Approx.{" "}
-                            {job!.projectedOpeningsBC.toLocaleString("en-CA")}{" "}
+                            {j.projectedOpeningsBC.toLocaleString("en-CA")}{" "}
                             openings in BC
                           </span>
                         )}
-                        {job!.opportunityLevel && (
+                        {j.opportunityLevel && (
                           <span className="inline-flex items-center rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-1 text-[11px] text-emerald-800">
                             📈{" "}
-                            {opportunityLabels[job!.opportunityLevel] ??
+                            {opportunityLabels[j.opportunityLevel] ??
                               "Opportunity information available"}
                           </span>
                         )}
-                        {job!.wageBand && (
+                        {j.wageBand && (
                           <span className="inline-flex items-center rounded-full bg-sky-50 border border-sky-200 px-2.5 py-1 text-[11px] text-sky-800">
                             💰{" "}
-                            {earningBandLabels[job!.wageBand] ??
+                            {earningBandLabels[j.wageBand] ??
                               "Wage information available"}
                           </span>
                         )}

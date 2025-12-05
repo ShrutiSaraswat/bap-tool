@@ -35,10 +35,10 @@ type Job = {
 };
 
 const earningBandLabels: Record<string, string> = {
-  entry: "Entry (around $18–22/hr)",
-  entry_to_medium: "Entry to medium ($20–26/hr)",
-  medium: "Medium (around $24–30/hr)",
-  medium_high: "Medium to high ($28–35+/hr)",
+  entry: "Entry (around $18-22/hr)",
+  entry_to_medium: "Entry to medium ($20-26/hr)",
+  medium: "Medium (around $24-30/hr)",
+  medium_high: "Medium to high ($28-35+/hr)",
 };
 
 const opportunityLabels: Record<string, string> = {
@@ -158,15 +158,18 @@ export function ByJobSection() {
                           {selectedJob.medianHourlyWage.toFixed(2)}/hr
                         </p>
                       )}
-                      {selectedJob.medianAnnualSalary && (
-                        <p>
-                          ≈ $
-                          {selectedJob.medianAnnualSalary.toLocaleString(
-                            "en-CA"
-                          )}{" "}
-                          per year
-                        </p>
-                      )}
+                      {(() => {
+                        const annual =
+                          selectedJob.medianAnnualSalary ??
+                          (selectedJob.medianHourlyWage
+                            ? selectedJob.medianHourlyWage * 40 * 52
+                            : null);
+                        return (
+                          annual && (
+                            <p>≈ ${annual.toLocaleString("en-CA")} per year</p>
+                          )
+                        );
+                      })()}
                       {selectedJob.wageBand && (
                         <p className="text-xs text-slate-700 mt-1">
                           {earningBandLabels[selectedJob.wageBand] ??
