@@ -3,6 +3,13 @@
 
 import { useEffect, useState } from "react";
 import { TimeComparisonInline } from "./TimeComparisonInline";
+import {
+  Timer,
+  CircleDollarSign,
+  TrendingUp,
+  MapPin,
+  BriefcaseBusiness,
+} from "lucide-react";
 
 type Program = {
   id: string;
@@ -42,10 +49,10 @@ type Job = {
 };
 
 const earningBandLabels: Record<string, string> = {
-  entry: "Entry (around $18-22/hr)",
-  entry_to_medium: "Entry to medium ($20-26/hr)",
-  medium: "Medium (around $24-30/hr)",
-  medium_high: "Medium to high ($28-35+/hr)",
+  entry: "Entry (around $18–22/hr)",
+  entry_to_medium: "Entry to medium ($20–26/hr)",
+  medium: "Medium (around $24–30/hr)",
+  medium_high: "Medium to high ($28–35+/hr)",
 };
 
 const opportunityLabels: Record<string, string> = {
@@ -85,228 +92,273 @@ export function ByProgramSection() {
   return (
     <section
       id="programs"
-      className="bg-white border-b border-slate-200 py-8 sm:py-10"
+      className="relative overflow-hidden bg-gradient-to-br from-[#f9fafb] via-white to-[#eff6ff] border-b border-slate-200 py-10 sm:py-12"
     >
-      <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-6">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-semibold text-slate-900">
-              Start by selecting a program
+      {/* background accents */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-28 top-10 h-56 w-56 rounded-full bg-[#005f63]/10 blur-3xl" />
+        <div className="absolute -right-32 bottom-0 h-64 w-64 rounded-full bg-[#d71920]/8 blur-3xl" />
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="space-y-2 max-w-3xl">
+            <p className="text-base font-semibold tracking-[0.18em] uppercase text-[#005f63]">
+              Explore CNC business programs
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
+              Start by selecting a program.
             </h2>
-            <p className="mt-1 text-sm text-slate-700 max-w-2xl">
+            <p className="text-base text-slate-800">
               Choose a program to see what kinds of jobs it connects to, typical
-              earning potential, and how many opportunities there are in British
-              Columbia and northern regions. All information is based on the BAP
+              earning potential, and how many opportunities there are in
+              northern British Columbia and provincial labour markets. All
+              information is based on the Business Administration Program (BAP)
               labour market analysis.
             </p>
           </div>
 
-          <div className="flex flex-col gap-2 min-w-[240px]">
+          <div className="flex flex-col gap-2 min-w-[260px]">
             <label
               htmlFor="program-select"
-              className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-600"
+              className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700"
             >
-              Program
+              Program selector
             </label>
             <select
               id="program-select"
-              className="block w-full rounded-sm border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63]"
+              className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63]"
               value={selectedId}
               onChange={(e) => setSelectedId(e.target.value)}
             >
-              <option value="">Select a program…</option>
+              <option value="">Select a CNC business program…</option>
               {programs.map((p) => (
                 <option key={p.id} value={p.id}>
                   {p.name}
                 </option>
               ))}
             </select>
+            <p className="text-base text-slate-700">
+              Includes all current BAP associate certificates and the Business
+              Administration Certificate.
+            </p>
           </div>
         </div>
 
         {!selectedProgram && (
-          <div className="border border-dashed border-slate-300 bg-slate-50 px-4 py-5 text-sm text-slate-700">
-            Use the dropdown above to pick a program. We will show the time
-            commitment, how it can stack into longer credentials, and the jobs,
-            wages and openings connected to that program.
+          <div className="border border-dashed border-slate-300 bg-white/70 px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm">
+            Use the dropdown above to pick a program. This section will show:
+            <ul className="mt-2 space-y-1">
+              <li>
+                - Time commitment and how it compares to 2 and 4 year paths.
+              </li>
+              <li>
+                - How the credential can stack into longer CNC business
+                programs.
+              </li>
+              <li>
+                - Example jobs, wages and openings connected to that program.
+              </li>
+            </ul>
           </div>
         )}
 
         {selectedProgram && (
           <div className="grid gap-6 lg:grid-cols-[3fr,2fr]">
             {/* Program overview card */}
-            <div className="border border-slate-200 rounded-lg bg-slate-50/60">
-              <div className="border-b border-slate-200 bg-slate-100 px-4 py-3">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">
-                  {selectedProgram.credentialType || "Program"}
-                </p>
-                <h3 className="mt-1 text-lg sm:text-xl font-semibold text-slate-900">
-                  {selectedProgram.name}
-                </h3>
-                {selectedProgram.shortTagline && (
-                  <p className="mt-1 text-xs sm:text-sm text-slate-700">
-                    {selectedProgram.shortTagline}
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#005f63]/20 via-white to-[#d71920]/15 opacity-80" />
+              <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.15)] overflow-hidden">
+                <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
+                  <p className="text-base font-semibold tracking-[0.18em] uppercase text-slate-700">
+                    {selectedProgram.credentialType || "Program"}
                   </p>
-                )}
-              </div>
-              <div className="px-4 py-4 space-y-4 text-sm text-slate-800">
-                {selectedProgram.overview && (
-                  <p className="text-slate-700">{selectedProgram.overview}</p>
-                )}
-
-                <div className="flex flex-wrap gap-2">
-                  {selectedProgram.timeCommitment?.label && (
-                    <span className="inline-flex items-center rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-medium text-slate-800">
-                      ⏱{" "}
-                      <span className="ml-1">
-                        {selectedProgram.timeCommitment.label}
-                      </span>
-                    </span>
-                  )}
-                  {selectedProgram.earningBand && (
-                    <span className="inline-flex items-center rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">
-                      💰{" "}
-                      <span className="ml-1">
-                        {earningBandLabels[selectedProgram.earningBand] ??
-                          "Earning potential information available"}
-                      </span>
-                    </span>
-                  )}
-                  {selectedProgram.opportunityBand && (
-                    <span className="inline-flex items-center rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-medium text-sky-800">
-                      📈{" "}
-                      <span className="ml-1">
-                        {opportunityLabels[selectedProgram.opportunityBand] ??
-                          "Opportunities in the region"}
-                      </span>
-                    </span>
+                  <h3 className="mt-2 text-xl sm:text-2xl font-semibold text-slate-900">
+                    {selectedProgram.name}
+                  </h3>
+                  {selectedProgram.shortTagline && (
+                    <p className="mt-2 text-base text-slate-800">
+                      {selectedProgram.shortTagline}
+                    </p>
                   )}
                 </div>
 
-                {selectedProgram.stackability?.stackMessage && (
-                  <div className="border border-[#005f63]/20 bg-[#005f63]/5 px-3 py-2 rounded">
-                    <p className="text-xs font-semibold text-[#005f63] uppercase tracking-[0.16em] mb-1">
-                      Stackable pathway
-                    </p>
-                    <p className="text-sm text-slate-800">
-                      {selectedProgram.stackability.stackMessage}
-                    </p>
+                <div className="px-5 py-4 space-y-4 text-base text-slate-800">
+                  {selectedProgram.overview && (
+                    <p className="text-slate-800">{selectedProgram.overview}</p>
+                  )}
+
+                  {/* Pills */}
+                  <div className="flex flex-wrap gap-2.5">
+                    {selectedProgram.timeCommitment?.label && (
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-3 py-1.5 text-base font-medium text-slate-800">
+                        <Timer className="h-4 w-4 text-[#005f63]" />
+                        <span>{selectedProgram.timeCommitment.label}</span>
+                      </span>
+                    )}
+                    {selectedProgram.earningBand && (
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-base font-medium text-emerald-800">
+                        <CircleDollarSign className="h-4 w-4" />
+                        <span>
+                          {earningBandLabels[selectedProgram.earningBand] ??
+                            "Earning potential information available"}
+                        </span>
+                      </span>
+                    )}
+                    {selectedProgram.opportunityBand && (
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-200 bg-sky-50 px-3 py-1.5 text-base font-medium text-sky-800">
+                        <TrendingUp className="h-4 w-4" />
+                        <span>
+                          {opportunityLabels[selectedProgram.opportunityBand] ??
+                            "Opportunities in the region"}
+                        </span>
+                      </span>
+                    )}
                   </div>
-                )}
 
-                {/* Dynamic time comparison vs 2 year and 4 year paths */}
-                <TimeComparisonInline
-                  approxMonths={selectedProgram.timeCommitment?.approxMonths}
-                />
-
-                {selectedProgram.courses &&
-                  selectedProgram.courses.length > 0 && (
-                    <div>
-                      <p className="text-xs font-semibold tracking-[0.16em] uppercase text-slate-600 mb-1.5">
-                        Key courses
+                  {selectedProgram.stackability?.stackMessage && (
+                    <div className="border border-[#005f63]/30 bg-[#005f63]/5 px-4 py-3 rounded-xl">
+                      <p className="text-base font-semibold text-[#005f63] uppercase tracking-[0.16em] mb-1">
+                        Stackable pathway
                       </p>
-                      <ul className="grid gap-1.5 text-xs sm:text-[13px]">
-                        {selectedProgram.courses.map((course) => (
-                          <li key={course.code} className="flex gap-2">
-                            <span className="font-semibold text-slate-900">
-                              {course.code}
-                            </span>
-                            {course.title && (
-                              <span className="text-slate-700">
-                                {course.title}
-                              </span>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
+                      <p className="text-base text-slate-800">
+                        {selectedProgram.stackability.stackMessage}
+                      </p>
                     </div>
                   )}
+
+                  {/* Dynamic time comparison vs 2 year and 4 year paths */}
+                  <TimeComparisonInline
+                    approxMonths={selectedProgram.timeCommitment?.approxMonths}
+                  />
+
+                  {selectedProgram.courses &&
+                    selectedProgram.courses.length > 0 && (
+                      <div className="pt-1">
+                        <p className="text-base font-semibold tracking-[0.14em] uppercase text-slate-700 mb-2">
+                          Key courses
+                        </p>
+                        <ul className="grid gap-1.5 text-base">
+                          {selectedProgram.courses.map((course) => (
+                            <li key={course.code} className="flex gap-2">
+                              <span className="font-semibold text-slate-900">
+                                {course.code}
+                              </span>
+                              {course.title && (
+                                <span className="text-slate-800">
+                                  {course.title}
+                                </span>
+                              )}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                </div>
               </div>
             </div>
 
             {/* Jobs + opportunities */}
-            <div className="border border-slate-200 rounded-lg bg-white">
-              <div className="border-b border-slate-200 bg-slate-100 px-4 py-3">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">
-                  Job prospects &amp; opportunities
-                </p>
-                <p className="mt-1 text-xs text-slate-700">
-                  Based on the BAP labour market analysis, these are examples of
-                  roles this program connects to.
-                </p>
-              </div>
-              <div className="px-4 py-3 space-y-3 max-h-[360px] overflow-y-auto">
-                {relatedJobs.length === 0 && (
-                  <p className="text-sm text-slate-700">
-                    Job information for this program will be added as the
-                    dataset is completed.
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-slate-200/60 via-white to-slate-100 opacity-70" />
+              <div className="relative border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(15,23,42,0.12)] overflow-hidden">
+                <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
+                  <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 flex items-center gap-2">
+                    <BriefcaseBusiness className="h-4 w-4 text-slate-800" />
+                    Job prospects and opportunities
                   </p>
-                )}
+                  <p className="mt-2 text-base text-slate-800">
+                    Based on the BAP labour market analysis, these are examples
+                    of roles this program connects to.
+                  </p>
+                </div>
 
-                {relatedJobs.map((job) => {
-                  const j = job as Job;
-                  const annual =
-                    j.medianAnnualSalary ??
-                    (j.medianHourlyWage ? j.medianHourlyWage * 40 * 52 : null);
+                <div className="px-5 py-4 space-y-3 max-h-[360px] overflow-y-auto text-base">
+                  {relatedJobs.length === 0 && (
+                    <p className="text-base text-slate-800">
+                      Job information for this program will be added as the
+                      dataset is completed.
+                    </p>
+                  )}
 
-                  return (
-                    <div
-                      key={j.id}
-                      className="border border-slate-200 rounded-md px-3 py-2.5 text-xs sm:text-[13px] space-y-1.5"
-                    >
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <div>
-                          <p className="font-semibold text-slate-900">
-                            {j.title}
+                  {relatedJobs.map((job) => {
+                    const j = job as Job;
+                    const annual =
+                      j.medianAnnualSalary ??
+                      (j.medianHourlyWage
+                        ? j.medianHourlyWage * 40 * 52
+                        : null);
+
+                    return (
+                      <div
+                        key={j.id}
+                        className="border border-slate-200 rounded-xl px-4 py-3 bg-slate-50/80 space-y-2"
+                      >
+                        <div className="flex flex-wrap items-baseline justify-between gap-3">
+                          <div>
+                            <p className="font-semibold text-slate-900">
+                              {j.title}
+                            </p>
+                            {j.noc2021 && (
+                              <p className="text-base text-slate-700">
+                                NOC {j.noc2021}
+                              </p>
+                            )}
+                          </div>
+                          <div className="text-right text-base text-slate-700">
+                            {j.medianHourlyWage && (
+                              <p>
+                                Median wage: ${j.medianHourlyWage.toFixed(2)}/hr
+                              </p>
+                            )}
+                            {annual && (
+                              <p>
+                                ≈ ${annual.toLocaleString("en-CA")} per year
+                              </p>
+                            )}
+                          </div>
+                        </div>
+
+                        {j.description && (
+                          <p className="text-base text-slate-800">
+                            {j.description}
                           </p>
-                          {j.noc2021 && (
-                            <p className="text-[11px] uppercase tracking-[0.16em] text-slate-500">
-                              NOC {j.noc2021}
-                            </p>
+                        )}
+
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {j.projectedOpeningsBC != null && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-3 py-1 text-base text-slate-800">
+                              <MapPin className="h-4 w-4" />
+                              <span>
+                                Approx.{" "}
+                                {j.projectedOpeningsBC.toLocaleString("en-CA")}{" "}
+                                openings in BC
+                              </span>
+                            </span>
                           )}
-                        </div>
-                        <div className="text-right text-[11px] text-slate-700">
-                          {j.medianHourlyWage && (
-                            <p>
-                              Median wage: ${j.medianHourlyWage.toFixed(2)}/hr
-                            </p>
+                          {j.opportunityLevel && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
+                              <TrendingUp className="h-4 w-4" />
+                              <span>
+                                {opportunityLabels[j.opportunityLevel] ??
+                                  "Opportunity information available"}
+                              </span>
+                            </span>
                           )}
-                          {annual && (
-                            <p>≈ ${annual.toLocaleString("en-CA")} per year</p>
+                          {j.wageBand && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
+                              <CircleDollarSign className="h-4 w-4" />
+                              <span>
+                                {earningBandLabels[j.wageBand] ??
+                                  "Wage information available"}
+                              </span>
+                            </span>
                           )}
                         </div>
                       </div>
-
-                      {j.description && (
-                        <p className="text-slate-700">{j.description}</p>
-                      )}
-
-                      <div className="flex flex-wrap gap-2 pt-1">
-                        {j.projectedOpeningsBC != null && (
-                          <span className="inline-flex items-center rounded-full bg-slate-50 border border-slate-200 px-2.5 py-1 text-[11px] text-slate-800">
-                            📍 Approx.{" "}
-                            {j.projectedOpeningsBC.toLocaleString("en-CA")}{" "}
-                            openings in BC
-                          </span>
-                        )}
-                        {j.opportunityLevel && (
-                          <span className="inline-flex items-center rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-1 text-[11px] text-emerald-800">
-                            📈{" "}
-                            {opportunityLabels[j.opportunityLevel] ??
-                              "Opportunity information available"}
-                          </span>
-                        )}
-                        {j.wageBand && (
-                          <span className="inline-flex items-center rounded-full bg-sky-50 border border-sky-200 px-2.5 py-1 text-[11px] text-sky-800">
-                            💰{" "}
-                            {earningBandLabels[j.wageBand] ??
-                              "Wage information available"}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

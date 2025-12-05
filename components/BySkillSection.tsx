@@ -2,6 +2,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import {
+  Search,
+  Sparkles,
+  CircleDollarSign,
+  TrendingUp,
+  Star,
+} from "lucide-react";
 
 type Program = {
   id: string;
@@ -73,19 +80,44 @@ export function BySkillSection() {
 
   const hasAnySkills = allSkills.length > 0;
 
+  // A few example skills to show as quick tags if they exist
+  const exampleSkills = useMemo(() => {
+    if (!hasAnySkills) return [];
+    const popular = [
+      "customer service",
+      "accounting",
+      "marketing",
+      "leadership",
+    ];
+    const found = popular.filter((p) =>
+      allSkills.some((s) => s.toLowerCase() === p.toLowerCase())
+    );
+    if (found.length > 0) return found;
+    return allSkills.slice(0, 4);
+  }, [allSkills, hasAnySkills]);
+
   return (
     <section
       id="skills"
-      className="bg-slate-50 border-b border-slate-200 py-8 sm:py-10"
+      className="relative overflow-hidden bg-gradient-to-br from-[#f9fafb] via-white to-[#eff6ff] border-b border-slate-200 py-10 sm:py-12"
     >
-      <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-6">
+      {/* background accents */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-28 top-8 h-52 w-52 rounded-full bg-[#005f63]/10 blur-3xl" />
+        <div className="absolute -right-32 bottom-0 h-60 w-60 rounded-full bg-[#d71920]/10 blur-3xl" />
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7">
         {/* Heading and explanation */}
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-semibold text-slate-900">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="space-y-2 max-w-3xl">
+            <p className="text-base font-semibold tracking-[0.18em] uppercase text-[#005f63] flex items-center gap-2">
               Search by skills you will develop
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
+              Start with what you are good at, or want to get better at.
             </h2>
-            <p className="mt-1 text-sm text-slate-700 max-w-2xl">
+            <p className="text-base text-slate-800">
               Choose a skill you want to build and see which CNC business
               programs focus on it. This is helpful when students know the kind
               of work they enjoy, but are not sure which credential to start
@@ -94,26 +126,29 @@ export function BySkillSection() {
           </div>
 
           {/* Skill search and select */}
-          <div className="flex flex-col gap-2 min-w-[260px]">
+          <div className="flex flex-col gap-3 min-w-[280px]">
             <label
               htmlFor="skill-search"
-              className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-600"
+              className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700"
             >
-              Skill
+              Skill search
             </label>
 
-            <input
-              id="skill-search"
-              type="text"
-              placeholder="Type to filter skills (customer service, accounting...)"
-              className="block w-full rounded-sm border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63]"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              disabled={!hasAnySkills}
-            />
+            <div className="relative">
+              <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
+              <input
+                id="skill-search"
+                type="text"
+                placeholder="Type to filter skills (customer service, accounting, marketing...)"
+                className="block w-full rounded-lg border border-slate-300 bg-white pl-9 pr-3 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63]"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                disabled={!hasAnySkills}
+              />
+            </div>
 
             <select
-              className="block w-full rounded-sm border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63]"
+              className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63]"
               value={selectedSkill}
               onChange={(e) => setSelectedSkill(e.target.value)}
               disabled={!hasAnySkills}
@@ -139,51 +174,74 @@ export function BySkillSection() {
                 </>
               )}
             </select>
+
+            {hasAnySkills && exampleSkills.length > 0 && (
+              <div className="flex flex-wrap gap-2 items-center">
+                <p className="text-base text-slate-700">Try:</p>
+                {exampleSkills.map((skill) => (
+                  <button
+                    key={skill}
+                    type="button"
+                    onClick={() => {
+                      setSearchTerm("");
+                      setSelectedSkill(skill);
+                    }}
+                    className="inline-flex items-center rounded-full border border-slate-300 bg-white px-3 py-1.5 text-base text-slate-800 hover:bg-slate-100 transition"
+                  >
+                    <Star className="h-4 w-4 mr-1 text-[#005f63]" />
+                    {skill}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
         {/* If no skills at all in JSON */}
         {!hasAnySkills && (
-          <div className="border border-dashed border-slate-300 bg-white px-4 py-5 text-sm text-slate-700">
+          <div className="border border-dashed border-slate-300 bg-white px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm">
             Skill outcomes have not been added to the data yet. When you include
-            a{" "}
-            <code className="px-1 py-0.5 bg-slate-100 rounded text-xs">
+            a field like{" "}
+            <code className="px-1 py-0.5 bg-slate-100 rounded text-base">
               "skills": ["customer service", "basic accounting", ...]
             </code>{" "}
-            field for each program in <code>programs.json</code>, this section
-            will automatically let students search by those skills.
+            for each program in <code className="text-base">programs.json</code>
+            , this section will automatically let students search by those
+            skills.
           </div>
         )}
 
         {/* Normal empty state when there ARE skills but none selected */}
         {hasAnySkills && !selectedSkill && (
-          <div className="border border-dashed border-slate-300 bg-white px-4 py-5 text-sm text-slate-700">
-            Use the box on the right to type a word like{" "}
+          <div className="border border-dashed border-slate-300 bg-white px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm">
+            Use the search box on the right to type a word like{" "}
             <span className="font-semibold">customer service</span>,{" "}
             <span className="font-semibold">accounting</span>,{" "}
             <span className="font-semibold">marketing</span> or{" "}
             <span className="font-semibold">leadership</span>. Then choose a
-            skill from the list to see which CNC programs help you develop it.
+            skill from the list to see which CNC business programs help you
+            develop it.
           </div>
         )}
 
         {/* Results */}
         {hasAnySkills && selectedSkill && (
-          <div className="border border-slate-200 rounded-lg bg-white">
-            <div className="border-b border-slate-200 bg-slate-100 px-4 py-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-600">
+          <div className="border border-slate-200 rounded-2xl bg-white/95 shadow-[0_16px_40px_rgba(15,23,42,0.12)]">
+            <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
+              <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 flex items-center gap-2">
+                <Sparkles className="h-4 w-4 text-[#005f63]" />
                 Programs that build this skill
               </p>
-              <p className="mt-1 text-xs text-slate-700">
+              <p className="mt-2 text-base text-slate-800">
                 Showing CNC business programs that list{" "}
                 <span className="font-semibold">{selectedSkill}</span> as a key
                 skill outcome.
               </p>
             </div>
 
-            <div className="px-4 py-3 space-y-3 max-h-[380px] overflow-y-auto">
+            <div className="px-5 py-4 space-y-3 max-h-[380px] overflow-y-auto">
               {programsForSkill.length === 0 && (
-                <p className="text-sm text-slate-700">
+                <p className="text-base text-slate-800">
                   Skill information for this area will be added as the dataset
                   is completed.
                 </p>
@@ -192,55 +250,60 @@ export function BySkillSection() {
               {programsForSkill.map((p) => (
                 <div
                   key={p.id}
-                  className="border border-slate-200 rounded-md px-3 py-2.5 text-xs sm:text-[13px] space-y-1.5 bg-slate-50/70"
+                  className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
                 >
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <div className="flex flex-wrap items-baseline justify-between gap-3">
                     <div>
                       <p className="font-semibold text-slate-900">{p.name}</p>
                       {p.credentialType && (
-                        <p className="text-[11px] uppercase tracking-[0.16em] text-slate-600">
+                        <p className="text-base text-slate-700">
                           {p.credentialType}
                         </p>
                       )}
                     </div>
                     {p.timeCommitment?.label && (
-                      <p className="text-[11px] text-slate-700">
+                      <p className="text-base text-slate-700">
                         {p.timeCommitment.label}
                       </p>
                     )}
                   </div>
 
                   {p.overview && (
-                    <p className="text-slate-700">
-                      {p.overview.length > 200
-                        ? p.overview.slice(0, 197) + "..."
+                    <p className="text-base text-slate-800">
+                      {p.overview.length > 220
+                        ? p.overview.slice(0, 217) + "..."
                         : p.overview}
                     </p>
                   )}
 
                   <div className="flex flex-wrap gap-2 pt-1">
                     {p.earningBand && (
-                      <span className="inline-flex items-center rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-1 text-[11px] text-emerald-800">
-                        💰{" "}
-                        {earningBandLabels[p.earningBand] ??
-                          "Earning potential information available"}
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
+                        <CircleDollarSign className="h-4 w-4" />
+                        <span>
+                          {earningBandLabels[p.earningBand] ??
+                            "Earning potential information available"}
+                        </span>
                       </span>
                     )}
                     {p.opportunityBand && (
-                      <span className="inline-flex items-center rounded-full bg-sky-50 border border-sky-200 px-2.5 py-1 text-[11px] text-sky-800">
-                        📈{" "}
-                        {opportunityLabels[p.opportunityBand] ??
-                          "Opportunities in the region"}
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
+                        <TrendingUp className="h-4 w-4" />
+                        <span>
+                          {opportunityLabels[p.opportunityBand] ??
+                            "Opportunities in the region"}
+                        </span>
                       </span>
                     )}
-                    <span className="inline-flex items-center rounded-full bg-[#005f63]/10 border border-[#005f63]/30 px-2.5 py-1 text-[11px] text-[#005f63]">
-                      ⭐ Focus on {selectedSkill}
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#005f63]/10 border border-[#005f63]/30 px-3 py-1 text-base text-[#005f63]">
+                      <Star className="h-4 w-4" />
+                      <span>Focus on {selectedSkill}</span>
                     </span>
                   </div>
 
                   {p.skills && p.skills.length > 1 && (
-                    <p className="text-[11px] text-slate-600 pt-1">
-                      Other skills:{" "}
+                    <p className="text-base text-slate-700 pt-1">
+                      <span className="font-semibold">Other skills:</span>{" "}
                       {p.skills
                         .filter((s) => s !== selectedSkill)
                         .slice(0, 5)
