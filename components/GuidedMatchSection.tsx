@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 type Program = {
   id: string;
@@ -39,6 +40,42 @@ function matchStrengthLabel(score: number): string {
   if (score === 2) return "Good match";
   return "Initial match";
 }
+
+// gentle motion variants (no custom ease so TS is happy)
+const sectionContainer = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const fadeChild = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+const resultItem = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+    },
+  },
+};
 
 export function GuidedMatchSection() {
   const [programs, setPrograms] = useState<Program[]>([]);
@@ -123,8 +160,15 @@ export function GuidedMatchSection() {
         <div className="absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-[#d71920]/10 blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7">
-        <div className="max-w-3xl space-y-3">
+      <motion.div
+        className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7"
+        variants={sectionContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+      >
+        {/* Heading block */}
+        <motion.div className="max-w-3xl space-y-3" variants={fadeChild}>
           <p className="text-base font-semibold tracking-[0.2em] uppercase text-[#005f63]">
             Guided match
           </p>
@@ -137,12 +181,13 @@ export function GuidedMatchSection() {
             uses static rules from the BAP dataset to highlight CNC business
             programs that could be a good starting point.
           </p>
-        </div>
+        </motion.div>
 
         {/* Input + actions */}
-        <form
+        <motion.form
           onSubmit={handleSubmit}
           className="grid gap-5 lg:grid-cols-[2fr,3fr] items-start"
+          variants={fadeChild}
         >
           <div className="space-y-4">
             <label
@@ -187,7 +232,10 @@ export function GuidedMatchSection() {
           </div>
 
           {/* Results panel */}
-          <div className="border border-slate-200 rounded-2xl bg-white/95 overflow-hidden shadow-[0_16px_40px_rgba(15,23,42,0.16)]">
+          <motion.div
+            className="border border-slate-200 rounded-2xl bg-white/95 overflow-hidden shadow-[0_16px_40px_rgba(15,23,42,0.16)]"
+            variants={fadeChild}
+          >
             <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-slate-50 to-slate-100 px-5 py-4">
               <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700">
                 Suggested CNC programs
@@ -222,8 +270,11 @@ export function GuidedMatchSection() {
                   const p = result.program;
                   const matchLabel = matchStrengthLabel(result.score);
                   return (
-                    <div
+                    <motion.div
                       key={p.id}
+                      variants={resultItem}
+                      initial="hidden"
+                      animate="visible"
                       className="border border-slate-200 rounded-xl px-4 py-3 bg-slate-50/70 space-y-2"
                     >
                       <div className="flex flex-wrap items-baseline justify-between gap-3">
@@ -292,13 +343,13 @@ export function GuidedMatchSection() {
                           </span>
                         )}
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })}
             </div>
-          </div>
-        </form>
-      </div>
+          </motion.div>
+        </motion.form>
+      </motion.div>
     </section>
   );
 }
