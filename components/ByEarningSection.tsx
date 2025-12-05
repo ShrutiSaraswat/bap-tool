@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { CircleDollarSign, TrendingUp, MapPin, BarChart3 } from "lucide-react";
 
 type Program = {
   id: string;
@@ -84,31 +85,43 @@ export function ByEarningsSection() {
   return (
     <section
       id="earnings"
-      className="bg-white border-b border-slate-200 py-8 sm:py-10"
+      className="relative overflow-hidden bg-gradient-to-br from-[#f9fafb] via-white to-[#eff6ff] border-b border-slate-200 py-10 sm:py-12"
     >
-      <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-6">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2 className="text-xl sm:text-2xl font-semibold text-slate-900">
+      {/* background accents */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-28 top-8 h-52 w-52 rounded-full bg-[#005f63]/10 blur-3xl" />
+        <div className="absolute -right-32 bottom-0 h-60 w-60 rounded-full bg-[#d71920]/10 blur-3xl" />
+      </div>
+
+      <div className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7">
+        {/* Heading + filter */}
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="space-y-2 max-w-3xl">
+            <p className="text-base font-semibold tracking-[0.18em] uppercase text-[#005f63] flex items-center gap-2">
+              <BarChart3 className="h-4 w-4 text-[#005f63]" />
               Compare by earning potential
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
+              See which programs and jobs sit in each wage band.
             </h2>
-            <p className="mt-1 text-sm text-slate-700 max-w-2xl">
-              Choose a wage range to see which programs and example jobs fall in
-              that band. This helps students understand what shorter, stackable
-              credentials can lead to compared with longer 2 or 4 year options.
+            <p className="text-base text-slate-800">
+              Choose a wage range to see which CNC business programs and example
+              jobs fall in that band. This helps students understand what
+              shorter, stackable credentials can lead to compared with longer 2
+              or 4 year options.
             </p>
           </div>
 
-          <div className="flex flex-col gap-2 min-w-[240px]">
+          <div className="flex flex-col gap-3 min-w-[260px]">
             <label
               htmlFor="earning-band-select"
-              className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-600"
+              className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700"
             >
               Earning range
             </label>
             <select
               id="earning-band-select"
-              className="block w-full rounded-sm border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63]"
+              className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63]"
               value={selectedBand}
               onChange={(e) =>
                 setSelectedBand(
@@ -123,158 +136,206 @@ export function ByEarningsSection() {
                 </option>
               ))}
             </select>
+            <p className="text-base text-slate-700">
+              Ranges are based on median wages and typical labour market bands.
+            </p>
           </div>
         </div>
 
+        {/* Empty state when no band selected */}
         {selectedBand === "" && (
-          <div className="border border-dashed border-slate-300 bg-slate-50 px-4 py-5 text-sm text-slate-700">
-            Use the dropdown above to choose an earning range. We will show you
-            example jobs in that band along with CNC programs that usually lead
-            into those levels of pay.
+          <div className="border border-dashed border-slate-300 bg-white px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm">
+            Use the dropdown above to choose an earning range. This section will
+            show:
+            <ul className="mt-2 space-y-1">
+              <li>
+                - CNC business programs that usually connect to that wage band.
+              </li>
+              <li>- Example job titles and their typical median wages.</li>
+              <li>- How opportunities look in BC for that earning range.</li>
+            </ul>
           </div>
         )}
 
+        {/* Selected band view */}
         {selectedBand !== "" && (
           <div className="grid gap-6 lg:grid-cols-2">
             {/* Programs list */}
-            <div className="border border-slate-200 rounded-lg bg-slate-50/80">
-              <div className="border-b border-slate-200 bg-slate-100 px-4 py-3">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">
-                  CNC programs in this earning band
-                </p>
-                <p className="mt-1 text-xs text-slate-700">
-                  These programs are typically connected to jobs in the{" "}
-                  {earningBandLabels[selectedBand]} range.
-                </p>
-              </div>
-              <div className="px-4 py-3 space-y-3 max-h-[360px] overflow-y-auto">
-                {programsForBand.length === 0 && (
-                  <p className="text-sm text-slate-700">
-                    Program earning data for this band will be added as the
-                    dataset is completed.
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#005f63]/14 via-white to-[#d71920]/8 opacity-80" />
+              <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.15)]">
+                <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
+                  <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 flex items-center gap-2">
+                    <CircleDollarSign className="h-4 w-4 text-emerald-700" />
+                    CNC programs in this earning band
                   </p>
-                )}
+                  <p className="mt-2 text-base text-slate-800">
+                    These programs are typically connected to jobs in the{" "}
+                    <span className="font-semibold">
+                      {earningBandLabels[selectedBand]}
+                    </span>{" "}
+                    range.
+                  </p>
+                </div>
 
-                {programsForBand.map((program) => (
-                  <div
-                    key={program.id}
-                    className="border border-slate-200 rounded-md px-3 py-2.5 text-xs sm:text-[13px] space-y-1.5 bg-white"
-                  >
-                    <div className="flex flex-wrap items-baseline justify-between gap-2">
-                      <div>
-                        <p className="font-semibold text-slate-900">
-                          {program.name}
-                        </p>
-                        {program.credentialType && (
-                          <p className="text-[11px] uppercase tracking-[0.16em] text-slate-600">
-                            {program.credentialType}
+                <div className="px-5 py-4 space-y-3 max-h-[360px] overflow-y-auto">
+                  {programsForBand.length === 0 && (
+                    <p className="text-base text-slate-800">
+                      Program earning data for this band will be added as the
+                      dataset is completed.
+                    </p>
+                  )}
+
+                  {programsForBand.map((program) => (
+                    <div
+                      key={program.id}
+                      className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
+                    >
+                      <div className="flex flex-wrap items-baseline justify-between gap-3">
+                        <div>
+                          <p className="font-semibold text-slate-900">
+                            {program.name}
+                          </p>
+                          {program.credentialType && (
+                            <p className="text-base text-slate-700">
+                              {program.credentialType}
+                            </p>
+                          )}
+                        </div>
+                        {program.timeCommitment?.label && (
+                          <p className="text-base text-slate-700">
+                            {program.timeCommitment.label}
                           </p>
                         )}
                       </div>
-                    </div>
 
-                    {program.timeCommitment?.label && (
-                      <p className="text-[11px] text-slate-700 mt-1">
-                        Time commitment: {program.timeCommitment.label}
-                      </p>
-                    )}
-
-                    {program.stackability?.stackMessage && (
-                      <p className="text-[11px] text-slate-700">
-                        Stackable pathway: {program.stackability.stackMessage}
-                      </p>
-                    )}
-
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      <span className="inline-flex items-center rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-1 text-[11px] text-emerald-800">
-                        💰{" "}
-                        {earningBandLabels[program.earningBand || ""] ??
-                          "Earning potential information available"}
-                      </span>
-                      {program.opportunityBand && (
-                        <span className="inline-flex items-center rounded-full bg-sky-50 border border-sky-200 px-2.5 py-1 text-[11px] text-sky-800">
-                          📈{" "}
-                          {opportunityLabels[program.opportunityBand] ??
-                            "Opportunities in the region"}
-                        </span>
+                      {program.stackability?.stackMessage && (
+                        <p className="text-base text-slate-800">
+                          <span className="font-semibold">
+                            Stackable pathway:
+                          </span>{" "}
+                          {program.stackability.stackMessage}
+                        </p>
                       )}
+
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
+                          <CircleDollarSign className="h-4 w-4" />
+                          <span>
+                            {earningBandLabels[program.earningBand || ""] ??
+                              "Earning potential information available"}
+                          </span>
+                        </span>
+                        {program.opportunityBand && (
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
+                            <TrendingUp className="h-4 w-4" />
+                            <span>
+                              {opportunityLabels[program.opportunityBand] ??
+                                "Opportunities in the region"}
+                            </span>
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* Jobs list */}
-            <div className="border border-slate-200 rounded-lg bg-white">
-              <div className="border-b border-slate-200 bg-slate-100 px-4 py-3">
-                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-600">
-                  Example jobs in this earning band
-                </p>
-                <p className="mt-1 text-xs text-slate-700">
-                  These are sample job titles from the labour market that
-                  typically sit in this wage band.
-                </p>
-              </div>
-              <div className="px-4 py-3 space-y-3 max-h-[360px] overflow-y-auto">
-                {jobsForBand.length === 0 && (
-                  <p className="text-sm text-slate-700">
-                    Job data for this band will be added as the dataset is
-                    completed.
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-slate-200/60 via-white to-slate-100 opacity-70" />
+              <div className="relative border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(15,23,42,0.12)]">
+                <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
+                  <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 flex items-center gap-2">
+                    <BarChart3 className="h-4 w-4 text-slate-800" />
+                    Example jobs in this earning band
                   </p>
-                )}
+                  <p className="mt-2 text-base text-slate-800">
+                    These are sample job titles from the labour market that
+                    typically sit in this wage band.
+                  </p>
+                </div>
 
-                {jobsForBand.map((job) => {
-                  const annual =
-                    job.medianAnnualSalary ??
-                    (job.medianHourlyWage
-                      ? job.medianHourlyWage * 40 * 52
-                      : null);
+                <div className="px-5 py-4 space-y-3 max-h-[360px] overflow-y-auto">
+                  {jobsForBand.length === 0 && (
+                    <p className="text-base text-slate-800">
+                      Job data for this band will be added as the dataset is
+                      completed.
+                    </p>
+                  )}
 
-                  return (
-                    <div
-                      key={job.id}
-                      className="border border-slate-200 rounded-md px-3 py-2.5 text-xs sm:text-[13px] space-y-1.5"
-                    >
-                      <div className="flex flex-wrap items-baseline justify-between gap-2">
-                        <div>
-                          <p className="font-semibold text-slate-900">
-                            {job.title}
-                          </p>
-                          {job.noc2021 && (
-                            <p className="text-[11px] uppercase tracking-[0.16em] text-slate-500">
-                              NOC {job.noc2021}
+                  {jobsForBand.map((job) => {
+                    const annual =
+                      job.medianAnnualSalary ??
+                      (job.medianHourlyWage
+                        ? job.medianHourlyWage * 40 * 52
+                        : null);
+
+                    return (
+                      <div
+                        key={job.id}
+                        className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
+                      >
+                        <div className="flex flex-wrap items-baseline justify-between gap-3">
+                          <div>
+                            <p className="font-semibold text-slate-900">
+                              {job.title}
                             </p>
-                          )}
+                            {job.noc2021 && (
+                              <p className="text-base text-slate-700">
+                                NOC {job.noc2021}
+                              </p>
+                            )}
+                          </div>
+                          <div className="text-right text-base text-slate-700">
+                            {job.medianHourlyWage && (
+                              <p>
+                                Median: ${job.medianHourlyWage.toFixed(2)}/hr
+                              </p>
+                            )}
+                            {annual && (
+                              <p>
+                                ≈ ${annual.toLocaleString("en-CA")} per year
+                              </p>
+                            )}
+                          </div>
                         </div>
-                        <div className="text-right text-[11px] text-slate-700">
-                          {job.medianHourlyWage && (
-                            <p>Median: ${job.medianHourlyWage.toFixed(2)}/hr</p>
-                          )}
-                          {annual && (
-                            <p>≈ ${annual.toLocaleString("en-CA")} per year</p>
-                          )}
-                        </div>
-                      </div>
 
-                      <div className="flex flex-wrap gap-2 pt-1">
-                        {job.projectedOpeningsBC != null && (
-                          <span className="inline-flex items-center rounded-full bg-slate-50 border border-slate-200 px-2.5 py-1 text-[11px] text-slate-800">
-                            📍 Approx.{" "}
-                            {job.projectedOpeningsBC.toLocaleString("en-CA")}{" "}
-                            openings in BC
-                          </span>
-                        )}
-                        {job.opportunityLevel && (
-                          <span className="inline-flex items-center rounded-full bg-emerald-50 border border-emerald-200 px-2.5 py-1 text-[11px] text-emerald-800">
-                            📈{" "}
-                            {opportunityLabels[job.opportunityLevel] ??
-                              "Opportunity information available"}
-                          </span>
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {job.projectedOpeningsBC != null && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-3 py-1 text-base text-slate-800">
+                              <MapPin className="h-4 w-4" />
+                              <span>
+                                Approx.{" "}
+                                {job.projectedOpeningsBC.toLocaleString(
+                                  "en-CA"
+                                )}{" "}
+                                openings in BC
+                              </span>
+                            </span>
+                          )}
+                          {job.opportunityLevel && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
+                              <TrendingUp className="h-4 w-4" />
+                              <span>
+                                {opportunityLabels[job.opportunityLevel] ??
+                                  "Opportunity information available"}
+                              </span>
+                            </span>
+                          )}
+                        </div>
+
+                        {job.region && (
+                          <p className="flex items-center gap-2 text-base text-slate-700 pt-1">
+                            <MapPin className="h-4 w-4 text-slate-800" />
+                            Region: {job.region}
+                          </p>
                         )}
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
