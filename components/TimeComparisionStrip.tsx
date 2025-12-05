@@ -1,6 +1,44 @@
 // components/TimeComparisonStrip.tsx
 
+"use client";
+
 import { Timer, GraduationCap, BookOpen } from "lucide-react";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 
 export function TimeComparisonStrip() {
   return (
@@ -11,9 +49,15 @@ export function TimeComparisonStrip() {
         <div className="absolute -right-24 bottom-0 h-44 w-44 rounded-full bg-[#005f63]/15 blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 py-8 sm:py-10 space-y-6">
+      <motion.div
+        className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 py-8 sm:py-10 space-y-6"
+        variants={container}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.25 }}
+      >
         {/* Heading */}
-        <div className="flex flex-col gap-2">
+        <motion.div className="flex flex-col gap-2" variants={fadeUp}>
           <p className="text-base font-semibold tracking-[0.18em] uppercase text-slate-700">
             How CNC business pathways compare
           </p>
@@ -23,10 +67,10 @@ export function TimeComparisonStrip() {
             different. This guide shows where CNC’s shorter business programs
             sit beside typical 2 year and 4 year business paths.
           </p>
-        </div>
+        </motion.div>
 
         {/* Time rail */}
-        <div className="space-y-3">
+        <motion.div className="space-y-3" variants={fadeUp}>
           <div className="relative h-3 rounded-full bg-slate-200/80 overflow-hidden">
             <div className="absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-[#005f63] to-[#0f766e]" />
             <div className="absolute inset-y-0 left-1/4 w-1/4 bg-gradient-to-r from-[#0f766e] to-[#d97706]" />
@@ -56,19 +100,26 @@ export function TimeComparisonStrip() {
               <span>Typical diplomas and degrees</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Cards */}
-        <div className="grid gap-4 md:grid-cols-3 mt-8">
+        <motion.div
+          className="grid gap-4 md:grid-cols-3 mt-8"
+          variants={fadeUp}
+        >
           {/* Short associate certificates */}
-          <div className="group relative flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white/90 p-5 shadow-sm hover:shadow-lg hover:border-[#005f63]/60 transition">
+          <motion.div
+            variants={cardVariant}
+            className="group relative flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white/90 p-5 shadow-sm hover:shadow-lg hover:border-[#005f63]/60 transition"
+          >
             <div className="absolute inset-x-3 -top-1 h-1 rounded-full bg-gradient-to-r from-[#005f63] to-[#0f766e] opacity-70" />
             <div className="flex items-center gap-3">
-              <div>
-                <p className="text-base font-semibold uppercase tracking-[0.12em] text-[#005f63]">
-                  Short CNC associate certificates
-                </p>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#005f63]/10 border border-[#005f63]/30">
+                <Timer className="h-4 w-4 text-[#005f63]" />
               </div>
+              <p className="text-base font-semibold uppercase tracking-[0.12em] text-[#005f63]">
+                Short CNC associate certificates
+              </p>
             </div>
             <p className="text-base text-slate-800">
               Examples: Business Fundamentals, Business Essentials, Hospitality
@@ -79,17 +130,21 @@ export function TimeComparisonStrip() {
               <li>• Designed to get you into the workforce sooner.</li>
               <li>• Can be stacked into longer CNC business credentials.</li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* 1 year CNC Business Administration Certificate */}
-          <div className="group relative flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-md ring-1 ring-[#d71920]/20">
+          <motion.div
+            variants={cardVariant}
+            className="group relative flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-md ring-1 ring-[#d71920]/20"
+          >
             <div className="absolute inset-x-3 -top-1 h-1 rounded-full bg-gradient-to-r from-[#d97706] via-[#f4b41a] to-[#d71920] opacity-90" />
             <div className="flex items-center gap-3">
-              <div>
-                <p className="text-base font-semibold uppercase tracking-[0.12em] text-[#d71920]">
-                  CNC Business Administration Certificate
-                </p>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#d71920]/10 border border-[#d71920]/30">
+                <GraduationCap className="h-4 w-4 text-[#d71920]" />
               </div>
+              <p className="text-base font-semibold uppercase tracking-[0.12em] text-[#d71920]">
+                CNC Business Administration Certificate
+              </p>
             </div>
             <p className="text-base text-slate-800">
               10 courses that build a broad foundation in accounting, marketing,
@@ -102,17 +157,21 @@ export function TimeComparisonStrip() {
               </li>
               <li>• Helps you qualify for a wider range of business roles.</li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Typical 2 and 4 year paths */}
-          <div className="group relative flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white/90 p-5 shadow-sm hover:shadow-lg hover:border-slate-400 transition">
+          <motion.div
+            variants={cardVariant}
+            className="group relative flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white/90 p-5 shadow-sm hover:shadow-lg hover:border-slate-400 transition"
+          >
             <div className="absolute inset-x-3 -top-1 h-1 rounded-full bg-gradient-to-r from-[#b91c1c] to-slate-700 opacity-80" />
             <div className="flex items-center gap-3">
-              <div>
-                <p className="text-base font-semibold uppercase tracking-[0.12em] text-slate-700">
-                  Typical 2 year and 4 year business paths
-                </p>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800/5 border border-slate-300">
+                <BookOpen className="h-4 w-4 text-slate-700" />
               </div>
+              <p className="text-base font-semibold uppercase tracking-[0.12em] text-slate-700">
+                Typical 2 year and 4 year business paths
+              </p>
             </div>
             <p className="text-base text-slate-800">
               Longer programs offered by various institutions that go beyond the
@@ -126,17 +185,20 @@ export function TimeComparisonStrip() {
                 deciding on longer study.
               </li>
             </ul>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <p className="mt-3 text-base text-slate-700 max-w-3xl">
+        <motion.p
+          className="mt-3 text-base text-slate-700 max-w-3xl"
+          variants={fadeUp}
+        >
           This tool highlights shorter CNC business pathways so students can see
           options that take less time than a traditional 2 year or 4 year
           program, with the ability to{" "}
           <span className="font-semibold">stack into higher credentials</span>{" "}
           later if they choose.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
     </section>
   );
 }

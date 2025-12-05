@@ -10,6 +10,7 @@ import {
   MapPin,
   BriefcaseBusiness,
 } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 
 type Program = {
   id: string;
@@ -64,6 +65,42 @@ const opportunityLabels: Record<string, string> = {
   emerging: "Emerging / growing area",
 };
 
+// Motion variants (gentle and smooth)
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.55,
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.45,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 export function ByProgramSection() {
   const [programs, setPrograms] = useState<Program[]>([]);
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -100,8 +137,17 @@ export function ByProgramSection() {
         <div className="absolute -right-32 bottom-0 h-64 w-64 rounded-full bg-[#d71920]/8 blur-3xl" />
       </div>
 
-      <div className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <motion.div
+        className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <motion.div
+          className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
+          variants={fadeUp}
+        >
           <div className="space-y-2 max-w-3xl">
             <p className="text-base font-semibold tracking-[0.18em] uppercase text-[#005f63]">
               Explore CNC business programs
@@ -143,10 +189,13 @@ export function ByProgramSection() {
               Administration Certificate.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {!selectedProgram && (
-          <div className="border border-dashed border-slate-300 bg-white/70 px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm">
+          <motion.div
+            className="border border-dashed border-slate-300 bg-white/70 px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
+            variants={fadeUp}
+          >
             Use the dropdown above to pick a program. This section will show:
             <ul className="mt-2 space-y-1">
               <li>
@@ -160,13 +209,16 @@ export function ByProgramSection() {
                 - Example jobs, wages and openings connected to that program.
               </li>
             </ul>
-          </div>
+          </motion.div>
         )}
 
         {selectedProgram && (
-          <div className="grid gap-6 lg:grid-cols-[3fr,2fr]">
+          <motion.div
+            className="grid gap-6 lg:grid-cols-[3fr,2fr]"
+            variants={fadeUp}
+          >
             {/* Program overview card */}
-            <div className="relative">
+            <motion.div className="relative" variants={cardVariants}>
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#005f63]/20 via-white to-[#d71920]/15 opacity-80" />
               <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.15)] overflow-hidden">
                 <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
@@ -256,10 +308,10 @@ export function ByProgramSection() {
                     )}
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Jobs + opportunities */}
-            <div className="relative">
+            <motion.div className="relative" variants={cardVariants}>
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-slate-200/60 via-white to-slate-100 opacity-70" />
               <div className="relative border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(15,23,42,0.12)] overflow-hidden">
                 <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
@@ -360,10 +412,10 @@ export function ByProgramSection() {
                   })}
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         )}
-      </div>
+      </motion.div>
     </section>
   );
 }
