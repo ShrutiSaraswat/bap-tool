@@ -42,7 +42,17 @@
       "small_business_owner"
     ],
     "earningBand": "medium_high",
-    "opportunityBand": "high"
+    "opportunityBand": "high",
+    "skills": [
+      "organizational behaviour",
+      "business law and policy",
+      "basic finance",
+      "entrepreneurship",
+      "decision making",
+      "workplace communication",
+      "problem solving",
+      "ethical and legal awareness"
+    ]
   },
 
   {
@@ -87,7 +97,17 @@
       "marketing_assistant"
     ],
     "earningBand": "medium",
-    "opportunityBand": "high"
+    "opportunityBand": "high",
+    "skills": [
+      "financial accounting basics",
+      "bookkeeping",
+      "introductory marketing",
+      "office administration",
+      "business computer skills",
+      "data entry and records",
+      "customer service",
+      "attention to detail"
+    ]
   },
 
   {
@@ -119,7 +139,17 @@
       "hotel_front_desk_clerk"
     ],
     "earningBand": "entry_to_medium",
-    "opportunityBand": "medium_high"
+    "opportunityBand": "medium_high",
+    "skills": [
+      "guest service",
+      "hospitality operations",
+      "hotel management basics",
+      "food and beverage management",
+      "scheduling and supervision",
+      "problem solving with guests",
+      "team leadership",
+      "project management"
+    ]
   },
 
   {
@@ -160,6 +190,17 @@
       "junior_analyst"
     ],
     "earningBand": "medium_high",
-    "opportunityBand": "high"
+    "opportunityBand": "high",
+    "skills": [
+      "financial accounting",
+      "business software and systems",
+      "marketing fundamentals",
+      "organizational behaviour",
+      "micro and macroeconomics",
+      "business statistics",
+      "written and verbal communication",
+      "numeracy and quantitative reasoning",
+      "problem solving and analysis"
+    ]
   }
 ]
