@@ -17,7 +17,7 @@ export function TimeComparisonStrip() {
           <p className="text-base font-semibold tracking-[0.18em] uppercase text-slate-700">
             How CNC business pathways compare
           </p>
-          <p className="text-base text-slate-800 max-w-3xl">
+          <p className="text-base text-slate-800 max-w-3xl mb-4">
             All options build business skills, but the{" "}
             <span className="font-semibold">time commitment</span> is very
             different. This guide shows where CNC’s shorter business programs
@@ -33,7 +33,7 @@ export function TimeComparisonStrip() {
             <div className="absolute inset-y-0 left-1/2 w-1/2 bg-gradient-to-r from-[#d97706] to-[#b91c1c]" />
           </div>
 
-          <div className="flex justify-between text-base text-slate-800">
+          <div className="flex justify-between text-base text-slate-800 mt-10">
             <div className="flex flex-col items-start gap-1">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 shadow-sm border border-slate-200">
                 <span className="h-2 w-2 rounded-full bg-[#005f63]" />
@@ -59,7 +59,7 @@ export function TimeComparisonStrip() {
         </div>
 
         {/* Cards */}
-        <div className="grid gap-4 md:grid-cols-3 mt-4">
+        <div className="grid gap-4 md:grid-cols-3 mt-8">
           {/* Short associate certificates */}
           <div className="group relative flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white/90 p-5 shadow-sm hover:shadow-lg hover:border-[#005f63]/60 transition">
             <div className="absolute inset-x-3 -top-1 h-1 rounded-full bg-gradient-to-r from-[#005f63] to-[#0f766e] opacity-70" />
@@ -67,9 +67,6 @@ export function TimeComparisonStrip() {
               <div>
                 <p className="text-base font-semibold uppercase tracking-[0.12em] text-[#005f63]">
                   Short CNC associate certificates
-                </p>
-                <p className="text-lg font-semibold text-slate-900">
-                  Less than 1 year
                 </p>
               </div>
             </div>
@@ -91,9 +88,6 @@ export function TimeComparisonStrip() {
               <div>
                 <p className="text-base font-semibold uppercase tracking-[0.12em] text-[#d71920]">
                   CNC Business Administration Certificate
-                </p>
-                <p className="text-lg font-semibold text-slate-900">
-                  About 1 year
                 </p>
               </div>
             </div>
@@ -117,9 +111,6 @@ export function TimeComparisonStrip() {
               <div>
                 <p className="text-base font-semibold uppercase tracking-[0.12em] text-slate-700">
                   Typical 2 year and 4 year business paths
-                </p>
-                <p className="text-lg font-semibold text-slate-900">
-                  2 years and 4 years
                 </p>
               </div>
             </div>
