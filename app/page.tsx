@@ -4,6 +4,7 @@ import { ByProgramSection } from "@/components/ByProgramSection";
 import { GuidedMatchSection } from "@/components/GuidedMatchSection";
 import { CncHeader } from "@/components/Hero";
 import { HeroIntro } from "@/components/HeroIntro";
+import { TimeComparisonStrip } from "@/components/TimeComparisionStrip";
 
 import React from "react";
 
@@ -13,6 +14,7 @@ const page = () => {
       <CncHeader />
       {/* <HomePage /> */}
       <HeroIntro />
+      <TimeComparisonStrip />
       <ByProgramSection />
       <ByJobSection />
       <ByEarningsSection />
