@@ -65,7 +65,7 @@ const opportunityLabels: Record<string, string> = {
   emerging: "Emerging / growing area",
 };
 
-// Motion variants (gentle and smooth)
+// Motion variants for the top copy only
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 18 },
   visible: {
@@ -90,30 +90,17 @@ const fadeUp: Variants = {
   },
 };
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
-
 export function ByProgramSection() {
   const [programs, setPrograms] = useState<Program[]>([]);
   const [jobs, setJobs] = useState<Job[]>([]);
   const [selectedId, setSelectedId] = useState<string>("");
 
   useEffect(() => {
-    // programs.json lives in /public
     fetch("/programs.json")
       .then((res) => res.json())
       .then((data: Program[]) => setPrograms(data))
       .catch((err) => console.error("Error loading programs.json", err));
 
-    // jobs.json lives in /public
     fetch("/jobs.json")
       .then((res) => res.json())
       .then((data: Job[]) => setJobs(data))
@@ -132,7 +119,7 @@ export function ByProgramSection() {
       className="relative overflow-hidden bg-gradient-to-br from-[#f9fafb] via-white to-[#eff6ff] border-b border-slate-200 py-10 sm:py-12"
     >
       {/* background accents */}
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-28 top-10 h-56 w-56 rounded-full bg-[#005f63]/10 blur-3xl" />
         <div className="absolute -right-32 bottom-0 h-64 w-64 rounded-full bg-[#d71920]/8 blur-3xl" />
       </div>
@@ -144,6 +131,7 @@ export function ByProgramSection() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
+        {/* Top heading + selector */}
         <motion.div
           className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
           variants={fadeUp}
@@ -191,6 +179,7 @@ export function ByProgramSection() {
           </div>
         </motion.div>
 
+        {/* Empty state */}
         {!selectedProgram && (
           <motion.div
             className="border border-dashed border-slate-300 bg-white/70 px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
@@ -212,13 +201,17 @@ export function ByProgramSection() {
           </motion.div>
         )}
 
+        {/* Selected program area */}
         {selectedProgram && (
           <motion.div
+            key={selectedId}
             className="grid gap-6 lg:grid-cols-[3fr,2fr]"
-            variants={fadeUp}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
           >
             {/* Program overview card */}
-            <motion.div className="relative" variants={cardVariants}>
+            <div className="relative">
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#005f63]/20 via-white to-[#d71920]/15 opacity-80" />
               <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.15)] overflow-hidden">
                 <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
@@ -308,10 +301,10 @@ export function ByProgramSection() {
                     )}
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Jobs + opportunities */}
-            <motion.div className="relative" variants={cardVariants}>
+            <div className="relative">
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-slate-200/60 via-white to-slate-100 opacity-70" />
               <div className="relative border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(15,23,42,0.12)] overflow-hidden">
                 <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
@@ -412,7 +405,7 @@ export function ByProgramSection() {
                   })}
                 </div>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </motion.div>

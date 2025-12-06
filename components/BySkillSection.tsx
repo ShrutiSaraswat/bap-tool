@@ -45,7 +45,7 @@ const opportunityLabels: Record<string, string> = {
   emerging: "Emerging or growing area",
 };
 
-// Motion variants (gentle, same vibe as other sections)
+// Motion variants (used only for top block / empty states)
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 18 },
   visible: {
@@ -66,17 +66,6 @@ const fadeUp: Variants = {
     y: 0,
     transition: {
       duration: 0.45,
-    },
-  },
-};
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
     },
   },
 };
@@ -139,7 +128,7 @@ export function BySkillSection() {
       className="relative overflow-hidden bg-gradient-to-br from-[#f9fafb] via-white to-[#eff6ff] border-b border-slate-200 py-10 sm:py-12"
     >
       {/* background accents */}
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-28 top-8 h-52 w-52 rounded-full bg-[#005f63]/10 blur-3xl" />
         <div className="absolute -right-32 bottom-0 h-60 w-60 rounded-full bg-[#d71920]/10 blur-3xl" />
       </div>
@@ -279,8 +268,11 @@ export function BySkillSection() {
         {/* Results */}
         {hasAnySkills && selectedSkill && (
           <motion.div
+            key={selectedSkill}
             className="border border-slate-200 rounded-2xl bg-white/95 shadow-[0_16px_40px_rgba(15,23,42,0.12)]"
-            variants={fadeUp}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
           >
             <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
               <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 flex items-center gap-2">
@@ -306,7 +298,9 @@ export function BySkillSection() {
                 <motion.div
                   key={p.id}
                   className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
-                  variants={cardVariants}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25 }}
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-3">
                     <div>

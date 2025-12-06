@@ -58,7 +58,7 @@ const opportunityLabels: Record<string, string> = {
   emerging: "Emerging or growing area",
 };
 
-// Motion variants (gentle, consistent)
+// Motion variants (gentle, consistent for heading/empty state)
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 18 },
   visible: {
@@ -79,17 +79,6 @@ const fadeUp: Variants = {
     y: 0,
     transition: {
       duration: 0.45,
-    },
-  },
-};
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
     },
   },
 };
@@ -125,7 +114,7 @@ export function ByEarningsSection() {
       className="relative overflow-hidden bg-gradient-to-br from-[#f9fafb] via-white to-[#eff6ff] border-b border-slate-200 py-10 sm:py-12"
     >
       {/* background accents */}
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-28 top-8 h-52 w-52 rounded-full bg-[#005f63]/10 blur-3xl" />
         <div className="absolute -right-32 bottom-0 h-60 w-60 rounded-full bg-[#d71920]/10 blur-3xl" />
       </div>
@@ -208,9 +197,15 @@ export function ByEarningsSection() {
 
         {/* Selected band view */}
         {selectedBand !== "" && (
-          <motion.div className="grid gap-6 lg:grid-cols-2" variants={fadeUp}>
+          <motion.div
+            key={selectedBand}
+            className="grid gap-6 lg:grid-cols-2"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+          >
             {/* Programs list */}
-            <motion.div className="relative" variants={cardVariants}>
+            <div className="relative">
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#005f63]/14 via-white to-[#d71920]/8 opacity-80" />
               <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.15)]">
                 <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
@@ -239,7 +234,9 @@ export function ByEarningsSection() {
                     <motion.div
                       key={program.id}
                       className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
-                      variants={cardVariants}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.25 }}
                     >
                       <div className="flex flex-wrap items-baseline justify-between gap-3">
                         <div>
@@ -290,10 +287,10 @@ export function ByEarningsSection() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Jobs list */}
-            <motion.div className="relative" variants={cardVariants}>
+            <div className="relative">
               <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-slate-200/60 via-white to-slate-100 opacity-70" />
               <div className="relative border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(15,23,42,0.12)]">
                 <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
@@ -326,7 +323,9 @@ export function ByEarningsSection() {
                       <motion.div
                         key={job.id}
                         className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
-                        variants={cardVariants}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.25 }}
                       >
                         <div className="flex flex-wrap items-baseline justify-between gap-3">
                           <div>
@@ -388,7 +387,7 @@ export function ByEarningsSection() {
                   })}
                 </div>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </motion.div>
