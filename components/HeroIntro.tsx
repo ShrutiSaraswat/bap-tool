@@ -14,7 +14,7 @@ export function HeroIntro() {
       {/* Background accents */}
       <div className="pointer-events-none absolute inset-0">
         {/* Soft color blobs */}
-        <div className="absolute -left-16 -top-10 h-56 w-56 rounded-full bg-[#d71920]/20 blur-3xl" />
+        <div className="absolute -left-16 -top-10 h-56 w-56 rounded-full bg-[#d71920]/10 blur-3xl" />
         <div className="absolute right-[-32px] top-6 h-64 w-64 rounded-full bg-[#005f63]/20 blur-3xl" />
         <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/45 blur-3xl" />
 
@@ -41,7 +41,7 @@ export function HeroIntro() {
         </div>
 
         {/* Small accent ring - mid left */}
-        <div className="absolute -left-[10%] top-[28%] h-100 w-100">
+        <div className="absolute -left-[10%] top-[28%] h-80 w-80">
           <div className="relative h-full w-full">
             <div className="absolute inset-1 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9),rgba(148,163,184,0.32),transparent_70%)]" />
             <div className="absolute inset-3 rounded-full border-[6px] border-white/75 shadow-[0_0_0_1px_rgba(148,163,184,0.3)]" />
