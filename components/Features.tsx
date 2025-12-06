@@ -39,17 +39,17 @@ export function FeaturesSection() {
           <div className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 border border-slate-200 shadow-sm">
             <Sparkles className="h-4 w-4 text-[#d71920]" />
             <span className="text-base font-medium tracking-[0.14em] uppercase text-slate-700">
-              What it makes easier
+              What this page helps you do
             </span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
-            A clear, colorful snapshot of your CNC business options.
+            A snapshot of your CNC business options.
           </h2>
 
           <p className="text-base text-slate-700 max-w-2xl mx-auto">
-            Light, visual tiles that sum up what this planning page does for
-            you.
+            See your options laid out in a simple, colorful way so you can
+            compare programs, jobs and earning ranges at a glance.
           </p>
         </motion.div>
 
@@ -73,8 +73,8 @@ export function FeaturesSection() {
                   One place to explore
                 </p>
                 <p className="text-base text-slate-700">
-                  Switch between programs, jobs, skills and wages on a single,
-                  simple page.
+                  Move between programs, jobs, skills and earning ranges on a
+                  single, easy-to-scan page.
                 </p>
               </div>
             </div>
@@ -91,8 +91,8 @@ export function FeaturesSection() {
                   Data without overload
                 </p>
                 <p className="text-base text-slate-700">
-                  Time, earning bands and openings appear as small, easy cards
-                  instead of heavy tables.
+                  Key details like time, earning bands and openings show up as
+                  small, readable cards instead of long tables.
                 </p>
               </div>
             </div>
@@ -109,8 +109,8 @@ export function FeaturesSection() {
                   Short, stackable view
                 </p>
                 <p className="text-base text-slate-700">
-                  Quickly see how shorter starts can ladder into longer CNC
-                  business credentials.
+                  Quickly see how short starts can ladder into longer CNC
+                  business credentials over time.
                 </p>
               </div>
             </div>
@@ -127,8 +127,8 @@ export function FeaturesSection() {
                   Easy starting point
                 </p>
                 <p className="text-base text-slate-700">
-                  Use this page first, then walk into CNC advising with clearer
-                  questions in mind.
+                  Use this page to narrow your options, then meet with CNC
+                  advising with clearer questions and ideas.
                 </p>
               </div>
             </div>

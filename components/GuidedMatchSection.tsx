@@ -35,13 +35,22 @@ const earningBandLabels: Record<string, string> = {
   medium_high: "Medium to high ($28-35+ /hr approx.)",
 };
 
+const opportunityLabels: Record<string, string> = {
+  medium: "Some opportunities in the region",
+  medium_high: "Good opportunities in the region",
+  high: "Strong opportunities in the region",
+  very_high: "Very strong and stable demand",
+  broad: "Broad opportunities across sectors",
+  emerging: "Emerging or growing area",
+};
+
 function matchStrengthLabel(score: number): string {
   if (score >= 3) return "Strong match";
   if (score === 2) return "Good match";
   return "Initial match";
 }
 
-// gentle motion variants (no custom ease so TS is happy)
+// gentle motion variants
 const sectionContainer = {
   hidden: { opacity: 0, y: 24 },
   visible: {
@@ -177,8 +186,8 @@ export function GuidedMatchSection() {
           </h2>
           <p className="text-base text-slate-800">
             In your own words, describe the kinds of work you enjoy, the
-            subjects you like, or the environment you want to be in. This tool
-            uses static rules from the BAP dataset to highlight CNC business
+            subjects you like, or the environment you want to be in. The tool
+            looks for key themes in what you write and highlights CNC business
             programs that could be a good starting point.
           </p>
         </motion.div>
@@ -207,13 +216,13 @@ export function GuidedMatchSection() {
             <div className="flex flex-wrap gap-3">
               <button
                 type="submit"
-                className="inline-flex items-center rounded-md bg-[#d71920] px-5 py-3 text-base font-semibold text-white hover:bg-[#b8141b] shadow-sm hover:shadow-md transition"
+                className="inline-flex items-center rounded-md bg-[#d71920] px-5 py-3 text-base font-semibold text-white hover:bg-[#b8141b] shadow-sm hover:shadow-md transition cursor-pointer"
               >
                 See suggested programs
               </button>
               <button
                 type="button"
-                className="inline-flex items-center rounded-md border border-slate-300 bg-white px-4 py-3 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
+                className="inline-flex items-center rounded-md border border-slate-300 bg-white px-4 py-3 text-base font-semibold text-slate-900 hover:bg-slate-100 transition cursor-pointer"
                 onClick={() =>
                   setText(
                     "I like working with people, guests and visitors. I enjoy social media and events, and I want to start in a shorter business program that can lead to management later."
@@ -225,9 +234,9 @@ export function GuidedMatchSection() {
             </div>
 
             <p className="text-base text-slate-700">
-              This is not an application or formal advising tool. It is a
-              conversation starter based on the same static information used in
-              the colourful program overview.
+              This is not an application or admission form. It is a planning
+              tool that can help you have a more focused conversation with CNC
+              advising.
             </p>
           </div>
 
@@ -241,15 +250,15 @@ export function GuidedMatchSection() {
                 Suggested CNC programs
               </p>
               <p className="mt-2 text-base text-slate-800">
-                Ordered from strongest to lighter match based on the interests
-                you described and the rule set behind this tool.
+                Results are ordered from strongest to lighter match based on the
+                interests you described.
               </p>
             </div>
 
             <div className="px-5 py-4 space-y-4 max-h-[380px] overflow-y-auto text-base">
               {!touched && (
                 <p className="text-base text-slate-800">
-                  Type a few sentences on the left and select{" "}
+                  Type a few sentences and select{" "}
                   <span className="font-semibold">See suggested programs</span>{" "}
                   to view matches here.
                 </p>
@@ -257,11 +266,10 @@ export function GuidedMatchSection() {
 
               {showEmptyState && (
                 <p className="text-base text-slate-800">
-                  There is not a strong match with the current rule set yet. You
-                  can try adding more detail about the kinds of tasks you enjoy,
-                  your preferred environment (office, hospitality, finance,
-                  marketing) or whether you want to start working quickly and
-                  stack later.
+                  There is not a clear match yet. Try adding more detail about
+                  the kinds of tasks you enjoy, the setting you prefer (office,
+                  hospitality, finance, marketing) or whether you want to start
+                  working quickly and build further credentials later.
                 </p>
               )}
 
@@ -293,7 +301,7 @@ export function GuidedMatchSection() {
                             {matchLabel}
                           </span>
                           <span className="text-base text-slate-600">
-                            Score: {result.score}
+                            Match score: {result.score}
                           </span>
                         </div>
                       </div>
@@ -338,7 +346,8 @@ export function GuidedMatchSection() {
                           <span className="inline-flex items-center rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
                             📈
                             <span className="ml-1">
-                              Opportunities in the region
+                              {opportunityLabels[p.opportunityBand] ??
+                                "Opportunities in the region"}
                             </span>
                           </span>
                         )}
