@@ -13,19 +13,12 @@ type Program = {
   stackability?: { isStackable?: boolean; stackMessage?: string };
   earningBand?: string;
   opportunityBand?: string;
-};
-
-type RecommendationRule = {
-  id: string;
-  description: string;
-  keywords: string[];
-  recommendProgramIds: string[];
+  skills?: string[]; // make sure you have some skills in programs.json for better matching
 };
 
 type ProgramScore = {
   program: Program;
   score: number;
-  ruleIds: string[];
 };
 
 const earningBandLabels: Record<string, string> = {
@@ -45,12 +38,94 @@ const opportunityLabels: Record<string, string> = {
 };
 
 function matchStrengthLabel(score: number): string {
-  if (score >= 3) return "Strong match";
-  if (score === 2) return "Good match";
+  if (score >= 10) return "Strong match";
+  if (score >= 5) return "Good match";
   return "Initial match";
 }
 
-// gentle motion variants
+// Very small stopword list so we do not score on “and / the / to / in…”
+const STOP_WORDS = new Set([
+  "the",
+  "and",
+  "or",
+  "for",
+  "of",
+  "to",
+  "in",
+  "on",
+  "with",
+  "a",
+  "an",
+  "at",
+  "by",
+  "from",
+  "about",
+]);
+
+function normalizeText(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function splitWords(text: string): string[] {
+  return normalizeText(text)
+    .split(" ")
+    .filter((w) => w && !STOP_WORDS.has(w));
+}
+
+// Simple scoring using only frontend data
+function scoreProgram(program: Program, input: string): number {
+  if (!input.trim()) return 0;
+
+  const loweredInput = input.toLowerCase();
+  const inputWords = new Set(splitWords(input));
+
+  let score = 0;
+
+  // 1) Exact skill phrase hits (high weight)
+  if (program.skills && program.skills.length > 0) {
+    for (const skill of program.skills) {
+      const s = skill.toLowerCase().trim();
+      if (!s) continue;
+
+      // full phrase match
+      if (loweredInput.includes(s)) {
+        score += 4;
+        continue;
+      }
+
+      // partial word overlap within the skill phrase
+      const skillWords = splitWords(s);
+      const matches = skillWords.filter((w) => inputWords.has(w)).length;
+      if (matches > 0) {
+        score += 1 + matches; // small boost per overlapping word
+      }
+    }
+  }
+
+  // 2) Program name overlap
+  const nameWords = splitWords(program.name || "");
+  const nameHits = nameWords.filter((w) => inputWords.has(w)).length;
+  if (nameHits > 0) {
+    score += 1 + nameHits;
+  }
+
+  // 3) Overview overlap (lighter weight)
+  if (program.overview) {
+    const overviewWords = splitWords(program.overview);
+    const overlap = overviewWords.filter((w) => inputWords.has(w)).length;
+    if (overlap > 0) {
+      score += Math.min(3, overlap); // cap so overview does not dominate
+    }
+  }
+
+  return score;
+}
+
+// Motion variants
 const sectionContainer = {
   hidden: { opacity: 0, y: 24 },
   visible: {
@@ -88,7 +163,6 @@ const resultItem = {
 
 export function GuidedMatchSection() {
   const [programs, setPrograms] = useState<Program[]>([]);
-  const [rules, setRules] = useState<RecommendationRule[]>([]);
   const [text, setText] = useState("");
   const [results, setResults] = useState<ProgramScore[] | null>(null);
   const [touched, setTouched] = useState(false);
@@ -98,57 +172,26 @@ export function GuidedMatchSection() {
       .then((res) => res.json())
       .then((data: Program[]) => setPrograms(data))
       .catch((err) => console.error("Error loading programs.json", err));
-
-    fetch("/recommendation_rules.json")
-      .then((res) => res.json())
-      .then((data: RecommendationRule[]) => setRules(data))
-      .catch((err) =>
-        console.error("Error loading recommendation_rules.json", err)
-      );
   }, []);
 
   function runMatch() {
     const input = text.trim();
     setTouched(true);
 
-    if (!input || programs.length === 0 || rules.length === 0) {
+    if (!input || programs.length === 0) {
       setResults(null);
       return;
     }
 
-    const normalized = input.toLowerCase();
-    const scores = new Map<string, ProgramScore>();
+    const scored: ProgramScore[] = programs
+      .map((program) => ({
+        program,
+        score: scoreProgram(program, input),
+      }))
+      .filter((p) => p.score > 0)
+      .sort((a, b) => b.score - a.score);
 
-    for (const rule of rules) {
-      const hit = rule.keywords.some((keyword) =>
-        normalized.includes(keyword.toLowerCase())
-      );
-      if (!hit) continue;
-
-      for (const pid of rule.recommendProgramIds) {
-        const program = programs.find((p) => p.id === pid);
-        if (!program) continue;
-
-        const existing = scores.get(pid);
-        if (existing) {
-          existing.score += 1;
-          if (!existing.ruleIds.includes(rule.id)) {
-            existing.ruleIds.push(rule.id);
-          }
-        } else {
-          scores.set(pid, {
-            program,
-            score: 1,
-            ruleIds: [rule.id],
-          });
-        }
-      }
-    }
-
-    const sorted = Array.from(scores.values()).sort(
-      (a, b) => b.score - a.score
-    );
-    setResults(sorted);
+    setResults(scored.length > 0 ? scored : null);
   }
 
   function handleSubmit(e: React.FormEvent) {
@@ -156,7 +199,7 @@ export function GuidedMatchSection() {
     runMatch();
   }
 
-  const showEmptyState = touched && (!results || results.length === 0);
+  const showEmptyState = touched && !results;
 
   return (
     <section
@@ -187,8 +230,8 @@ export function GuidedMatchSection() {
           <p className="text-base text-slate-800">
             In your own words, describe the kinds of work you enjoy, the
             subjects you like, or the environment you want to be in. The tool
-            looks for key themes in what you write and highlights CNC business
-            programs that could be a good starting point.
+            compares what you write with the skills and focus areas in each CNC
+            business program and suggests possible starting points.
           </p>
         </motion.div>
 
@@ -234,9 +277,9 @@ export function GuidedMatchSection() {
             </div>
 
             <p className="text-base text-slate-700">
-              This is not an application or admission form. It is a planning
-              tool that can help you have a more focused conversation with CNC
-              advising.
+              This is a planning tool to help you think about options. It does
+              not replace speaking with CNC advising or submitting an
+              application.
             </p>
           </div>
 
@@ -250,8 +293,8 @@ export function GuidedMatchSection() {
                 Suggested CNC programs
               </p>
               <p className="mt-2 text-base text-slate-800">
-                Results are ordered from strongest to lighter match based on the
-                interests you described.
+                Results are ordered from strongest to lighter match based on how
+                closely your description aligns with each program.
               </p>
             </div>
 

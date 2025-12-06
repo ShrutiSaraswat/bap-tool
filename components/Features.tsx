@@ -23,7 +23,7 @@ export function FeaturesSection() {
       {/* soft color blobs in the background */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-24 top-25 h-60 w-60 rounded-full bg-[#d71920]/18 blur-3xl" />
-        <div className="absolute right-[-40px] top-25 h-60 w-60 rounded-full bg-teal-950/18 blur-3xl" />
+        <div className="absolute right-[-40px] top-25 h-60 w-60 rounded-full bg-teal-600/18 blur-3xl" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-8">
