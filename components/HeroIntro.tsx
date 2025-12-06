@@ -24,7 +24,7 @@ export function HeroIntro() {
         <div className="absolute -right-[700px] -top-[15%] h-[1000px] w-[1000px]">
           <div className="relative h-full w-full">
             {/* Warm teal red band */}
-            <div className="absolute inset-1 rounded-full bg-[conic-gradient(from_120deg,rgba(0,95,99,0.18),rgba(15,23,42,0.16),rgba(215,25,32,0.2),rgba(244,180,26,0.2),rgba(0,95,99,0.18))] opacity-90" />
+            <div className="absolute inset-1 rounded-full bg-[conic-gradient(from_120deg,rgba(0,95,99,0.98),rgba(15,23,42,0.16),rgba(215,25,32,0.2),rgba(244,180,26,0.2),rgba(0,95,99,0.18))] opacity-90" />
             {/* Outer white ring */}
             <div className="absolute inset-3 rounded-full border-[12px] border-white/78 shadow-[0_0_0_1px_rgba(148,163,184,0.35)]" />
             {/* Inner dark ring */}

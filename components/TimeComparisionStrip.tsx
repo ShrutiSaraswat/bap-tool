@@ -47,6 +47,46 @@ export function TimeComparisonStrip() {
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -left-24 top-10 h-40 w-40 rounded-full bg-[#d71920]/15 blur-3xl" />
         <div className="absolute -right-24 bottom-0 h-44 w-44 rounded-full bg-[#005f63]/15 blur-3xl" />
+
+        {/* subtle donut graphic to hint at pathway mix */}
+        <motion.div
+          className="hidden md:block absolute -right-40 -bottom-40 h-100 w-100"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 0.9, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.div
+            className="relative h-full w-full"
+            animate={{ scale: [1, 1.03, 1], opacity: [0.9, 1, 0.9] }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            }}
+          >
+            {/* outer soft ring */}
+            <div className="absolute inset-1 rounded-full border border-slate-200/70 bg-gradient-to-br from-white/60 via-transparent to-[#e0f2f1]/80" />
+
+            {/* conic gradient segment ring */}
+            <div className="absolute inset-6 rounded-full border-2 border-transparent bg-[conic-gradient(from_140deg,_#005f63_0deg,_#005f63_80deg,_#0f766e_80deg,_#0f766e_130deg,_#f4b41a_130deg,_#f4b41a_200deg,_#d71920_200deg,_#d71920_320deg,_#e5e7eb_320deg,_#e5e7eb_360deg)] opacity-85" />
+
+            {/* inner mask to create donut */}
+            <div className="absolute inset-12 rounded-full bg-gradient-to-br from-[#f9fafb] via-[#ffffff] to-[#e5e7eb]" />
+
+            {/* subtle inner ring */}
+            <div className="absolute inset-16 rounded-full border border-slate-200/80 bg-white/85" />
+
+            {/* light radial tick marks */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative h-32 w-32 rounded-full">
+                <span className="absolute left-1/2 top-0 h-5 w-px -translate-x-1/2 bg-slate-300/70" />
+                <span className="absolute right-0 top-1/2 h-px w-5 -translate-y-1/2 bg-slate-300/70" />
+                <span className="absolute left-1/2 bottom-0 h-5 w-px -translate-x-1/2 bg-slate-200/70" />
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       <motion.div
@@ -95,7 +135,7 @@ export function TimeComparisonStrip() {
             <div className="flex flex-col items-end gap-1">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 shadow-sm border border-slate-200">
                 <span className="h-2 w-2 rounded-full bg-[#b91c1c]" />
-                <span className="font-semibold">2 – 4 years</span>
+                <span className="font-semibold">2 - 4 years</span>
               </span>
               <span>Typical diplomas and degrees</span>
             </div>
