@@ -144,11 +144,10 @@ export function ByProgramSection() {
               Start by selecting a program.
             </h2>
             <p className="text-base text-slate-800">
-              Choose a program to see what kinds of jobs it connects to, typical
-              earning potential, and how many opportunities there are in
-              northern British Columbia and provincial labour markets. All
-              information is based on the Business Administration Program (BAP)
-              labour market analysis.
+              Choose a program to see which jobs it connects to, typical earning
+              potential, and opportunities in northern British Columbia and
+              across the province. All information comes from the Business
+              Administration Program (BAP) labour market analysis.
             </p>
           </div>
 
@@ -161,7 +160,7 @@ export function ByProgramSection() {
             </label>
             <select
               id="program-select"
-              className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63]"
+              className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63] cursor-pointer"
               value={selectedId}
               onChange={(e) => setSelectedId(e.target.value)}
             >
@@ -173,7 +172,7 @@ export function ByProgramSection() {
               ))}
             </select>
             <p className="text-base text-slate-700">
-              Includes all current BAP associate certificates and the Business
+              Includes current BAP associate certificates and the Business
               Administration Certificate.
             </p>
           </div>
@@ -185,7 +184,8 @@ export function ByProgramSection() {
             className="border border-dashed border-slate-300 bg-white/70 px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
             variants={fadeUp}
           >
-            Use the dropdown above to pick a program. This section will show:
+            Use the dropdown above to pick a program. When you select one, you
+            will see:
             <ul className="mt-2 space-y-1">
               <li>
                 - Time commitment and how it compares to 2 and 4 year paths.
@@ -195,7 +195,7 @@ export function ByProgramSection() {
                 programs.
               </li>
               <li>
-                - Example jobs, wages and openings connected to that program.
+                - Example jobs, wages and openings linked to that program.
               </li>
             </ul>
           </motion.div>
@@ -313,16 +313,16 @@ export function ByProgramSection() {
                     Job prospects and opportunities
                   </p>
                   <p className="mt-2 text-base text-slate-800">
-                    Based on the BAP labour market analysis, these are examples
-                    of roles this program connects to.
+                    Based on the BAP labour market analysis, here are example
+                    roles this program can connect to.
                   </p>
                 </div>
 
                 <div className="px-5 py-4 space-y-3 max-h-[360px] overflow-y-auto text-base">
                   {relatedJobs.length === 0 && (
                     <p className="text-base text-slate-800">
-                      Job information for this program will be added as the
-                      dataset is completed.
+                      Job information for this program will be added as the data
+                      is updated.
                     </p>
                   )}
 

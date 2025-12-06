@@ -2,7 +2,6 @@
 
 "use client";
 
-import { Timer, GraduationCap, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
 
 const container = {
@@ -48,7 +47,7 @@ export function TimeComparisonStrip() {
         <div className="absolute -left-24 top-10 h-40 w-40 rounded-full bg-[#d71920]/15 blur-3xl" />
         <div className="absolute -right-24 bottom-0 h-44 w-44 rounded-full bg-[#005f63]/15 blur-3xl" />
 
-        {/* subtle donut graphic to hint at pathway mix */}
+        {/* subtle donut graphic in the background */}
         <motion.div
           className="hidden md:block absolute -right-40 -bottom-40 h-100 w-100"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -104,8 +103,8 @@ export function TimeComparisonStrip() {
           <p className="text-base text-slate-800 max-w-3xl mb-4">
             All options build business skills, but the{" "}
             <span className="font-semibold">time commitment</span> is very
-            different. This guide shows where CNC’s shorter business programs
-            sit beside typical 2 year and 4 year business paths.
+            different. This overview shows where CNC’s shorter business programs
+            fit alongside typical 2 year and 4 year business paths.
           </p>
         </motion.div>
 
@@ -205,8 +204,8 @@ export function TimeComparisonStrip() {
               </p>
             </div>
             <p className="text-base text-slate-800">
-              Longer programs offered by various institutions that go beyond the
-              shorter CNC business credentials shown on this page.
+              Longer business programs offered by colleges and universities that
+              sit beyond the shorter CNC business credentials on this page.
             </p>
             <ul className="mt-1 space-y-1.5 text-base text-slate-800">
               <li>• 2 year diploma or 4 year degree length.</li>
@@ -223,7 +222,7 @@ export function TimeComparisonStrip() {
           className="mt-3 text-base text-slate-700 max-w-3xl"
           variants={fadeUp}
         >
-          This tool highlights shorter CNC business pathways so students can see
+          This page highlights shorter CNC business pathways so students can see
           options that take less time than a traditional 2 year or 4 year
           program, with the ability to{" "}
           <span className="font-semibold">stack into higher credentials</span>{" "}
