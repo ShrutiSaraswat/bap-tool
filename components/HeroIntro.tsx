@@ -18,6 +18,29 @@ export function HeroIntro() {
         <div className="absolute right-[-32px] top-6 h-64 w-64 rounded-full bg-[#005f63]/20 blur-3xl" />
         <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/45 blur-3xl" />
 
+        {/* Thick ring cluster near right (no text, no rotation) */}
+        <div className="absolute right-[1%] top-[14%] h-60 w-60">
+          <div className="relative h-full w-full">
+            <div className="absolute inset-0 rounded-full border-[12px] border-white/75 bg-gradient-to-br from-[#005f63]/16 via-transparent to-[#d71920]/14 shadow-[0_0_0_1px_rgba(148,163,184,0.5)]" />
+            <div className="absolute inset-7 rounded-full border-[9px] border-[#0f172a]/20" />
+          </div>
+        </div>
+
+        {/* Thick ring cluster bottom-left */}
+        <div className="absolute -right-24 bottom-[-48px] h-100 w-100">
+          <div className="relative h-full w-full">
+            <div className="absolute inset-0 rounded-full border-[14px] border-white/70 bg-gradient-to-tr from-[#d71920]/34 via-transparent to-[#005f63]/14 opacity-90 shadow-[0_0_0_1px_rgba(148,163,184,0.4)]" />
+            <div className="absolute inset-8 rounded-full border-[10px] border-[#0f172a]/22" />
+          </div>
+        </div>
+
+        {/* Small accent ring near center-left */}
+        <div className="absolute left-[1%] top-[35%] h-45 w-45">
+          <div className="relative h-full w-full">
+            <div className="absolute inset-0 rounded-full border-[9px] border-white/80 bg-gradient-to-br from-pink-200/60 via-transparent to-[#0f172a]/18 shadow-[0_0_0_1px_rgba(148,163,184,0.35)]" />
+          </div>
+        </div>
+
         {/* Bottom soft band */}
         <div className="absolute inset-x-6 bottom-[-4rem] h-40 rounded-[3rem] bg-gradient-to-r from-[#0f172a]/7 via-transparent to-[#0f172a]/7 blur-2xl" />
 
