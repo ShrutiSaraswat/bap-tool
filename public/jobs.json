@@ -12,7 +12,16 @@
       "internal auditor"
     ],
     "typicalEmployers": "Public practice accounting firms, corporate finance departments, government ministries, Indigenous organizations, non profit agencies, and small or medium sized businesses.",
-    "programIds": ["assoc-auditing-data-analytics"]
+    "programIds": ["assoc-auditing-data-analytics"],
+    "linkedProgramIds": ["assoc-auditing-data-analytics"],
+    "medianHourlyWage": 40.0,
+    "medianAnnualSalary": 83200,
+    "wageBand": "medium_high",
+    "projectedOpeningsBC": 7200,
+    "opportunityLevel": "high",
+    "region": "British Columbia",
+    "regionalNotes": "Strong demand in public practice firms and industry finance roles across BC.",
+    "description": "Examine and analyze financial records to ensure accuracy and compliance, prepare financial statements and reports, design or maintain accounting systems, and provide advice on taxation and internal controls."
   },
   {
     "id": "accounting-technician-bookkeeper-12200",
@@ -27,7 +36,16 @@
       "full cycle bookkeeper"
     ],
     "typicalEmployers": "Public practice firms, small and medium businesses, retail and service companies, non profit and Indigenous organizations, and municipal or regional governments.",
-    "programIds": ["assoc-auditing-data-analytics"]
+    "programIds": ["assoc-auditing-data-analytics"],
+    "linkedProgramIds": ["assoc-auditing-data-analytics"],
+    "medianHourlyWage": 28.0,
+    "medianAnnualSalary": 58240,
+    "wageBand": "medium",
+    "projectedOpeningsBC": 7800,
+    "opportunityLevel": "high",
+    "region": "British Columbia",
+    "regionalNotes": "Steady replacement demand for bookkeeping and technician roles in northern and central BC.",
+    "description": "Maintain complete sets of books, record and reconcile financial transactions, prepare trial balances and basic financial reports, and support accountants with day to day accounting tasks."
   },
   {
     "id": "accounting-clerk-14200",
@@ -46,7 +64,20 @@
       "assoc-auditing-data-analytics",
       "assoc-business-fundamentals",
       "cert-business-administration"
-    ]
+    ],
+    "linkedProgramIds": [
+      "assoc-auditing-data-analytics",
+      "assoc-business-fundamentals",
+      "cert-business-administration"
+    ],
+    "medianHourlyWage": 28.0,
+    "medianAnnualSalary": 58240,
+    "wageBand": "medium",
+    "projectedOpeningsBC": 10570,
+    "opportunityLevel": "high",
+    "region": "British Columbia",
+    "regionalNotes": "Steady replacement demand in northern and central BC.",
+    "description": "Calculate, prepare, and process invoices, accounts payable and receivable, payroll inputs, budgets, and other financial records following established procedures."
   },
   {
     "id": "database-analyst-21223",
@@ -64,7 +95,19 @@
     "programIds": [
       "assoc-auditing-data-analytics",
       "assoc-business-analysis-project-management"
-    ]
+    ],
+    "linkedProgramIds": [
+      "assoc-auditing-data-analytics",
+      "assoc-business-analysis-project-management"
+    ],
+    "medianHourlyWage": 42.0,
+    "medianAnnualSalary": 87360,
+    "wageBand": "medium_high",
+    "projectedOpeningsBC": 2100,
+    "opportunityLevel": "emerging",
+    "region": "British Columbia",
+    "regionalNotes": "Growing demand as organizations expand data and analytics capabilities.",
+    "description": "Design and support data management solutions, create and maintain databases, apply data standards and security policies, and help organizations turn raw data into reliable information."
   },
   {
     "id": "project-coordinator-13100",
@@ -79,7 +122,16 @@
       "operations coordinator"
     ],
     "typicalEmployers": "Municipal and regional governments, health and education organizations, construction and resource companies, non profit and Indigenous organizations, and professional services firms.",
-    "programIds": ["assoc-business-analysis-project-management"]
+    "programIds": ["assoc-business-analysis-project-management"],
+    "linkedProgramIds": ["assoc-business-analysis-project-management"],
+    "medianHourlyWage": 31.0,
+    "medianAnnualSalary": 64480,
+    "wageBand": "medium_high",
+    "projectedOpeningsBC": 9000,
+    "opportunityLevel": "high",
+    "region": "British Columbia",
+    "regionalNotes": "Strong outlook in public sector, construction, and community based projects.",
+    "description": "Coordinate office and project administration, track timelines and budgets, prepare reports and documentation, support procurement and logistics, and help teams deliver projects on schedule."
   },
   {
     "id": "business-systems-specialist-21221",
@@ -94,7 +146,16 @@
       "systems analyst"
     ],
     "typicalEmployers": "IT consulting and software firms, corporate IT departments, government ministries and Crown corporations, financial institutions, and larger Indigenous or community organizations.",
-    "programIds": ["assoc-business-analysis-project-management"]
+    "programIds": ["assoc-business-analysis-project-management"],
+    "linkedProgramIds": ["assoc-business-analysis-project-management"],
+    "medianHourlyWage": 45.0,
+    "medianAnnualSalary": 93600,
+    "wageBand": "medium_high",
+    "projectedOpeningsBC": 2300,
+    "opportunityLevel": "medium_high",
+    "region": "British Columbia",
+    "regionalNotes": "Demand concentrated in IT consulting, finance, and government digital teams.",
+    "description": "Analyze business processes and systems, document requirements, test and implement system changes, and translate business needs into technical solutions that improve performance."
   },
   {
     "id": "administrative-assistant-13110",
@@ -115,7 +176,22 @@
       "assoc-recruitment-specialist",
       "assoc-small-business",
       "cert-business-administration"
-    ]
+    ],
+    "linkedProgramIds": [
+      "assoc-business-analysis-project-management",
+      "assoc-business-fundamentals",
+      "assoc-recruitment-specialist",
+      "assoc-small-business",
+      "cert-business-administration"
+    ],
+    "medianHourlyWage": 26.37,
+    "medianAnnualSalary": 54850,
+    "wageBand": "medium",
+    "projectedOpeningsBC": 13410,
+    "opportunityLevel": "very_high",
+    "region": "British Columbia",
+    "regionalNotes": "Strong ongoing openings in offices across BC.",
+    "description": "Provide administrative and clerical support such as preparing documents and correspondence, scheduling, data entry, record keeping, and front line communication with clients or students."
   },
   {
     "id": "administrative-officer-13100",
@@ -134,7 +210,20 @@
       "assoc-business-essentials",
       "assoc-small-business",
       "cert-business-administration"
-    ]
+    ],
+    "linkedProgramIds": [
+      "assoc-business-essentials",
+      "assoc-small-business",
+      "cert-business-administration"
+    ],
+    "medianHourlyWage": 31.25,
+    "medianAnnualSalary": 65000,
+    "wageBand": "medium_high",
+    "projectedOpeningsBC": 9460,
+    "opportunityLevel": "high",
+    "region": "British Columbia",
+    "regionalNotes": "Good outlook in Cariboo and across northern BC.",
+    "description": "Oversee and coordinate office procedures, supervise support staff, manage records and contracts, support budgets and purchasing, and recommend improvements to administrative systems."
   },
   {
     "id": "hr-recruitment-officer-12101",
@@ -153,7 +242,20 @@
       "assoc-business-essentials",
       "assoc-recruitment-specialist",
       "assoc-small-business"
-    ]
+    ],
+    "linkedProgramIds": [
+      "assoc-business-essentials",
+      "assoc-recruitment-specialist",
+      "assoc-small-business"
+    ],
+    "medianHourlyWage": 35.0,
+    "medianAnnualSalary": 72800,
+    "wageBand": "medium_high",
+    "projectedOpeningsBC": 2280,
+    "opportunityLevel": "medium_high",
+    "region": "British Columbia",
+    "regionalNotes": "Good provincial outlook for HR and recruitment roles.",
+    "description": "Plan and carry out staffing activities including posting positions, screening applicants, coordinating interviews, checking references, and supporting onboarding while ensuring fair and inclusive practices."
   },
   {
     "id": "financial-sales-rep-63102",
@@ -168,7 +270,16 @@
       "client advisor banking"
     ],
     "typicalEmployers": "Banks, credit unions, trust companies, and other financial institutions that serve individuals and small and medium businesses.",
-    "programIds": ["assoc-business-essentials"]
+    "programIds": ["assoc-business-essentials"],
+    "linkedProgramIds": ["assoc-business-essentials"],
+    "medianHourlyWage": 27.0,
+    "medianAnnualSalary": 56160,
+    "wageBand": "medium",
+    "projectedOpeningsBC": 3740,
+    "opportunityLevel": "medium_high",
+    "region": "British Columbia",
+    "regionalNotes": "Stable demand in banking and financial services.",
+    "description": "Sell and explain banking and investment products such as accounts, loans, lines of credit, and basic investment options to individuals and small businesses."
   },
   {
     "id": "small-business-owner-self-employment",
@@ -183,7 +294,16 @@
       "self employed operator"
     ],
     "typicalEmployers": "Self employment in sectors such as retail, tourism, trades, transportation, technology, creative industries, and community based services.",
-    "programIds": ["assoc-business-essentials", "assoc-small-business"]
+    "programIds": ["assoc-business-essentials", "assoc-small-business"],
+    "linkedProgramIds": ["assoc-business-essentials", "assoc-small-business"],
+    "medianHourlyWage": null,
+    "medianAnnualSalary": 55000,
+    "wageBand": "entry_to_medium",
+    "projectedOpeningsBC": null,
+    "opportunityLevel": "broad",
+    "region": "British Columbia",
+    "regionalNotes": "Income and demand vary widely by sector and community; many supports exist for new entrepreneurs.",
+    "description": "Own and operate a small business such as a retail shop, service company, consulting practice, or online venture, often performing management, marketing, finance, and customer service tasks personally."
   },
   {
     "id": "marketing-public-relations-officer-11202",
@@ -201,7 +321,19 @@
     "programIds": [
       "assoc-business-fundamentals",
       "cert-business-administration"
-    ]
+    ],
+    "linkedProgramIds": [
+      "assoc-business-fundamentals",
+      "cert-business-administration"
+    ],
+    "medianHourlyWage": 27.0,
+    "medianAnnualSalary": 56160,
+    "wageBand": "entry_to_medium",
+    "projectedOpeningsBC": 3200,
+    "opportunityLevel": "emerging",
+    "region": "British Columbia",
+    "regionalNotes": "Many postings in BC and remote roles posted online.",
+    "description": "Develop and deliver marketing and communication plans, manage social media and campaigns, prepare promotional materials, and support public relations or fundraising activities."
   },
   {
     "id": "restaurant-food-service-manager-60030",
@@ -216,7 +348,16 @@
       "catering manager"
     ],
     "typicalEmployers": "Independent restaurants, franchise chains, hotel food and beverage departments, catering companies, and institutional food service providers.",
-    "programIds": ["assoc-hospitality-guest-experience-management"]
+    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "linkedProgramIds": ["assoc-hospitality-guest-experience-management"],
+    "medianHourlyWage": 26.44,
+    "medianAnnualSalary": 54995,
+    "wageBand": "medium",
+    "projectedOpeningsBC": 10580,
+    "opportunityLevel": "high",
+    "region": "British Columbia",
+    "regionalNotes": "Ongoing hiring driven by turnover, seasonality, and tourism activity.",
+    "description": "Plan, organize, and direct the operations of restaurants, cafes, catering services, or other food and beverage establishments, including staffing, budgets, inventory, and guest service."
   },
   {
     "id": "accommodation-service-manager-60031",
@@ -231,7 +372,16 @@
       "resort manager"
     ],
     "typicalEmployers": "Hotels, motels, resorts, lodges, student residences, and other accommodation establishments in urban, rural, and tourism based communities.",
-    "programIds": ["assoc-hospitality-guest-experience-management"]
+    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "linkedProgramIds": ["assoc-hospitality-guest-experience-management"],
+    "medianHourlyWage": 32.97,
+    "medianAnnualSalary": 68578,
+    "wageBand": "medium_high",
+    "projectedOpeningsBC": 3840,
+    "opportunityLevel": "medium_high",
+    "region": "British Columbia",
+    "regionalNotes": "Stable demand in tourism regions with seasonal peaks.",
+    "description": "Oversee the operations of hotels, motels, lodges, or other accommodation facilities, ensuring effective front desk, housekeeping, maintenance, and guest services."
   },
   {
     "id": "food-service-supervisor-62020",
@@ -246,7 +396,16 @@
       "cafeteria supervisor"
     ],
     "typicalEmployers": "Restaurants, quick service outlets, cafeterias, hospitals and care facilities, catering companies, and other food service operations.",
-    "programIds": ["assoc-hospitality-guest-experience-management"]
+    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "linkedProgramIds": ["assoc-hospitality-guest-experience-management"],
+    "medianHourlyWage": 22.0,
+    "medianAnnualSalary": 45760,
+    "wageBand": "entry_to_medium",
+    "projectedOpeningsBC": 3640,
+    "opportunityLevel": "medium",
+    "region": "British Columbia",
+    "regionalNotes": "Consistent demand in both urban and smaller community food service operations.",
+    "description": "Supervise, coordinate, and schedule staff who prepare and serve food, train team members, help manage inventory and quality, and make sure food safety standards are followed."
   },
   {
     "id": "hotel-front-desk-clerk-64314",
@@ -261,7 +420,16 @@
       "reservations clerk"
     ],
     "typicalEmployers": "Hotels, motels, inns, resorts, lodges, and other accommodation providers in cities, small towns, and tourism destinations.",
-    "programIds": ["assoc-hospitality-guest-experience-management"]
+    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "linkedProgramIds": ["assoc-hospitality-guest-experience-management"],
+    "medianHourlyWage": 20.0,
+    "medianAnnualSalary": 41600,
+    "wageBand": "entry",
+    "projectedOpeningsBC": 1300,
+    "opportunityLevel": "medium",
+    "region": "British Columbia",
+    "regionalNotes": "Entry level front desk and guest services positions appear regularly, especially in tourism seasons.",
+    "description": "Handle check in and check out, take reservations, respond to guest questions and requests, process payments, and provide information about hotel services and local attractions."
   },
   {
     "id": "compensation-staffing-clerk-14102",
@@ -276,7 +444,16 @@
       "personnel clerk"
     ],
     "typicalEmployers": "Human resources departments in government, health care, education, large private companies, and Indigenous and community organizations.",
-    "programIds": ["assoc-recruitment-specialist"]
+    "programIds": ["assoc-recruitment-specialist"],
+    "linkedProgramIds": ["assoc-recruitment-specialist"],
+    "medianHourlyWage": 26.0,
+    "medianAnnualSalary": 54080,
+    "wageBand": "medium",
+    "projectedOpeningsBC": 2000,
+    "opportunityLevel": "medium_high",
+    "region": "British Columbia",
+    "regionalNotes": "Demand follows general HR hiring trends across large employers.",
+    "description": "Support human resources teams by maintaining records related to staffing, recruitment, training, performance reviews, compensation changes, and benefits."
   },
   {
     "id": "customer-service-representative-64409",
@@ -291,7 +468,16 @@
       "client services representative"
     ],
     "typicalEmployers": "Retailers, utilities, telecommunications providers, financial institutions, public sector contact centres, and education or community service organizations.",
-    "programIds": ["cert-business-administration"]
+    "programIds": ["cert-business-administration"],
+    "linkedProgramIds": ["cert-business-administration"],
+    "medianHourlyWage": 24.0,
+    "medianAnnualSalary": 50054,
+    "wageBand": "entry_to_medium",
+    "projectedOpeningsBC": 8500,
+    "opportunityLevel": "broad",
+    "region": "British Columbia",
+    "regionalNotes": "Customer facing roles are needed in many sectors with ongoing turnover driven openings.",
+    "description": "Respond to customer questions, provide information about products and services, handle orders and payments, and resolve basic concerns in person, online, or by phone."
   },
   {
     "id": "junior-analyst-41402",
@@ -306,6 +492,15 @@
       "program evaluation analyst"
     ],
     "typicalEmployers": "Government and regional development agencies, market research firms, banks, large corporations, Indigenous economic development organizations, and consulting companies.",
-    "programIds": ["cert-business-administration"]
+    "programIds": ["cert-business-administration"],
+    "linkedProgramIds": ["cert-business-administration"],
+    "medianHourlyWage": 30.0,
+    "medianAnnualSalary": 62400,
+    "wageBand": "medium_high",
+    "projectedOpeningsBC": 2000,
+    "opportunityLevel": "emerging",
+    "region": "British Columbia",
+    "regionalNotes": "Analyst roles are growing as organizations rely more on data for decisions.",
+    "description": "Collect and analyze data about markets, customers, or economic trends, prepare reports and dashboards, and support projects that aim to grow programs, services, or business activity."
   }
 ]

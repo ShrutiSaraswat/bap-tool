@@ -2,14 +2,21 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { BriefcaseBusiness, Search, MapPin } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  Search,
+  CircleDollarSign,
+  TrendingUp,
+  MapPin,
+} from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
 type Program = {
   id: string;
   name: string;
   credentialType?: string;
-  region?: string;
+  shortTagline?: string;
+  overview?: string;
   timeCommitment?: {
     label?: string;
     approxMonths?: number;
@@ -20,7 +27,9 @@ type Program = {
     stacksInto?: string[];
     stackMessage?: string;
   };
-  jobIds?: string[];
+  region?: string;
+  earningBand?: string;
+  opportunityBand?: string;
 };
 
 type Job = {
@@ -32,8 +41,35 @@ type Job = {
   typicalJobTitles?: string[];
   typicalEmployers?: string;
   programIds?: string[];
+  linkedProgramIds?: string[];
+
+  medianHourlyWage?: number | null;
+  medianAnnualSalary?: number | null;
+  wageBand?: string;
+  projectedOpeningsBC?: number | null;
+  opportunityLevel?: string;
+  region?: string;
+  regionalNotes?: string;
+  description?: string;
 };
 
+const earningBandLabels: Record<string, string> = {
+  entry: "Entry (around $18-22/hr)",
+  entry_to_medium: "Entry to medium ($20-26/hr)",
+  medium: "Medium (around $24-30/hr)",
+  medium_high: "Medium to high ($28-35+/hr)",
+};
+
+const opportunityLabels: Record<string, string> = {
+  medium: "Some opportunities in the region",
+  medium_high: "Good opportunities in the region",
+  high: "Strong opportunities in the region",
+  very_high: "Very strong and stable demand",
+  broad: "Broad opportunities across sectors",
+  emerging: "Emerging or growing area",
+};
+
+// Motion variants (for top area / empty state)
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 18 },
   visible: {
@@ -77,15 +113,16 @@ export function ByJobSection() {
 
   const selectedJob = jobs.find((j) => j.id === selectedJobId) || null;
 
-  // Robust link: use job.programIds if present, and also program.jobIds
-  const linkedPrograms: Program[] =
-    selectedJob == null
-      ? []
-      : programs.filter((p) => {
-          const fromJob = selectedJob.programIds?.includes(p.id);
-          const fromProgram = p.jobIds?.includes(selectedJob.id);
-          return Boolean(fromJob || fromProgram);
-        });
+  // Use linkedProgramIds if present, otherwise programIds (for safety with new dataset)
+  const programIdsForJob =
+    selectedJob?.linkedProgramIds && selectedJob.linkedProgramIds.length > 0
+      ? selectedJob.linkedProgramIds
+      : selectedJob?.programIds ?? [];
+
+  const linkedPrograms =
+    programIdsForJob
+      .map((pid) => programs.find((p) => p.id === pid))
+      .filter(Boolean) ?? [];
 
   return (
     <section
@@ -119,9 +156,11 @@ export function ByJobSection() {
               Start with the job you have in mind.
             </h2>
             <p className="text-base text-slate-800">
-              Choose a job title you are interested in. You will see what the
-              work involves, typical job titles and employers, and which CNC
-              business programs can help you move toward that role.
+              Choose a job title you are interested in. You will see typical
+              wages, the number of openings in British Columbia, and which CNC
+              business programs can help you move toward that role. This makes
+              it easier to compare shorter, stackable credentials with longer 2
+              or 4 year paths.
             </p>
           </div>
 
@@ -163,9 +202,16 @@ export function ByJobSection() {
           >
             Use the dropdown above to pick a job. For each job, this page shows:
             <ul className="mt-2 space-y-1">
-              <li>- A short summary of what the job involves.</li>
-              <li>- Example job titles and typical employers.</li>
-              <li>- CNC programs that prepare you for that kind of work.</li>
+              <li>
+                - Typical median hourly wage and approximate annual salary.
+              </li>
+              <li>
+                - Approximate number of openings in BC based on forecasts.
+              </li>
+              <li>
+                - Short CNC business programs that can be good starting points
+                toward that role.
+              </li>
             </ul>
           </motion.div>
         )}
@@ -181,8 +227,8 @@ export function ByJobSection() {
           >
             {/* Job details card */}
             <div className="relative">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-slate-200/60 via-white to-slate-100 opacity-70" />
-              <div className="relative border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(15,23,42,0.12)] overflow-hidden">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-slate-200/60 via-white to-slate-100 opacity-70 z-0" />
+              <div className="relative z-10 border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(15,23,42,0.12)] overflow-hidden">
                 <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
                   <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 flex items-center gap-2">
                     <BriefcaseBusiness className="h-4 w-4 text-slate-800" />
@@ -191,39 +237,119 @@ export function ByJobSection() {
                   <h3 className="mt-2 text-xl sm:text-2xl font-semibold text-slate-900">
                     {selectedJob.title}
                   </h3>
-                  {(selectedJob.noc2021 || selectedJob.nocTitle) && (
+                  {selectedJob.noc2021 && (
                     <p className="mt-1 text-base text-slate-700">
-                      {selectedJob.noc2021 && <>NOC {selectedJob.noc2021}</>}{" "}
-                      {selectedJob.nocTitle && <>- {selectedJob.nocTitle}</>}
+                      NOC {selectedJob.noc2021}
+                      {selectedJob.nocTitle ? ` - ${selectedJob.nocTitle}` : ""}
                     </p>
                   )}
                 </div>
 
                 <div className="px-5 py-4 space-y-4 text-base text-slate-800">
-                  {selectedJob.shortSummary && (
-                    <p className="text-slate-800">{selectedJob.shortSummary}</p>
+                  {(selectedJob.shortSummary || selectedJob.description) && (
+                    <p className="text-slate-800">
+                      {selectedJob.shortSummary || selectedJob.description}
+                    </p>
+                  )}
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {/* Wage */}
+                    <div className="border border-slate-200 rounded-xl px-4 py-3 bg-slate-50">
+                      <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 mb-2">
+                        Typical wages
+                      </p>
+                      <div className="space-y-1 text-base text-slate-800">
+                        {selectedJob.medianHourlyWage != null && (
+                          <p>
+                            Median wage: $
+                            {selectedJob.medianHourlyWage.toFixed(2)}/hr
+                          </p>
+                        )}
+                        {(() => {
+                          const annual =
+                            selectedJob.medianAnnualSalary ??
+                            (selectedJob.medianHourlyWage
+                              ? selectedJob.medianHourlyWage * 40 * 52
+                              : null);
+                          return (
+                            annual && (
+                              <p>
+                                ≈ ${annual.toLocaleString("en-CA")} per year
+                              </p>
+                            )
+                          );
+                        })()}
+                        {selectedJob.wageBand && (
+                          <p className="text-base text-slate-700">
+                            {earningBandLabels[selectedJob.wageBand] ??
+                              "Earning potential information available"}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Opportunities */}
+                    <div className="border border-slate-200 rounded-xl px-4 py-3 bg-slate-50">
+                      <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 mb-2">
+                        Opportunities
+                      </p>
+                      <div className="space-y-1 text-base text-slate-800">
+                        {selectedJob.projectedOpeningsBC != null && (
+                          <p>
+                            Approx.{" "}
+                            {selectedJob.projectedOpeningsBC.toLocaleString(
+                              "en-CA"
+                            )}{" "}
+                            openings in BC (forecast)
+                          </p>
+                        )}
+                        {selectedJob.opportunityLevel && (
+                          <p className="text-base text-slate-700">
+                            {opportunityLabels[selectedJob.opportunityLevel] ??
+                              "Opportunity information available"}
+                          </p>
+                        )}
+                        {selectedJob.regionalNotes && (
+                          <p className="text-sm text-slate-600">
+                            {selectedJob.regionalNotes}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {selectedJob.region && (
+                    <p className="flex items-center gap-2 text-base text-slate-700">
+                      <MapPin className="h-4 w-4 text-slate-800" />
+                      Region: {selectedJob.region}
+                    </p>
                   )}
 
                   {selectedJob.typicalJobTitles &&
                     selectedJob.typicalJobTitles.length > 0 && (
-                      <div>
-                        <p className="font-semibold text-slate-900 mb-1">
+                      <div className="pt-1">
+                        <p className="text-base font-semibold text-slate-800 mb-1">
                           Typical job titles
                         </p>
-                        <ul className="list-disc list-inside space-y-0.5 text-slate-800">
-                          {selectedJob.typicalJobTitles.map((title) => (
-                            <li key={title}>{title}</li>
+                        <div className="flex flex-wrap gap-1.5">
+                          {selectedJob.typicalJobTitles.map((t) => (
+                            <span
+                              key={t}
+                              className="rounded-full bg-slate-50 border border-slate-200 px-3 py-1 text-sm text-slate-700"
+                            >
+                              {t}
+                            </span>
                           ))}
-                        </ul>
+                        </div>
                       </div>
                     )}
 
                   {selectedJob.typicalEmployers && (
-                    <div>
-                      <p className="font-semibold text-slate-900 mb-1">
+                    <div className="pt-1">
+                      <p className="text-base font-semibold text-slate-800 mb-1">
                         Typical employers
                       </p>
-                      <p className="text-slate-800">
+                      <p className="text-base text-slate-700">
                         {selectedJob.typicalEmployers}
                       </p>
                     </div>
@@ -234,16 +360,16 @@ export function ByJobSection() {
 
             {/* Programs that lead here */}
             <div className="relative">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#005f63]/12 via-white to-[#d71920]/10 opacity-80" />
-              <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.15)] overflow-hidden">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#005f63]/12 via-white to-[#d71920]/10 opacity-80 z-0" />
+              <div className="relative z-10 border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.15)] overflow-hidden">
                 <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
                   <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700">
                     CNC programs connected to this job
                   </p>
                   <p className="mt-2 text-base text-slate-800">
-                    These CNC business credentials are directly linked to this
-                    job in the pathway data. They can be starting points or
-                    stackable steps toward this kind of role.
+                    These are shorter CNC business programs that can be useful
+                    starting points toward this role. Many can later be stacked
+                    into a 1 year certificate or 2 year diploma.
                   </p>
                 </div>
 
@@ -254,49 +380,66 @@ export function ByJobSection() {
                     </p>
                   )}
 
-                  {linkedPrograms.map((p) => (
-                    <motion.div
-                      key={p.id}
-                      className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.25 }}
-                    >
-                      <div className="flex flex-wrap items-baseline justify-between gap-3">
-                        <div>
-                          <p className="font-semibold text-slate-900">
-                            {p.name}
-                          </p>
-                          {p.credentialType && (
+                  {linkedPrograms.map((program) => {
+                    const p = program as Program;
+                    return (
+                      <motion.div
+                        key={p.id}
+                        className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.25 }}
+                      >
+                        <div className="flex flex-wrap items-baseline justify-between gap-3">
+                          <div>
+                            <p className="font-semibold text-slate-900">
+                              {p.name}
+                            </p>
+                            {p.credentialType && (
+                              <p className="text-base text-slate-700">
+                                {p.credentialType}
+                              </p>
+                            )}
+                          </div>
+                          {p.timeCommitment?.label && (
                             <p className="text-base text-slate-700">
-                              {p.credentialType}
+                              {p.timeCommitment.label}
                             </p>
                           )}
                         </div>
-                        {p.timeCommitment?.label && (
-                          <p className="text-base text-slate-700">
-                            {p.timeCommitment.label}
+
+                        {p.stackability?.stackMessage && (
+                          <p className="text-base text-slate-800">
+                            <span className="font-semibold">
+                              Stackable pathway:
+                            </span>{" "}
+                            {p.stackability.stackMessage}
                           </p>
                         )}
-                      </div>
 
-                      {p.stackability?.stackMessage && (
-                        <p className="text-base text-slate-800">
-                          <span className="font-semibold">
-                            Stackable pathway:
-                          </span>{" "}
-                          {p.stackability.stackMessage}
-                        </p>
-                      )}
-
-                      {p.region && (
-                        <p className="flex items-center gap-2 text-base text-slate-700 pt-1">
-                          <MapPin className="h-4 w-4 text-slate-800" />
-                          {p.region}
-                        </p>
-                      )}
-                    </motion.div>
-                  ))}
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {p.earningBand && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
+                              <CircleDollarSign className="h-4 w-4" />
+                              <span>
+                                {earningBandLabels[p.earningBand] ??
+                                  "Earning potential information available"}
+                              </span>
+                            </span>
+                          )}
+                          {p.opportunityBand && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
+                              <TrendingUp className="h-4 w-4" />
+                              <span>
+                                {opportunityLabels[p.opportunityBand] ??
+                                  "Opportunities in the region"}
+                              </span>
+                            </span>
+                          )}
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
