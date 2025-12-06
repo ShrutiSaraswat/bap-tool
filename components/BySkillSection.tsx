@@ -11,9 +11,9 @@ import {
 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
-import programsData from "./programs.json";
-import programBandsData from "./programsBand.json";
-import skillsData from "./skills.json";
+import programsData from "../public/programs.json";
+import programBandsData from "../public/programsBand.json";
+import skillsData from "../public/skills.json";
 
 type Program = {
   id: string;

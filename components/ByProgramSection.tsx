@@ -12,9 +12,9 @@ import {
 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
-import programsData from "./programs.json";
-import jobsData from "./jobs.json";
-import programBandsData from "./programsBand.json";
+import programsData from "../public/programs.json";
+import jobsData from "../public/jobs.json";
+import programBandsData from "../public/programsBand.json";
 
 type Program = {
   id: string;

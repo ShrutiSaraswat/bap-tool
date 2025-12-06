@@ -1,176 +1,311 @@
 [
   {
-    "id": "administrative_officer",
-    "title": "Administrative Officer / Office Manager",
-    "noc2021": "13100",
-    "linkedProgramIds": [
-      "assoc_business_essentials",
-      "cert_business_administration"
+    "id": "financial-auditor-accountant-11100",
+    "title": "Financial auditor or accountant",
+    "noc2021": "11100",
+    "nocTitle": "Financial auditors and accountants",
+    "shortSummary": "Examine and analyze financial records to ensure accuracy and compliance, prepare financial statements and reports, design or maintain accounting systems, and provide advice on taxation and internal controls.",
+    "typicalJobTitles": [
+      "financial auditor",
+      "accountant",
+      "senior accountant",
+      "internal auditor"
     ],
-    "medianHourlyWage": 31.25,
-    "wageBand": "medium_high",
-    "projectedOpeningsBC": 9460,
-    "opportunityLevel": "high",
-    "region": "British Columbia",
-    "regionalNotes": "Good outlook in Cariboo and across northern BC.",
-    "description": "Coordinate office operations, supervise staff, handle budgets and scheduling, and support managers in day-to-day operations."
+    "typicalEmployers": "Public practice accounting firms, corporate finance departments, government ministries, Indigenous organizations, non profit agencies, and small or medium sized businesses.",
+    "programIds": ["assoc-auditing-data-analytics"]
   },
   {
-    "id": "hr_officer",
-    "title": "Human Resources and Recruitment Officer",
-    "noc2021": "12101",
-    "linkedProgramIds": [
-      "assoc_business_essentials",
-      "cert_business_administration"
+    "id": "accounting-technician-bookkeeper-12200",
+    "title": "Accounting technician or bookkeeper",
+    "noc2021": "12200",
+    "nocTitle": "Accounting technicians and bookkeepers",
+    "shortSummary": "Maintain complete sets of books, record and reconcile financial transactions, prepare trial balances and basic financial reports, and support accountants with day to day accounting tasks.",
+    "typicalJobTitles": [
+      "accounting technician",
+      "bookkeeper",
+      "finance technician",
+      "full cycle bookkeeper"
     ],
-    "medianHourlyWage": 35.0,
-    "wageBand": "medium_high",
-    "projectedOpeningsBC": 2280,
-    "opportunityLevel": "medium_high",
-    "region": "British Columbia",
-    "regionalNotes": "Good provincial outlook for HR and recruitment roles.",
-    "description": "Specialize in hiring, onboarding, employee relations and HR policies."
+    "typicalEmployers": "Public practice firms, small and medium businesses, retail and service companies, non profit and Indigenous organizations, and municipal or regional governments.",
+    "programIds": ["assoc-auditing-data-analytics"]
   },
   {
-    "id": "financial_sales_rep",
-    "title": "Financial Sales Representative",
-    "noc2021": "63102",
-    "linkedProgramIds": ["assoc_business_essentials"],
-    "medianHourlyWage": null,
-    "wageBand": "medium",
-    "projectedOpeningsBC": 3740,
-    "opportunityLevel": "medium_high",
-    "region": "British Columbia",
-    "regionalNotes": "Stable demand in banking and financial services.",
-    "description": "Advise clients on banking products, credit, and investment options."
-  },
-
-  {
-    "id": "administrative_assistant",
-    "title": "Administrative Assistant",
-    "noc2021": "13110",
-    "linkedProgramIds": [
-      "assoc_business_fundamentals",
-      "cert_business_administration"
-    ],
-    "medianHourlyWage": 26.37,
-    "wageBand": "medium",
-    "projectedOpeningsBC": 13410,
-    "opportunityLevel": "very_high",
-    "region": "British Columbia",
-    "regionalNotes": "Strong ongoing openings in offices across BC.",
-    "description": "Support day-to-day office operations, scheduling, documentation and customer inquiries."
-  },
-
-  {
-    "id": "accounting_clerk",
-    "title": "Accounting / Bookkeeping Clerk",
+    "id": "accounting-clerk-14200",
+    "title": "Accounting or finance clerk",
     "noc2021": "14200",
-    "linkedProgramIds": [
-      "assoc_business_fundamentals",
-      "cert_business_administration"
+    "nocTitle": "Accounting and related clerks",
+    "shortSummary": "Calculate, prepare, and process invoices, accounts payable and receivable, payroll inputs, budgets, and other financial records following established procedures.",
+    "typicalJobTitles": [
+      "accounts payable clerk",
+      "accounts receivable clerk",
+      "billing clerk",
+      "accounting clerk"
     ],
-    "medianHourlyWage": 28.0,
-    "wageBand": "medium",
-    "projectedOpeningsBC": 10570,
-    "opportunityLevel": "high",
-    "region": "British Columbia",
-    "regionalNotes": "Steady replacement demand in northern and central BC.",
-    "description": "Maintain financial records, process invoices, reconcile accounts and produce basic financial reports."
+    "typicalEmployers": "Private companies, health and education organizations, Indigenous governments, local and regional governments, and non profit agencies.",
+    "programIds": [
+      "assoc-auditing-data-analytics",
+      "assoc-business-fundamentals",
+      "cert-business-administration"
+    ]
   },
-
   {
-    "id": "marketing_assistant",
-    "title": "Marketing / Communications Assistant",
+    "id": "database-analyst-21223",
+    "title": "Database analyst or data administrator",
+    "noc2021": "21223",
+    "nocTitle": "Database analysts and data administrators",
+    "shortSummary": "Design and support data management solutions, create and maintain databases, apply data standards and security policies, and help organizations turn raw data into reliable information.",
+    "typicalJobTitles": [
+      "database analyst",
+      "data analyst",
+      "database administrator",
+      "database developer"
+    ],
+    "typicalEmployers": "IT consulting firms, corporate IT departments, government agencies, health and education organizations, and large Indigenous or community based organizations with complex data needs.",
+    "programIds": [
+      "assoc-auditing-data-analytics",
+      "assoc-business-analysis-project-management"
+    ]
+  },
+  {
+    "id": "project-coordinator-13100",
+    "title": "Project coordinator or administrative officer",
+    "noc2021": "13100",
+    "nocTitle": "Administrative officers",
+    "shortSummary": "Coordinate office and project administration, track timelines and budgets, prepare reports and documentation, support procurement and logistics, and help teams deliver projects on schedule.",
+    "typicalJobTitles": [
+      "project coordinator",
+      "administrative officer",
+      "program coordinator",
+      "operations coordinator"
+    ],
+    "typicalEmployers": "Municipal and regional governments, health and education organizations, construction and resource companies, non profit and Indigenous organizations, and professional services firms.",
+    "programIds": ["assoc-business-analysis-project-management"]
+  },
+  {
+    "id": "business-systems-specialist-21221",
+    "title": "Business systems specialist or business analyst",
+    "noc2021": "21221",
+    "nocTitle": "Business systems specialists",
+    "shortSummary": "Analyze business processes and systems, document requirements, test and implement system changes, and translate business needs into technical solutions that improve performance.",
+    "typicalJobTitles": [
+      "business systems analyst",
+      "business systems specialist",
+      "IT business analyst",
+      "systems analyst"
+    ],
+    "typicalEmployers": "IT consulting and software firms, corporate IT departments, government ministries and Crown corporations, financial institutions, and larger Indigenous or community organizations.",
+    "programIds": ["assoc-business-analysis-project-management"]
+  },
+  {
+    "id": "administrative-assistant-13110",
+    "title": "Administrative assistant",
+    "noc2021": "13110",
+    "nocTitle": "Administrative assistants",
+    "shortSummary": "Provide administrative and clerical support such as preparing documents and correspondence, scheduling, data entry, record keeping, and front line communication with clients or students.",
+    "typicalJobTitles": [
+      "administrative assistant",
+      "office assistant",
+      "program assistant",
+      "reception and administrative support"
+    ],
+    "typicalEmployers": "Offices in every sector including health care, education, government, non profit, Indigenous organizations, and private sector companies.",
+    "programIds": [
+      "assoc-business-analysis-project-management",
+      "assoc-business-fundamentals",
+      "assoc-recruitment-specialist",
+      "assoc-small-business",
+      "cert-business-administration"
+    ]
+  },
+  {
+    "id": "administrative-officer-13100",
+    "title": "Administrative officer or office manager",
+    "noc2021": "13100",
+    "nocTitle": "Administrative officers",
+    "shortSummary": "Oversee and coordinate office procedures, supervise support staff, manage records and contracts, support budgets and purchasing, and recommend improvements to administrative systems.",
+    "typicalJobTitles": [
+      "administrative officer",
+      "office manager",
+      "administrative services coordinator",
+      "operations administrator"
+    ],
+    "typicalEmployers": "Small and medium businesses, government departments, school districts, health organizations, Indigenous governments, and community based agencies.",
+    "programIds": [
+      "assoc-business-essentials",
+      "assoc-small-business",
+      "cert-business-administration"
+    ]
+  },
+  {
+    "id": "hr-recruitment-officer-12101",
+    "title": "Human resources or recruitment officer",
+    "noc2021": "12101",
+    "nocTitle": "Human resources and recruitment officers",
+    "shortSummary": "Plan and carry out staffing activities including posting positions, screening applicants, coordinating interviews, checking references, and supporting onboarding while ensuring fair and inclusive practices.",
+    "typicalJobTitles": [
+      "human resources officer",
+      "recruitment officer",
+      "talent acquisition specialist",
+      "HR generalist"
+    ],
+    "typicalEmployers": "Medium and large employers in health, education, government, manufacturing, services, Indigenous organizations, and specialized staffing or recruitment firms.",
+    "programIds": [
+      "assoc-business-essentials",
+      "assoc-recruitment-specialist",
+      "assoc-small-business"
+    ]
+  },
+  {
+    "id": "financial-sales-rep-63102",
+    "title": "Financial sales representative",
+    "noc2021": "63102",
+    "nocTitle": "Financial sales representatives",
+    "shortSummary": "Sell and explain banking and investment products such as accounts, loans, lines of credit, and basic investment options to individuals and small businesses.",
+    "typicalJobTitles": [
+      "financial services representative",
+      "personal banking associate",
+      "loan officer",
+      "client advisor banking"
+    ],
+    "typicalEmployers": "Banks, credit unions, trust companies, and other financial institutions that serve individuals and small and medium businesses.",
+    "programIds": ["assoc-business-essentials"]
+  },
+  {
+    "id": "small-business-owner-self-employment",
+    "title": "Small business owner or self employed entrepreneur",
+    "noc2021": null,
+    "nocTitle": "Small business owner or self employment (various NOC codes)",
+    "shortSummary": "Own and operate a small business such as a retail shop, service company, consulting practice, or online venture, often performing management, marketing, finance, and customer service tasks personally.",
+    "typicalJobTitles": [
+      "small business owner",
+      "entrepreneur",
+      "independent consultant",
+      "self employed operator"
+    ],
+    "typicalEmployers": "Self employment in sectors such as retail, tourism, trades, transportation, technology, creative industries, and community based services.",
+    "programIds": ["assoc-business-essentials", "assoc-small-business"]
+  },
+  {
+    "id": "marketing-public-relations-officer-11202",
+    "title": "Marketing or public relations officer",
     "noc2021": "11202",
-    "linkedProgramIds": [
-      "assoc_business_fundamentals",
-      "cert_business_administration"
+    "nocTitle": "Professional occupations in advertising, marketing and public relations",
+    "shortSummary": "Develop and deliver marketing and communication plans, manage social media and campaigns, prepare promotional materials, and support public relations or fundraising activities.",
+    "typicalJobTitles": [
+      "marketing coordinator",
+      "communications officer",
+      "digital marketing specialist",
+      "public relations officer"
     ],
-    "medianHourlyWage": null,
-    "wageBand": "entry_to_medium",
-    "projectedOpeningsBC": null,
-    "opportunityLevel": "emerging",
-    "region": "British Columbia",
-    "regionalNotes": "Many postings in BC and remote roles posted online.",
-    "description": "Support campaigns, social media, events and marketing content."
+    "typicalEmployers": "Private companies, tourism and economic development agencies, non profit and Indigenous organizations, post secondary institutions, and marketing or communications firms.",
+    "programIds": [
+      "assoc-business-fundamentals",
+      "cert-business-administration"
+    ]
   },
-
   {
-    "id": "restaurant_manager",
-    "title": "Restaurant and Food Service Manager",
+    "id": "restaurant-food-service-manager-60030",
+    "title": "Restaurant or food service manager",
     "noc2021": "60030",
-    "linkedProgramIds": ["assoc_hospitality_guest_experience"],
-    "medianHourlyWage": 26.44,
-    "wageBand": "medium",
-    "projectedOpeningsBC": 10580,
-    "opportunityLevel": "high",
-    "region": "British Columbia",
-    "description": "Manage restaurant operations, staff, budgets and guest experience."
+    "nocTitle": "Restaurant and food service managers",
+    "shortSummary": "Plan, organize, and direct the operations of restaurants, cafes, catering services, or other food and beverage establishments, including staffing, budgets, inventory, and guest service.",
+    "typicalJobTitles": [
+      "restaurant manager",
+      "food service manager",
+      "cafe manager",
+      "catering manager"
+    ],
+    "typicalEmployers": "Independent restaurants, franchise chains, hotel food and beverage departments, catering companies, and institutional food service providers.",
+    "programIds": ["assoc-hospitality-guest-experience-management"]
   },
-
   {
-    "id": "accommodation_service_manager",
-    "title": "Accommodation Service Manager / Hotel Manager",
+    "id": "accommodation-service-manager-60031",
+    "title": "Accommodation service manager",
     "noc2021": "60031",
-    "linkedProgramIds": ["assoc_hospitality_guest_experience"],
-    "medianHourlyWage": 32.97,
-    "wageBand": "medium_high",
-    "projectedOpeningsBC": 3840,
-    "opportunityLevel": "medium_high",
-    "region": "British Columbia",
-    "description": "Oversee hotel or accommodation operations, staff, budgets and quality standards."
+    "nocTitle": "Accommodation service managers",
+    "shortSummary": "Oversee the operations of hotels, motels, lodges, or other accommodation facilities, ensuring effective front desk, housekeeping, maintenance, and guest services.",
+    "typicalJobTitles": [
+      "hotel manager",
+      "motel manager",
+      "accommodation services manager",
+      "resort manager"
+    ],
+    "typicalEmployers": "Hotels, motels, resorts, lodges, student residences, and other accommodation establishments in urban, rural, and tourism based communities.",
+    "programIds": ["assoc-hospitality-guest-experience-management"]
   },
-
   {
-    "id": "food_service_supervisor",
-    "title": "Food Service Supervisor",
+    "id": "food-service-supervisor-62020",
+    "title": "Food service supervisor",
     "noc2021": "62020",
-    "linkedProgramIds": ["assoc_hospitality_guest_experience"],
-    "medianHourlyWage": 22.0,
-    "wageBand": "entry_to_medium",
-    "projectedOpeningsBC": 3640,
-    "opportunityLevel": "medium",
-    "region": "British Columbia",
-    "description": "Supervise front-line food service staff and daily operations."
+    "nocTitle": "Food service supervisors",
+    "shortSummary": "Supervise, coordinate, and schedule staff who prepare and serve food, train team members, help manage inventory and quality, and make sure food safety standards are followed.",
+    "typicalJobTitles": [
+      "food service supervisor",
+      "kitchen supervisor",
+      "shift supervisor fast food",
+      "cafeteria supervisor"
+    ],
+    "typicalEmployers": "Restaurants, quick service outlets, cafeterias, hospitals and care facilities, catering companies, and other food service operations.",
+    "programIds": ["assoc-hospitality-guest-experience-management"]
   },
-
   {
-    "id": "hotel_front_desk_clerk",
-    "title": "Hotel Front Desk Clerk / Guest Services Agent",
+    "id": "hotel-front-desk-clerk-64314",
+    "title": "Hotel front desk clerk or guest services agent",
     "noc2021": "64314",
-    "linkedProgramIds": ["assoc_hospitality_guest_experience"],
-    "medianHourlyWage": 20.0,
-    "wageBand": "entry",
-    "projectedOpeningsBC": 1300,
-    "opportunityLevel": "medium",
-    "region": "British Columbia",
-    "description": "Handle guest check-in/check-out, reservations and day-to-day guest inquiries."
+    "nocTitle": "Hotel front desk clerks",
+    "shortSummary": "Handle check in and check out, take reservations, respond to guest questions and requests, process payments, and provide information about hotel services and local attractions.",
+    "typicalJobTitles": [
+      "hotel front desk clerk",
+      "guest services agent",
+      "night auditor",
+      "reservations clerk"
+    ],
+    "typicalEmployers": "Hotels, motels, inns, resorts, lodges, and other accommodation providers in cities, small towns, and tourism destinations.",
+    "programIds": ["assoc-hospitality-guest-experience-management"]
   },
-
   {
-    "id": "client_relations_rep",
-    "title": "Customer Service / Client Relations Representative",
+    "id": "compensation-staffing-clerk-14102",
+    "title": "Compensation or staffing clerk",
+    "noc2021": "14102",
+    "nocTitle": "Personnel clerks",
+    "shortSummary": "Support human resources teams by maintaining records related to staffing, recruitment, training, performance reviews, compensation changes, and benefits.",
+    "typicalJobTitles": [
+      "compensation clerk",
+      "staffing clerk",
+      "HR records clerk",
+      "personnel clerk"
+    ],
+    "typicalEmployers": "Human resources departments in government, health care, education, large private companies, and Indigenous and community organizations.",
+    "programIds": ["assoc-recruitment-specialist"]
+  },
+  {
+    "id": "customer-service-representative-64409",
+    "title": "Customer service representative",
     "noc2021": "64409",
-    "linkedProgramIds": ["cert_business_administration"],
-    "medianAnnualSalary": 50054,
-    "wageBand": "entry_to_medium",
-    "projectedOpeningsBC": null,
-    "opportunityLevel": "broad",
-    "region": "British Columbia",
-    "description": "Support clients and customers in banking, utilities, public sector and service organizations."
+    "nocTitle": "Other customer and information services representatives",
+    "shortSummary": "Respond to customer questions, provide information about products and services, handle orders and payments, and resolve basic concerns in person, online, or by phone.",
+    "typicalJobTitles": [
+      "customer service representative",
+      "contact centre agent",
+      "information clerk",
+      "client services representative"
+    ],
+    "typicalEmployers": "Retailers, utilities, telecommunications providers, financial institutions, public sector contact centres, and education or community service organizations.",
+    "programIds": ["cert-business-administration"]
   },
-
   {
-    "id": "junior_analyst",
-    "title": "Junior Analyst / Data and Reporting Assistant",
+    "id": "junior-analyst-41402",
+    "title": "Junior business or market analyst",
     "noc2021": "41402",
-    "linkedProgramIds": ["cert_business_administration"],
-    "medianHourlyWage": 30.0,
-    "wageBand": "medium_high",
-    "projectedOpeningsBC": null,
-    "opportunityLevel": "emerging",
-    "region": "British Columbia",
-    "description": "Assist with data analysis, reporting, dashboards and business insights."
+    "nocTitle": "Business development officers and market researchers and analysts",
+    "shortSummary": "Collect and analyze data about markets, customers, or economic trends, prepare reports and dashboards, and support projects that aim to grow programs, services, or business activity.",
+    "typicalJobTitles": [
+      "junior market analyst",
+      "business development analyst",
+      "research analyst",
+      "program evaluation analyst"
+    ],
+    "typicalEmployers": "Government and regional development agencies, market research firms, banks, large corporations, Indigenous economic development organizations, and consulting companies.",
+    "programIds": ["cert-business-administration"]
   }
 ]

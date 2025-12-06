@@ -1,14 +1,46 @@
 {
   "earningBands": [
-    { "id": "entry", "label": "Entry (around $18–22/hr)" },
-    { "id": "entry_to_medium", "label": "Entry to medium ($20–26/hr)" },
-    { "id": "medium", "label": "Medium (around $24–30/hr)" },
-    { "id": "medium_high", "label": "Medium to high ($28–35+/hr)" }
+    {
+      "id": "earning-entry",
+      "label": "Entry",
+      "description": "Typical starting wages for many entry level roles. Pay is often modest at first but can grow as experience and responsibilities increase."
+    },
+    {
+      "id": "earning-moderate",
+      "label": "Moderate",
+      "description": "Wages that are generally stable and competitive for early and mid career roles, especially in smaller communities or entry professional positions."
+    },
+    {
+      "id": "earning-good",
+      "label": "Good",
+      "description": "Solid earnings with potential for growth over time. Many roles in this band support long term, sustainable careers with paths into more senior positions."
+    },
+    {
+      "id": "earning-strong",
+      "label": "Strong",
+      "description": "Higher earnings for roles that typically require more responsibility, specialization, or experience. Some positions in this band can lead to leadership or advanced professional careers."
+    }
   ],
   "opportunityBands": [
-    { "id": "medium", "label": "Some opportunities in the region" },
-    { "id": "medium_high", "label": "Good opportunities in the region" },
-    { "id": "high", "label": "Strong opportunities in the region" },
-    { "id": "very_high", "label": "Very strong and stable demand" }
+    {
+      "id": "opportunity-limited",
+      "label": "Limited",
+      "description": "Fewer local openings or more competition for available roles. Opportunities may exist but can be more specialized or concentrated in certain locations."
+    },
+    {
+      "id": "opportunity-steady",
+      "label": "Steady",
+      "description": "Regular turnover and hiring activity. Graduates can expect a consistent but moderate level of opportunities over time."
+    },
+    {
+      "id": "opportunity-good",
+      "label": "Good",
+      "description": "Healthy demand with ongoing openings across multiple employers or regions. Skills often transfer across different organizations and sectors."
+    },
+    {
+      "id": "opportunity-strong",
+      "label": "Strong",
+      "description": "High demand and broad employment opportunities. Multiple sectors are hiring, and graduates with related experience are likely to see strong prospects."
+    }
   ]
 }

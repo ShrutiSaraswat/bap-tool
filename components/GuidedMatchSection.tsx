@@ -3,8 +3,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import programsData from "./programs.json";
-import programBandsData from "./programsBand.json";
+import programsData from "../public/programs.json";
+import programBandsData from "../public/programsBand.json";
 
 type Program = {
   id: string;
