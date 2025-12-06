@@ -2,6 +2,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  Layers,
+  Clock,
+  BarChart3,
+  BriefcaseBusiness,
+  Sparkles,
+  TrendingUp,
+  Target,
+} from "lucide-react";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 18 },
@@ -73,7 +82,7 @@ export function HeroIntro() {
 
           <motion.h1
             variants={fadeUp}
-            className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight max-w-5xl"
           >
             Explore short, stackable{" "}
             <span className="text-[#d71920]">business pathways</span> at CNC.
@@ -107,34 +116,55 @@ export function HeroIntro() {
           {/* Quick facts - full width */}
           <motion.div
             variants={fadeUp}
-            className="mt-4 grid w-full gap-3 text-base text-slate-800 sm:grid-cols-3"
+            className="mt-4 grid max-w-4xl gap-3 text-base text-slate-800 sm:grid-cols-3"
           >
             <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
-              <p className="font-semibold text-slate-900">
-                3 associate certificates
-              </p>
-              <p>
-                Business Essentials, Business Fundamentals and Hospitality and
-                Guest Experience Management.
-              </p>
+              <div className="flex items-start gap-3">
+                <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-[#d71920]/10 text-[#d71920]">
+                  <Layers className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900">
+                    3 associate certificates
+                  </p>
+                  <p>
+                    Business Essentials, Business Fundamentals and Hospitality
+                    and Guest Experience Management.
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
-              <p className="font-semibold text-slate-900">
-                1 year certificate option
-              </p>
-              <p>
-                A shorter time commitment than most 2 year and 4 year business
-                programs.
-              </p>
+              <div className="flex items-start gap-3">
+                <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-[#005f63]/10 text-[#005f63]">
+                  <Clock className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900">
+                    1 year certificate option
+                  </p>
+                  <p>
+                    A shorter time commitment than most 2 year and 4 year
+                    business programs.
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
-              <p className="font-semibold text-slate-900">
-                Labour market informed
-              </p>
-              <p>
-                Based on NOC codes, wage bands and outlook data for northern BC
-                and provincial labour markets.
-              </p>
+              <div className="flex items-start gap-3">
+                <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-[#f4b41a]/15 text-[#8a5a00]">
+                  <BarChart3 className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900">
+                    Labour market informed
+                  </p>
+                  <p>
+                    Based on NOC codes, wage bands and outlook data for northern
+                    BC and provincial labour markets.
+                  </p>
+                </div>
+              </div>
             </div>
           </motion.div>
 
@@ -171,51 +201,70 @@ export function HeroIntro() {
                 Choose a starting point that matches how you like to explore:
               </p>
 
-              <ol className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 h-8 w-8 shrink-0 rounded-full border border-[#d71920]/40 bg-[#d71920]/10 text-base font-semibold text-[#d71920] flex items-center justify-center">
-                    1
-                  </span>
-                  <span>
-                    <strong>By program</strong> - see time commitment, job
-                    prospects, earning potential and regional opportunities for
-                    a specific CNC business credential.
-                  </span>
-                </li>
+              {/* Visual map of the 4 exploration paths with full descriptions */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="flex flex-col sm:flex-row items-start gap-3 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-3">
+                  <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#d71920] to-[#f97316] text-white shadow-md">
+                    <BriefcaseBusiness className="h-5 w-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-base font-semibold text-slate-900">
+                      By program
+                    </p>
+                    <p className="text-base text-slate-600 leading-snug">
+                      See time commitment, job prospects, earning potential and
+                      regional opportunities for a specific CNC business
+                      credential.
+                    </p>
+                  </div>
+                </div>
 
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 h-8 w-8 shrink-0 rounded-full border border-[#005f63]/40 bg-[#005f63]/10 text-base font-semibold text-[#005f63] flex items-center justify-center">
-                    2
-                  </span>
-                  <span>
-                    <strong>By skills you want to build</strong> - if you enjoy
-                    areas like customer service, accounting or leadership and
-                    want to see which programs strengthen those skills.
-                  </span>
-                </li>
+                <div className="flex flex-col sm:flex-row items-start gap-3 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-3">
+                  <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#005f63] to-[#0ea5e9] text-white shadow-md">
+                    <Sparkles className="h-5 w-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-base font-semibold text-slate-900">
+                      By skills you want to build
+                    </p>
+                    <p className="text-base text-slate-600 leading-snug">
+                      If you enjoy areas like customer service, accounting or
+                      leadership and want to see which programs strengthen those
+                      skills.
+                    </p>
+                  </div>
+                </div>
 
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 h-8 w-8 shrink-0 rounded-full border border-[#f4b41a]/50 bg-[#f4b41a]/20 text-base font-semibold text-[#8a5a00] flex items-center justify-center">
-                    3
-                  </span>
-                  <span>
-                    <strong>By job title or earning potential</strong> - when
-                    you have a role or wage range in mind and want to find the
-                    CNC pathway that connects to it.
-                  </span>
-                </li>
+                <div className="flex flex-col sm:flex-row items-start gap-3 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-3">
+                  <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0f172a] to-[#22c55e] text-white shadow-md">
+                    <TrendingUp className="h-5 w-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-base font-semibold text-slate-900">
+                      By job title or earning potential
+                    </p>
+                    <p className="text-base text-slate-600 leading-snug">
+                      When you have a role or wage range in mind and want to
+                      find the CNC pathway that connects to it.
+                    </p>
+                  </div>
+                </div>
 
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 h-8 w-8 shrink-0 rounded-full border border-slate-400/50 bg-slate-100 text-base font-semibold text-slate-800 flex items-center justify-center">
-                    4
-                  </span>
-                  <span>
-                    <strong>Guided match</strong> - describe yourself and your
-                    interests in a few words, and the tool will suggest starting
-                    programs to consider.
-                  </span>
-                </li>
-              </ol>
+                <div className="flex flex-col sm:flex-row items-start gap-3 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-3">
+                  <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#f4b41a] to-[#fb923c] text-slate-900 shadow-md">
+                    <Target className="h-5 w-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-base font-semibold text-slate-900">
+                      Guided match
+                    </p>
+                    <p className="text-base text-slate-600 leading-snug">
+                      Describe yourself and your interests in a few words, and
+                      the tool will suggest starting programs to consider.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
               <div className="pt-3 flex flex-wrap gap-3">
                 <a

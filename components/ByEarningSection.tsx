@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { CircleDollarSign, TrendingUp, MapPin, BarChart3 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
+type BandId = "entry" | "entry_to_medium" | "medium" | "medium_high";
+
 type Program = {
   id: string;
   name: string;
@@ -17,23 +19,21 @@ type Program = {
     isStackable?: boolean;
     stackMessage?: string;
   };
-  earningBand?: string;
-  opportunityBand?: string;
+  earningBand?: BandId;
+  opportunityBand?: keyof typeof opportunityLabels;
 };
 
 type Job = {
   id: string;
   title: string;
   noc2021?: string;
-  medianHourlyWage?: number | null;
-  medianAnnualSalary?: number | null;
-  wageBand?: string;
+  medianHourlyWage?: number | string | null;
+  medianAnnualSalary?: number | string | null;
+  wageBand?: string | null;
   projectedOpeningsBC?: number | null;
   opportunityLevel?: string;
   region?: string;
 };
-
-type BandId = "entry" | "entry_to_medium" | "medium" | "medium_high";
 
 const earningBandOptions: { id: BandId; label: string }[] = [
   { id: "entry", label: "Entry ($18-22/hr approx.)" },
@@ -83,18 +83,42 @@ const fadeUp: Variants = {
   },
 };
 
+function normalizeNumber(
+  value: number | string | null | undefined
+): number | null {
+  if (value == null) return null;
+  if (typeof value === "number") return Number.isFinite(value) ? value : null;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function normalizeBand(id?: string | null): BandId | undefined {
+  if (!id) return undefined;
+  const cleaned = id.trim() as BandId;
+  if (
+    cleaned === "entry" ||
+    cleaned === "entry_to_medium" ||
+    cleaned === "medium" ||
+    cleaned === "medium_high"
+  ) {
+    return cleaned;
+  }
+  return undefined;
+}
+
 export function ByEarningsSection() {
   const [programs, setPrograms] = useState<Program[]>([]);
   const [jobs, setJobs] = useState<Job[]>([]);
   const [selectedBand, setSelectedBand] = useState<BandId | "">("");
 
+  // Load data from public JSON
   useEffect(() => {
-    fetch("/programs.json")
+    fetch("../public/programs.json")
       .then((res) => res.json())
       .then((data: Program[]) => setPrograms(data))
       .catch((err) => console.error("Error loading programs.json", err));
 
-    fetch("/jobs.json")
+    fetch("../public/jobs.json")
       .then((res) => res.json())
       .then((data: Job[]) => setJobs(data))
       .catch((err) => console.error("Error loading jobs.json", err));
@@ -106,7 +130,9 @@ export function ByEarningsSection() {
       : programs.filter((p) => p.earningBand === selectedBand);
 
   const jobsForBand =
-    selectedBand === "" ? [] : jobs.filter((j) => j.wageBand === selectedBand);
+    selectedBand === ""
+      ? []
+      : jobs.filter((j) => normalizeBand(j.wageBand) === selectedBand);
 
   return (
     <section
@@ -229,9 +255,9 @@ export function ByEarningsSection() {
                     </p>
                   )}
 
-                  {programsForBand.map((program) => (
+                  {programsForBand.map((p) => (
                     <motion.div
-                      key={program.id}
+                      key={p.id}
                       className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -240,27 +266,27 @@ export function ByEarningsSection() {
                       <div className="flex flex-wrap items-baseline justify-between gap-3">
                         <div>
                           <p className="font-semibold text-slate-900">
-                            {program.name}
+                            {p.name}
                           </p>
-                          {program.credentialType && (
+                          {p.credentialType && (
                             <p className="text-base text-slate-700">
-                              {program.credentialType}
+                              {p.credentialType}
                             </p>
                           )}
                         </div>
-                        {program.timeCommitment?.label && (
+                        {p.timeCommitment?.label && (
                           <p className="text-base text-slate-700">
-                            {program.timeCommitment.label}
+                            {p.timeCommitment.label}
                           </p>
                         )}
                       </div>
 
-                      {program.stackability?.stackMessage && (
+                      {p.stackability?.stackMessage && (
                         <p className="text-base text-slate-800">
                           <span className="font-semibold">
                             Stackable pathway:
                           </span>{" "}
-                          {program.stackability.stackMessage}
+                          {p.stackability.stackMessage}
                         </p>
                       )}
 
@@ -268,15 +294,17 @@ export function ByEarningsSection() {
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
                           <CircleDollarSign className="h-4 w-4" />
                           <span>
-                            {earningBandLabels[program.earningBand || ""] ??
-                              "Earning potential information available"}
+                            {p.earningBand
+                              ? earningBandLabels[p.earningBand] ??
+                                "Earning potential information available"
+                              : "Earning potential information available"}
                           </span>
                         </span>
-                        {program.opportunityBand && (
+                        {p.opportunityBand && (
                           <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
                             <TrendingUp className="h-4 w-4" />
                             <span>
-                              {opportunityLabels[program.opportunityBand] ??
+                              {opportunityLabels[p.opportunityBand] ??
                                 "Opportunities in the region"}
                             </span>
                           </span>
@@ -312,11 +340,13 @@ export function ByEarningsSection() {
                   )}
 
                   {jobsForBand.map((job) => {
+                    const hourly = normalizeNumber(job.medianHourlyWage);
+                    const annualDirect = normalizeNumber(
+                      job.medianAnnualSalary
+                    );
                     const annual =
-                      job.medianAnnualSalary ??
-                      (job.medianHourlyWage
-                        ? job.medianHourlyWage * 40 * 52
-                        : null);
+                      annualDirect ??
+                      (hourly != null ? hourly * 40 * 52 : null);
 
                     return (
                       <motion.div
@@ -338,12 +368,10 @@ export function ByEarningsSection() {
                             )}
                           </div>
                           <div className="text-right text-base text-slate-700">
-                            {job.medianHourlyWage && (
-                              <p>
-                                Median: ${job.medianHourlyWage.toFixed(2)}/hr
-                              </p>
+                            {hourly != null && (
+                              <p>Median: ${hourly.toFixed(2)}/hr</p>
                             )}
-                            {annual && (
+                            {annual != null && (
                               <p>
                                 ≈ ${annual.toLocaleString("en-CA")} per year
                               </p>

@@ -3,8 +3,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import programsData from "../public/programs.json";
 import programBandsData from "../public/programsBand.json";
+import collegeBg from "../public/image.png"; // ✅ update this to your real image name
 
 type Program = {
   id: string;
@@ -210,8 +212,14 @@ export function GuidedMatchSection() {
       id="guided-match"
       className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 py-10 sm:py-12 border-t border-slate-200"
     >
-      {/* soft background accent */}
+      {/* soft background accent with college image */}
       <div className="pointer-events-none absolute inset-0">
+        <Image
+          src={collegeBg}
+          alt="College campus background"
+          fill
+          className="object-cover opacity-15"
+        />
         <div className="absolute -left-32 top-16 h-64 w-64 rounded-full bg-[#005f63]/10 blur-3xl" />
         <div className="absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-[#d71920]/10 blur-3xl" />
       </div>

@@ -1,82 +1,39 @@
 // components/ByJobSection.tsx
 "use client";
 
-import { useState } from "react";
-import {
-  BriefcaseBusiness,
-  Search,
-  CircleDollarSign,
-  TrendingUp,
-  MapPin,
-} from "lucide-react";
+import { useEffect, useState } from "react";
+import { BriefcaseBusiness, Search, MapPin } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
-
-import programsData from "../public/programs.json";
-import jobsData from "../public/jobs.json";
-import programBandsData from "../public/programsBand.json";
 
 type Program = {
   id: string;
   name: string;
   credentialType?: string;
-  overview?: string;
+  region?: string;
   timeCommitment?: {
     label?: string;
     approxMonths?: number;
   };
   stackability?: {
     isStackable?: boolean;
+    stackLevel?: number;
+    stacksInto?: string[];
     stackMessage?: string;
   };
-};
-
-type ProgramBand = {
-  programId: string;
-  earningBandId?: string;
-  opportunityBandId?: string;
+  jobIds?: string[];
 };
 
 type Job = {
   id: string;
   title: string;
-  noc2021?: string;
-  description?: string; // long text (old)
-  shortSummary?: string; // short text (new)
-  medianHourlyWage?: number | null;
-  medianAnnualSalary?: number | null;
-  // bands - support both old + new names
-  wageBand?: string;
-  earningBandId?: string;
-  opportunityLevel?: string;
-  opportunityBandId?: string;
-  projectedOpeningsBC?: number | null;
-  region?: string;
-  regionNotes?: string;
-  linkedProgramIds?: string[];
+  noc2021?: string | null;
+  nocTitle?: string;
+  shortSummary?: string;
   typicalJobTitles?: string[];
   typicalEmployers?: string;
+  programIds?: string[];
 };
 
-const PROGRAMS: Program[] = programsData as Program[];
-const JOBS: Job[] = jobsData as Job[];
-const PROGRAM_BANDS: ProgramBand[] = programBandsData as ProgramBand[];
-
-// Map to IDs used in programsBand.json / bands.json
-const earningBandLabels: Record<string, string> = {
-  "earning-entry": "Entry (around $18-22/hr)",
-  "earning-moderate": "Entry to medium ($20-26/hr)",
-  "earning-good": "Medium (around $24-30/hr)",
-  "earning-strong": "Medium to high ($28-35+/hr)",
-};
-
-const opportunityLabels: Record<string, string> = {
-  "opportunity-limited": "Some opportunities in the region",
-  "opportunity-steady": "Good opportunities in the region",
-  "opportunity-good": "Strong opportunities in the region",
-  "opportunity-strong": "Very strong and stable demand",
-};
-
-// Motion variants (for top area / empty state)
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 18 },
   visible: {
@@ -101,56 +58,34 @@ const fadeUp: Variants = {
   },
 };
 
-function getProgramBand(programId: string) {
-  return PROGRAM_BANDS.find((pb) => pb.programId === programId);
-}
-
-// Helper to get a single band key, supporting both old + new fields
-function getJobEarningBandKey(job: Job): string | undefined {
-  return job.earningBandId ?? job.wageBand ?? undefined;
-}
-function getJobOpportunityBandKey(job: Job): string | undefined {
-  return job.opportunityBandId ?? job.opportunityLevel ?? undefined;
-}
-
 export function ByJobSection() {
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [programs, setPrograms] = useState<Program[]>([]);
   const [selectedJobId, setSelectedJobId] = useState("");
 
-  const jobs = JOBS;
-  const programs = PROGRAMS;
+  useEffect(() => {
+    fetch("/jobs.json")
+      .then((res) => res.json())
+      .then((data: Job[]) => setJobs(data))
+      .catch((err) => console.error("Error loading jobs.json", err));
+
+    fetch("/programs.json")
+      .then((res) => res.json())
+      .then((data: Program[]) => setPrograms(data))
+      .catch((err) => console.error("Error loading programs.json", err));
+  }, []);
 
   const selectedJob = jobs.find((j) => j.id === selectedJobId) || null;
 
-  const linkedPrograms =
-    selectedJob?.linkedProgramIds
-      ?.map((pid) => programs.find((p) => p.id === pid))
-      .filter((p): p is Program => Boolean(p)) ?? [];
-
-  // Precompute job level band labels so they always show something
-  const jobEarningBandKey = selectedJob
-    ? getJobEarningBandKey(selectedJob)
-    : undefined;
-  const jobOpportunityBandKey = selectedJob
-    ? getJobOpportunityBandKey(selectedJob)
-    : undefined;
-
-  const jobEarningLabel =
-    jobEarningBandKey && earningBandLabels[jobEarningBandKey];
-  const jobOpportunityLabel =
-    jobOpportunityBandKey && opportunityLabels[jobOpportunityBandKey];
-
-  // Wage numbers (if present)
-  const medianHourly =
-    selectedJob && typeof selectedJob.medianHourlyWage === "number"
-      ? selectedJob.medianHourlyWage
-      : null;
-
-  const annual =
-    selectedJob && typeof selectedJob.medianAnnualSalary === "number"
-      ? selectedJob.medianAnnualSalary
-      : medianHourly
-      ? medianHourly * 40 * 52
-      : null;
+  // Robust link: use job.programIds if present, and also program.jobIds
+  const linkedPrograms: Program[] =
+    selectedJob == null
+      ? []
+      : programs.filter((p) => {
+          const fromJob = selectedJob.programIds?.includes(p.id);
+          const fromProgram = p.jobIds?.includes(selectedJob.id);
+          return Boolean(fromJob || fromProgram);
+        });
 
   return (
     <section
@@ -184,11 +119,9 @@ export function ByJobSection() {
               Start with the job you have in mind.
             </h2>
             <p className="text-base text-slate-800">
-              Choose a job title you are interested in. You will see typical
-              wages, the number of openings in British Columbia, and which CNC
-              business programs can help you move toward that role. This makes
-              it easier to compare shorter, stackable credentials with longer 2
-              or 4 year paths.
+              Choose a job title you are interested in. You will see what the
+              work involves, typical job titles and employers, and which CNC
+              business programs can help you move toward that role.
             </p>
           </div>
 
@@ -230,16 +163,9 @@ export function ByJobSection() {
           >
             Use the dropdown above to pick a job. For each job, this page shows:
             <ul className="mt-2 space-y-1">
-              <li>
-                - Typical median hourly wage and approximate annual salary.
-              </li>
-              <li>
-                - Approximate number of openings in BC based on forecasts.
-              </li>
-              <li>
-                - Short CNC business programs that can be good starting points
-                toward that role.
-              </li>
+              <li>- A short summary of what the job involves.</li>
+              <li>- Example job titles and typical employers.</li>
+              <li>- CNC programs that prepare you for that kind of work.</li>
             </ul>
           </motion.div>
         )}
@@ -265,100 +191,42 @@ export function ByJobSection() {
                   <h3 className="mt-2 text-xl sm:text-2xl font-semibold text-slate-900">
                     {selectedJob.title}
                   </h3>
-                  {selectedJob.noc2021 && (
+                  {(selectedJob.noc2021 || selectedJob.nocTitle) && (
                     <p className="mt-1 text-base text-slate-700">
-                      NOC {selectedJob.noc2021}
+                      {selectedJob.noc2021 && <>NOC {selectedJob.noc2021}</>}{" "}
+                      {selectedJob.nocTitle && <>- {selectedJob.nocTitle}</>}
                     </p>
                   )}
                 </div>
 
                 <div className="px-5 py-4 space-y-4 text-base text-slate-800">
-                  {(selectedJob.shortSummary || selectedJob.description) && (
-                    <p className="text-slate-800">
-                      {selectedJob.shortSummary || selectedJob.description}
-                    </p>
+                  {selectedJob.shortSummary && (
+                    <p className="text-slate-800">{selectedJob.shortSummary}</p>
                   )}
-
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    {/* Wage card */}
-                    <div className="border border-slate-200 rounded-xl px-4 py-3 bg-slate-50">
-                      <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 mb-2">
-                        Typical wages
-                      </p>
-                      <div className="space-y-1 text-base text-slate-800">
-                        {medianHourly && (
-                          <p>Median wage: ${medianHourly.toFixed(2)}/hr</p>
-                        )}
-                        {annual && (
-                          <p>≈ ${annual.toLocaleString("en-CA")} per year</p>
-                        )}
-                        {jobEarningLabel && (
-                          <p className="text-base text-slate-700">
-                            {jobEarningLabel}
-                          </p>
-                        )}
-                        {!medianHourly && !annual && !jobEarningLabel && (
-                          <p className="text-base text-slate-700">
-                            Wage information is available in the labour market
-                            notes.
-                          </p>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Opportunities card */}
-                    <div className="border border-slate-200 rounded-xl px-4 py-3 bg-slate-50">
-                      <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 mb-2">
-                        Opportunities
-                      </p>
-                      <div className="space-y-1 text-base text-slate-800">
-                        {selectedJob.projectedOpeningsBC != null && (
-                          <p>
-                            Approx.{" "}
-                            {selectedJob.projectedOpeningsBC.toLocaleString(
-                              "en-CA"
-                            )}{" "}
-                            openings in BC (forecast)
-                          </p>
-                        )}
-                        {jobOpportunityLabel && (
-                          <p className="text-base text-slate-700">
-                            {jobOpportunityLabel}
-                          </p>
-                        )}
-                        {selectedJob.projectedOpeningsBC == null &&
-                          !jobOpportunityLabel && (
-                            <p className="text-base text-slate-700">
-                              Opportunity information is available in the labour
-                              market notes.
-                            </p>
-                          )}
-                      </div>
-                    </div>
-                  </div>
 
                   {selectedJob.typicalJobTitles &&
                     selectedJob.typicalJobTitles.length > 0 && (
-                      <p className="text-base text-slate-800">
-                        <span className="font-semibold">
-                          Example job titles:
-                        </span>{" "}
-                        {selectedJob.typicalJobTitles.join(", ")}
-                      </p>
+                      <div>
+                        <p className="font-semibold text-slate-900 mb-1">
+                          Typical job titles
+                        </p>
+                        <ul className="list-disc list-inside space-y-0.5 text-slate-800">
+                          {selectedJob.typicalJobTitles.map((title) => (
+                            <li key={title}>{title}</li>
+                          ))}
+                        </ul>
+                      </div>
                     )}
 
                   {selectedJob.typicalEmployers && (
-                    <p className="text-base text-slate-800">
-                      <span className="font-semibold">Typical employers:</span>{" "}
-                      {selectedJob.typicalEmployers}
-                    </p>
-                  )}
-
-                  {(selectedJob.regionNotes || selectedJob.region) && (
-                    <p className="flex items-center gap-2 text-base text-slate-700">
-                      <MapPin className="h-4 w-4 text-slate-800" />
-                      {selectedJob.regionNotes || selectedJob.region}
-                    </p>
+                    <div>
+                      <p className="font-semibold text-slate-900 mb-1">
+                        Typical employers
+                      </p>
+                      <p className="text-slate-800">
+                        {selectedJob.typicalEmployers}
+                      </p>
+                    </div>
                   )}
                 </div>
               </div>
@@ -373,9 +241,9 @@ export function ByJobSection() {
                     CNC programs connected to this job
                   </p>
                   <p className="mt-2 text-base text-slate-800">
-                    These are shorter CNC business programs that can be useful
-                    starting points toward this role. Many can later be stacked
-                    into a 1 year certificate or 2 year diploma.
+                    These CNC business credentials are directly linked to this
+                    job in the pathway data. They can be starting points or
+                    stackable steps toward this kind of role.
                   </p>
                 </div>
 
@@ -386,67 +254,49 @@ export function ByJobSection() {
                     </p>
                   )}
 
-                  {linkedPrograms.map((p) => {
-                    const band = getProgramBand(p.id);
-                    const earningLabel =
-                      band?.earningBandId &&
-                      earningBandLabels[band.earningBandId];
-                    const opportunityLabel =
-                      band?.opportunityBandId &&
-                      opportunityLabels[band.opportunityBandId];
-
-                    return (
-                      <motion.div
-                        key={p.id}
-                        className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.25 }}
-                      >
-                        <div className="flex flex-wrap items-baseline justify-between gap-3">
-                          <div>
-                            <p className="font-semibold text-slate-900">
-                              {p.name}
-                            </p>
-                            {p.credentialType && (
-                              <p className="text-base text-slate-700">
-                                {p.credentialType}
-                              </p>
-                            )}
-                          </div>
-                          {p.timeCommitment?.label && (
+                  {linkedPrograms.map((p) => (
+                    <motion.div
+                      key={p.id}
+                      className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.25 }}
+                    >
+                      <div className="flex flex-wrap items-baseline justify-between gap-3">
+                        <div>
+                          <p className="font-semibold text-slate-900">
+                            {p.name}
+                          </p>
+                          {p.credentialType && (
                             <p className="text-base text-slate-700">
-                              {p.timeCommitment.label}
+                              {p.credentialType}
                             </p>
                           )}
                         </div>
-
-                        {p.stackability?.stackMessage && (
-                          <p className="text-base text-slate-800">
-                            <span className="font-semibold">
-                              Stackable pathway:
-                            </span>{" "}
-                            {p.stackability.stackMessage}
+                        {p.timeCommitment?.label && (
+                          <p className="text-base text-slate-700">
+                            {p.timeCommitment.label}
                           </p>
                         )}
+                      </div>
 
-                        <div className="flex flex-wrap gap-2 pt-1">
-                          {earningLabel && (
-                            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
-                              <CircleDollarSign className="h-4 w-4" />
-                              <span>{earningLabel}</span>
-                            </span>
-                          )}
-                          {opportunityLabel && (
-                            <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
-                              <TrendingUp className="h-4 w-4" />
-                              <span>{opportunityLabel}</span>
-                            </span>
-                          )}
-                        </div>
-                      </motion.div>
-                    );
-                  })}
+                      {p.stackability?.stackMessage && (
+                        <p className="text-base text-slate-800">
+                          <span className="font-semibold">
+                            Stackable pathway:
+                          </span>{" "}
+                          {p.stackability.stackMessage}
+                        </p>
+                      )}
+
+                      {p.region && (
+                        <p className="flex items-center gap-2 text-base text-slate-700 pt-1">
+                          <MapPin className="h-4 w-4 text-slate-800" />
+                          {p.region}
+                        </p>
+                      )}
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </div>
