@@ -1,7 +1,7 @@
 // components/ByProgramSection.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { TimeComparisonInline } from "./TimeComparisonInline";
 import {
   Timer,
@@ -11,6 +11,10 @@ import {
   BriefcaseBusiness,
 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
+
+import programsData from "./programs.json";
+import jobsData from "./jobs.json";
+import programBandsData from "./programsBand.json";
 
 type Program = {
   id: string;
@@ -29,40 +33,44 @@ type Program = {
     stackMessage?: string;
   };
   region?: string;
-  earningBand?: string;
-  opportunityBand?: string;
   courses?: { code: string; title?: string }[];
   jobIds?: string[];
   skills?: string[];
+};
+
+type ProgramBand = {
+  programId: string;
+  earningBandId?: string;
+  opportunityBandId?: string;
 };
 
 type Job = {
   id: string;
   title: string;
   noc2021?: string;
-  medianHourlyWage?: number | null;
-  medianAnnualSalary?: number | null;
-  wageBand?: string;
-  projectedOpeningsBC?: number | null;
-  opportunityLevel?: string;
-  region?: string;
-  description?: string;
+  nocTitle?: string;
+  shortSummary?: string;
+  typicalJobTitles?: string[];
+  typicalEmployers?: string;
 };
 
+const PROGRAMS: Program[] = programsData as Program[];
+const JOBS: Job[] = jobsData as Job[];
+const PROGRAM_BANDS: ProgramBand[] = programBandsData as ProgramBand[];
+
+// These map to IDs used in programsBand.json
 const earningBandLabels: Record<string, string> = {
-  entry: "Entry (around $18–22/hr)",
-  entry_to_medium: "Entry to medium ($20–26/hr)",
-  medium: "Medium (around $24–30/hr)",
-  medium_high: "Medium to high ($28–35+/hr)",
+  "earning-entry": "Entry (around $18-22/hr)",
+  "earning-moderate": "Entry to medium ($20-26/hr)",
+  "earning-good": "Medium (around $24-30/hr)",
+  "earning-strong": "Medium to high ($28-35+/hr)",
 };
 
 const opportunityLabels: Record<string, string> = {
-  medium: "Some opportunities in the region",
-  medium_high: "Good opportunities in the region",
-  high: "Strong opportunities in the region",
-  very_high: "Very strong and stable demand",
-  broad: "Broad opportunities across sectors",
-  emerging: "Emerging / growing area",
+  "opportunity-limited": "Some opportunities in the region",
+  "opportunity-steady": "Good opportunities in the region",
+  "opportunity-good": "Strong opportunities in the region",
+  "opportunity-strong": "Very strong and stable demand",
 };
 
 // Motion variants for the top copy only
@@ -91,27 +99,27 @@ const fadeUp: Variants = {
 };
 
 export function ByProgramSection() {
-  const [programs, setPrograms] = useState<Program[]>([]);
-  const [jobs, setJobs] = useState<Job[]>([]);
   const [selectedId, setSelectedId] = useState<string>("");
 
-  useEffect(() => {
-    fetch("/programs.json")
-      .then((res) => res.json())
-      .then((data: Program[]) => setPrograms(data))
-      .catch((err) => console.error("Error loading programs.json", err));
-
-    fetch("/jobs.json")
-      .then((res) => res.json())
-      .then((data: Job[]) => setJobs(data))
-      .catch((err) => console.error("Error loading jobs.json", err));
-  }, []);
+  const programs = PROGRAMS;
+  const jobs = JOBS;
 
   const selectedProgram = programs.find((p) => p.id === selectedId) || null;
-  const relatedJobs =
+
+  const relatedJobs: Job[] =
     selectedProgram?.jobIds
       ?.map((id) => jobs.find((j) => j.id === id))
-      .filter(Boolean) ?? [];
+      .filter((j): j is Job => Boolean(j)) ?? [];
+
+  function getProgramBand(programId: string) {
+    return PROGRAM_BANDS.find((pb) => pb.programId === programId);
+  }
+
+  const band = selectedProgram ? getProgramBand(selectedProgram.id) : null;
+  const earningLabel =
+    band?.earningBandId && earningBandLabels[band.earningBandId];
+  const opportunityLabel =
+    band?.opportunityBandId && opportunityLabels[band.opportunityBandId];
 
   return (
     <section
@@ -241,22 +249,16 @@ export function ByProgramSection() {
                         <span>{selectedProgram.timeCommitment.label}</span>
                       </span>
                     )}
-                    {selectedProgram.earningBand && (
+                    {earningLabel && (
                       <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-base font-medium text-emerald-800">
                         <CircleDollarSign className="h-4 w-4" />
-                        <span>
-                          {earningBandLabels[selectedProgram.earningBand] ??
-                            "Earning potential information available"}
-                        </span>
+                        <span>{earningLabel}</span>
                       </span>
                     )}
-                    {selectedProgram.opportunityBand && (
+                    {opportunityLabel && (
                       <span className="inline-flex items-center gap-1.5 rounded-full border border-sky-200 bg-sky-50 px-3 py-1.5 text-base font-medium text-sky-800">
                         <TrendingUp className="h-4 w-4" />
-                        <span>
-                          {opportunityLabels[selectedProgram.opportunityBand] ??
-                            "Opportunities in the region"}
-                        </span>
+                        <span>{opportunityLabel}</span>
                       </span>
                     )}
                   </div>
@@ -326,14 +328,7 @@ export function ByProgramSection() {
                     </p>
                   )}
 
-                  {relatedJobs.map((job) => {
-                    const j = job as Job;
-                    const annual =
-                      j.medianAnnualSalary ??
-                      (j.medianHourlyWage
-                        ? j.medianHourlyWage * 40 * 52
-                        : null);
-
+                  {relatedJobs.map((j) => {
                     return (
                       <div
                         key={j.id}
@@ -350,56 +345,32 @@ export function ByProgramSection() {
                               </p>
                             )}
                           </div>
-                          <div className="text-right text-base text-slate-700">
-                            {j.medianHourlyWage && (
-                              <p>
-                                Median wage: ${j.medianHourlyWage.toFixed(2)}/hr
-                              </p>
-                            )}
-                            {annual && (
-                              <p>
-                                ≈ ${annual.toLocaleString("en-CA")} per year
-                              </p>
-                            )}
-                          </div>
                         </div>
 
-                        {j.description && (
+                        {j.shortSummary && (
                           <p className="text-base text-slate-800">
-                            {j.description}
+                            {j.shortSummary}
                           </p>
                         )}
 
-                        <div className="flex flex-wrap gap-2 pt-1">
-                          {j.projectedOpeningsBC != null && (
+                        {j.typicalJobTitles &&
+                          j.typicalJobTitles.length > 0 && (
+                            <p className="text-base text-slate-800">
+                              <span className="font-semibold">
+                                Example job titles:
+                              </span>{" "}
+                              {j.typicalJobTitles.join(", ")}
+                            </p>
+                          )}
+
+                        {j.typicalEmployers && (
+                          <div className="flex flex-wrap gap-2 pt-1">
                             <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-3 py-1 text-base text-slate-800">
                               <MapPin className="h-4 w-4" />
-                              <span>
-                                Approx.{" "}
-                                {j.projectedOpeningsBC.toLocaleString("en-CA")}{" "}
-                                openings in BC
-                              </span>
+                              <span>{j.typicalEmployers}</span>
                             </span>
-                          )}
-                          {j.opportunityLevel && (
-                            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
-                              <TrendingUp className="h-4 w-4" />
-                              <span>
-                                {opportunityLabels[j.opportunityLevel] ??
-                                  "Opportunity information available"}
-                              </span>
-                            </span>
-                          )}
-                          {j.wageBand && (
-                            <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
-                              <CircleDollarSign className="h-4 w-4" />
-                              <span>
-                                {earningBandLabels[j.wageBand] ??
-                                  "Wage information available"}
-                              </span>
-                            </span>
-                          )}
-                        </div>
+                          </div>
+                        )}
                       </div>
                     );
                   })}
