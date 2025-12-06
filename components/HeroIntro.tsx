@@ -19,15 +19,11 @@ export function HeroIntro() {
         <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/45 blur-3xl" />
 
         {/* Hero decorative rings - no text, just colorful shapes */}
-
         {/* Large multi ring - top right */}
         <div className="absolute -right-[720px] -top-[15%] h-[1000px] w-[1000px]">
           <div className="relative h-full w-full">
-            {/* Warm teal red band */}
             <div className="absolute inset-1 rounded-full bg-[conic-gradient(from_120deg,rgba(0,95,99,0.98),rgba(15,23,42,0.16),rgba(215,25,32,0.2),rgba(244,180,26,0.2),rgba(0,95,99,0.18))] opacity-90" />
-            {/* Outer white ring */}
             <div className="absolute inset-3 rounded-full border-[12px] border-white/78 shadow-[0_0_0_1px_rgba(148,163,184,0.35)]" />
-            {/* Inner dark ring */}
             <div className="absolute inset-11 rounded-full border-[8px] border-[#0f172a]/22" />
           </div>
         </div>
@@ -87,22 +83,22 @@ export function HeroIntro() {
             variants={fadeUp}
             className="text-base lg:text-lg text-slate-800 max-w-2xl"
           >
-            This page helps future students and recruiters compare programs, job
-            options, earning potential and opportunities in northern BC. You can
-            start with a short credential now and later stack into a 1 year
-            certificate or 2 year diploma when you are ready.
+            Use this page to compare programs, job options, earning potential
+            and opportunities in northern BC. You can start with a short
+            credential now and later stack into a 1 year certificate or 2 year
+            diploma when you are ready.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-1 flex flex-wrap gap-3">
             <a
               href="#programs"
-              className="inline-flex items-center rounded-md bg-[#d71920] px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-[#b8141b] hover:shadow-md transition"
+              className="inline-flex items-center cursor-pointer rounded-md bg-[#d71920] px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-[#b8141b] hover:shadow-md transition"
             >
               Start with a program
             </a>
             <a
               href="#guided-match"
-              className="inline-flex items-center rounded-md border border-slate-300 bg-white/80 px-5 py-3 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
+              className="inline-flex items-center cursor-pointer rounded-md border border-slate-300 bg-white/80 px-5 py-3 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
             >
               Not sure yet? Try guided match
             </a>
@@ -127,7 +123,7 @@ export function HeroIntro() {
                 1 year certificate option
               </p>
               <p>
-                Shorter time commitment than most 2 year and 4 year business
+                A shorter time commitment than most 2 year and 4 year business
                 programs.
               </p>
             </div>
@@ -136,8 +132,8 @@ export function HeroIntro() {
                 Labour market informed
               </p>
               <p>
-                Uses NOC codes, wage bands and outlook data for northern BC and
-                provincial labour markets.
+                Based on NOC codes, wage bands and outlook data for northern BC
+                and provincial labour markets.
               </p>
             </div>
           </motion.div>
@@ -147,13 +143,12 @@ export function HeroIntro() {
             className="pt-1 text-base text-slate-700 max-w-2xl"
           >
             All information comes from the Business Administration Program (BAP)
-            labour market analysis. It is a planning tool to support
-            conversations with students and does not replace official CNC
-            advising.
+            labour market analysis. Use this as a planning tool and connect with
+            CNC advising for detailed program guidance.
           </motion.p>
         </motion.div>
 
-        {/* Right panel – how to use this page */}
+        {/* Right panel - how to use this page */}
         <motion.div
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
@@ -164,10 +159,10 @@ export function HeroIntro() {
           <div className="relative rounded-[1.6rem] bg-gradient-to-br from-white via-white/95 to-slate-50 border border-slate-200/80 shadow-[0_18px_40px_rgba(15,23,42,0.16)] overflow-hidden">
             <div className="bg-gradient-to-r from-[#005f63] via-[#0f172a] to-[#d71920] text-white px-5 py-3 flex items-center justify-between">
               <span className="text-base font-semibold tracking-[0.18em] uppercase">
-                How to use it
+                How to use this page
               </span>
               <span className="text-base opacity-80">
-                Directed search for BAP pathways
+                Explore CNC business options
               </span>
             </div>
 
@@ -193,10 +188,9 @@ export function HeroIntro() {
                     2
                   </span>
                   <span>
-                    <strong>By skills you want to build</strong> - if you know
-                    you enjoy customer service, accounting, leadership or
-                    similar skills and want to see which programs strengthen
-                    them.
+                    <strong>By skills you want to build</strong> - if you enjoy
+                    areas like customer service, accounting or leadership and
+                    want to see which programs strengthen those skills.
                   </span>
                 </li>
 
@@ -206,8 +200,8 @@ export function HeroIntro() {
                   </span>
                   <span>
                     <strong>By job title or earning potential</strong> - when
-                    you have a role or wage band in mind and want to find the
-                    CNC pathway that connects there.
+                    you have a role or wage range in mind and want to find the
+                    CNC pathway that connects to it.
                   </span>
                 </li>
 
@@ -216,9 +210,9 @@ export function HeroIntro() {
                     4
                   </span>
                   <span>
-                    <strong>Guided match</strong> - type a short description of
-                    yourself and your interests, and the tool will suggest
-                    starting programs from the BAP list using static rules.
+                    <strong>Guided match</strong> - describe yourself and your
+                    interests in a few words, and the tool will suggest starting
+                    programs to consider.
                   </span>
                 </li>
               </ol>
@@ -226,28 +220,27 @@ export function HeroIntro() {
               <div className="pt-3 flex flex-wrap gap-3">
                 <a
                   href="#programs"
-                  className="inline-flex items-center rounded-md bg-[#d71920] px-4 py-2.5 text-base font-semibold text-white hover:bg-[#b8141b] transition"
+                  className="inline-flex items-center cursor-pointer rounded-md bg-[#d71920] px-4 py-2.5 text-base font-semibold text-white hover:bg-[#b8141b] transition"
                 >
                   Explore by program
                 </a>
                 <a
                   href="#skills"
-                  className="inline-flex items-center rounded-md border border-slate-300 bg-white px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
+                  className="inline-flex items-center cursor-pointer rounded-md border border-slate-300 bg-white px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
                 >
                   Explore by skills
                 </a>
                 <a
                   href="#jobs"
-                  className="inline-flex items-center rounded-md border border-slate-200 bg-slate-50 px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
+                  className="inline-flex items-center cursor-pointer rounded-md border border-slate-200 bg-slate-50 px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
                 >
                   Explore by job title
                 </a>
               </div>
 
               <p className="pt-1 text-base text-slate-700">
-                Staff can open this page during presentations or school visits
-                and walk students through options using the same information
-                shown in the colourful BAP framework materials.
+                You can use this page on your own or together with an advisor to
+                compare options and plan your next steps in business at CNC.
               </p>
             </div>
           </div>
