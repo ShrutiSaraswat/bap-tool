@@ -40,10 +40,14 @@ type Job = {
   id: string;
   title: string;
   noc2021?: string;
-  shortSummary?: string;
+  description?: string; // long text (old)
+  shortSummary?: string; // short text (new)
   medianHourlyWage?: number | null;
   medianAnnualSalary?: number | null;
+  // bands - support both old + new names
+  wageBand?: string;
   earningBandId?: string;
+  opportunityLevel?: string;
   opportunityBandId?: string;
   projectedOpeningsBC?: number | null;
   region?: string;
@@ -101,6 +105,14 @@ function getProgramBand(programId: string) {
   return PROGRAM_BANDS.find((pb) => pb.programId === programId);
 }
 
+// Helper to get a single band key, supporting both old + new fields
+function getJobEarningBandKey(job: Job): string | undefined {
+  return job.earningBandId ?? job.wageBand ?? undefined;
+}
+function getJobOpportunityBandKey(job: Job): string | undefined {
+  return job.opportunityBandId ?? job.opportunityLevel ?? undefined;
+}
+
 export function ByJobSection() {
   const [selectedJobId, setSelectedJobId] = useState("");
 
@@ -108,10 +120,37 @@ export function ByJobSection() {
   const programs = PROGRAMS;
 
   const selectedJob = jobs.find((j) => j.id === selectedJobId) || null;
+
   const linkedPrograms =
     selectedJob?.linkedProgramIds
       ?.map((pid) => programs.find((p) => p.id === pid))
       .filter((p): p is Program => Boolean(p)) ?? [];
+
+  // Precompute job level band labels so they always show something
+  const jobEarningBandKey = selectedJob
+    ? getJobEarningBandKey(selectedJob)
+    : undefined;
+  const jobOpportunityBandKey = selectedJob
+    ? getJobOpportunityBandKey(selectedJob)
+    : undefined;
+
+  const jobEarningLabel =
+    jobEarningBandKey && earningBandLabels[jobEarningBandKey];
+  const jobOpportunityLabel =
+    jobOpportunityBandKey && opportunityLabels[jobOpportunityBandKey];
+
+  // Wage numbers (if present)
+  const medianHourly =
+    selectedJob && typeof selectedJob.medianHourlyWage === "number"
+      ? selectedJob.medianHourlyWage
+      : null;
+
+  const annual =
+    selectedJob && typeof selectedJob.medianAnnualSalary === "number"
+      ? selectedJob.medianAnnualSalary
+      : medianHourly
+      ? medianHourly * 40 * 52
+      : null;
 
   return (
     <section
@@ -234,47 +273,40 @@ export function ByJobSection() {
                 </div>
 
                 <div className="px-5 py-4 space-y-4 text-base text-slate-800">
-                  {selectedJob.shortSummary && (
-                    <p className="text-slate-800">{selectedJob.shortSummary}</p>
+                  {(selectedJob.shortSummary || selectedJob.description) && (
+                    <p className="text-slate-800">
+                      {selectedJob.shortSummary || selectedJob.description}
+                    </p>
                   )}
 
                   <div className="grid gap-3 sm:grid-cols-2">
-                    {/* Wage */}
+                    {/* Wage card */}
                     <div className="border border-slate-200 rounded-xl px-4 py-3 bg-slate-50">
                       <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 mb-2">
                         Typical wages
                       </p>
                       <div className="space-y-1 text-base text-slate-800">
-                        {selectedJob.medianHourlyWage && (
-                          <p>
-                            Median wage: $
-                            {selectedJob.medianHourlyWage.toFixed(2)}/hr
+                        {medianHourly && (
+                          <p>Median wage: ${medianHourly.toFixed(2)}/hr</p>
+                        )}
+                        {annual && (
+                          <p>≈ ${annual.toLocaleString("en-CA")} per year</p>
+                        )}
+                        {jobEarningLabel && (
+                          <p className="text-base text-slate-700">
+                            {jobEarningLabel}
                           </p>
                         )}
-                        {(() => {
-                          const annual =
-                            selectedJob.medianAnnualSalary ??
-                            (selectedJob.medianHourlyWage
-                              ? selectedJob.medianHourlyWage * 40 * 52
-                              : null);
-                          return (
-                            annual && (
-                              <p>
-                                ≈ ${annual.toLocaleString("en-CA")} per year
-                              </p>
-                            )
-                          );
-                        })()}
-                        {selectedJob.earningBandId && (
+                        {!medianHourly && !annual && !jobEarningLabel && (
                           <p className="text-base text-slate-700">
-                            {earningBandLabels[selectedJob.earningBandId] ??
-                              "Earning potential information available"}
+                            Wage information is available in the labour market
+                            notes.
                           </p>
                         )}
                       </div>
                     </div>
 
-                    {/* Opportunities */}
+                    {/* Opportunities card */}
                     <div className="border border-slate-200 rounded-xl px-4 py-3 bg-slate-50">
                       <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 mb-2">
                         Opportunities
@@ -289,12 +321,18 @@ export function ByJobSection() {
                             openings in BC (forecast)
                           </p>
                         )}
-                        {selectedJob.opportunityBandId && (
+                        {jobOpportunityLabel && (
                           <p className="text-base text-slate-700">
-                            {opportunityLabels[selectedJob.opportunityBandId] ??
-                              "Opportunity information available"}
+                            {jobOpportunityLabel}
                           </p>
                         )}
+                        {selectedJob.projectedOpeningsBC == null &&
+                          !jobOpportunityLabel && (
+                            <p className="text-base text-slate-700">
+                              Opportunity information is available in the labour
+                              market notes.
+                            </p>
+                          )}
                       </div>
                     </div>
                   </div>
