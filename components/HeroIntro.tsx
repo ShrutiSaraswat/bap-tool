@@ -21,7 +21,7 @@ export function HeroIntro() {
         {/* Hero decorative rings - no text, just colorful shapes */}
 
         {/* Large multi ring - top right */}
-        <div className="absolute -right-[700px] -top-[15%] h-[1000px] w-[1000px]">
+        <div className="absolute -right-[720px] -top-[15%] h-[1000px] w-[1000px]">
           <div className="relative h-full w-full">
             {/* Warm teal red band */}
             <div className="absolute inset-1 rounded-full bg-[conic-gradient(from_120deg,rgba(0,95,99,0.98),rgba(15,23,42,0.16),rgba(215,25,32,0.2),rgba(244,180,26,0.2),rgba(0,95,99,0.18))] opacity-90" />
