@@ -41,7 +41,7 @@ export function HeroIntro() {
         </div>
 
         {/* Small accent ring - mid left */}
-        <div className="absolute -left-[10%] top-[28%] h-80 w-80">
+        <div className="absolute -left-[10%] top-[35%] h-80 w-80">
           <div className="relative h-full w-full">
             <div className="absolute inset-1 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9),rgba(148,163,184,0.32),transparent_70%)]" />
             <div className="absolute inset-3 rounded-full border-[6px] border-white/75 shadow-[0_0_0_1px_rgba(148,163,184,0.3)]" />
