@@ -1,7 +1,7 @@
 // components/BySkillSection.tsx
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   Search,
   Sparkles,
@@ -10,6 +10,10 @@ import {
   Star,
 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
+
+import programsData from "./programs.json";
+import programBandsData from "./programsBand.json";
+import skillsData from "./skills.json";
 
 type Program = {
   id: string;
@@ -24,25 +28,40 @@ type Program = {
     isStackable?: boolean;
     stackMessage?: string;
   };
-  earningBand?: string;
-  opportunityBand?: string;
   skills?: string[];
 };
 
+type ProgramBand = {
+  programId: string;
+  earningBandId?: string;
+  opportunityBandId?: string;
+};
+
+type SkillCluster = {
+  id: string;
+  name: string;
+  description: string;
+  programIds: string[];
+  jobIds?: string[];
+};
+
+const PROGRAMS: Program[] = programsData as Program[];
+const PROGRAM_BANDS: ProgramBand[] = programBandsData as ProgramBand[];
+const SKILL_CLUSTERS: SkillCluster[] = skillsData as SkillCluster[];
+
+// Map to IDs used in programsBand.json / bands.json
 const earningBandLabels: Record<string, string> = {
-  entry: "Entry (around $18-22/hr)",
-  entry_to_medium: "Entry to medium ($20-26/hr)",
-  medium: "Medium (around $24-30/hr)",
-  medium_high: "Medium to high ($28-35+/hr)",
+  "earning-entry": "Entry (around $18-22/hr)",
+  "earning-moderate": "Entry to medium ($20-26/hr)",
+  "earning-good": "Medium (around $24-30/hr)",
+  "earning-strong": "Medium to high ($28-35+/hr)",
 };
 
 const opportunityLabels: Record<string, string> = {
-  medium: "Some opportunities in the region",
-  medium_high: "Good opportunities in the region",
-  high: "Strong opportunities in the region",
-  very_high: "Very strong and stable demand",
-  broad: "Broad opportunities across sectors",
-  emerging: "Emerging or growing area",
+  "opportunity-limited": "Some opportunities in the region",
+  "opportunity-steady": "Good opportunities in the region",
+  "opportunity-good": "Strong opportunities in the region",
+  "opportunity-strong": "Very strong and stable demand",
 };
 
 // Motion variants (used only for top block / empty states)
@@ -70,57 +89,68 @@ const fadeUp: Variants = {
   },
 };
 
+function getProgramBand(programId: string) {
+  return PROGRAM_BANDS.find((pb) => pb.programId === programId);
+}
+
+function getSkillsForProgram(programId: string): SkillCluster[] {
+  return SKILL_CLUSTERS.filter((s) => s.programIds.includes(programId));
+}
+
 export function BySkillSection() {
-  const [programs, setPrograms] = useState<Program[]>([]);
-  const [selectedSkill, setSelectedSkill] = useState("");
+  const [selectedSkillId, setSelectedSkillId] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
 
-  useEffect(() => {
-    fetch("/programs.json")
-      .then((res) => res.json())
-      .then((data: Program[]) => setPrograms(data))
-      .catch((err) => console.error("Error loading programs.json", err));
-  }, []);
+  const hasAnySkills = SKILL_CLUSTERS.length > 0;
 
-  // Collect unique skills from all programs
-  const allSkills = useMemo(() => {
-    const set = new Set<string>();
-    for (const p of programs) {
-      p.skills?.forEach((s) => {
-        if (s && s.trim()) set.add(s.trim());
-      });
-    }
-    return Array.from(set).sort((a, b) => a.localeCompare(b));
-  }, [programs]);
-
+  // Filtered skills list from skills.json
   const filteredSkills = useMemo(() => {
-    if (!searchTerm.trim()) return allSkills;
+    if (!hasAnySkills) return [] as SkillCluster[];
+    if (!searchTerm.trim()) return SKILL_CLUSTERS;
+
     const term = searchTerm.toLowerCase();
-    return allSkills.filter((s) => s.toLowerCase().includes(term));
-  }, [allSkills, searchTerm]);
+    return SKILL_CLUSTERS.filter((skill) =>
+      skill.name.toLowerCase().includes(term)
+    );
+  }, [searchTerm, hasAnySkills]);
+
+  const selectedSkill = useMemo(
+    () => SKILL_CLUSTERS.find((s) => s.id === selectedSkillId),
+    [selectedSkillId]
+  );
 
   const programsForSkill = useMemo(() => {
     if (!selectedSkill) return [];
-    return programs.filter((p) => p.skills?.includes(selectedSkill));
-  }, [programs, selectedSkill]);
+    return PROGRAMS.filter((p) => selectedSkill.programIds.includes(p.id));
+  }, [selectedSkill]);
 
-  const hasAnySkills = allSkills.length > 0;
-
-  // Example skills to show as quick tags if they exist
+  // Example skill quick tags
   const exampleSkills = useMemo(() => {
-    if (!hasAnySkills) return [];
-    const popular = [
+    if (!hasAnySkills) return [] as SkillCluster[];
+
+    const patterns = [
       "customer service",
       "accounting",
       "marketing",
       "leadership",
     ];
-    const found = popular.filter((p) =>
-      allSkills.some((s) => s.toLowerCase() === p.toLowerCase())
-    );
-    if (found.length > 0) return found;
-    return allSkills.slice(0, 4);
-  }, [allSkills, hasAnySkills]);
+    const picks: SkillCluster[] = [];
+
+    for (const pattern of patterns) {
+      const lowerPattern = pattern.toLowerCase();
+      const found = SKILL_CLUSTERS.find(
+        (s) =>
+          s.name.toLowerCase().includes(lowerPattern) &&
+          !picks.some((p) => p.id === s.id)
+      );
+      if (found) picks.push(found);
+    }
+
+    if (picks.length === 0) {
+      return SKILL_CLUSTERS.slice(0, 4);
+    }
+    return picks;
+  }, [hasAnySkills]);
 
   return (
     <section
@@ -183,8 +213,8 @@ export function BySkillSection() {
 
             <select
               className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63] cursor-pointer disabled:cursor-default"
-              value={selectedSkill}
-              onChange={(e) => setSelectedSkill(e.target.value)}
+              value={selectedSkillId}
+              onChange={(e) => setSelectedSkillId(e.target.value)}
               disabled={!hasAnySkills}
             >
               {!hasAnySkills && (
@@ -201,8 +231,8 @@ export function BySkillSection() {
                       : "Select a skill…"}
                   </option>
                   {filteredSkills.map((skill) => (
-                    <option key={skill} value={skill}>
-                      {skill}
+                    <option key={skill.id} value={skill.id}>
+                      {skill.name}
                     </option>
                   ))}
                 </>
@@ -214,16 +244,16 @@ export function BySkillSection() {
                 <p className="text-base text-slate-700">Try:</p>
                 {exampleSkills.map((skill) => (
                   <button
-                    key={skill}
+                    key={skill.id}
                     type="button"
                     onClick={() => {
                       setSearchTerm("");
-                      setSelectedSkill(skill);
+                      setSelectedSkillId(skill.id);
                     }}
                     className="inline-flex items-center rounded-full border border-slate-300 bg-white px-3 py-1.5 text-base text-slate-800 hover:bg-slate-100 transition cursor-pointer"
                   >
                     <Star className="h-4 w-4 mr-1 text-[#005f63]" />
-                    {skill}
+                    {skill.name}
                   </button>
                 ))}
               </div>
@@ -265,7 +295,7 @@ export function BySkillSection() {
         {/* Results */}
         {hasAnySkills && selectedSkill && (
           <motion.div
-            key={selectedSkill}
+            key={selectedSkill.id}
             className="border border-slate-200 rounded-2xl bg-white/95 shadow-[0_16px_40px_rgba(15,23,42,0.12)]"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -278,8 +308,8 @@ export function BySkillSection() {
               </p>
               <p className="mt-2 text-base text-slate-800">
                 Showing CNC business programs that list{" "}
-                <span className="font-semibold">{selectedSkill}</span> as a key
-                skill outcome.
+                <span className="font-semibold">{selectedSkill.name}</span> as a
+                key skill outcome.
               </p>
             </div>
 
@@ -291,75 +321,83 @@ export function BySkillSection() {
                 </p>
               )}
 
-              {programsForSkill.map((p) => (
-                <motion.div
-                  key={p.id}
-                  className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  <div className="flex flex-wrap items-baseline justify-between gap-3">
-                    <div>
-                      <p className="font-semibold text-slate-900">{p.name}</p>
-                      {p.credentialType && (
+              {programsForSkill.map((p) => {
+                const band = getProgramBand(p.id);
+                const earningLabel =
+                  band?.earningBandId && earningBandLabels[band.earningBandId];
+                const opportunityLabel =
+                  band?.opportunityBandId &&
+                  opportunityLabels[band.opportunityBandId];
+
+                const programSkills = getSkillsForProgram(p.id);
+                const otherSkills = programSkills.filter(
+                  (s) => s.id !== selectedSkill.id
+                );
+
+                return (
+                  <motion.div
+                    key={p.id}
+                    className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    <div className="flex flex-wrap items-baseline justify-between gap-3">
+                      <div>
+                        <p className="font-semibold text-slate-900">{p.name}</p>
+                        {p.credentialType && (
+                          <p className="text-base text-slate-700">
+                            {p.credentialType}
+                          </p>
+                        )}
+                      </div>
+                      {p.timeCommitment?.label && (
                         <p className="text-base text-slate-700">
-                          {p.credentialType}
+                          {p.timeCommitment.label}
                         </p>
                       )}
                     </div>
-                    {p.timeCommitment?.label && (
-                      <p className="text-base text-slate-700">
-                        {p.timeCommitment.label}
+
+                    {p.overview && (
+                      <p className="text-base text-slate-800">
+                        {p.overview.length > 220
+                          ? p.overview.slice(0, 217) + "..."
+                          : p.overview}
                       </p>
                     )}
-                  </div>
 
-                  {p.overview && (
-                    <p className="text-base text-slate-800">
-                      {p.overview.length > 220
-                        ? p.overview.slice(0, 217) + "..."
-                        : p.overview}
-                    </p>
-                  )}
-
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {p.earningBand && (
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
-                        <CircleDollarSign className="h-4 w-4" />
-                        <span>
-                          {earningBandLabels[p.earningBand] ??
-                            "Earning potential information available"}
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {earningLabel && (
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
+                          <CircleDollarSign className="h-4 w-4" />
+                          <span>{earningLabel}</span>
                         </span>
-                      </span>
-                    )}
-                    {p.opportunityBand && (
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
-                        <TrendingUp className="h-4 w-4" />
-                        <span>
-                          {opportunityLabels[p.opportunityBand] ??
-                            "Opportunities in the region"}
+                      )}
+                      {opportunityLabel && (
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
+                          <TrendingUp className="h-4 w-4" />
+                          <span>{opportunityLabel}</span>
                         </span>
+                      )}
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#005f63]/10 border border-[#005f63]/30 px-3 py-1 text-base text-[#005f63]">
+                        <Star className="h-4 w-4" />
+                        <span>Focus on {selectedSkill.name}</span>
                       </span>
-                    )}
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#005f63]/10 border border-[#005f63]/30 px-3 py-1 text-base text-[#005f63]">
-                      <Star className="h-4 w-4" />
-                      <span>Focus on {selectedSkill}</span>
-                    </span>
-                  </div>
+                    </div>
 
-                  {p.skills && p.skills.length > 1 && (
-                    <p className="text-base text-slate-700 pt-1">
-                      <span className="font-semibold">Other skills:</span>{" "}
-                      {p.skills
-                        .filter((s) => s !== selectedSkill)
-                        .slice(0, 5)
-                        .join(", ")}
-                      {p.skills.length > 6 ? " ..." : ""}
-                    </p>
-                  )}
-                </motion.div>
-              ))}
+                    {otherSkills.length > 0 && (
+                      <p className="text-base text-slate-700 pt-1">
+                        <span className="font-semibold">Other skills:</span>{" "}
+                        {otherSkills
+                          .slice(0, 5)
+                          .map((s) => s.name)
+                          .join(", ")}
+                        {otherSkills.length > 5 ? " ..." : ""}
+                      </p>
+                    )}
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         )}
