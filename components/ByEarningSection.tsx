@@ -140,10 +140,9 @@ export function ByEarningsSection() {
               See which programs and jobs sit in each wage band.
             </h2>
             <p className="text-base text-slate-800">
-              Choose a wage range to see which CNC business programs and example
-              jobs fall in that band. This helps students understand what
-              shorter, stackable credentials can lead to compared with longer 2
-              or 4 year options.
+              Choose a wage range to see which CNC business programs and sample
+              jobs fall in that band. This helps you compare shorter, stackable
+              credentials with longer 2 or 4 year options.
             </p>
           </div>
 
@@ -156,7 +155,7 @@ export function ByEarningsSection() {
             </label>
             <select
               id="earning-band-select"
-              className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63]"
+              className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63] cursor-pointer"
               value={selectedBand}
               onChange={(e) =>
                 setSelectedBand(
@@ -183,8 +182,8 @@ export function ByEarningsSection() {
             className="border border-dashed border-slate-300 bg-white px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
             variants={fadeUp}
           >
-            Use the dropdown above to choose an earning range. This section will
-            show:
+            Use the dropdown above to choose an earning range. This section
+            shows:
             <ul className="mt-2 space-y-1">
               <li>
                 - CNC business programs that usually connect to that wage band.
@@ -214,7 +213,7 @@ export function ByEarningsSection() {
                     CNC programs in this earning band
                   </p>
                   <p className="mt-2 text-base text-slate-800">
-                    These programs are typically connected to jobs in the{" "}
+                    These programs are usually connected to jobs in the{" "}
                     <span className="font-semibold">
                       {earningBandLabels[selectedBand]}
                     </span>{" "}
@@ -225,8 +224,8 @@ export function ByEarningsSection() {
                 <div className="px-5 py-4 space-y-3 max-h-[360px] overflow-y-auto">
                   {programsForBand.length === 0 && (
                     <p className="text-base text-slate-800">
-                      Program earning data for this band will be added as the
-                      dataset is completed.
+                      Program earning information for this band will be added as
+                      more data is available.
                     </p>
                   )}
 
@@ -300,15 +299,15 @@ export function ByEarningsSection() {
                   </p>
                   <p className="mt-2 text-base text-slate-800">
                     These are sample job titles from the labour market that
-                    typically sit in this wage band.
+                    usually sit in this wage band.
                   </p>
                 </div>
 
                 <div className="px-5 py-4 space-y-3 max-h-[360px] overflow-y-auto">
                   {jobsForBand.length === 0 && (
                     <p className="text-base text-slate-800">
-                      Job data for this band will be added as the dataset is
-                      completed.
+                      Job information for this band will be added as more data
+                      is available.
                     </p>
                   )}
 
