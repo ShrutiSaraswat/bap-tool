@@ -1,7 +1,7 @@
 // components/ByJobSection.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   BriefcaseBusiness,
   Search,
@@ -10,6 +10,10 @@ import {
   MapPin,
 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
+
+import programsData from "./programs.json";
+import jobsData from "./jobs.json";
+import programBandsData from "./programsBand.json";
 
 type Program = {
   id: string;
@@ -24,38 +28,48 @@ type Program = {
     isStackable?: boolean;
     stackMessage?: string;
   };
-  earningBand?: string;
-  opportunityBand?: string;
+};
+
+type ProgramBand = {
+  programId: string;
+  earningBandId?: string;
+  opportunityBandId?: string;
 };
 
 type Job = {
   id: string;
   title: string;
   noc2021?: string;
+  shortSummary?: string;
   medianHourlyWage?: number | null;
   medianAnnualSalary?: number | null;
-  wageBand?: string;
+  earningBandId?: string;
+  opportunityBandId?: string;
   projectedOpeningsBC?: number | null;
-  opportunityLevel?: string;
   region?: string;
-  description?: string;
+  regionNotes?: string;
   linkedProgramIds?: string[];
+  typicalJobTitles?: string[];
+  typicalEmployers?: string;
 };
 
+const PROGRAMS: Program[] = programsData as Program[];
+const JOBS: Job[] = jobsData as Job[];
+const PROGRAM_BANDS: ProgramBand[] = programBandsData as ProgramBand[];
+
+// Map to IDs used in programsBand.json / bands.json
 const earningBandLabels: Record<string, string> = {
-  entry: "Entry (around $18-22/hr)",
-  entry_to_medium: "Entry to medium ($20-26/hr)",
-  medium: "Medium (around $24-30/hr)",
-  medium_high: "Medium to high ($28-35+/hr)",
+  "earning-entry": "Entry (around $18-22/hr)",
+  "earning-moderate": "Entry to medium ($20-26/hr)",
+  "earning-good": "Medium (around $24-30/hr)",
+  "earning-strong": "Medium to high ($28-35+/hr)",
 };
 
 const opportunityLabels: Record<string, string> = {
-  medium: "Some opportunities in the region",
-  medium_high: "Good opportunities in the region",
-  high: "Strong opportunities in the region",
-  very_high: "Very strong and stable demand",
-  broad: "Broad opportunities across sectors",
-  emerging: "Emerging or growing area",
+  "opportunity-limited": "Some opportunities in the region",
+  "opportunity-steady": "Good opportunities in the region",
+  "opportunity-good": "Strong opportunities in the region",
+  "opportunity-strong": "Very strong and stable demand",
 };
 
 // Motion variants (for top area / empty state)
@@ -83,28 +97,21 @@ const fadeUp: Variants = {
   },
 };
 
+function getProgramBand(programId: string) {
+  return PROGRAM_BANDS.find((pb) => pb.programId === programId);
+}
+
 export function ByJobSection() {
-  const [jobs, setJobs] = useState<Job[]>([]);
-  const [programs, setPrograms] = useState<Program[]>([]);
   const [selectedJobId, setSelectedJobId] = useState("");
 
-  useEffect(() => {
-    fetch("/jobs.json")
-      .then((res) => res.json())
-      .then((data: Job[]) => setJobs(data))
-      .catch((err) => console.error("Error loading jobs.json", err));
-
-    fetch("/programs.json")
-      .then((res) => res.json())
-      .then((data: Program[]) => setPrograms(data))
-      .catch((err) => console.error("Error loading programs.json", err));
-  }, []);
+  const jobs = JOBS;
+  const programs = PROGRAMS;
 
   const selectedJob = jobs.find((j) => j.id === selectedJobId) || null;
   const linkedPrograms =
     selectedJob?.linkedProgramIds
       ?.map((pid) => programs.find((p) => p.id === pid))
-      .filter(Boolean) ?? [];
+      .filter((p): p is Program => Boolean(p)) ?? [];
 
   return (
     <section
@@ -227,8 +234,8 @@ export function ByJobSection() {
                 </div>
 
                 <div className="px-5 py-4 space-y-4 text-base text-slate-800">
-                  {selectedJob.description && (
-                    <p className="text-slate-800">{selectedJob.description}</p>
+                  {selectedJob.shortSummary && (
+                    <p className="text-slate-800">{selectedJob.shortSummary}</p>
                   )}
 
                   <div className="grid gap-3 sm:grid-cols-2">
@@ -258,9 +265,9 @@ export function ByJobSection() {
                             )
                           );
                         })()}
-                        {selectedJob.wageBand && (
+                        {selectedJob.earningBandId && (
                           <p className="text-base text-slate-700">
-                            {earningBandLabels[selectedJob.wageBand] ??
+                            {earningBandLabels[selectedJob.earningBandId] ??
                               "Earning potential information available"}
                           </p>
                         )}
@@ -282,9 +289,9 @@ export function ByJobSection() {
                             openings in BC (forecast)
                           </p>
                         )}
-                        {selectedJob.opportunityLevel && (
+                        {selectedJob.opportunityBandId && (
                           <p className="text-base text-slate-700">
-                            {opportunityLabels[selectedJob.opportunityLevel] ??
+                            {opportunityLabels[selectedJob.opportunityBandId] ??
                               "Opportunity information available"}
                           </p>
                         )}
@@ -292,10 +299,27 @@ export function ByJobSection() {
                     </div>
                   </div>
 
-                  {selectedJob.region && (
+                  {selectedJob.typicalJobTitles &&
+                    selectedJob.typicalJobTitles.length > 0 && (
+                      <p className="text-base text-slate-800">
+                        <span className="font-semibold">
+                          Example job titles:
+                        </span>{" "}
+                        {selectedJob.typicalJobTitles.join(", ")}
+                      </p>
+                    )}
+
+                  {selectedJob.typicalEmployers && (
+                    <p className="text-base text-slate-800">
+                      <span className="font-semibold">Typical employers:</span>{" "}
+                      {selectedJob.typicalEmployers}
+                    </p>
+                  )}
+
+                  {(selectedJob.regionNotes || selectedJob.region) && (
                     <p className="flex items-center gap-2 text-base text-slate-700">
                       <MapPin className="h-4 w-4 text-slate-800" />
-                      Region: {selectedJob.region}
+                      {selectedJob.regionNotes || selectedJob.region}
                     </p>
                   )}
                 </div>
@@ -324,8 +348,15 @@ export function ByJobSection() {
                     </p>
                   )}
 
-                  {linkedPrograms.map((program) => {
-                    const p = program as Program;
+                  {linkedPrograms.map((p) => {
+                    const band = getProgramBand(p.id);
+                    const earningLabel =
+                      band?.earningBandId &&
+                      earningBandLabels[band.earningBandId];
+                    const opportunityLabel =
+                      band?.opportunityBandId &&
+                      opportunityLabels[band.opportunityBandId];
+
                     return (
                       <motion.div
                         key={p.id}
@@ -362,22 +393,16 @@ export function ByJobSection() {
                         )}
 
                         <div className="flex flex-wrap gap-2 pt-1">
-                          {p.earningBand && (
+                          {earningLabel && (
                             <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
                               <CircleDollarSign className="h-4 w-4" />
-                              <span>
-                                {earningBandLabels[p.earningBand] ??
-                                  "Earning potential information available"}
-                              </span>
+                              <span>{earningLabel}</span>
                             </span>
                           )}
-                          {p.opportunityBand && (
+                          {opportunityLabel && (
                             <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
                               <TrendingUp className="h-4 w-4" />
-                              <span>
-                                {opportunityLabels[p.opportunityBand] ??
-                                  "Opportunities in the region"}
-                              </span>
+                              <span>{opportunityLabel}</span>
                             </span>
                           )}
                         </div>
