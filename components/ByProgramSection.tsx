@@ -124,12 +124,20 @@ export function ByProgramSection() {
   return (
     <section
       id="programs"
-      className="relative overflow-hidden bg-gradient-to-br from-[#f9fafb] via-white to-[#eff6ff] border-b border-slate-200 py-10 sm:py-12"
+      className="relative overflow-hidden border-b border-slate-200 py-10 sm:py-12 bg-slate-50"
     >
       {/* background accents */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-28 top-10 h-56 w-56 rounded-full bg-[#005f63]/10 blur-3xl" />
-        <div className="absolute -right-32 bottom-0 h-64 w-64 rounded-full bg-[#d71920]/8 blur-3xl" />
+        {/* top + bottom bands so this section reads as its own block */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#e0f2fe] via-[#ecfeff] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#ecfdf5] via-[#f0fdf4] to-transparent" />
+
+        {/* soft central panel behind the content */}
+        <div className="absolute inset-x-3 sm:inset-x-6 top-6 bottom-6 rounded-[2.5rem] bg-white/85 shadow-[0_24px_60px_rgba(15,23,42,0.10)]" />
+
+        {/* original color blobs, slightly stronger so they show */}
+        <div className="absolute -left-28 top-10 h-56 w-56 rounded-full bg-[#005f63]/12 blur-3xl" />
+        <div className="absolute -right-32 bottom-0 h-64 w-64 rounded-full bg-[#d71920]/12 blur-3xl" />
       </div>
 
       <motion.div

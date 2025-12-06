@@ -119,12 +119,14 @@ export function ByJobSection() {
   return (
     <section
       id="jobs"
-      className="relative overflow-hidden bg-gradient-to-br from-[#f9fafb] via-white to-[#eff6ff] border-b border-slate-200 py-10 sm:py-12"
+      className="relative overflow-hidden bg-gradient-to-br from-[#fff1f2] via-[#ffe4e6] to-[#fffbeb] border-b border-slate-200 py-10 sm:py-12"
     >
       {/* background accents */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-28 top-8 h-52 w-52 rounded-full bg-[#005f63]/10 blur-3xl" />
-        <div className="absolute -right-32 bottom-0 h-60 w-60 rounded-full bg-[#d71920]/10 blur-3xl" />
+        {/* warm blobs + diagonal highlight to match skills section theme */}
+        <div className="absolute -left-24 top-6 h-56 w-56 rounded-full bg-[#fb7185]/40 blur-3xl" />
+        <div className="absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-[#f97316]/40 blur-3xl" />
+        <div className="absolute -inset-x-32 top-16 h-40 rotate-[-3deg] bg-gradient-to-r from-white/60 via-[#fff7ed]/80 to-white/60" />
       </div>
 
       <motion.div
@@ -140,8 +142,8 @@ export function ByJobSection() {
           variants={fadeUp}
         >
           <div className="space-y-2 max-w-3xl">
-            <p className="text-base font-semibold tracking-[0.18em] uppercase text-[#005f63] flex items-center gap-2">
-              <BriefcaseBusiness className="h-4 w-4 text-[#005f63]" />
+            <p className="text-base font-semibold tracking-[0.18em] uppercase text-[#b91c1c] flex items-center gap-2">
+              <BriefcaseBusiness className="h-4 w-4 text-[#b91c1c]" />
               Search by job title
             </p>
             <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
@@ -165,7 +167,7 @@ export function ByJobSection() {
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
               <select
                 id="job-select"
-                className="block w-full rounded-lg border border-slate-300 bg-white pl-9 pr-3 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63] cursor-pointer"
+                className="block w-full rounded-lg border border-slate-300 bg-white pl-9 pr-3 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#d97706] focus:border-[#d97706] cursor-pointer"
                 value={selectedJobId}
                 onChange={(e) => setSelectedJobId(e.target.value)}
               >
@@ -187,7 +189,7 @@ export function ByJobSection() {
         {/* Empty state */}
         {!selectedJob && (
           <motion.div
-            className="border border-dashed border-slate-300 bg-white px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
+            className="border border-dashed border-slate-300 bg-white/90 px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
             variants={fadeUp}
           >
             Use the dropdown above to pick a job. For each job, this page shows:
@@ -213,11 +215,11 @@ export function ByJobSection() {
           >
             {/* Job details card */}
             <div className="relative">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-slate-200/60 via-white to-slate-100 opacity-70" />
-              <div className="relative border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(15,23,42,0.12)] overflow-hidden">
-                <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
-                  <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 flex items-center gap-2">
-                    <BriefcaseBusiness className="h-4 w-4 text-slate-800" />
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#fed7aa]/60 via-white to-[#fee2e2] opacity-80" />
+              <div className="relative border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(120,53,15,0.2)] overflow-hidden">
+                <div className="border-b border-slate-200 bg-gradient-to-r from-[#fff7ed] via-white to-[#fee2e2] px-5 py-4">
+                  <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-800 flex items-center gap-2">
+                    <BriefcaseBusiness className="h-4 w-4 text-[#b91c1c]" />
                     Job details
                   </p>
                   <h3 className="mt-2 text-xl sm:text-2xl font-semibold text-slate-900">
@@ -257,7 +259,7 @@ export function ByJobSection() {
 
                   <div className="grid gap-3 sm:grid-cols-2">
                     {/* Wage panel */}
-                    <div className="border border-slate-200 rounded-xl px-4 py-3 bg-slate-50">
+                    <div className="border border-slate-200 rounded-xl px-4 py-3 bg-[#fff7ed]">
                       <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 mb-2">
                         Typical wages
                       </p>
@@ -300,7 +302,7 @@ export function ByJobSection() {
                     </div>
 
                     {/* Opportunities panel */}
-                    <div className="border border-slate-200 rounded-xl px-4 py-3 bg-slate-50">
+                    <div className="border border-slate-200 rounded-xl px-4 py-3 bg-[#fff7ed]">
                       <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 mb-2">
                         Opportunities
                       </p>
@@ -343,10 +345,10 @@ export function ByJobSection() {
 
             {/* Programs that lead here */}
             <div className="relative">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#005f63]/12 via-white to-[#d71920]/10 opacity-80" />
-              <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.15)] overflow-hidden">
-                <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
-                  <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#fed7aa]/50 via-white to-[#fecaca]/50 opacity-80" />
+              <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(120,53,15,0.2)] overflow-hidden">
+                <div className="border-b border-slate-200 bg-gradient-to-r from-[#fff7ed] via-white to-[#fee2e2] px-5 py-4">
+                  <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-800">
                     CNC programs connected to this job
                   </p>
                   <p className="mt-2 text-base text-slate-800">
@@ -366,7 +368,7 @@ export function ByJobSection() {
                   {linkedPrograms.map((p) => (
                     <motion.div
                       key={p.id}
-                      className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
+                      className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-[#fff7ed]"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.25 }}

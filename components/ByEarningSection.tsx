@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import { CircleDollarSign, TrendingUp, MapPin, BarChart3 } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
-type BandId = "entry" | "entry_to_medium" | "medium" | "medium_high";
-
 type Program = {
   id: string;
   name: string;
@@ -19,21 +17,24 @@ type Program = {
     isStackable?: boolean;
     stackMessage?: string;
   };
-  earningBand?: BandId;
-  opportunityBand?: keyof typeof opportunityLabels;
+  earningBand?: string; // optional for now
+  opportunityBand?: string; // optional for now
 };
 
 type Job = {
   id: string;
   title: string;
-  noc2021?: string;
-  medianHourlyWage?: number | string | null;
-  medianAnnualSalary?: number | string | null;
+  noc2021?: string | null;
+  nocTitle?: string;
+  medianHourlyWage?: number | null;
+  medianAnnualSalary?: number | null;
   wageBand?: string | null;
   projectedOpeningsBC?: number | null;
-  opportunityLevel?: string;
+  opportunityLevel?: string | null;
   region?: string;
 };
+
+type BandId = "entry" | "entry_to_medium" | "medium" | "medium_high";
 
 const earningBandOptions: { id: BandId; label: string }[] = [
   { id: "entry", label: "Entry ($18-22/hr approx.)" },
@@ -58,7 +59,7 @@ const opportunityLabels: Record<string, string> = {
   emerging: "Emerging or growing area",
 };
 
-// Motion variants (gentle, consistent for heading/empty state)
+// Motion variants
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 18 },
   visible: {
@@ -83,42 +84,18 @@ const fadeUp: Variants = {
   },
 };
 
-function normalizeNumber(
-  value: number | string | null | undefined
-): number | null {
-  if (value == null) return null;
-  if (typeof value === "number") return Number.isFinite(value) ? value : null;
-  const parsed = Number(value);
-  return Number.isFinite(parsed) ? parsed : null;
-}
-
-function normalizeBand(id?: string | null): BandId | undefined {
-  if (!id) return undefined;
-  const cleaned = id.trim() as BandId;
-  if (
-    cleaned === "entry" ||
-    cleaned === "entry_to_medium" ||
-    cleaned === "medium" ||
-    cleaned === "medium_high"
-  ) {
-    return cleaned;
-  }
-  return undefined;
-}
-
 export function ByEarningsSection() {
   const [programs, setPrograms] = useState<Program[]>([]);
   const [jobs, setJobs] = useState<Job[]>([]);
   const [selectedBand, setSelectedBand] = useState<BandId | "">("");
 
-  // Load data from public JSON
   useEffect(() => {
-    fetch("../public/programs.json")
+    fetch("/programs.json")
       .then((res) => res.json())
       .then((data: Program[]) => setPrograms(data))
       .catch((err) => console.error("Error loading programs.json", err));
 
-    fetch("../public/jobs.json")
+    fetch("/jobs.json")
       .then((res) => res.json())
       .then((data: Job[]) => setJobs(data))
       .catch((err) => console.error("Error loading jobs.json", err));
@@ -130,9 +107,7 @@ export function ByEarningsSection() {
       : programs.filter((p) => p.earningBand === selectedBand);
 
   const jobsForBand =
-    selectedBand === ""
-      ? []
-      : jobs.filter((j) => normalizeBand(j.wageBand) === selectedBand);
+    selectedBand === "" ? [] : jobs.filter((j) => j.wageBand === selectedBand);
 
   return (
     <section
@@ -212,7 +187,8 @@ export function ByEarningsSection() {
             shows:
             <ul className="mt-2 space-y-1">
               <li>
-                - CNC business programs that usually connect to that wage band.
+                - CNC business programs that usually connect to that wage band
+                (where data is available).
               </li>
               <li>- Example job titles and their typical median wages.</li>
               <li>- How opportunities look in BC for that earning range.</li>
@@ -243,7 +219,7 @@ export function ByEarningsSection() {
                     <span className="font-semibold">
                       {earningBandLabels[selectedBand]}
                     </span>{" "}
-                    range.
+                    range, where earning information has been mapped.
                   </p>
                 </div>
 
@@ -251,13 +227,14 @@ export function ByEarningsSection() {
                   {programsForBand.length === 0 && (
                     <p className="text-base text-slate-800">
                       Program earning information for this band will be added as
-                      more data is available.
+                      more data is available. The jobs list on the right already
+                      reflects the wage band.
                     </p>
                   )}
 
-                  {programsForBand.map((p) => (
+                  {programsForBand.map((program) => (
                     <motion.div
-                      key={p.id}
+                      key={program.id}
                       className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-slate-50/80"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -266,45 +243,45 @@ export function ByEarningsSection() {
                       <div className="flex flex-wrap items-baseline justify-between gap-3">
                         <div>
                           <p className="font-semibold text-slate-900">
-                            {p.name}
+                            {program.name}
                           </p>
-                          {p.credentialType && (
+                          {program.credentialType && (
                             <p className="text-base text-slate-700">
-                              {p.credentialType}
+                              {program.credentialType}
                             </p>
                           )}
                         </div>
-                        {p.timeCommitment?.label && (
+                        {program.timeCommitment?.label && (
                           <p className="text-base text-slate-700">
-                            {p.timeCommitment.label}
+                            {program.timeCommitment.label}
                           </p>
                         )}
                       </div>
 
-                      {p.stackability?.stackMessage && (
+                      {program.stackability?.stackMessage && (
                         <p className="text-base text-slate-800">
                           <span className="font-semibold">
                             Stackable pathway:
                           </span>{" "}
-                          {p.stackability.stackMessage}
+                          {program.stackability.stackMessage}
                         </p>
                       )}
 
                       <div className="flex flex-wrap gap-2 pt-1">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
-                          <CircleDollarSign className="h-4 w-4" />
-                          <span>
-                            {p.earningBand
-                              ? earningBandLabels[p.earningBand] ??
-                                "Earning potential information available"
-                              : "Earning potential information available"}
+                        {program.earningBand && (
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
+                            <CircleDollarSign className="h-4 w-4" />
+                            <span>
+                              {earningBandLabels[program.earningBand] ??
+                                "Earning potential information available"}
+                            </span>
                           </span>
-                        </span>
-                        {p.opportunityBand && (
+                        )}
+                        {program.opportunityBand && (
                           <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
                             <TrendingUp className="h-4 w-4" />
                             <span>
-                              {opportunityLabels[p.opportunityBand] ??
+                              {opportunityLabels[program.opportunityBand] ??
                                 "Opportunities in the region"}
                             </span>
                           </span>
@@ -340,13 +317,11 @@ export function ByEarningsSection() {
                   )}
 
                   {jobsForBand.map((job) => {
-                    const hourly = normalizeNumber(job.medianHourlyWage);
-                    const annualDirect = normalizeNumber(
-                      job.medianAnnualSalary
-                    );
                     const annual =
-                      annualDirect ??
-                      (hourly != null ? hourly * 40 * 52 : null);
+                      job.medianAnnualSalary ??
+                      (job.medianHourlyWage
+                        ? job.medianHourlyWage * 40 * 52
+                        : null);
 
                     return (
                       <motion.div
@@ -364,12 +339,15 @@ export function ByEarningsSection() {
                             {job.noc2021 && (
                               <p className="text-base text-slate-700">
                                 NOC {job.noc2021}
+                                {job.nocTitle ? ` · ${job.nocTitle}` : ""}
                               </p>
                             )}
                           </div>
                           <div className="text-right text-base text-slate-700">
-                            {hourly != null && (
-                              <p>Median: ${hourly.toFixed(2)}/hr</p>
+                            {job.medianHourlyWage != null && (
+                              <p>
+                                Median: ${job.medianHourlyWage.toFixed(2)}/hr
+                              </p>
                             )}
                             {annual != null && (
                               <p>
@@ -380,6 +358,15 @@ export function ByEarningsSection() {
                         </div>
 
                         <div className="flex flex-wrap gap-2 pt-1">
+                          {job.wageBand && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
+                              <CircleDollarSign className="h-4 w-4" />
+                              <span>
+                                {earningBandLabels[job.wageBand] ??
+                                  "Earning potential information available"}
+                              </span>
+                            </span>
+                          )}
                           {job.projectedOpeningsBC != null && (
                             <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-3 py-1 text-base text-slate-800">
                               <MapPin className="h-4 w-4" />
