@@ -140,9 +140,9 @@ export function ByJobSection() {
             <p className="text-base text-slate-800">
               Choose a job title you are interested in. You will see typical
               wages, the number of openings in British Columbia, and which CNC
-              business programs can lead you there. This makes it easier to
-              compare shorter, stackable credentials with longer 2 or 4 year
-              paths.
+              business programs can help you move toward that role. This makes
+              it easier to compare shorter, stackable credentials with longer 2
+              or 4 year paths.
             </p>
           </div>
 
@@ -157,7 +157,7 @@ export function ByJobSection() {
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
               <select
                 id="job-select"
-                className="block w-full rounded-lg border border-slate-300 bg-white pl-9 pr-3 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63]"
+                className="block w-full rounded-lg border border-slate-300 bg-white pl-9 pr-3 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63] cursor-pointer"
                 value={selectedJobId}
                 onChange={(e) => setSelectedJobId(e.target.value)}
               >
@@ -182,8 +182,7 @@ export function ByJobSection() {
             className="border border-dashed border-slate-300 bg-white px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
             variants={fadeUp}
           >
-            Use the dropdown above to pick a job. For each job, this page will
-            show:
+            Use the dropdown above to pick a job. For each job, this page shows:
             <ul className="mt-2 space-y-1">
               <li>
                 - Typical median hourly wage and approximate annual salary.
@@ -192,8 +191,8 @@ export function ByJobSection() {
                 - Approximate number of openings in BC based on forecasts.
               </li>
               <li>
-                - Short CNC business programs that can be starting points toward
-                that role.
+                - Short CNC business programs that can be good starting points
+                toward that role.
               </li>
             </ul>
           </motion.div>
@@ -312,17 +311,16 @@ export function ByJobSection() {
                     CNC programs connected to this job
                   </p>
                   <p className="mt-2 text-base text-slate-800">
-                    These are shorter, stackable CNC business programs that can
-                    be used as starting points toward this role. Many can later
-                    be stacked into a 1 year certificate or 2 year diploma.
+                    These are shorter CNC business programs that can be useful
+                    starting points toward this role. Many can later be stacked
+                    into a 1 year certificate or 2 year diploma.
                   </p>
                 </div>
 
                 <div className="px-5 py-4 space-y-3 max-h-[360px] overflow-y-auto">
                   {linkedPrograms.length === 0 && (
                     <p className="text-base text-slate-800">
-                      Program links for this job will be added as the dataset is
-                      completed.
+                      Program connections for this job are still being added.
                     </p>
                   )}
 

@@ -154,9 +154,8 @@ export function BySkillSection() {
             </h2>
             <p className="text-base text-slate-800">
               Choose a skill you want to build and see which CNC business
-              programs focus on it. This is helpful when students know the kind
-              of work they enjoy, but are not sure which credential to start
-              with.
+              programs focus on it. This works well if you know the kind of work
+              you enjoy, but are not sure which credential to start with.
             </p>
           </div>
 
@@ -183,14 +182,14 @@ export function BySkillSection() {
             </div>
 
             <select
-              className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63]"
+              className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63] cursor-pointer disabled:cursor-default"
               value={selectedSkill}
               onChange={(e) => setSelectedSkill(e.target.value)}
               disabled={!hasAnySkills}
             >
               {!hasAnySkills && (
                 <option value="">
-                  Skill information will be added to this dataset.
+                  Skill details for these programs are still being added.
                 </option>
               )}
 
@@ -221,7 +220,7 @@ export function BySkillSection() {
                       setSearchTerm("");
                       setSelectedSkill(skill);
                     }}
-                    className="inline-flex items-center rounded-full border border-slate-300 bg-white px-3 py-1.5 text-base text-slate-800 hover:bg-slate-100 transition"
+                    className="inline-flex items-center rounded-full border border-slate-300 bg-white px-3 py-1.5 text-base text-slate-800 hover:bg-slate-100 transition cursor-pointer"
                   >
                     <Star className="h-4 w-4 mr-1 text-[#005f63]" />
                     {skill}
@@ -238,14 +237,12 @@ export function BySkillSection() {
             className="border border-dashed border-slate-300 bg-white px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
             variants={fadeUp}
           >
-            Skill outcomes have not been added to the data yet. When you include
-            a field like{" "}
-            <code className="px-1 py-0.5 bg-slate-100 rounded text-base">
-              "skills": ["customer service", "basic accounting", ...]
-            </code>{" "}
-            for each program in <code className="text-base">programs.json</code>
-            , this section will automatically let students search by those
-            skills.
+            Skill information is still being added to this page. As more details
+            become available, you will be able to search for programs using
+            skills such as{" "}
+            <span className="font-semibold">customer service</span>,{" "}
+            <span className="font-semibold">basic accounting</span> and other
+            business skills.
           </motion.div>
         )}
 
@@ -289,8 +286,8 @@ export function BySkillSection() {
             <div className="px-5 py-4 space-y-3 max-h-[380px] overflow-y-auto">
               {programsForSkill.length === 0 && (
                 <p className="text-base text-slate-800">
-                  Skill information for this area will be added as the dataset
-                  is completed.
+                  Skill information for this area will be added as more data
+                  becomes available.
                 </p>
               )}
 
