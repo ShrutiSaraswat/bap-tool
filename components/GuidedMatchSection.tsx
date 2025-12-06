@@ -1,8 +1,10 @@
 // components/GuidedMatchSection.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import programsData from "./programs.json";
+import programBandsData from "./programsBand.json";
 
 type Program = {
   id: string;
@@ -11,9 +13,13 @@ type Program = {
   overview?: string;
   timeCommitment?: { label?: string; approxMonths?: number };
   stackability?: { isStackable?: boolean; stackMessage?: string };
-  earningBand?: string;
-  opportunityBand?: string;
-  skills?: string[]; // make sure you have some skills in programs.json for better matching
+  skills?: string[];
+};
+
+type ProgramBand = {
+  programId: string;
+  earningBandId?: string;
+  opportunityBandId?: string;
 };
 
 type ProgramScore = {
@@ -21,20 +27,19 @@ type ProgramScore = {
   score: number;
 };
 
+// These map to IDs used in programsBand.json / bands.json
 const earningBandLabels: Record<string, string> = {
-  entry: "Entry ($18-22/hr approx.)",
-  entry_to_medium: "Entry to medium ($20-26/hr approx.)",
-  medium: "Medium ($24-30/hr approx.)",
-  medium_high: "Medium to high ($28-35+ /hr approx.)",
+  "earning-entry": "Entry ($18-22/hr approx.)",
+  "earning-moderate": "Entry to medium ($20-26/hr approx.)",
+  "earning-good": "Medium ($24-30/hr approx.)",
+  "earning-strong": "Medium to high ($28-35+ /hr approx.)",
 };
 
 const opportunityLabels: Record<string, string> = {
-  medium: "Some opportunities in the region",
-  medium_high: "Good opportunities in the region",
-  high: "Strong opportunities in the region",
-  very_high: "Very strong and stable demand",
-  broad: "Broad opportunities across sectors",
-  emerging: "Emerging or growing area",
+  "opportunity-limited": "Some opportunities in the region",
+  "opportunity-steady": "Good opportunities in the region",
+  "opportunity-good": "Strong opportunities in the region",
+  "opportunity-strong": "Very strong and stable demand",
 };
 
 function matchStrengthLabel(score: number): string {
@@ -161,33 +166,28 @@ const resultItem = {
   },
 };
 
+// Static data from JSON imports
+const PROGRAMS: Program[] = programsData as Program[];
+const PROGRAM_BANDS: ProgramBand[] = programBandsData as ProgramBand[];
+
 export function GuidedMatchSection() {
-  const [programs, setPrograms] = useState<Program[]>([]);
   const [text, setText] = useState("");
   const [results, setResults] = useState<ProgramScore[] | null>(null);
   const [touched, setTouched] = useState(false);
-
-  useEffect(() => {
-    fetch("/programs.json")
-      .then((res) => res.json())
-      .then((data: Program[]) => setPrograms(data))
-      .catch((err) => console.error("Error loading programs.json", err));
-  }, []);
 
   function runMatch() {
     const input = text.trim();
     setTouched(true);
 
-    if (!input || programs.length === 0) {
+    if (!input || PROGRAMS.length === 0) {
       setResults(null);
       return;
     }
 
-    const scored: ProgramScore[] = programs
-      .map((program) => ({
-        program,
-        score: scoreProgram(program, input),
-      }))
+    const scored: ProgramScore[] = PROGRAMS.map((program) => ({
+      program,
+      score: scoreProgram(program, input),
+    }))
       .filter((p) => p.score > 0)
       .sort((a, b) => b.score - a.score);
 
@@ -200,6 +200,10 @@ export function GuidedMatchSection() {
   }
 
   const showEmptyState = touched && !results;
+
+  function getProgramBand(programId: string) {
+    return PROGRAM_BANDS.find((pb) => pb.programId === programId);
+  }
 
   return (
     <section
@@ -320,6 +324,14 @@ export function GuidedMatchSection() {
                 results.map((result) => {
                   const p = result.program;
                   const matchLabel = matchStrengthLabel(result.score);
+                  const band = getProgramBand(p.id);
+                  const earningLabel =
+                    band?.earningBandId &&
+                    earningBandLabels[band.earningBandId];
+                  const opportunityLabel =
+                    band?.opportunityBandId &&
+                    opportunityLabels[band.opportunityBandId];
+
                   return (
                     <motion.div
                       key={p.id}
@@ -376,22 +388,16 @@ export function GuidedMatchSection() {
                       )}
 
                       <div className="flex flex-wrap gap-2 pt-1">
-                        {p.earningBand && (
+                        {earningLabel && (
                           <span className="inline-flex items-center rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
                             💰
-                            <span className="ml-1">
-                              {earningBandLabels[p.earningBand] ??
-                                "Earning potential information available"}
-                            </span>
+                            <span className="ml-1">{earningLabel}</span>
                           </span>
                         )}
-                        {p.opportunityBand && (
+                        {opportunityLabel && (
                           <span className="inline-flex items-center rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
                             📈
-                            <span className="ml-1">
-                              {opportunityLabels[p.opportunityBand] ??
-                                "Opportunities in the region"}
-                            </span>
+                            <span className="ml-1">{opportunityLabel}</span>
                           </span>
                         )}
                       </div>

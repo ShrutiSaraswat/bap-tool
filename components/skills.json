@@ -1,0 +1,209 @@
+[
+  {
+    "id": "accounting-finance",
+    "name": "Accounting and Finance",
+    "description": "Recording and analyzing financial transactions, working with financial statements, budgets, and basic financial decision making.",
+    "programIds": [
+      "assoc-auditing-data-analytics",
+      "assoc-business-essentials",
+      "assoc-business-fundamentals",
+      "assoc-small-business",
+      "cert-business-administration"
+    ],
+    "jobIds": [
+      "financial-auditor-accountant-11100",
+      "accounting-technician-bookkeeper-12200",
+      "accounting-clerk-14200",
+      "financial-sales-rep-63102",
+      "small-business-owner-self-employment",
+      "junior-analyst-41402"
+    ]
+  },
+  {
+    "id": "audit-risk-assurance",
+    "name": "Audit, Risk, and Assurance",
+    "description": "Evaluating internal controls, assessing risk, testing financial information, documenting evidence, and supporting external or internal audits.",
+    "programIds": ["assoc-auditing-data-analytics"],
+    "jobIds": [
+      "financial-auditor-accountant-11100",
+      "accounting-clerk-14200",
+      "accounting-technician-bookkeeper-12200"
+    ]
+  },
+  {
+    "id": "data-analytics-information-systems",
+    "name": "Data Analytics and Information Systems",
+    "description": "Using information systems and analytic tools to collect, manage, and interpret data for reporting and business decisions.",
+    "programIds": [
+      "assoc-auditing-data-analytics",
+      "assoc-business-analysis-project-management",
+      "assoc-business-fundamentals",
+      "cert-business-administration"
+    ],
+    "jobIds": [
+      "database-analyst-21223",
+      "business-systems-specialist-21221",
+      "junior-analyst-41402",
+      "financial-auditor-accountant-11100"
+    ]
+  },
+  {
+    "id": "project-management",
+    "name": "Project Management and Coordination",
+    "description": "Planning, organizing, and tracking projects, including schedules, budgets, risks, resources, and stakeholder communication.",
+    "programIds": [
+      "assoc-business-analysis-project-management",
+      "assoc-hospitality-guest-experience-management",
+      "assoc-small-business"
+    ],
+    "jobIds": [
+      "project-coordinator-13100",
+      "restaurant-food-service-manager-60030",
+      "accommodation-service-manager-60031",
+      "food-service-supervisor-62020",
+      "small-business-owner-self-employment"
+    ]
+  },
+  {
+    "id": "human-resources-recruitment",
+    "name": "Human Resources and Recruitment",
+    "description": "Supporting staffing, recruitment, workforce planning, job design, compensation, and people-focused HR processes.",
+    "programIds": [
+      "assoc-business-analysis-project-management",
+      "assoc-business-essentials",
+      "assoc-recruitment-specialist",
+      "assoc-small-business"
+    ],
+    "jobIds": [
+      "hr-recruitment-officer-12101",
+      "compensation-staffing-clerk-14102",
+      "administrative-assistant-13110",
+      "administrative-officer-13100",
+      "small-business-owner-self-employment"
+    ]
+  },
+  {
+    "id": "marketing-communications",
+    "name": "Marketing and Communications",
+    "description": "Understanding customers, supporting campaigns, creating content, and communicating value through digital and traditional channels.",
+    "programIds": [
+      "assoc-business-fundamentals",
+      "assoc-business-essentials",
+      "assoc-small-business",
+      "assoc-hospitality-guest-experience-management",
+      "cert-business-administration"
+    ],
+    "jobIds": [
+      "marketing-public-relations-officer-11202",
+      "financial-sales-rep-63102",
+      "customer-service-representative-64409",
+      "restaurant-food-service-manager-60030",
+      "hotel-front-desk-clerk-64314"
+    ]
+  },
+  {
+    "id": "hospitality-guest-service",
+    "name": "Hospitality and Guest Service",
+    "description": "Delivering positive guest experiences in hotels, restaurants, and tourism settings, with attention to service quality, safety, and operations.",
+    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "jobIds": [
+      "restaurant-food-service-manager-60030",
+      "accommodation-service-manager-60031",
+      "food-service-supervisor-62020",
+      "hotel-front-desk-clerk-64314",
+      "customer-service-representative-64409"
+    ]
+  },
+  {
+    "id": "entrepreneurship-small-business",
+    "name": "Entrepreneurship and Small Business",
+    "description": "Identifying opportunities, planning and launching ventures, and handling multiple functions in small or family-owned businesses.",
+    "programIds": [
+      "assoc-business-essentials",
+      "assoc-business-fundamentals",
+      "assoc-small-business",
+      "cert-business-administration"
+    ],
+    "jobIds": [
+      "small-business-owner-self-employment",
+      "administrative-officer-13100",
+      "administrative-assistant-13110",
+      "restaurant-food-service-manager-60030",
+      "accommodation-service-manager-60031"
+    ]
+  },
+  {
+    "id": "administrative-office-support",
+    "name": "Administrative and Office Support",
+    "description": "Coordinating office operations, managing documents and records, supporting teams, and using office software efficiently.",
+    "programIds": [
+      "assoc-business-analysis-project-management",
+      "assoc-business-essentials",
+      "assoc-business-fundamentals",
+      "assoc-small-business",
+      "assoc-recruitment-specialist",
+      "cert-business-administration"
+    ],
+    "jobIds": [
+      "project-coordinator-13100",
+      "administrative-assistant-13110",
+      "administrative-officer-13100",
+      "compensation-staffing-clerk-14102",
+      "customer-service-representative-64409"
+    ]
+  },
+  {
+    "id": "statistics-quantitative",
+    "name": "Statistics and Quantitative Skills",
+    "description": "Working with numbers, basic statistics, and quantitative tools to summarize data and support decisions.",
+    "programIds": [
+      "assoc-business-essentials",
+      "assoc-auditing-data-analytics",
+      "cert-business-administration"
+    ],
+    "jobIds": [
+      "junior-analyst-41402",
+      "database-analyst-21223",
+      "financial-auditor-accountant-11100"
+    ]
+  },
+  {
+    "id": "writing-communication",
+    "name": "Writing and Professional Communication",
+    "description": "Preparing clear emails, documents, and reports, and communicating effectively with clients, colleagues, and stakeholders.",
+    "programIds": [
+      "assoc-business-essentials",
+      "assoc-business-fundamentals",
+      "assoc-small-business",
+      "cert-business-administration"
+    ],
+    "jobIds": [
+      "administrative-assistant-13110",
+      "administrative-officer-13100",
+      "marketing-public-relations-officer-11202",
+      "customer-service-representative-64409",
+      "hotel-front-desk-clerk-64314"
+    ]
+  },
+  {
+    "id": "leadership-organizational-behaviour",
+    "name": "Leadership and Organizational Behaviour",
+    "description": "Understanding how people and teams work, and applying leadership, motivation, and conflict management skills in workplaces.",
+    "programIds": [
+      "assoc-business-essentials",
+      "assoc-business-fundamentals",
+      "assoc-small-business",
+      "assoc-hospitality-guest-experience-management",
+      "assoc-recruitment-specialist",
+      "cert-business-administration"
+    ],
+    "jobIds": [
+      "project-coordinator-13100",
+      "administrative-officer-13100",
+      "restaurant-food-service-manager-60030",
+      "accommodation-service-manager-60031",
+      "food-service-supervisor-62020",
+      "small-business-owner-self-employment"
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "programId": "assoc-auditing-data-analytics",
+    "earningBandId": "earning-good",
+    "opportunityBandId": "opportunity-good"
+  },
+  {
+    "programId": "assoc-business-analysis-project-management",
+    "earningBandId": "earning-good",
+    "opportunityBandId": "opportunity-good"
+  },
+  {
+    "programId": "assoc-business-essentials",
+    "earningBandId": "earning-moderate",
+    "opportunityBandId": "opportunity-good"
+  },
+  {
+    "programId": "assoc-business-fundamentals",
+    "earningBandId": "earning-moderate",
+    "opportunityBandId": "opportunity-good"
+  },
+  {
+    "programId": "assoc-hospitality-guest-experience-management",
+    "earningBandId": "earning-moderate",
+    "opportunityBandId": "opportunity-good"
+  },
+  {
+    "programId": "assoc-recruitment-specialist",
+    "earningBandId": "earning-good",
+    "opportunityBandId": "opportunity-good"
+  },
+  {
+    "programId": "assoc-small-business",
+    "earningBandId": "earning-moderate",
+    "opportunityBandId": "opportunity-good"
+  },
+  {
+    "programId": "cert-business-administration",
+    "earningBandId": "earning-good",
+    "opportunityBandId": "opportunity-strong"
+  }
+]

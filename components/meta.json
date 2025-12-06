@@ -1,0 +1,40 @@
+{
+  "credentialTypes": [
+    {
+      "id": "associate-certificate",
+      "label": "Associate Certificate",
+      "shortDescription": "Short, focused credentials made up of a small group of courses that target a specific area of practice.",
+      "typicalLength": "3 courses"
+    },
+    {
+      "id": "certificate",
+      "label": "Certificate",
+      "shortDescription": "A broader business credential that covers multiple functional areas and can ladder into a diploma.",
+      "typicalLength": "About 10 courses or equivalent combinations of associate certificates."
+    }
+  ],
+  "regions": [
+    {
+      "id": "northern-bc",
+      "label": "Northern British Columbia",
+      "shortLabel": "Northern BC",
+      "description": "Includes the Cariboo, Nechako, Prince George, and surrounding communities where CNC learners live and work."
+    }
+  ],
+  "labourMarketNotes": {
+    "dataSource": "Program descriptions draw on BC and regional labour market information for projected openings, job titles, and typical wages where available.",
+    "wageNote": "All wage ranges mentioned are approximate and can vary based on employer, collective agreements, sector, experience, and location.",
+    "outlookNote": "Opportunity bands are relative indicators based on expected openings, replacement needs, and demand for related occupations. They do not guarantee employment but highlight patterns in the labour market."
+  },
+  "plarGlobal": {
+    "title": "Prior Learning Assessment and Recognition (PLAR)",
+    "intro": "Many CNC business credentials can recognize prior learning gained through work, community involvement, and non credit training. PLAR can shorten the time it takes to complete a credential by granting credit where learning outcomes have already been met.",
+    "commonEvidence": [
+      "Employer letters that describe duties and responsibilities related to program outcomes.",
+      "Work samples such as reports, spreadsheets, project plans, schedules, or policy documents that demonstrate applied skills.",
+      "Records of non credit training, workshops, sector certifications, or in house courses that align with program content.",
+      "Interviews, challenge exams, or practical assessments that confirm knowledge and skills."
+    ],
+    "disclaimer": "Final decisions about PLAR are made by CNC using current policies, program learning outcomes, and the evidence provided by each applicant. PLAR availability and processes may change over time."
+  }
+}

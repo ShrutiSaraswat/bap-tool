@@ -1,0 +1,146 @@
+[
+  {
+    "id": "acc-200-data-analytics-and-information-systems",
+    "code": "ACC 200",
+    "name": "Data Analytics and Information Systems",
+    "shortSummary": "Introduces data analytics and information systems concepts for accounting. Students explore system components, information quality, data modelling, internal controls, risk, reporting systems, and how technology supports financial and operational decision making."
+  },
+  {
+    "id": "acc-225-computerized-accounting",
+    "code": "ACC 225",
+    "name": "Computerized Accounting",
+    "shortSummary": "Provides hands on experience with accounting software. Topics include company setup, full cycle accounting, GST and PST, payroll, foreign currency, budgeting, project costing, inventory tracking, and reconciliations so that students can produce accurate system generated financial information."
+  },
+  {
+    "id": "acc-230-audit-and-assurance",
+    "code": "ACC 230",
+    "name": "Audit and Assurance",
+    "shortSummary": "Covers the audit process from planning to reporting. Students learn about internal controls, audit evidence, materiality, risk, independence, ethics, audit data analytics, and how to plan and perform procedures, evaluate controls, assess evidence, and prepare audit documentation and reports."
+  },
+  {
+    "id": "bus-290-management-information-systems",
+    "code": "BUS 290",
+    "name": "Management Information Systems",
+    "shortSummary": "Explores how organizations use information systems to support decisions, improve operations, enhance security, and strengthen performance. Topics typically include decision support systems, e business, business intelligence, networks, enterprise systems, and emerging tools such as AI."
+  },
+  {
+    "id": "bus-295-project-management-essentials",
+    "code": "BUS 295",
+    "name": "Project Management Essentials",
+    "shortSummary": "Introduces the concepts, tools, and techniques of project management across the full project life cycle. Students work with scheduling, scope, budgeting, risk management, resource planning, and evaluation, building skills that can also support professional project management certification."
+  },
+  {
+    "id": "com-100-fundamentals-of-business",
+    "code": "COM 100",
+    "name": "Fundamentals of Business",
+    "shortSummary": "Provides an overview of the Canadian business environment and core business functions. Students examine forms of ownership, management roles, ethics, globalization, and basic ideas from areas such as accounting, marketing, human resources, and operations."
+  },
+  {
+    "id": "com-105-computer-information-systems",
+    "code": "COM 105",
+    "name": "Computer Information Systems",
+    "shortSummary": "Introduces information systems and productivity tools used in business. Students work with hardware and software basics, office and collaboration tools, databases, networks, cloud services, and analytics, while also considering privacy, security, and ethical issues in technology use."
+  },
+  {
+    "id": "com-110-financial-accounting",
+    "code": "COM 110",
+    "name": "Financial Accounting",
+    "shortSummary": "Covers the accounting cycle and preparation of basic financial statements. Students learn to record transactions, prepare an income statement, statement of financial position, and cash flow statement, and interpret information about assets, liabilities, equity, revenue, and expenses."
+  },
+  {
+    "id": "com-115-organizational-behaviour",
+    "code": "COM 115",
+    "name": "Organizational Behaviour",
+    "shortSummary": "Examines individual and group behaviour in organizations. Topics include motivation, leadership, perception, communication, teamwork, decision making, power, conflict, and organizational culture, with an emphasis on applying these ideas to improve workplace performance."
+  },
+  {
+    "id": "com-120-finance-1",
+    "code": "COM 120",
+    "name": "Finance 1",
+    "shortSummary": "Introduces foundational concepts in business finance and financial literacy. Students typically explore the time value of money, simple and compound interest, loans and annuities, basic financial ratios, and how financial information supports personal and organizational decision making."
+  },
+  {
+    "id": "com-125-introduction-to-entrepreneurship",
+    "code": "COM 125",
+    "name": "Introduction to Entrepreneurship",
+    "shortSummary": "Explores entrepreneurial mindset and the early stages of starting a business. Students examine opportunity identification, feasibility analysis, business models, value propositions, creativity, risk management, and the unique challenges faced by small business owners."
+  },
+  {
+    "id": "com-130-principles-of-marketing",
+    "code": "COM 130",
+    "name": "Principles of Marketing",
+    "shortSummary": "Introduces core marketing concepts such as customer value, segmentation, targeting, and positioning. Students study consumer behaviour, product, price, place, and promotion decisions, and are introduced to digital marketing and communication strategies."
+  },
+  {
+    "id": "com-225-business-law",
+    "code": "COM 225",
+    "name": "Business Law",
+    "shortSummary": "Covers legal frameworks that affect businesses. Topics may include contracts, torts, business structures, employment law, intellectual property, and consumer protection, with attention to how legal issues influence decisions in small and larger organizations."
+  },
+  {
+    "id": "com-250-human-resource-management",
+    "code": "COM 250",
+    "name": "Human Resource Management",
+    "shortSummary": "Introduces the role of human resources in organizations. Students explore staffing, workforce planning, training and development, performance management, compensation, health and safety, and labour relations, with emphasis on fair and compliant HR practices."
+  },
+  {
+    "id": "com-255-strategic-human-resource-planning",
+    "code": "COM 255",
+    "name": "Strategic Human Resource Planning",
+    "shortSummary": "Focuses on aligning human resource planning with organizational strategy. Topics can include environmental scanning, HR forecasting, succession management, restructuring, outsourcing, HR metrics, and how HR plans support long term organizational goals."
+  },
+  {
+    "id": "com-260-compensation-and-benefits",
+    "code": "COM 260",
+    "name": "Compensation and Benefits",
+    "shortSummary": "Examines how organizations design and manage compensation and benefits systems. Students study pay structures, job evaluation, market comparisons, performance based pay, indirect compensation, and equity and transparency in total rewards."
+  },
+  {
+    "id": "com-270-recruitment-and-selection",
+    "code": "COM 270",
+    "name": "Recruitment and Selection",
+    "shortSummary": "Covers end to end staffing processes, including job analysis, recruitment strategies, screening tools, interviewing, decision making, and employment contracting. The course emphasizes legal compliance, equity, and inclusive practices in hiring and selection."
+  },
+  {
+    "id": "com-275-the-business-of-hotel-management",
+    "code": "COM 275",
+    "name": "The Business of Hotel Management",
+    "shortSummary": "Provides an overview of hotel operations from a management perspective. Students examine the role of the general manager, quality standards, legislation, human resources, revenue management, sustainability practices, and recognized hotel management standards."
+  },
+  {
+    "id": "com-280-food-and-beverage-management",
+    "code": "COM 280",
+    "name": "Food and Beverage Management",
+    "shortSummary": "Examines how food and beverage operations are planned and controlled. Topics include menu design and costing, internal controls, purchasing and inventory, marketing, legal and safety requirements, and service management aimed at profitability and guest satisfaction."
+  },
+  {
+    "id": "econ-100-principles-of-microeconomics",
+    "code": "ECON 100",
+    "name": "Principles of Microeconomics",
+    "shortSummary": "Introduces microeconomic concepts such as supply and demand, elasticity, consumer and producer behaviour, market structures, market failures, externalities, and the role of government in markets."
+  },
+  {
+    "id": "econ-101-principles-of-macroeconomics",
+    "code": "ECON 101",
+    "name": "Principles of Macroeconomics",
+    "shortSummary": "Covers macroeconomic indicators and policies. Students examine GDP, unemployment, inflation, monetary and fiscal policy, international trade, and factors that influence economic growth."
+  },
+  {
+    "id": "econ-105-business-statistics",
+    "code": "ECON 105",
+    "name": "Business Statistics",
+    "shortSummary": "Introduces descriptive statistics, probability, sampling, and hypothesis testing for business applications. Students learn how to summarize data, interpret statistical results, and use basic regression and forecasting tools to support decisions."
+  },
+  {
+    "id": "engl-113-writing-and-communication",
+    "code": "ENGL 113",
+    "name": "Writing and Communication",
+    "shortSummary": "Develops academic and professional writing and oral communication skills. Emphasizes clarity, organization, use of sources, and audience appropriate tone for college assignments and workplace documents."
+  },
+  {
+    "id": "math-103-finite-mathematics",
+    "code": "MATH 103",
+    "name": "Finite Mathematics",
+    "shortSummary": "Introduces selected topics from finite mathematics used in business and the social sciences. Students may work with linear equations, matrices, linear programming, and the mathematics of finance."
+  }
+]

@@ -1,0 +1,464 @@
+[
+  {
+    "id": "assoc-auditing-data-analytics",
+    "name": "Associate Certificate: Auditing and Data Analytics",
+    "credentialType": "Associate Certificate",
+    "shortTagline": "Build computerized accounting, audit, and data analytics skills for finance roles in northern BC.",
+    "overview": "The Associate Certificate: Auditing and Data Analytics prepares learners for roles that combine accounting knowledge with systems thinking, risk assessment, and data-driven analysis of financial information. The program emphasizes computerized accounting, audit and assurance fundamentals, internal controls, and the use of data analytics to support financial reporting and organizational decision making in public practice firms, industry, government, non profit, and Indigenous organizations.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "timeCommitment": {
+      "label": "3 courses"
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 1,
+      "stacksInto": [
+        "cert-business-administration",
+        "business-administration-diploma"
+      ],
+      "stackMessage": "Can be completed on its own as a specialized credential or applied toward CNC's Business Administration certificate and diploma pathways."
+    },
+    "courses": [
+      {
+        "code": "ACC 200",
+        "title": "Data Analytics and Information Systems",
+        "note": "Introduces data analytics and information systems concepts for accounting, including systems components, information quality, data modelling, infrastructure, internal controls, risk, and reporting systems."
+      },
+      {
+        "code": "ACC 225",
+        "title": "Computerized Accounting",
+        "note": "Hands on work with accounting software for company setup, full cycle accounting, GST/PST, payroll, foreign currency, budgeting, project costing, inventory, and reconciliations."
+      },
+      {
+        "code": "ACC 230",
+        "title": "Audit and Assurance",
+        "note": "Covers the audit process, internal controls, audit evidence, materiality, risk, independence, ethics, audit data analytics, and audit reporting from planning through documentation."
+      }
+    ],
+    "employmentSummary": "Graduates are prepared for bookkeeping, accounting technician, audit support, and entry level audit or data enabled accounting roles in public practice firms, industry, government, non profit, and Indigenous settings. Key occupational pathways include financial auditor or accountant (NOC 11100), accounting technician or bookkeeper (NOC 12200), accounting and related clerk or audit support clerk (NOC 14200), and database or data analyst roles that combine finance and data skills (NOC 21223). Labour market evidence shows thousands of projected openings in BC from 2024-2034, competitive wages in the Cariboo and Nechako regions, and growing demand for data literacy in financial roles.",
+    "jobIds": [
+      "financial-auditor-accountant-11100",
+      "accounting-technician-bookkeeper-12200",
+      "accounting-clerk-14200",
+      "database-analyst-21223"
+    ],
+    "skills": [
+      "computerized accounting systems",
+      "full cycle accounting",
+      "audit and assurance procedures",
+      "internal controls and risk assessment",
+      "audit documentation and working papers",
+      "data analytics for financial reporting",
+      "use of accounting and audit software"
+    ]
+  },
+  {
+    "id": "assoc-business-analysis-project-management",
+    "name": "Associate Certificate: Business Analysis and Project Management",
+    "credentialType": "Associate Certificate",
+    "shortTagline": "Combine business analysis, information systems, and project management skills for coordination and systems roles.",
+    "overview": "The Associate Certificate in Business Analysis and Project Management equips learners with foundational skills to analyze business needs, understand and support information systems, and manage projects. Students explore business processes, data informed decision making, PMBOK aligned project practices, and human resource management in project environments, preparing them to contribute to operational improvements, systems implementation, and project execution in private, public, non profit, and Indigenous organizations.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "timeCommitment": {
+      "label": "3 courses"
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 1,
+      "stacksInto": [
+        "cert-business-administration",
+        "business-administration-diploma"
+      ],
+      "stackMessage": "Can be used as a stand alone credential or stacked into CNC's Business Administration certificate and diploma options."
+    },
+    "courses": [
+      {
+        "code": "BUS 290",
+        "title": "Management Information Systems",
+        "note": "Introduces how organizations use information systems to support decisions, strengthen operations, improve security, and enhance performance, including decision support, e business, business intelligence, networks, enterprise systems, and AI enabled tools."
+      },
+      {
+        "code": "BUS 295",
+        "title": "Project Management Essentials",
+        "note": "Provides PMBOK based tools and techniques across the project life cycle, including scheduling, scope, budgeting, risk management, resource planning, and evaluation, with simulations and case projects. Also satisfies PMP exam project management education hours."
+      },
+      {
+        "code": "COM 250",
+        "title": "Human Resource Management",
+        "note": "Covers staffing, workforce planning, job evaluation, performance management, compensation, health and safety, and labour relations with a focus on HR's role in project environments and organizational change."
+      }
+    ],
+    "employmentSummary": "Graduates are suited for project coordination, business support, systems focused roles, and HR related project activities. Occupational pathways include project manager or project coordinator roles mapped to Administrative officers (NOC 13100), business systems or business analyst roles (NOC 21221), database or reporting analyst and data administrator roles (NOC 21223), and administrative assistant or project support positions (NOC 13110). Evidence for northern BC highlights strong demand for staff who can coordinate projects, support systems transitions, and contribute to process improvement, with competitive wages for project and administrative roles.",
+    "jobIds": [
+      "project-coordinator-13100",
+      "business-systems-specialist-21221",
+      "database-analyst-21223",
+      "administrative-assistant-13110"
+    ],
+    "skills": [
+      "business process mapping",
+      "requirements gathering",
+      "project planning and scheduling",
+      "risk assessment and mitigation",
+      "stakeholder communication",
+      "information systems concepts",
+      "HR support in project environments"
+    ]
+  },
+  {
+    "id": "assoc-business-essentials",
+    "name": "Associate Certificate: Business Essentials",
+    "credentialType": "Associate Certificate",
+    "shortTagline": "Foundational skills in organizational behaviour, finance, and entrepreneurship or business statistics.",
+    "overview": "The Associate Certificate: Business Essentials builds foundational skills in organizational behaviour, finance, and either entrepreneurship or applied business statistics. It prepares learners to understand workplace dynamics, interpret basic financial information, and identify or assess entrepreneurial or analytical opportunities. The credential supports administrative, supervisory, financial services, and small business functions across northern and central British Columbia.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "timeCommitment": {
+      "label": "3 courses"
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 1,
+      "stacksInto": [
+        "cert-business-administration",
+        "business-administration-diploma"
+      ],
+      "stackMessage": "Functions as a standalone entry level credential and as a building block within CNC's Business Administration program structure."
+    },
+    "courses": [
+      {
+        "code": "COM 115",
+        "title": "Organizational Behaviour",
+        "note": "Introduces individual and group behaviour in workplaces, including motivation, leadership, communication, teamwork, culture, decision making, and conflict."
+      },
+      {
+        "code": "COM 120",
+        "title": "Finance 1",
+        "note": "Covers foundational finance concepts and financial literacy for business decision making."
+      },
+      {
+        "code": "COM 125",
+        "title": "Introduction to Entrepreneurship",
+        "note": "Option 1: Focus on entrepreneurial mindset, opportunity identification, feasibility analysis, business models, and early stage venture planning."
+      },
+      {
+        "code": "ECON 105",
+        "title": "Business Statistics",
+        "note": "Option 2: Focus on applied statistics for business, including descriptive measures, probability, and data informed decisions."
+      }
+    ],
+    "employmentSummary": "Graduates can pursue entry level roles in office administration, HR support, financial services, and small business development. Key pathways include Administrative officer or office manager roles (NOC 13100), human resources and recruitment officer roles (NOC 12101), financial sales representative jobs (NOC 63102), and self employment as a small business owner or entrepreneur supported by provincial entrepreneurship programs. Regional labour market evidence shows a good outlook for administrative and HR roles, stable finance and banking employment, and expanding entrepreneurship activity in northern communities.",
+    "jobIds": [
+      "administrative-officer-13100",
+      "hr-recruitment-officer-12101",
+      "financial-sales-rep-63102",
+      "small-business-owner-self-employment"
+    ],
+    "skills": [
+      "workplace communication and teamwork",
+      "leadership and supervisory basics",
+      "foundational financial literacy",
+      "entrepreneurial thinking and opportunity evaluation",
+      "basic data and statistics for business",
+      "client service in financial or business settings"
+    ]
+  },
+  {
+    "id": "assoc-business-fundamentals",
+    "name": "Associate Certificate: Business Fundamentals",
+    "credentialType": "Associate Certificate",
+    "shortTagline": "Entry level business credential in accounting, marketing, and information systems or general business.",
+    "overview": "The Associate Certificate: Business Fundamentals provides foundational business knowledge in accounting, marketing, information systems, and general business operations. It equips learners with transferable skills aligned with demand for business support, finance, and administrative occupations across northern and central British Columbia.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "timeCommitment": {
+      "label": "3 courses"
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 1,
+      "stacksInto": [
+        "cert-business-administration",
+        "business-administration-diploma"
+      ],
+      "stackMessage": "Acts as an accessible on ramp to business studies and can be applied toward CNC's Business Administration certificate and diploma."
+    },
+    "courses": [
+      {
+        "code": "COM 105",
+        "title": "Financial Accounting",
+        "note": "Introduces the accounting cycle, financial reporting, and the preparation and interpretation of basic financial statements."
+      },
+      {
+        "code": "COM 130",
+        "title": "Principles of Marketing",
+        "note": "Covers marketing fundamentals including consumer behaviour, segmentation, promotion, and basic digital marketing concepts."
+      },
+      {
+        "code": "COM 105",
+        "title": "Computer Information Systems",
+        "note": "Option: Focus on computer information systems, software tools, and digital literacy for business support roles."
+      },
+      {
+        "code": "COM 100",
+        "title": "Fundamentals of Business",
+        "note": "Option: Overview of the business environment, ownership forms, management functions, ethics, and core business areas."
+      }
+    ],
+    "employmentSummary": "Graduates can move into entry level occupations in small businesses, local government, non profits, and Indigenous enterprises. Primary pathways include administrative assistant or office administrative assistant (NOC 13110), accounting or bookkeeping clerk (NOC 14200), and marketing, sales support, or digital marketing assistant roles aligned with Marketing and public relations officers (NOC 11202). Evidence for the Cariboo region indicates good outlooks for administrative roles, steady demand for accounting and bookkeeping, and emerging opportunities for marketing roles including remote and hybrid work.",
+    "jobIds": [
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202"
+    ],
+    "skills": [
+      "financial accounting and data entry",
+      "basic financial statement literacy",
+      "marketing and customer communication basics",
+      "business software and office tools",
+      "general understanding of business operations"
+    ]
+  },
+  {
+    "id": "assoc-hospitality-guest-experience-management",
+    "name": "Associate Certificate: Hospitality and Guest Experience Management",
+    "credentialType": "Associate Certificate",
+    "shortTagline": "Applied hotel, food and beverage, and project skills for guest focused roles in accommodation and food services.",
+    "overview": "The Associate Certificate: Hospitality and Guest Experience Management develops applied skills for front line and supervisory roles in hotels, restaurants, and other guest focused operations. Learners build capability in project execution, hotel operations, and food and beverage management with an emphasis on guest experience, service quality, safety, and regulatory compliance.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "timeCommitment": {
+      "label": "3 courses"
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 1,
+      "stacksInto": [
+        "cert-business-administration",
+        "business-administration-diploma"
+      ],
+      "stackMessage": "Can be completed as a focused hospitality credential and also used as a stackable component in CNC's Business Administration program."
+    },
+    "courses": [
+      {
+        "code": "COM 245",
+        "title": "Project Management Essentials",
+        "note": "Introduces project management concepts and basic tools for planning and executing small projects that support operational improvements in hospitality settings."
+      },
+      {
+        "code": "COM 275",
+        "title": "The Business of Hotel Management",
+        "note": "Examines hotel operations, the role of the general manager, quality standards, legislation, human resources, sustainability practices, and emerit based hotel management standards."
+      },
+      {
+        "code": "COM 280",
+        "title": "Food and Beverage Management",
+        "note": "Focuses on food and beverage operations, internal controls, menu design and costing, marketing, legal and safety requirements, and service management for profitability and guest satisfaction."
+      }
+    ],
+    "employmentSummary": "Graduates can pursue roles in hotels, restaurants, resorts, and other accommodation and food service operations. Key occupational pathways include restaurant and food service manager (NOC 60030), accommodation service manager or hotel manager (NOC 60031), food service supervisor (NOC 62020), and hotel front desk clerk or guest services agent (NOC 64314). Provincial and regional evidence points to ongoing hiring needs driven by turnover, seasonality, and population mobility, with steady opportunities for entry level guest service and supervisory roles across northern BC.",
+    "jobIds": [
+      "restaurant-food-service-manager-60030",
+      "accommodation-service-manager-60031",
+      "food-service-supervisor-62020",
+      "hotel-front-desk-clerk-64314"
+    ],
+    "skills": [
+      "hotel and accommodation operations",
+      "food and beverage cost control",
+      "menu design and analysis",
+      "guest service and service recovery",
+      "staff scheduling and supervision",
+      "safety, legislation, and compliance",
+      "small project planning for service improvements"
+    ]
+  },
+  {
+    "id": "assoc-recruitment-specialist",
+    "name": "Associate Certificate: Recruitment Specialist",
+    "credentialType": "Associate Certificate",
+    "shortTagline": "Specialized HR credential focused on staffing, recruitment, and compensation decision making.",
+    "overview": "The Associate Certificate: Recruitment Specialist equips learners with the skills needed to support staffing, workforce planning, compensation strategies, and end to end recruitment processes. Students learn to interpret labour market trends, analyze job requirements, design compensation systems, and apply equitable, legally compliant recruitment and selection practices across diverse organizational settings.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "timeCommitment": {
+      "label": "3 courses"
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 1,
+      "stacksInto": [
+        "cert-business-administration",
+        "business-administration-diploma"
+      ],
+      "stackMessage": "Can stand alone as a recruitment focused credential or ladder into CNC's Business Administration program."
+    },
+    "courses": [
+      {
+        "code": "COM 255",
+        "title": "Strategic Human Resource Planning",
+        "note": "Covers strategic HR planning, environmental influences, forecasting, succession management, HR metrics, restructuring, outsourcing, and alignment of HR strategies with organizational goals."
+      },
+      {
+        "code": "COM 260",
+        "title": "Compensation and Benefits",
+        "note": "Explores compensation strategy, pay structures, job evaluation, market analysis, performance pay, indirect compensation, and system design with attention to Indigenous labour market contexts."
+      },
+      {
+        "code": "COM 270",
+        "title": "Recruitment and Selection",
+        "note": "Examines recruitment legislation, protected groups, Indigenous focused hiring approaches, job analysis, screening tools, interviewing, decision making, and employment contracting."
+      }
+    ],
+    "employmentSummary": "Graduates are prepared for human resources and recruitment officer roles (NOC 12101), HR assistant or coordinator positions (mapped to administrative assistants in HR contexts, NOC 13110), compensation or staffing clerk roles (NOC 14102), and recruitment specialist or talent acquisition coordinator positions that draw on both recruitment and compensation knowledge. Northern BC evidence highlights consistent regional demand for HR and recruitment roles in health, education, government, forestry, Indigenous organizations, and staffing services, with competitive wages in the 25 to 35 dollars per hour range.",
+    "jobIds": [
+      "hr-recruitment-officer-12101",
+      "administrative-assistant-13110",
+      "compensation-staffing-clerk-14102"
+    ],
+    "skills": [
+      "strategic workforce planning",
+      "job analysis and job design",
+      "recruitment strategy and sourcing",
+      "screening, interviewing, and selection",
+      "equitable and inclusive hiring practices",
+      "compensation and benefits design",
+      "HR metrics and data informed HR decisions"
+    ]
+  },
+  {
+    "id": "assoc-small-business",
+    "name": "Associate Certificate: Small Business",
+    "credentialType": "Associate Certificate",
+    "shortTagline": "Entrepreneurship, organizational behaviour, and a focused elective for small business operations.",
+    "overview": "The Associate Certificate: Small Business equips learners with foundational competencies to start, operate, or support the growth of small enterprises. Students develop skills in organizational behaviour, entrepreneurial decision making, and one targeted specialization in business law, project management, or human resource management, preparing them for broad operational roles in small organizations.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "timeCommitment": {
+      "label": "3 courses"
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 1,
+      "stacksInto": [
+        "cert-business-administration",
+        "business-administration-diploma"
+      ],
+      "stackMessage": "Works as a practical entry or advancement pathway for small business roles and can be stacked into CNC's Business Administration program."
+    },
+    "courses": [
+      {
+        "code": "COM 115",
+        "title": "Organizational Behaviour",
+        "note": "Focus on motivation, leadership, communication, teamwork, culture, decision making, and conflict with application to small business performance."
+      },
+      {
+        "code": "COM 125",
+        "title": "Introduction to Entrepreneurship",
+        "note": "Covers entrepreneurial mindset, opportunity identification, feasibility analysis, business models, value propositions, and early stage venture planning."
+      },
+      {
+        "code": "COM 225",
+        "title": "Business Law",
+        "note": "Elective option: Legal frameworks for small businesses including contracts, torts, business structures, employment law, intellectual property, and consumer protection."
+      },
+      {
+        "code": "BUS 295",
+        "title": "Project Management Essentials",
+        "note": "Elective option: PMBOK aligned project management skills that support small business initiatives and multiple concurrent projects."
+      },
+      {
+        "code": "COM 250",
+        "title": "Human Resource Management",
+        "note": "Elective option: HR foundations including staffing, training, performance management, compensation, and legislative requirements relevant to small organizations."
+      }
+    ],
+    "employmentSummary": "Graduates are prepared to manage or support small business operations, take on administrative officer roles in small business contexts (NOC 13100), work as administrative assistants or office coordinators (NOC 13110), and provide HR or office support in small organizations. Many learners will also pursue self employment as small business owners or operators. Northern BC data shows strong regional reliance on small businesses in retail, tourism, trades, transportation, hospitality, and community based enterprises, with sustained demand for staff who can adapt to multiple functions and support operations, customer service, HR tasks, and compliance.",
+    "jobIds": [
+      "small-business-owner-self-employment",
+      "administrative-officer-13100",
+      "administrative-assistant-13110",
+      "hr-recruitment-officer-12101"
+    ],
+    "skills": [
+      "entrepreneurial opportunity evaluation",
+      "small business planning and basics",
+      "teamwork and leadership in small firms",
+      "customer service and client relations",
+      "basic HR or project coordination (by elective)",
+      "awareness of business law and compliance"
+    ]
+  },
+  {
+    "id": "cert-business-administration",
+    "name": "Certificate: Business Administration",
+    "credentialType": "Certificate",
+    "shortTagline": "Broad business foundation in accounting, marketing, economics, information systems, and organizational behaviour.",
+    "overview": "The Certificate in Business Administration provides a solid foundation in accounting, marketing, information systems, organizational behaviour, economics, and core business functions. It prepares learners for administrative, coordination, customer facing, and entry level analytical roles across government, non profits, Indigenous organizations, and small and medium enterprises in British Columbia, while also serving as the first academic stack within the Business Administration Program.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "timeCommitment": {
+      "label": "10 courses or a combination of Associate Certificate: Business Fundamentals and Associate Certificate: Business Essentials"
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 2,
+      "stacksInto": ["business-administration-diploma"],
+      "stackMessage": "Forms the core Business Administration certificate that ladders directly into associate certificates and the Business Administration diploma."
+    },
+    "courses": [
+      {
+        "code": "COM 100",
+        "title": "Fundamentals of Business"
+      },
+      {
+        "code": "COM 105",
+        "title": "Computer Information Systems"
+      },
+      {
+        "code": "COM 110",
+        "title": "Financial Accounting"
+      },
+      {
+        "code": "COM 115",
+        "title": "Organizational Behaviour"
+      },
+      {
+        "code": "COM 130",
+        "title": "Principles of Marketing"
+      },
+      {
+        "code": "ECON 100",
+        "title": "Principles of Microeconomics"
+      },
+      {
+        "code": "ECON 101",
+        "title": "Principles of Macroeconomics"
+      },
+      {
+        "code": "ECON 105",
+        "title": "Business Statistics"
+      },
+      {
+        "code": "ENGL 113",
+        "title": "Writing and Communication"
+      },
+      {
+        "code": "MATH 103",
+        "title": "Finite Mathematics"
+      }
+    ],
+    "employmentSummary": "Graduates can move into a broad set of entry level roles that require business knowledge, administrative capability, financial literacy, communication skills, and analytical thinking. Occupational pathways include administrative officer or coordinator (NOC 13100), administrative assistant or office support (NOC 13110), bookkeeping or accounting clerk (NOC 14200), marketing or communications assistant aligned with marketing and public relations roles (NOC 11202), customer service or client relations representative (NOC 64409), and junior analyst or data and reporting assistant positions (closest NOC 41402). Provincial and regional evidence points to strong combined openings across administrative, office management, and accounting support roles to 2034, with stable wages and growing opportunities for analyst and marketing roles, including remote and hybrid work.",
+    "jobIds": [
+      "administrative-officer-13100",
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202",
+      "customer-service-representative-64409",
+      "junior-analyst-41402"
+    ],
+    "skills": [
+      "broad understanding of business functions",
+      "financial literacy and accounting basics",
+      "marketing and customer focus",
+      "information systems and productivity tools",
+      "micro and macroeconomic awareness",
+      "business statistics and data interpretation",
+      "professional writing and communication"
+    ]
+  }
+]
