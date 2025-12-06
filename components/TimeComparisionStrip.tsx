@@ -114,9 +114,6 @@ export function TimeComparisonStrip() {
           >
             <div className="absolute inset-x-3 -top-1 h-1 rounded-full bg-gradient-to-r from-[#005f63] to-[#0f766e] opacity-70" />
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#005f63]/10 border border-[#005f63]/30">
-                <Timer className="h-4 w-4 text-[#005f63]" />
-              </div>
               <p className="text-base font-semibold uppercase tracking-[0.12em] text-[#005f63]">
                 Short CNC associate certificates
               </p>
@@ -139,9 +136,6 @@ export function TimeComparisonStrip() {
           >
             <div className="absolute inset-x-3 -top-1 h-1 rounded-full bg-gradient-to-r from-[#d97706] via-[#f4b41a] to-[#d71920] opacity-90" />
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#d71920]/10 border border-[#d71920]/30">
-                <GraduationCap className="h-4 w-4 text-[#d71920]" />
-              </div>
               <p className="text-base font-semibold uppercase tracking-[0.12em] text-[#d71920]">
                 CNC Business Administration Certificate
               </p>
@@ -166,9 +160,6 @@ export function TimeComparisonStrip() {
           >
             <div className="absolute inset-x-3 -top-1 h-1 rounded-full bg-gradient-to-r from-[#b91c1c] to-slate-700 opacity-80" />
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800/5 border border-slate-300">
-                <BookOpen className="h-4 w-4 text-slate-700" />
-              </div>
               <p className="text-base font-semibold uppercase tracking-[0.12em] text-slate-700">
                 Typical 2 year and 4 year business paths
               </p>
