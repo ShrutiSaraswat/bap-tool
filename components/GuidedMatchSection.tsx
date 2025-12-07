@@ -237,13 +237,13 @@ export function GuidedMatchSection() {
             Guided match
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
-            Not sure where to start? Try a guided match.
+            Not sure where to start? Use the guided match.
           </h2>
           <p className="text-base text-slate-800">
-            In your own words, describe the kinds of work you enjoy, the
-            subjects you like, or the environment you want to be in. The tool
-            compares what you write with the skills and focus areas in each CNC
-            business program and suggests possible starting points.
+            Describe the kind of business work you want to do or the experience
+            you already have. The tool compares your interests with CNC&apos;s
+            business programs and suggests a flexible starting point you can
+            build into a certificate or diploma.
           </p>
         </motion.div>
 
@@ -273,7 +273,7 @@ export function GuidedMatchSection() {
                 type="submit"
                 className="inline-flex items-center rounded-md bg-[#d71920] px-5 py-3 text-base font-semibold text-white hover:bg-[#b8141b] shadow-sm hover:shadow-md transition cursor-pointer"
               >
-                See suggested programs
+                See Suggested Programs
               </button>
               <button
                 type="button"
@@ -284,7 +284,7 @@ export function GuidedMatchSection() {
                   )
                 }
               >
-                Use an example
+                See an Example
               </button>
             </div>
 
@@ -314,7 +314,7 @@ export function GuidedMatchSection() {
               {!touched && (
                 <p className="text-base text-slate-800">
                   Type a few sentences and select{" "}
-                  <span className="font-semibold">See suggested programs</span>{" "}
+                  <span className="font-semibold">See Suggested Programs</span>{" "}
                   to view matches here.
                 </p>
               )}

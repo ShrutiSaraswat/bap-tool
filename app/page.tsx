@@ -21,7 +21,7 @@ const page = () => {
       <HeroIntro />
       {/* <FeaturesSection /> */}
       <GuidedMatchSection />
-      <TimeComparisonStrip />
+      {/* <TimeComparisonStrip /> */}
       <ByProgramSection />
       <BySkillSection />
       <ByJobSection />

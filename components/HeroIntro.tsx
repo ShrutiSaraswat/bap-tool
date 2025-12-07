@@ -10,6 +10,8 @@ import {
   Sparkles,
   TrendingUp,
   Target,
+  GraduationCap,
+  School,
 } from "lucide-react";
 
 const fadeUp = {
@@ -133,7 +135,8 @@ export function HeroIntro() {
                   </p>
                   <p>
                     <p className="text-green-700">(1 Semester Each)</p> Business
-                    Fundamentals, Hospitality and Guest Experience Management.
+                    Essentials and Fundamentals, Hospitality and Guest
+                    Experience Management.
                   </p>
                 </div>
               </div>
@@ -158,15 +161,17 @@ export function HeroIntro() {
 
             <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
               <div className="flex flex-col items-start gap-3">
-                <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-[#f4b41a]/15 text-[#8a5a00]">
-                  <BarChart3 className="h-5 w-5" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#f4b41a]/15 text-[#8a5a00]">
+                  <GraduationCap className="h-5 w-5" />
                 </div>
+
                 <div>
                   <p className="font-semibold text-slate-900">
-                    Labour market informed
+                    Diploma (2 Years)
                   </p>
                   <p>
-                    Shows real jobs, real wages, and real demand in northern BC.
+                    Choose from five specializations or design your own path
+                    through flexible course options.
                   </p>
                 </div>
               </div>
@@ -174,15 +179,18 @@ export function HeroIntro() {
 
             <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
               <div className="flex flex-col  items-start gap-3">
-                <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-[#f4b41a]/15 text-[#8a5a00]">
-                  <BarChart3 className="h-5 w-5" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0ea5e9]/15 text-[#0f172a]">
+                  <School className="h-5 w-5" />
                 </div>
+
                 <div>
                   <p className="font-semibold text-slate-900">
-                    Labour market informed
+                    Dual Credit Options
                   </p>
                   <p>
-                    Shows real jobs, real wages, and real demand in northern BC.
+                    Earn a job-ready associate certificate while you&apos;re
+                    still in high school & build real business skills before you
+                    graduate.
                   </p>
                 </div>
               </div>
