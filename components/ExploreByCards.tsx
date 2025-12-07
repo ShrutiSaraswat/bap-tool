@@ -329,16 +329,22 @@ export function ExploreByCards() {
   const jobsForBand =
     selectedBand === "" ? [] : JOBS.filter((j) => j.wageBand === selectedBand);
 
-  // Scroll helper
+  // Scroll helper - offset for fixed navbar so content is not hidden
   const scrollToResults = (mode: Mode) => {
     setActiveMode(mode);
+
     requestAnimationFrame(() => {
-      if (resultsRef.current) {
-        resultsRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
+      if (!resultsRef.current) return;
+
+      const rect = resultsRef.current.getBoundingClientRect();
+      const NAVBAR_OFFSET = 96; // adjust if your header height changes
+
+      const targetY = window.scrollY + rect.top - NAVBAR_OFFSET;
+
+      window.scrollTo({
+        top: targetY,
+        behavior: "smooth",
+      });
     });
   };
 
