@@ -119,16 +119,8 @@ export function ByJobSection() {
   return (
     <section
       id="jobs"
-      className="relative overflow-hidden bg-gradient-to-br from-[#fff1f2] via-[#ffe4e6] to-[#fffbeb] border-b border-slate-200 py-10 sm:py-12"
+      className="relative overflow-hidden bg-gradient-to-br from-[#fff1f2] via-red-900/10 to-[#fffbeb] border-b border-slate-200 py-10 sm:py-12"
     >
-      {/* background accents */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        {/* warm blobs + diagonal highlight to match skills section theme */}
-        <div className="absolute -left-24 top-6 h-56 w-56 rounded-full bg-[#fb7185]/40 blur-3xl" />
-        <div className="absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-[#f97316]/40 blur-3xl" />
-        <div className="absolute -inset-x-32 top-16 h-40 rotate-[-3deg] bg-gradient-to-r from-white/60 via-[#fff7ed]/80 to-white/60" />
-      </div>
-
       <motion.div
         className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7"
         variants={containerVariants}

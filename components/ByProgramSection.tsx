@@ -124,24 +124,9 @@ export function ByProgramSection() {
   return (
     <section
       id="programs"
-      className="relative overflow-hidden bg-gradient-to-br from-[#fff1f2] via-[#ffe4e6] to-[#fffbeb] border-b border-slate-200 py-10 sm:py-12"
+      className="relative overflow-hidden bg-gradient-to-br from-[#fff1f2] via-red-900/10 to-[#fffbeb] border-b border-slate-200 py-10 sm:py-12"
     >
       {/* background accents */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        {/* soft warm top + bottom bands so this reads as its own block */}
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#ffe4e6] via-[#fff7ed] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#fffbeb] via-[#ffe4e6] to-transparent" />
-
-        {/* soft central panel behind the content */}
-        <div className="absolute inset-x-3 sm:inset-x-6 top-6 bottom-6 rounded-[2.5rem] bg-white/85 shadow-[0_24px_60px_rgba(120,53,15,0.18)]" />
-
-        {/* warm blobs matching ByJobSection */}
-        <div className="absolute -left-24 top-6 h-56 w-56 rounded-full bg-[#fb7185]/40 blur-3xl" />
-        <div className="absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-[#f97316]/40 blur-3xl" />
-
-        {/* subtle diagonal highlight like jobs section */}
-        <div className="absolute -inset-x-32 top-16 h-40 rotate-[-3deg] bg-gradient-to-r from-white/60 via-[#fff7ed]/80 to-white/60" />
-      </div>
 
       <motion.div
         className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7"
