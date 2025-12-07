@@ -19,7 +19,7 @@ const page = () => {
       <CncHeader />
       <ScrollToTopButton />
       <HeroIntro />
-      <FeaturesSection />
+      {/* <FeaturesSection /> */}
       <GuidedMatchSection />
       <TimeComparisonStrip />
       <ByProgramSection />

@@ -80,25 +80,26 @@ export function HeroIntro() {
             variants={fadeUp}
             className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-base font-semibold tracking-[0.18em] uppercase text-[#005f63] shadow-sm"
           >
-            Business Administration Program · CNC
+            Business Administration Program
           </motion.p>
 
           <motion.h1
             variants={fadeUp}
             className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-slate-900 leading-tight max-w-5xl"
           >
-            Explore short, stackable{" "}
-            <span className="text-[#d71920]">business pathways</span> at CNC.
+            Start small, build{" "}
+            <span className="text-[#d71920]">real business skills</span>, &
+            stack them into bigger opportunities.
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="text-base lg:text-lg text-slate-800 max-w-2xl"
           >
-            Use this page to compare programs, job options, earning potential
-            and opportunities in northern BC. You can start with a short
-            credential now and later stack into a 1 year certificate or 2 year
-            diploma when you are ready.
+            Begin with a flexible associate certificate that can be finished in
+            4 months with 3 courses. You can also take one course at a time.
+            Every course stacks into a full certificate and diploma when
+            you&apos;re ready.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-1 flex flex-wrap gap-3">
@@ -119,33 +120,33 @@ export function HeroIntro() {
           {/* Quick facts - full width */}
           <motion.div
             variants={fadeUp}
-            className="mt-4 grid max-w-4xl gap-3 text-base text-slate-800 sm:grid-cols-3"
+            className="mt-4 grid max-w-7xl gap-3 text-base text-slate-800 sm:grid-cols-5"
           >
             <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
-              <div className="flex items-start gap-3">
+              <div className="flex flex-col items-start gap-3">
                 <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-[#d71920]/10 text-[#d71920]">
                   <Layers className="h-5 w-5" />
                 </div>
                 <div>
                   <p className="font-semibold text-slate-900">
-                    3 associate certificates
+                    7 Associate Certificates
                   </p>
                   <p>
-                    Business Essentials, Business Fundamentals and Hospitality
-                    and Guest Experience Management.
+                    <p className="text-green-700">(1 Semester Each)</p> Business
+                    Fundamentals, Hospitality and Guest Experience Management.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
-              <div className="flex items-start gap-3">
+              <div className="flex flex-col items-start gap-3">
                 <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-[#005f63]/10 text-[#005f63]">
                   <Clock className="h-5 w-5" />
                 </div>
                 <div>
                   <p className="font-semibold text-slate-900">
-                    1 year certificate option
+                    One Certificate (1 Year)
                   </p>
                   <p>
                     A shorter time commitment than most 2 year and 4 year
@@ -156,7 +157,7 @@ export function HeroIntro() {
             </div>
 
             <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
-              <div className="flex items-start gap-3">
+              <div className="flex flex-col items-start gap-3">
                 <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-[#f4b41a]/15 text-[#8a5a00]">
                   <BarChart3 className="h-5 w-5" />
                 </div>
@@ -165,22 +166,44 @@ export function HeroIntro() {
                     Labour market informed
                   </p>
                   <p>
-                    Based on NOC codes, wage bands and outlook data for northern
-                    BC and provincial labour markets.
+                    Shows real jobs, real wages, and real demand in northern BC.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
+              <div className="flex flex-col  items-start gap-3">
+                <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-[#f4b41a]/15 text-[#8a5a00]">
+                  <BarChart3 className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900">
+                    Labour market informed
+                  </p>
+                  <p>
+                    Shows real jobs, real wages, and real demand in northern BC.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
+              <div className="flex flex-col  items-start gap-3">
+                <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-[#f4b41a]/15 text-[#8a5a00]">
+                  <BarChart3 className="h-5 w-5" />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900">
+                    Labour market informed
+                  </p>
+                  <p>
+                    Shows real jobs, real wages, and real demand in northern BC.
                   </p>
                 </div>
               </div>
             </div>
           </motion.div>
-
-          <motion.p
-            variants={fadeUp}
-            className="pt-1 text-base text-slate-700 max-w-2xl"
-          >
-            All information comes from the Business Administration Program (BAP)
-            labour market analysis. Use this as a planning tool and connect with
-            CNC advising for detailed program guidance.
-          </motion.p>
         </motion.div>
 
         {/* Right panel - how to use this page */}
@@ -194,16 +217,13 @@ export function HeroIntro() {
           <div className="relative rounded-[1.6rem] bg-gradient-to-br from-white via-white/95 to-slate-50 border border-slate-200/80 shadow-[0_18px_40px_rgba(15,23,42,0.16)] overflow-hidden">
             <div className="bg-gradient-to-r from-[#005f63] via-[#0f172a] to-[#d71920] text-white px-5 py-3 flex items-center justify-between">
               <span className="text-base font-semibold tracking-[0.18em] uppercase">
-                How to use this page
-              </span>
-              <span className="text-base opacity-80">
-                Explore CNC business options
+                Find the business path that fits you
               </span>
             </div>
 
             <div className="p-5 space-y-4 text-base text-slate-800">
               <p className="font-semibold">
-                Choose a starting point that matches how you like to explore:
+                Choose the way you like to explore:
               </p>
 
               {/* Visual map of the 4 exploration paths with full descriptions */}
@@ -217,9 +237,9 @@ export function HeroIntro() {
                       By program
                     </p>
                     <p className="text-base text-slate-600 leading-snug">
-                      See time commitment, job prospects, earning potential and
-                      regional opportunities for a specific CNC business
-                      credential.
+                      See the time commitment, job prospects and earning
+                      potential for each CNC business credential. Compare short
+                      starting points and longer pathways.
                     </p>
                   </div>
                 </div>
@@ -233,9 +253,8 @@ export function HeroIntro() {
                       By skills you want to build
                     </p>
                     <p className="text-base text-slate-600 leading-snug">
-                      If you enjoy areas like customer service, accounting or
-                      leadership and want to see which programs strengthen those
-                      skills.
+                      Choose the skills you want to grow and see which programs
+                      support your development.
                     </p>
                   </div>
                 </div>
@@ -249,8 +268,8 @@ export function HeroIntro() {
                       By job title or earning potential
                     </p>
                     <p className="text-base text-slate-600 leading-snug">
-                      When you have a role or wage range in mind and want to
-                      find the CNC pathway that connects to it.
+                      If you already have a role or wage range in mind, explore
+                      the CNC pathways that connect directly to that goal.
                     </p>
                   </div>
                 </div>
@@ -264,8 +283,9 @@ export function HeroIntro() {
                       Guided match
                     </p>
                     <p className="text-base text-slate-600 leading-snug">
-                      Describe yourself and your interests in a few words, and
-                      the tool will suggest starting programs to consider.
+                      Describe yourself in a few words and the tool will
+                      recommend a starting point, whether that&apos;s one course
+                      or a short certificate.
                     </p>
                   </div>
                 </div>
@@ -276,25 +296,25 @@ export function HeroIntro() {
                   href="#programs"
                   className="inline-flex items-center cursor-pointer rounded-md bg-[#d71920] px-4 py-2.5 text-base font-semibold text-white hover:bg-[#b8141b] transition"
                 >
-                  Explore by program
+                  Explore by Program
                 </a>
                 <a
                   href="#skills"
                   className="inline-flex items-center cursor-pointer rounded-md border border-slate-300 bg-white px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
                 >
-                  Explore by skills
+                  Explore by Skills
                 </a>
                 <a
                   href="#jobs"
                   className="inline-flex items-center cursor-pointer rounded-md border border-slate-200 bg-slate-50 px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
                 >
-                  Explore by job title
+                  Explore by Job Title
                 </a>
               </div>
 
               <p className="pt-1 text-base text-slate-700">
-                You can use this page on your own or together with an advisor to
-                compare options and plan your next steps in business at CNC.
+                You can use this tool on your own or with an advisor to compare
+                your options and plan your next steps in business at CNC.
               </p>
             </div>
           </div>
