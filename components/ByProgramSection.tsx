@@ -124,20 +124,23 @@ export function ByProgramSection() {
   return (
     <section
       id="programs"
-      className="relative overflow-hidden border-b border-slate-200 py-10 sm:py-12 bg-slate-50"
+      className="relative overflow-hidden bg-gradient-to-br from-[#fff1f2] via-[#ffe4e6] to-[#fffbeb] border-b border-slate-200 py-10 sm:py-12"
     >
       {/* background accents */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        {/* top + bottom bands so this section reads as its own block */}
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#e0f2fe] via-[#ecfeff] to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#ecfdf5] via-[#f0fdf4] to-transparent" />
+        {/* soft warm top + bottom bands so this reads as its own block */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#ffe4e6] via-[#fff7ed] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#fffbeb] via-[#ffe4e6] to-transparent" />
 
         {/* soft central panel behind the content */}
-        <div className="absolute inset-x-3 sm:inset-x-6 top-6 bottom-6 rounded-[2.5rem] bg-white/85 shadow-[0_24px_60px_rgba(15,23,42,0.10)]" />
+        <div className="absolute inset-x-3 sm:inset-x-6 top-6 bottom-6 rounded-[2.5rem] bg-white/85 shadow-[0_24px_60px_rgba(120,53,15,0.18)]" />
 
-        {/* original color blobs, slightly stronger so they show */}
-        <div className="absolute -left-28 top-10 h-56 w-56 rounded-full bg-[#005f63]/12 blur-3xl" />
-        <div className="absolute -right-32 bottom-0 h-64 w-64 rounded-full bg-[#d71920]/12 blur-3xl" />
+        {/* warm blobs matching ByJobSection */}
+        <div className="absolute -left-24 top-6 h-56 w-56 rounded-full bg-[#fb7185]/40 blur-3xl" />
+        <div className="absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-[#f97316]/40 blur-3xl" />
+
+        {/* subtle diagonal highlight like jobs section */}
+        <div className="absolute -inset-x-32 top-16 h-40 rotate-[-3deg] bg-gradient-to-r from-white/60 via-[#fff7ed]/80 to-white/60" />
       </div>
 
       <motion.div
@@ -153,7 +156,7 @@ export function ByProgramSection() {
           variants={fadeUp}
         >
           <div className="space-y-2 max-w-3xl">
-            <p className="text-base font-semibold tracking-[0.18em] uppercase text-[#005f63]">
+            <p className="text-base font-semibold tracking-[0.18em] uppercase text-[#b91c1c]">
               Explore CNC business programs
             </p>
             <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
@@ -176,7 +179,7 @@ export function ByProgramSection() {
             </label>
             <select
               id="program-select"
-              className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63] cursor-pointer"
+              className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#d97706] focus:border-[#d97706] cursor-pointer"
               value={selectedId}
               onChange={(e) => setSelectedId(e.target.value)}
             >
@@ -197,7 +200,7 @@ export function ByProgramSection() {
         {/* Empty state */}
         {!selectedProgram && (
           <motion.div
-            className="border border-dashed border-slate-300 bg-white/70 px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
+            className="border border-dashed border-slate-300 bg-white/90 px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
             variants={fadeUp}
           >
             Use the dropdown above to pick a program. When you select one, you
@@ -228,10 +231,10 @@ export function ByProgramSection() {
           >
             {/* Program overview card */}
             <div className="relative">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#005f63]/20 via-white to-[#d71920]/15 opacity-80" />
-              <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.15)] overflow-hidden">
-                <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
-                  <p className="text-base font-semibold tracking-[0.18em] uppercase text-slate-700">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#fed7aa]/60 via-white to-[#fee2e2]/70 opacity-80" />
+              <div className="relative border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(120,53,15,0.2)] overflow-hidden">
+                <div className="border-b border-slate-200 bg-gradient-to-r from-[#fff7ed] via-white to-[#fee2e2] px-5 py-4">
+                  <p className="text-base font-semibold tracking-[0.18em] uppercase text-slate-800">
                     {selectedProgram.credentialType || "Program"}
                   </p>
                   <h3 className="mt-2 text-xl sm:text-2xl font-semibold text-slate-900">
@@ -253,7 +256,7 @@ export function ByProgramSection() {
                   <div className="flex flex-wrap gap-2.5">
                     {selectedProgram.timeCommitment?.label && (
                       <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-3 py-1.5 text-base font-medium text-slate-800">
-                        <Timer className="h-4 w-4 text-[#005f63]" />
+                        <Timer className="h-4 w-4 text-[#b91c1c]" />
                         <span>{selectedProgram.timeCommitment.label}</span>
                       </span>
                     )}
@@ -272,8 +275,8 @@ export function ByProgramSection() {
                   </div>
 
                   {selectedProgram.stackability?.stackMessage && (
-                    <div className="border border-[#005f63]/30 bg-[#005f63]/5 px-4 py-3 rounded-xl">
-                      <p className="text-base font-semibold text-[#005f63] uppercase tracking-[0.16em] mb-1">
+                    <div className="border border-[#b91c1c]/25 bg-[#fee2e2]/40 px-4 py-3 rounded-xl">
+                      <p className="text-base font-semibold text-[#b91c1c] uppercase tracking-[0.16em] mb-1">
                         Stackable pathway
                       </p>
                       <p className="text-base text-slate-800">
@@ -315,11 +318,11 @@ export function ByProgramSection() {
 
             {/* Jobs + opportunities */}
             <div className="relative">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-slate-200/60 via-white to-slate-100 opacity-70" />
-              <div className="relative border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(15,23,42,0.12)] overflow-hidden">
-                <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
-                  <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 flex items-center gap-2">
-                    <BriefcaseBusiness className="h-4 w-4 text-slate-800" />
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#fed7aa]/40 via-white to-[#fecaca]/50 opacity-80" />
+              <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(120,53,15,0.18)] overflow-hidden">
+                <div className="border-b border-slate-200 bg-gradient-to-r from-[#fff7ed] via-white to-[#fee2e2] px-5 py-4">
+                  <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-800 flex items-center gap-2">
+                    <BriefcaseBusiness className="h-4 w-4 text-[#b91c1c]" />
                     Job prospects and opportunities
                   </p>
                   <p className="mt-2 text-base text-slate-800">
@@ -373,7 +376,7 @@ export function ByProgramSection() {
 
                         {j.typicalEmployers && (
                           <div className="flex flex-wrap gap-2 pt-1">
-                            <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-50 border border-slate-200 px-3 py-1 text-base text-slate-800">
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-white border border-slate-200 px-3 py-1 text-base text-slate-800">
                               <MapPin className="h-4 w-4" />
                               <span>{j.typicalEmployers}</span>
                             </span>

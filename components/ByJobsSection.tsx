@@ -259,7 +259,7 @@ export function ByJobSection() {
 
                   <div className="grid gap-3 sm:grid-cols-2">
                     {/* Wage panel */}
-                    <div className="border border-slate-200 rounded-xl px-4 py-3 bg-[#fff7ed]">
+                    <div className="border border-slate-200 rounded-xl px-4 py-3">
                       <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 mb-2">
                         Typical wages
                       </p>
@@ -302,7 +302,7 @@ export function ByJobSection() {
                     </div>
 
                     {/* Opportunities panel */}
-                    <div className="border border-slate-200 rounded-xl px-4 py-3 bg-[#fff7ed]">
+                    <div className="border border-slate-200 rounded-xl px-4 py-3">
                       <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 mb-2">
                         Opportunities
                       </p>
@@ -368,7 +368,7 @@ export function ByJobSection() {
                   {linkedPrograms.map((p) => (
                     <motion.div
                       key={p.id}
-                      className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2 bg-[#fff7ed]"
+                      className="border border-slate-200 rounded-xl px-4 py-3 text-base space-y-2"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.25 }}

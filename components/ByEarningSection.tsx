@@ -112,12 +112,23 @@ export function ByEarningsSection() {
   return (
     <section
       id="earnings"
-      className="relative overflow-hidden bg-gradient-to-br from-[#f9fafb] via-white to-[#eff6ff] border-b border-slate-200 py-10 sm:py-12"
+      className="relative overflow-hidden border-b border-slate-200 py-10 sm:py-12 bg-gradient-to-br from-[#f9fafb] via-[#eff6ff] to-[#ecfeff]"
     >
       {/* background accents */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-28 top-8 h-52 w-52 rounded-full bg-[#005f63]/10 blur-3xl" />
-        <div className="absolute -right-32 bottom-0 h-60 w-60 rounded-full bg-[#d71920]/10 blur-3xl" />
+        {/* top + bottom bands to read as its own block */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#e0f2fe] via-[#eff6ff] to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#ecfdf5] via-[#e0f2fe] to-transparent" />
+
+        {/* soft central panel behind the content */}
+        <div className="absolute inset-x-3 sm:inset-x-6 top-6 bottom-6 rounded-[2.5rem] bg-white/85 shadow-[0_24px_60px_rgba(15,23,42,0.10)]" />
+
+        {/* teal / red blobs */}
+        <div className="absolute -left-28 top-8 h-52 w-52 rounded-full bg-[#005f63]/12 blur-3xl" />
+        <div className="absolute -right-32 bottom-0 h-60 w-60 rounded-full bg-[#d71920]/12 blur-3xl" />
+
+        {/* subtle diagonal highlight */}
+        <div className="absolute -inset-x-32 top-20 h-40 rotate-[-2deg] bg-gradient-to-r from-white/80 via-[#e5f0ff]/80 to-white/80" />
       </div>
 
       <motion.div
@@ -180,7 +191,7 @@ export function ByEarningsSection() {
         {/* Empty state when no band selected */}
         {selectedBand === "" && (
           <motion.div
-            className="border border-dashed border-slate-300 bg-white px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
+            className="border border-dashed border-slate-300 bg-white/90 px-5 py-6 text-base text-slate-800 rounded-2xl shadow-sm"
             variants={fadeUp}
           >
             Use the dropdown above to choose an earning range. This section
@@ -207,7 +218,7 @@ export function ByEarningsSection() {
           >
             {/* Programs list */}
             <div className="relative">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#005f63]/14 via-white to-[#d71920]/8 opacity-80" />
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-[#e0f2fe]/80 via-white to-[#e0f2f1]/80 opacity-90" />
               <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.15)]">
                 <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
                   <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 flex items-center gap-2">
@@ -295,8 +306,8 @@ export function ByEarningsSection() {
 
             {/* Jobs list */}
             <div className="relative">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-slate-200/60 via-white to-slate-100 opacity-70" />
-              <div className="relative border border-slate-200 rounded-2xl bg-white shadow-[0_14px_40px_rgba(15,23,42,0.12)]">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-slate-200/60 via-white to-slate-100 opacity-80" />
+              <div className="relative border border-slate-200 rounded-2xl bg-white/95 shadow-[0_14px_40px_rgba(15,23,42,0.12)]">
                 <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-white to-slate-100 px-5 py-4">
                   <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700 flex items-center gap-2">
                     <BarChart3 className="h-4 w-4 text-slate-800" />

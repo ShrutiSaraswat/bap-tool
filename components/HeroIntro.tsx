@@ -22,6 +22,9 @@ export function HeroIntro() {
     <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-br from-[#fff7f7] via-[#eff6ff] to-[#ecfeff]">
       {/* Background accents */}
       <div className="pointer-events-none absolute inset-0">
+        {/* 🔥 Added background image (ONLY CHANGE) */}
+        <div className="absolute inset-0 opacity-[0.07] bg-[url('/bg1.png')] bg-cover bg-center bg-no-repeat" />
+
         {/* Soft color blobs */}
         <div className="absolute -left-16 -top-10 h-56 w-56 rounded-full bg-[#d71920]/10 blur-3xl" />
         <div className="absolute right-[-32px] top-6 h-64 w-64 rounded-full bg-[#005f63]/20 blur-3xl" />
@@ -56,7 +59,7 @@ export function HeroIntro() {
         {/* Bottom soft band */}
         <div className="absolute inset-x-6 bottom-[-4rem] h-40 rounded-[3rem] bg-gradient-to-r from-[#0f172a]/7 via-transparent to-[#0f172a]/7 blur-2xl" />
 
-        {/* Subtle radial tint over everything */}
+        {/* Subtle radial tint */}
         <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.22),_transparent_60%)]" />
       </div>
 
@@ -134,6 +137,7 @@ export function HeroIntro() {
                 </div>
               </div>
             </div>
+
             <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
               <div className="flex items-start gap-3">
                 <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-[#005f63]/10 text-[#005f63]">
@@ -150,6 +154,7 @@ export function HeroIntro() {
                 </div>
               </div>
             </div>
+
             <div className="border border-slate-200 bg-white/90 px-4 py-3 rounded-xl shadow-[0_1px_3px_rgba(15,23,42,0.12)]">
               <div className="flex items-start gap-3">
                 <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-[#f4b41a]/15 text-[#8a5a00]">
