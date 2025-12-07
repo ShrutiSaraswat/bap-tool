@@ -24,8 +24,7 @@ export function HeroIntro() {
     <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-br from-[#fff7f7] via-[#eff6ff] to-[#ecfeff]">
       {/* Background accents */}
       <div className="pointer-events-none absolute inset-0">
-        {/* 🔥 Added background image (ONLY CHANGE) */}
-        <div className="absolute inset-0 opacity-[0.07] bg-[url('/bg1.png')] bg-cover bg-center bg-no-repeat" />
+        {/* <div className="absolute inset-0 opacity-[0.07] bg-[url('/bg1.png')] bg-cover bg-center bg-no-repeat" /> */}
 
         {/* Soft color blobs */}
         <div className="absolute -left-16 -top-10 h-56 w-56 rounded-full bg-[#d71920]/10 blur-3xl" />
