@@ -52,13 +52,20 @@ type Job = {
   shortSummary?: string;
   typicalJobTitles?: string[];
   typicalEmployers?: string;
+
+  // new fields used for wages + openings capsules
+  medianHourlyWage?: number | null;
+  medianAnnualSalary?: number | null;
+  wageBand?: string;
+  projectedOpeningsBC?: number | null;
+  opportunityLevel?: string;
 };
 
 const PROGRAMS: Program[] = programsData as Program[];
 const JOBS: Job[] = jobsData as Job[];
 const PROGRAM_BANDS: ProgramBand[] = programBandsData as ProgramBand[];
 
-// These map to IDs used in programsBand.json
+// These map to IDs used in programsBand.json and job wage bands
 const earningBandLabels: Record<string, string> = {
   "earning-entry": "Entry (around $18-22/hr)",
   "earning-moderate": "Entry to medium ($20-26/hr)",
@@ -325,6 +332,12 @@ export function ByProgramSection() {
                   )}
 
                   {relatedJobs.map((j) => {
+                    const annual =
+                      j.medianAnnualSalary ??
+                      (j.medianHourlyWage
+                        ? j.medianHourlyWage * 40 * 52
+                        : null);
+
                     return (
                       <div
                         key={j.id}
@@ -341,6 +354,22 @@ export function ByProgramSection() {
                               </p>
                             )}
                           </div>
+
+                          {(j.medianHourlyWage || annual) && (
+                            <div className="text-right text-base text-slate-700">
+                              {j.medianHourlyWage && (
+                                <p>
+                                  Median wage: ${j.medianHourlyWage.toFixed(2)}
+                                  /hr
+                                </p>
+                              )}
+                              {annual && (
+                                <p>
+                                  ≈ ${annual.toLocaleString("en-CA")} per year
+                                </p>
+                              )}
+                            </div>
+                          )}
                         </div>
 
                         {j.shortSummary && (
@@ -359,14 +388,46 @@ export function ByProgramSection() {
                             </p>
                           )}
 
-                        {j.typicalEmployers && (
-                          <div className="flex flex-wrap gap-2 pt-1">
+                        {/* Capsules: openings, demand, wage band + employers */}
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {j.projectedOpeningsBC != null && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-white border border-slate-200 px-3 py-1 text-base text-slate-800">
+                              <MapPin className="h-4 w-4" />
+                              <span>
+                                Approx.{" "}
+                                {j.projectedOpeningsBC.toLocaleString("en-CA")}{" "}
+                                openings in BC
+                              </span>
+                            </span>
+                          )}
+
+                          {j.opportunityLevel && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-1 text-base text-emerald-800">
+                              <TrendingUp className="h-4 w-4" />
+                              <span>
+                                {opportunityLabels[j.opportunityLevel] ??
+                                  "Opportunity information available"}
+                              </span>
+                            </span>
+                          )}
+
+                          {j.wageBand && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-base text-sky-800">
+                              <CircleDollarSign className="h-4 w-4" />
+                              <span>
+                                {earningBandLabels[j.wageBand] ??
+                                  "Wage information available"}
+                              </span>
+                            </span>
+                          )}
+
+                          {j.typicalEmployers && (
                             <span className="inline-flex items-center gap-1.5 rounded-full bg-white border border-slate-200 px-3 py-1 text-base text-slate-800">
                               <MapPin className="h-4 w-4" />
                               <span>{j.typicalEmployers}</span>
                             </span>
-                          </div>
-                        )}
+                          )}
+                        </div>
                       </div>
                     );
                   })}

@@ -22,10 +22,10 @@ export function TimeComparisonInline({
 
   return (
     <div className="mt-2 border border-slate-200 rounded-md bg-white px-3 py-2.5">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-600 mb-1">
+      <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-slate-600 mb-1">
         Time comparison
       </p>
-      <div className="grid gap-2 sm:grid-cols-3 text-[11px] text-slate-700">
+      <div className="grid gap-2 sm:grid-cols-3 text-[14px] text-slate-700">
         <div>
           <p className="font-semibold text-slate-900">This CNC pathway</p>
           <p>{thisLabel}</p>

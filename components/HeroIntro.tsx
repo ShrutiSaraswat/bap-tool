@@ -91,7 +91,8 @@ export function HeroIntro() {
           >
             Start small, build{" "}
             <span className="text-[#d71920]">real business skills</span>, &
-            stack them into bigger opportunities.
+            stack them into bigger opportunities - your pace, your path, your
+            choice.
           </motion.h1>
 
           <motion.p
