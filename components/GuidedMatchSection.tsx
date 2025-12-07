@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import programsData from "../public/programs.json";
 import programBandsData from "../public/programsBand.json";
-import collegeBg from "../public/bg4.png";
+import collegeBg from "../public/bg5.png";
 
 type Program = {
   id: string;
@@ -218,7 +218,7 @@ export function GuidedMatchSection() {
           src={collegeBg}
           alt="College campus background"
           fill
-          className="object-cover opacity-7"
+          className="object-cover opacity-10"
         />
         <div className="absolute -left-32 top-16 h-64 w-64 rounded-full bg-[#005f63]/10 blur-3xl" />
         <div className="absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-[#d71920]/10 blur-3xl" />

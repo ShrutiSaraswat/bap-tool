@@ -172,15 +172,12 @@ export function TimeComparisonStrip() {
 
             <ul className="mt-3 space-y-2 text-base text-slate-800">
               <li className="flex items-center gap-3">
-                <span className="h-1.5 w-6 rounded-full bg-[#005f63]/70 flex-shrink-0" />
                 <span>Focused start on a specific area of business.</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="h-1.5 w-6 rounded-full bg-[#0f766e]/60 flex-shrink-0" />
                 <span>Designed to get you into the workforce sooner.</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="h-1.5 w-6 rounded-full bg-[#14b8a6]/60 flex-shrink-0" />
                 <span>
                   Can be stacked into longer CNC business credentials.
                 </span>
@@ -223,17 +220,14 @@ export function TimeComparisonStrip() {
 
             <ul className="mt-3 space-y-2 text-base text-slate-800">
               <li className="flex items-center gap-3">
-                <span className="h-1.5 w-6 rounded-full bg-[#f59e0b]/70 flex-shrink-0" />
                 <span>Still shorter than many 2 year or 4 year programs.</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="h-1.5 w-6 rounded-full bg-[#d71920]/75 flex-shrink-0" />
                 <span>
                   Ladders directly into the CNC Business Administration Diploma.
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="h-1.5 w-6 rounded-full bg-[#f97316]/70 flex-shrink-0" />
                 <span>
                   Helps you qualify for a wider range of business roles.
                 </span>
@@ -276,15 +270,12 @@ export function TimeComparisonStrip() {
 
             <ul className="mt-3 space-y-2 text-base text-slate-800">
               <li className="flex items-center gap-3">
-                <span className="h-1.5 w-6 rounded-full bg-[#b91c1c]/75 flex-shrink-0" />
                 <span>2 year diploma or 4 year degree length.</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="h-1.5 w-6 rounded-full bg-[#7f1d1d]/70 flex-shrink-0" />
                 <span>More time before you complete the full credential.</span>
               </li>
               <li className="flex items-center gap-3">
-                <span className="h-1.5 w-6 rounded-full bg-slate-500/70 flex-shrink-0" />
                 <span>
                   CNC business pathways can be a shorter starting point before
                   deciding on longer study.
