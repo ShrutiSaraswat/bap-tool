@@ -315,9 +315,21 @@ export function HeroIntro() {
                 </a>
                 <a
                   href="#jobs"
-                  className="inline-flex items-center cursor-pointer rounded-md border border-slate-200 bg-slate-50 px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
+                  className="inline-flex items-center cursor-pointer rounded-md border border-slate-300 bg-slate-50 px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
                 >
                   Explore by Job Title
+                </a>
+                <a
+                  href="#earnings"
+                  className="inline-flex items-center cursor-pointer rounded-md border border-slate-300 bg-slate-50 px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
+                >
+                  Explore by Earning Potential
+                </a>
+                <a
+                  href="#guided-match"
+                  className="inline-flex items-center cursor-pointer rounded-md border-2 border-red-200 bg-slate-50 px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
+                >
+                  Guided Match
                 </a>
               </div>
 
