@@ -232,6 +232,25 @@ function getJobOpportunityLabel(job: Job): string | null {
   return opportunityLabels[id] ?? null;
 }
 
+/**
+ * If a time label is written like "3 courses" / "2 courses",
+ * convert it to the client format:
+ *   "One Semester (4 Months)/3 Courses"
+ * Otherwise, return the label as-is.
+ */
+function formatCoursesLabel(raw?: string | null): string {
+  if (!raw) return "";
+  const trimmed = raw.trim();
+  const match = trimmed.match(/^(\d+)\s+courses?$/i);
+  if (!match) return trimmed;
+
+  const count = Number(match[1]);
+  if (!Number.isFinite(count) || count <= 0) return trimmed;
+
+  const plural = count === 1 ? "Course" : "Courses";
+  return `One Semester (4 Months)/${count} ${plural}`;
+}
+
 // ---------- Main component ----------
 
 export function ExploreByCards() {
@@ -715,7 +734,11 @@ export function ExploreByCards() {
                       {selectedProgram.timeCommitment?.label && (
                         <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-sm font-medium text-amber-900">
                           <Timer className="h-4 w-4 text-amber-700" />
-                          <span>{selectedProgram.timeCommitment.label}</span>
+                          <span>
+                            {formatCoursesLabel(
+                              selectedProgram.timeCommitment.label
+                            )}
+                          </span>
                         </span>
                       )}
                       {programEarningLabel && (
@@ -1003,7 +1026,7 @@ export function ExploreByCards() {
                               </div>
                               {p.timeCommitment?.label && (
                                 <p className="text-sm text-slate-700">
-                                  {p.timeCommitment.label}
+                                  {formatCoursesLabel(p.timeCommitment.label)}
                                 </p>
                               )}
                             </div>
@@ -1183,7 +1206,7 @@ export function ExploreByCards() {
                           </div>
                           {p.timeCommitment?.label && (
                             <p className="text-sm text-slate-700">
-                              {p.timeCommitment.label}
+                              {formatCoursesLabel(p.timeCommitment.label)}
                             </p>
                           )}
                         </div>
@@ -1421,7 +1444,7 @@ export function ExploreByCards() {
                             </div>
                             {p.timeCommitment?.label && (
                               <p className="text-sm text-slate-700">
-                                {p.timeCommitment.label}
+                                {formatCoursesLabel(p.timeCommitment.label)}
                               </p>
                             )}
                           </div>
@@ -1521,7 +1544,9 @@ export function ExploreByCards() {
                             </div>
                             {program.timeCommitment?.label && (
                               <p className="text-sm text-slate-700">
-                                {program.timeCommitment.label}
+                                {formatCoursesLabel(
+                                  program.timeCommitment.label
+                                )}
                               </p>
                             )}
                           </div>

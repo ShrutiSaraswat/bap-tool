@@ -1,52 +1,78 @@
 // components/TimeComparisonInline.tsx
+"use client";
+
+import { Clock, Layers3 } from "lucide-react";
 
 type TimeComparisonInlineProps = {
-  approxMonths?: number;
+  approxMonths?: number | null;
+  /**
+   * Optional - how many courses are in one building block.
+   * If not provided, defaults to 3.
+   */
+  courseCountPerBlock?: number | null;
 };
+
+/**
+ * Helper so every place that talks about "X courses"
+ * uses the client format:
+ *   "One Semester (4 Months)/X Courses"
+ */
+export function formatCourseBlockLabel(courseCount?: number | null): string {
+  const count = courseCount ?? 3; // default building block
+  const plural = count === 1 ? "Course" : "Courses";
+  return `One Semester (4 Months)/${count} ${plural}`;
+}
 
 export function TimeComparisonInline({
   approxMonths,
+  courseCountPerBlock,
 }: TimeComparisonInlineProps) {
-  const TWO_YEAR = 24;
-  const FOUR_YEAR = 48;
+  const hasMonths = typeof approxMonths === "number" && approxMonths > 0;
 
-  const thisLabel = approxMonths
-    ? `${approxMonths} months (this CNC pathway)`
-    : "Less than 1 year (this CNC pathway)";
-
-  let twoYearDiff = approxMonths ? TWO_YEAR - approxMonths : 12;
-  let fourYearDiff = approxMonths ? FOUR_YEAR - approxMonths : 36;
-
-  if (twoYearDiff < 0) twoYearDiff = 0;
-  if (fourYearDiff < 0) fourYearDiff = 0;
+  const courseBlockLabel = formatCourseBlockLabel(courseCountPerBlock);
 
   return (
-    <div className="mt-2 border border-slate-200 rounded-md bg-white px-3 py-2.5">
-      <p className="text-[14px] font-semibold uppercase tracking-[0.16em] text-slate-600 mb-1">
-        Time comparison
-      </p>
-      <div className="grid gap-2 sm:grid-cols-3 text-[14px] text-slate-700">
-        <div>
-          <p className="font-semibold text-slate-900">This CNC pathway</p>
-          <p>{thisLabel}</p>
+    <div className="mt-4 grid gap-3 sm:grid-cols-[minmax(0,1.4fr),minmax(0,1.6fr)] items-start">
+      {/* Typical pace card */}
+      <div className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3">
+        <div className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-[#fef2f2] border border-[#fecaca]">
+          <Clock className="h-4 w-4 text-[#b91c1c]" />
         </div>
-        <div>
-          <p className="font-semibold text-slate-900">Typical 2 year diploma</p>
-          <p>About 24 months of study.</p>
-          {twoYearDiff > 0 && (
-            <p className="mt-0.5">
-              This pathway is about {twoYearDiff} months shorter.
+        <div className="text-sm sm:text-base text-slate-800">
+          <p className="text-xs sm:text-sm font-semibold text-slate-900 uppercase tracking-[0.16em] mb-1">
+            Typical part time pace
+          </p>
+          {hasMonths ? (
+            <p>
+              About <span className="font-semibold">{approxMonths} months</span>{" "}
+              to complete this credential at a steady part time pace.
+            </p>
+          ) : (
+            <p>
+              A steady part time pace lets you keep work and life in balance
+              while you move through your credential.
             </p>
           )}
         </div>
-        <div>
-          <p className="font-semibold text-slate-900">Typical 4 year degree</p>
-          <p>About 48 months of study.</p>
-          {fourYearDiff > 0 && (
-            <p className="mt-0.5">
-              This pathway is about {fourYearDiff} months shorter.
-            </p>
-          )}
+      </div>
+
+      {/* Course block / "3 courses" card */}
+      <div className="flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50/70 px-4 py-3">
+        <div className="mt-0.5 flex h-8 w-8 items-center justify-center rounded-xl bg-white border border-amber-200">
+          <Layers3 className="h-4 w-4 text-amber-800" />
+        </div>
+        <div className="text-sm sm:text-base text-slate-800">
+          <p className="text-xs sm:text-sm font-semibold text-slate-900 uppercase tracking-[0.16em] mb-1">
+            One semester building block
+          </p>
+          <p>
+            Think in small steps. Each block is{" "}
+            <span className="font-semibold">{courseBlockLabel}</span>.
+          </p>
+          <p className="mt-1 font-semibold text-amber-900">
+            Start with just one course, then add more as your time and energy
+            allow.
+          </p>
         </div>
       </div>
     </div>
