@@ -1,146 +1,648 @@
 [
   {
-    "id": "acc-200-data-analytics-and-information-systems",
+    "id": "acc-200-data-analytics-information-systems",
     "code": "ACC 200",
-    "name": "Data Analytics and Information Systems",
-    "shortSummary": "Introduces data analytics and information systems concepts for accounting. Students explore system components, information quality, data modelling, internal controls, risk, reporting systems, and how technology supports financial and operational decision making."
+    "title": "Data Analytics and Information Systems",
+    "category": "Accounting and analytics",
+    "shortTagline": "Link data analytics and information systems with financial reporting.",
+    "overview": "Introduces data analytics and information systems concepts for accounting, including systems components, information quality, data modelling, infrastructure, internal controls, risk, and reporting systems.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-auditing-data-analytics"],
+    "jobIds": [
+      "financial-auditor-accountant-11100",
+      "accounting-technician-bookkeeper-12200",
+      "accounting-clerk-14200",
+      "database-analyst-21223"
+    ],
+    "skills": [
+      "data analytics for accounting",
+      "information systems concepts",
+      "data modelling and infrastructure",
+      "internal controls and risk",
+      "use of data for financial reporting"
+    ]
   },
   {
     "id": "acc-225-computerized-accounting",
     "code": "ACC 225",
-    "name": "Computerized Accounting",
-    "shortSummary": "Provides hands on experience with accounting software. Topics include company setup, full cycle accounting, GST and PST, payroll, foreign currency, budgeting, project costing, inventory tracking, and reconciliations so that students can produce accurate system generated financial information."
+    "title": "Computerized Accounting",
+    "category": "Accounting and bookkeeping",
+    "shortTagline": "Hands on work with accounting software and full cycle bookkeeping.",
+    "overview": "Covers company setup, full cycle accounting, GST and PST, payroll, foreign currency, budgeting, project costing, inventory, and reconciliations using computerized accounting tools.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-auditing-data-analytics"],
+    "jobIds": [
+      "financial-auditor-accountant-11100",
+      "accounting-technician-bookkeeper-12200",
+      "accounting-clerk-14200",
+      "database-analyst-21223"
+    ],
+    "skills": [
+      "full cycle accounting",
+      "payroll and sales tax processing",
+      "budgeting and project costing",
+      "inventory management",
+      "account reconciliation"
+    ]
   },
   {
     "id": "acc-230-audit-and-assurance",
     "code": "ACC 230",
-    "name": "Audit and Assurance",
-    "shortSummary": "Covers the audit process from planning to reporting. Students learn about internal controls, audit evidence, materiality, risk, independence, ethics, audit data analytics, and how to plan and perform procedures, evaluate controls, assess evidence, and prepare audit documentation and reports."
+    "title": "Audit and Assurance",
+    "category": "Accounting and auditing",
+    "shortTagline": "Foundations of audit and assurance work with a focus on risk and controls.",
+    "overview": "Covers the audit process, internal controls, audit evidence, materiality, risk, independence, ethics, audit data analytics, and audit reporting from planning through documentation.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-auditing-data-analytics"],
+    "jobIds": [
+      "financial-auditor-accountant-11100",
+      "accounting-technician-bookkeeper-12200",
+      "accounting-clerk-14200",
+      "database-analyst-21223"
+    ],
+    "skills": [
+      "audit planning and execution",
+      "internal control assessment",
+      "audit evidence and documentation",
+      "risk and materiality analysis",
+      "professional ethics in auditing"
+    ]
   },
   {
     "id": "bus-290-management-information-systems",
     "code": "BUS 290",
-    "name": "Management Information Systems",
-    "shortSummary": "Explores how organizations use information systems to support decisions, improve operations, enhance security, and strengthen performance. Topics typically include decision support systems, e business, business intelligence, networks, enterprise systems, and emerging tools such as AI."
+    "title": "Management Information Systems",
+    "category": "Information systems and analytics",
+    "shortTagline": "How organizations use information systems to support decisions and operations.",
+    "overview": "Introduces how organizations use information systems to support decisions, strengthen operations, improve security, and enhance performance, including decision support, e business, business intelligence, networks, enterprise systems, and AI enabled tools.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-business-analysis-project-management"],
+    "jobIds": [
+      "project-coordinator-13100",
+      "business-systems-specialist-21221",
+      "database-analyst-21223",
+      "administrative-assistant-13110"
+    ],
+    "skills": [
+      "information systems concepts",
+      "decision support tools",
+      "business intelligence basics",
+      "systems security awareness",
+      "enterprise systems understanding"
+    ]
   },
   {
     "id": "bus-295-project-management-essentials",
     "code": "BUS 295",
-    "name": "Project Management Essentials",
-    "shortSummary": "Introduces the concepts, tools, and techniques of project management across the full project life cycle. Students work with scheduling, scope, budgeting, risk management, resource planning, and evaluation, building skills that can also support professional project management certification."
-  },
-  {
-    "id": "com-100-fundamentals-of-business",
-    "code": "COM 100",
-    "name": "Fundamentals of Business",
-    "shortSummary": "Provides an overview of the Canadian business environment and core business functions. Students examine forms of ownership, management roles, ethics, globalization, and basic ideas from areas such as accounting, marketing, human resources, and operations."
-  },
-  {
-    "id": "com-105-computer-information-systems",
-    "code": "COM 105",
-    "name": "Computer Information Systems",
-    "shortSummary": "Introduces information systems and productivity tools used in business. Students work with hardware and software basics, office and collaboration tools, databases, networks, cloud services, and analytics, while also considering privacy, security, and ethical issues in technology use."
-  },
-  {
-    "id": "com-110-financial-accounting",
-    "code": "COM 110",
-    "name": "Financial Accounting",
-    "shortSummary": "Covers the accounting cycle and preparation of basic financial statements. Students learn to record transactions, prepare an income statement, statement of financial position, and cash flow statement, and interpret information about assets, liabilities, equity, revenue, and expenses."
-  },
-  {
-    "id": "com-115-organizational-behaviour",
-    "code": "COM 115",
-    "name": "Organizational Behaviour",
-    "shortSummary": "Examines individual and group behaviour in organizations. Topics include motivation, leadership, perception, communication, teamwork, decision making, power, conflict, and organizational culture, with an emphasis on applying these ideas to improve workplace performance."
-  },
-  {
-    "id": "com-120-finance-1",
-    "code": "COM 120",
-    "name": "Finance 1",
-    "shortSummary": "Introduces foundational concepts in business finance and financial literacy. Students typically explore the time value of money, simple and compound interest, loans and annuities, basic financial ratios, and how financial information supports personal and organizational decision making."
-  },
-  {
-    "id": "com-125-introduction-to-entrepreneurship",
-    "code": "COM 125",
-    "name": "Introduction to Entrepreneurship",
-    "shortSummary": "Explores entrepreneurial mindset and the early stages of starting a business. Students examine opportunity identification, feasibility analysis, business models, value propositions, creativity, risk management, and the unique challenges faced by small business owners."
-  },
-  {
-    "id": "com-130-principles-of-marketing",
-    "code": "COM 130",
-    "name": "Principles of Marketing",
-    "shortSummary": "Introduces core marketing concepts such as customer value, segmentation, targeting, and positioning. Students study consumer behaviour, product, price, place, and promotion decisions, and are introduced to digital marketing and communication strategies."
-  },
-  {
-    "id": "com-225-business-law",
-    "code": "COM 225",
-    "name": "Business Law",
-    "shortSummary": "Covers legal frameworks that affect businesses. Topics may include contracts, torts, business structures, employment law, intellectual property, and consumer protection, with attention to how legal issues influence decisions in small and larger organizations."
+    "title": "Project Management Essentials",
+    "category": "Project management",
+    "shortTagline": "PMBOK aligned tools for planning and managing projects.",
+    "overview": "Provides PMBOK based tools and techniques across the project life cycle, including scheduling, scope, budgeting, risk management, resource planning, and evaluation, with simulations and case projects. Also satisfies PMP exam project management education hours.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": [
+      "assoc-business-analysis-project-management",
+      "assoc-small-business"
+    ],
+    "jobIds": [
+      "project-coordinator-13100",
+      "business-systems-specialist-21221",
+      "database-analyst-21223",
+      "administrative-assistant-13110",
+      "small-business-owner-self-employment",
+      "administrative-officer-13100",
+      "hr-recruitment-officer-12101"
+    ],
+    "skills": [
+      "project scheduling and scope",
+      "budgeting and cost control",
+      "risk identification and mitigation",
+      "resource planning",
+      "project evaluation and reporting"
+    ]
   },
   {
     "id": "com-250-human-resource-management",
     "code": "COM 250",
-    "name": "Human Resource Management",
-    "shortSummary": "Introduces the role of human resources in organizations. Students explore staffing, workforce planning, training and development, performance management, compensation, health and safety, and labour relations, with emphasis on fair and compliant HR practices."
+    "title": "Human Resource Management",
+    "category": "Human resources",
+    "shortTagline": "Core HR concepts for staffing and supporting people in organizations.",
+    "overview": "Covers staffing, workforce planning, job evaluation, performance management, compensation, health and safety, and labour relations with a focus on HR's role in project environments and organizational change.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": [
+      "assoc-business-analysis-project-management",
+      "assoc-small-business"
+    ],
+    "jobIds": [
+      "project-coordinator-13100",
+      "business-systems-specialist-21221",
+      "database-analyst-21223",
+      "administrative-assistant-13110",
+      "small-business-owner-self-employment",
+      "administrative-officer-13100",
+      "hr-recruitment-officer-12101"
+    ],
+    "skills": [
+      "workforce planning",
+      "recruitment and selection basics",
+      "performance management",
+      "compensation and benefits foundations",
+      "health, safety and labour relations awareness"
+    ]
   },
   {
-    "id": "com-255-strategic-human-resource-planning",
-    "code": "COM 255",
-    "name": "Strategic Human Resource Planning",
-    "shortSummary": "Focuses on aligning human resource planning with organizational strategy. Topics can include environmental scanning, HR forecasting, succession management, restructuring, outsourcing, HR metrics, and how HR plans support long term organizational goals."
+    "id": "com-115-organizational-behaviour",
+    "code": "COM 115",
+    "title": "Organizational Behaviour",
+    "category": "Management and leadership",
+    "shortTagline": "How individuals and teams behave and perform at work.",
+    "overview": "Introduces individual and group behaviour in workplaces, including motivation, leadership, communication, teamwork, culture, decision making, and conflict, with application to business and small organization settings.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": [
+      "assoc-business-essentials",
+      "assoc-small-business",
+      "cert-business-administration"
+    ],
+    "jobIds": [
+      "administrative-officer-13100",
+      "hr-recruitment-officer-12101",
+      "financial-sales-rep-63102",
+      "small-business-owner-self-employment",
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202",
+      "customer-service-representative-64409",
+      "junior-analyst-41402"
+    ],
+    "skills": [
+      "teamwork and collaboration",
+      "motivation and leadership concepts",
+      "workplace communication",
+      "decision making and problem solving",
+      "conflict management basics"
+    ]
   },
   {
-    "id": "com-260-compensation-and-benefits",
-    "code": "COM 260",
-    "name": "Compensation and Benefits",
-    "shortSummary": "Examines how organizations design and manage compensation and benefits systems. Students study pay structures, job evaluation, market comparisons, performance based pay, indirect compensation, and equity and transparency in total rewards."
+    "id": "com-120-finance-1",
+    "code": "COM 120",
+    "title": "Finance 1",
+    "category": "Finance",
+    "shortTagline": "Fundamental finance concepts and financial literacy for business.",
+    "overview": "Covers foundational finance concepts and financial literacy for business decision making, including the time value of money, basic financial analysis, and interpreting financial information.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-business-essentials"],
+    "jobIds": [
+      "administrative-officer-13100",
+      "hr-recruitment-officer-12101",
+      "financial-sales-rep-63102",
+      "small-business-owner-self-employment"
+    ],
+    "skills": [
+      "financial literacy",
+      "basic financial analysis",
+      "time value of money",
+      "interpreting financial statements",
+      "budgeting basics"
+    ]
   },
   {
-    "id": "com-270-recruitment-and-selection",
-    "code": "COM 270",
-    "name": "Recruitment and Selection",
-    "shortSummary": "Covers end to end staffing processes, including job analysis, recruitment strategies, screening tools, interviewing, decision making, and employment contracting. The course emphasizes legal compliance, equity, and inclusive practices in hiring and selection."
-  },
-  {
-    "id": "com-275-the-business-of-hotel-management",
-    "code": "COM 275",
-    "name": "The Business of Hotel Management",
-    "shortSummary": "Provides an overview of hotel operations from a management perspective. Students examine the role of the general manager, quality standards, legislation, human resources, revenue management, sustainability practices, and recognized hotel management standards."
-  },
-  {
-    "id": "com-280-food-and-beverage-management",
-    "code": "COM 280",
-    "name": "Food and Beverage Management",
-    "shortSummary": "Examines how food and beverage operations are planned and controlled. Topics include menu design and costing, internal controls, purchasing and inventory, marketing, legal and safety requirements, and service management aimed at profitability and guest satisfaction."
-  },
-  {
-    "id": "econ-100-principles-of-microeconomics",
-    "code": "ECON 100",
-    "name": "Principles of Microeconomics",
-    "shortSummary": "Introduces microeconomic concepts such as supply and demand, elasticity, consumer and producer behaviour, market structures, market failures, externalities, and the role of government in markets."
-  },
-  {
-    "id": "econ-101-principles-of-macroeconomics",
-    "code": "ECON 101",
-    "name": "Principles of Macroeconomics",
-    "shortSummary": "Covers macroeconomic indicators and policies. Students examine GDP, unemployment, inflation, monetary and fiscal policy, international trade, and factors that influence economic growth."
+    "id": "com-125-introduction-to-entrepreneurship",
+    "code": "COM 125",
+    "title": "Introduction to Entrepreneurship",
+    "category": "Entrepreneurship",
+    "shortTagline": "Explore entrepreneurial thinking and early stage venture planning.",
+    "overview": "Focuses on entrepreneurial mindset, opportunity identification, feasibility analysis, business models, value propositions, and early stage venture planning for small and growing enterprises.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-business-essentials", "assoc-small-business"],
+    "jobIds": [
+      "administrative-officer-13100",
+      "hr-recruitment-officer-12101",
+      "financial-sales-rep-63102",
+      "small-business-owner-self-employment",
+      "administrative-assistant-13110"
+    ],
+    "skills": [
+      "opportunity identification",
+      "feasibility assessment",
+      "business model design",
+      "value proposition development",
+      "early stage venture planning"
+    ]
   },
   {
     "id": "econ-105-business-statistics",
     "code": "ECON 105",
-    "name": "Business Statistics",
-    "shortSummary": "Introduces descriptive statistics, probability, sampling, and hypothesis testing for business applications. Students learn how to summarize data, interpret statistical results, and use basic regression and forecasting tools to support decisions."
+    "title": "Business Statistics",
+    "category": "Analytics and statistics",
+    "shortTagline": "Use data and statistics to support business decisions.",
+    "overview": "Focuses on applied statistics for business, including descriptive measures, probability concepts, and data informed decisions that support analysis in finance, marketing, and operations.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-business-essentials", "cert-business-administration"],
+    "jobIds": [
+      "administrative-officer-13100",
+      "hr-recruitment-officer-12101",
+      "financial-sales-rep-63102",
+      "small-business-owner-self-employment",
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202",
+      "customer-service-representative-64409",
+      "junior-analyst-41402"
+    ],
+    "skills": [
+      "descriptive statistics",
+      "basic probability",
+      "data interpretation",
+      "building evidence informed decisions",
+      "use of statistical tools"
+    ]
+  },
+  {
+    "id": "com-105-financial-accounting",
+    "code": "COM 105",
+    "title": "Financial Accounting",
+    "category": "Accounting",
+    "shortTagline": "Core accounting cycle and financial statement preparation.",
+    "overview": "Introduces the accounting cycle, financial reporting, and the preparation and interpretation of basic financial statements used by small businesses and organizations.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-business-fundamentals"],
+    "jobIds": [
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202"
+    ],
+    "skills": [
+      "recording business transactions",
+      "adjusting entries",
+      "preparing financial statements",
+      "basic analysis of financial results",
+      "accounting terminology"
+    ]
+  },
+  {
+    "id": "com-130-principles-of-marketing",
+    "code": "COM 130",
+    "title": "Principles of Marketing",
+    "category": "Marketing",
+    "shortTagline": "Fundamental marketing concepts for products, services, and ideas.",
+    "overview": "Covers marketing fundamentals including consumer behaviour, segmentation, targeting, positioning, promotion, and basic digital marketing concepts.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": [
+      "assoc-business-fundamentals",
+      "cert-business-administration"
+    ],
+    "jobIds": [
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202",
+      "administrative-officer-13100",
+      "customer-service-representative-64409",
+      "junior-analyst-41402"
+    ],
+    "skills": [
+      "consumer and buyer behaviour",
+      "market segmentation",
+      "marketing mix decisions",
+      "promotion and communication basics",
+      "intro digital marketing"
+    ]
+  },
+  {
+    "id": "com-105-computer-information-systems",
+    "code": "COM 105",
+    "title": "Computer Information Systems",
+    "category": "Information systems and digital skills",
+    "shortTagline": "Build digital literacy and software skills for business support roles.",
+    "overview": "Focuses on computer information systems, software tools, and digital literacy for business support roles, including spreadsheets, databases, and office productivity applications.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": [
+      "assoc-business-fundamentals",
+      "cert-business-administration"
+    ],
+    "jobIds": [
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202",
+      "administrative-officer-13100",
+      "customer-service-representative-64409",
+      "junior-analyst-41402"
+    ],
+    "skills": [
+      "spreadsheet and data skills",
+      "database and information management basics",
+      "office productivity software",
+      "file and data organization",
+      "digital communication skills"
+    ]
+  },
+  {
+    "id": "com-100-fundamentals-of-business",
+    "code": "COM 100",
+    "title": "Fundamentals of Business",
+    "category": "General business",
+    "shortTagline": "Overview of how businesses are structured and managed.",
+    "overview": "Provides an overview of the business environment, ownership forms, management functions, ethics, and core business areas such as operations, marketing, finance, and human resources.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": [
+      "assoc-business-fundamentals",
+      "cert-business-administration"
+    ],
+    "jobIds": [
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202",
+      "administrative-officer-13100",
+      "customer-service-representative-64409",
+      "junior-analyst-41402"
+    ],
+    "skills": [
+      "understanding business functions",
+      "basic management concepts",
+      "ethical and social responsibility awareness",
+      "intro to business environments",
+      "communication about business issues"
+    ]
+  },
+  {
+    "id": "com-245-project-management-essentials-hospitality",
+    "code": "COM 245",
+    "title": "Project Management Essentials",
+    "category": "Project management and hospitality",
+    "shortTagline": "Plan and execute small projects that improve hospitality operations.",
+    "overview": "Introduces project management concepts and basic tools for planning and executing small projects that support operational improvements in hospitality settings.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "jobIds": [
+      "restaurant-food-service-manager-60030",
+      "accommodation-service-manager-60031",
+      "food-service-supervisor-62020",
+      "hotel-front-desk-clerk-64314"
+    ],
+    "skills": [
+      "project planning for service improvements",
+      "scheduling and resource coordination",
+      "basic risk management",
+      "team communication in hospitality",
+      "monitoring small improvement projects"
+    ]
+  },
+  {
+    "id": "com-275-business-of-hotel-management",
+    "code": "COM 275",
+    "title": "The Business of Hotel Management",
+    "category": "Hospitality management",
+    "shortTagline": "Understand how hotels are managed and measured for performance.",
+    "overview": "Examines hotel operations, the role of the general manager, quality standards, legislation, human resources, sustainability practices, and emerit based hotel management standards.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "jobIds": [
+      "restaurant-food-service-manager-60030",
+      "accommodation-service-manager-60031",
+      "food-service-supervisor-62020",
+      "hotel-front-desk-clerk-64314"
+    ],
+    "skills": [
+      "hotel operations and departments",
+      "service quality and standards",
+      "regulatory and legal awareness",
+      "sustainable practices in hospitality",
+      "people management in hotels"
+    ]
+  },
+  {
+    "id": "com-280-food-and-beverage-management",
+    "code": "COM 280",
+    "title": "Food and Beverage Management",
+    "category": "Hospitality and food service",
+    "shortTagline": "Manage food and beverage operations for safety, service, and profit.",
+    "overview": "Focuses on food and beverage operations, internal controls, menu design and costing, marketing, legal and safety requirements, and service management for profitability and guest satisfaction.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "jobIds": [
+      "restaurant-food-service-manager-60030",
+      "accommodation-service-manager-60031",
+      "food-service-supervisor-62020",
+      "hotel-front-desk-clerk-64314"
+    ],
+    "skills": [
+      "menu design and costing",
+      "inventory and cost control",
+      "food safety and legal requirements",
+      "service management and guest experience",
+      "marketing food and beverage offerings"
+    ]
+  },
+  {
+    "id": "com-255-strategic-human-resource-planning",
+    "code": "COM 255",
+    "title": "Strategic Human Resource Planning",
+    "category": "Human resources",
+    "shortTagline": "Plan workforce needs using labour market and organizational data.",
+    "overview": "Covers strategic HR planning, environmental influences, forecasting, succession management, HR metrics, restructuring, outsourcing, and alignment of HR strategies with organizational goals.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-recruitment-specialist"],
+    "jobIds": [
+      "hr-recruitment-officer-12101",
+      "administrative-assistant-13110",
+      "compensation-staffing-clerk-14102"
+    ],
+    "skills": [
+      "strategic HR planning",
+      "workforce forecasting",
+      "succession and talent management",
+      "HR metrics and analysis",
+      "evaluating restructuring options"
+    ]
+  },
+  {
+    "id": "com-260-compensation-and-benefits",
+    "code": "COM 260",
+    "title": "Compensation and Benefits",
+    "category": "Human resources",
+    "shortTagline": "Design and evaluate compensation and benefits systems.",
+    "overview": "Explores compensation strategy, pay structures, job evaluation, market analysis, performance pay, indirect compensation, and system design with attention to Indigenous labour market contexts.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-recruitment-specialist"],
+    "jobIds": [
+      "hr-recruitment-officer-12101",
+      "administrative-assistant-13110",
+      "compensation-staffing-clerk-14102"
+    ],
+    "skills": [
+      "job evaluation and pay design",
+      "market analysis for compensation",
+      "performance pay systems",
+      "benefits and indirect compensation",
+      "equity and fairness in pay"
+    ]
+  },
+  {
+    "id": "com-270-recruitment-and-selection",
+    "code": "COM 270",
+    "title": "Recruitment and Selection",
+    "category": "Human resources and recruitment",
+    "shortTagline": "Plan and run fair, legally compliant recruitment processes.",
+    "overview": "Examines recruitment legislation, protected groups, Indigenous focused hiring approaches, job analysis, screening tools, interviewing, decision making, and employment contracting.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-recruitment-specialist"],
+    "jobIds": [
+      "hr-recruitment-officer-12101",
+      "administrative-assistant-13110",
+      "compensation-staffing-clerk-14102"
+    ],
+    "skills": [
+      "job analysis and posting design",
+      "inclusive recruitment strategies",
+      "screening and interviewing techniques",
+      "reference checking and decision making",
+      "offer and contract basics"
+    ]
+  },
+  {
+    "id": "com-225-business-law",
+    "code": "COM 225",
+    "title": "Business Law",
+    "category": "Law and policy",
+    "shortTagline": "Understand key legal duties and risks for small businesses.",
+    "overview": "Introduces legal frameworks for small businesses including contracts, torts, business structures, employment law, intellectual property, and consumer protection with application to everyday business decisions.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["assoc-small-business"],
+    "jobIds": [
+      "small-business-owner-self-employment",
+      "administrative-officer-13100",
+      "administrative-assistant-13110",
+      "hr-recruitment-officer-12101"
+    ],
+    "skills": [
+      "understanding contracts and liability",
+      "choosing business structures",
+      "employment law basics",
+      "intellectual property awareness",
+      "consumer protection issues"
+    ]
+  },
+  {
+    "id": "com-110-financial-accounting",
+    "code": "COM 110",
+    "title": "Financial Accounting",
+    "category": "Accounting",
+    "shortTagline": "Core accounting for the Business Administration certificate.",
+    "overview": "Builds financial accounting skills for preparing and interpreting financial statements, with emphasis on the accounting cycle, recording transactions, and using information for decision making.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["cert-business-administration"],
+    "jobIds": [
+      "administrative-officer-13100",
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202",
+      "customer-service-representative-64409",
+      "junior-analyst-41402"
+    ],
+    "skills": [
+      "full accounting cycle",
+      "financial statement preparation",
+      "basic ratio and trend analysis",
+      "recording and posting transactions",
+      "use of accounting information"
+    ]
+  },
+  {
+    "id": "econ-100-principles-of-microeconomics",
+    "code": "ECON 100",
+    "title": "Principles of Microeconomics",
+    "category": "Economics",
+    "shortTagline": "Study how households and firms make choices in markets.",
+    "overview": "Introduces supply and demand, elasticity, consumer and producer behaviour, market structures, and the role of government in micro level economic activity.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["cert-business-administration"],
+    "jobIds": [
+      "administrative-officer-13100",
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202",
+      "customer-service-representative-64409",
+      "junior-analyst-41402"
+    ],
+    "skills": [
+      "understanding markets and pricing",
+      "interpreting supply and demand shifts",
+      "basic welfare and efficiency concepts",
+      "micro level policy awareness",
+      "economic reasoning for business"
+    ]
+  },
+  {
+    "id": "econ-101-principles-of-macroeconomics",
+    "code": "ECON 101",
+    "title": "Principles of Macroeconomics",
+    "category": "Economics",
+    "shortTagline": "Explore the behaviour of the economy as a whole.",
+    "overview": "Introduces GDP, unemployment, inflation, fiscal and monetary policy, international trade, and how macroeconomic trends influence business and public decisions.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["cert-business-administration"],
+    "jobIds": [
+      "administrative-officer-13100",
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202",
+      "customer-service-representative-64409",
+      "junior-analyst-41402"
+    ],
+    "skills": [
+      "interpreting macroeconomic indicators",
+      "understanding economic cycles",
+      "fiscal and monetary policy basics",
+      "global trade and exchange rate awareness",
+      "linking macro trends to business planning"
+    ]
   },
   {
     "id": "engl-113-writing-and-communication",
     "code": "ENGL 113",
-    "name": "Writing and Communication",
-    "shortSummary": "Develops academic and professional writing and oral communication skills. Emphasizes clarity, organization, use of sources, and audience appropriate tone for college assignments and workplace documents."
+    "title": "Writing and Communication",
+    "category": "Communication",
+    "shortTagline": "Develop clear, professional written and oral communication.",
+    "overview": "Strengthens academic and professional writing, editing, and presentation skills with a focus on clarity, organization, audience awareness, and effective workplace communication.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["cert-business-administration"],
+    "jobIds": [
+      "administrative-officer-13100",
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202",
+      "customer-service-representative-64409",
+      "junior-analyst-41402"
+    ],
+    "skills": [
+      "professional writing and editing",
+      "document organization and tone",
+      "presentation and speaking skills",
+      "audience focused communication",
+      "workplace email and report writing"
+    ]
   },
   {
     "id": "math-103-finite-mathematics",
     "code": "MATH 103",
-    "name": "Finite Mathematics",
-    "shortSummary": "Introduces selected topics from finite mathematics used in business and the social sciences. Students may work with linear equations, matrices, linear programming, and the mathematics of finance."
+    "title": "Finite Mathematics",
+    "category": "Mathematics and analytics",
+    "shortTagline": "Mathematical tools that support business and economic analysis.",
+    "overview": "Introduces finite mathematics topics such as linear functions, matrices, systems of equations, and basic optimization that support models in business, economics, and social sciences.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "programIds": ["cert-business-administration"],
+    "jobIds": [
+      "administrative-officer-13100",
+      "administrative-assistant-13110",
+      "accounting-clerk-14200",
+      "marketing-public-relations-officer-11202",
+      "customer-service-representative-64409",
+      "junior-analyst-41402"
+    ],
+    "skills": [
+      "working with linear models",
+      "basic matrix methods",
+      "problem solving with systems of equations",
+      "introductory optimization ideas",
+      "quantitative reasoning for business"
+    ]
   }
 ]
