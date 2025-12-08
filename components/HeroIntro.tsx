@@ -108,8 +108,7 @@ export function HeroIntro() {
             className="space-y-1.5 text-base text-slate-800 max-w-2xl list-disc pl-5"
           >
             <li>
-              Finish an associate certificate in about 4 months - usually 3
-              courses.
+              Finish an associate certificate in about 4 months - 3 courses.
             </li>
             <li>
               Or start with just one course and see how it fits your life.
