@@ -93,7 +93,11 @@ const SYNONYMS: Record<string, string[]> = {
   entrepreneur: ["founder", "business-owner"],
   entrepreneurship: ["start-up", "startup", "founding"],
   marketing: ["promotion", "advertising", "branding"],
-  social: ["social-media", "socialmedia"],
+  // strengthened marketing-related synonyms
+  social: ["social-media", "socialmedia", "marketing"],
+  promotional: ["promotion", "marketing"],
+  communications: ["marketing", "promotion", "social-media"],
+  events: ["event-planning", "marketing"],
   office: ["administrative", "admin"],
   management: ["supervision", "leadership", "manager"],
 };
@@ -564,14 +568,32 @@ function intentScoreProgram(program: Program, intents: Set<string>): number {
     }
   }
 
-  // Marketing
+  // Marketing – calibrated so hospitality doesn't dominate pure marketing queries
   if (intents.has("marketing")) {
-    if (
+    const hasMarketingSignal =
       combined.includes("marketing") ||
       combined.includes("social media") ||
-      combined.includes("digital marketing")
-    ) {
-      bonus += 4;
+      combined.includes("digital marketing") ||
+      combined.includes("promotion") ||
+      combined.includes("advertising") ||
+      combined.includes("branding");
+
+    if (hasMarketingSignal) {
+      let marketingBonus = 4;
+      const isHospitalityProgram =
+        (program.id && program.id.includes("hospitality")) ||
+        combined.includes("hotel") ||
+        combined.includes("accommodation") ||
+        combined.includes("food and beverage") ||
+        combined.includes("guest experience");
+
+      // Hospitality programs get a smaller marketing bonus, so business/marketing
+      // oriented programs rank above them on marketing-heavy inputs.
+      if (isHospitalityProgram) {
+        marketingBonus = 2;
+      }
+
+      bonus += marketingBonus;
     }
   }
 
