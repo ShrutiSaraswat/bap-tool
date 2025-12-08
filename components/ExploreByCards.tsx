@@ -416,7 +416,7 @@ export function ExploreByCards() {
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fef2f2] border border-[#fecaca]">
+                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-[#fef2f2] border border-[#fecaca]">
                   <Timer className="h-5 w-5 text-[#b91c1c]" />
                 </div>
                 <div className="text-left space-y-1">
@@ -468,7 +468,7 @@ export function ExploreByCards() {
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fef2f2] border border-[#fecaca]">
+                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-[#fef2f2] border border-[#fecaca]">
                   <BookOpen className="h-5 w-5 text-slate-900" />
                 </div>
                 <div className="text-left space-y-1">
@@ -520,9 +520,10 @@ export function ExploreByCards() {
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fef2f2] border border-[#fecaca]">
+                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-[#fef2f2] border border-[#fecaca]">
                   <Sparkles className="h-5 w-5 text-[#b91c1c]" />
                 </div>
+
                 <div className="text-left space-y-1">
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#b91c1c]">
                     By skill
@@ -603,9 +604,10 @@ export function ExploreByCards() {
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fef2f2] border border-[#fecaca]">
+                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-[#fef2f2] border border-[#fecaca]">
                   <BriefcaseBusiness className="h-5 w-5 text-[#b91c1c]" />
                 </div>
+
                 <div className="text-left space-y-1">
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#b91c1c]">
                     By job title
@@ -658,7 +660,7 @@ export function ExploreByCards() {
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#fef2f2] border border-[#fecaca]">
+                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-[#fef2f2] border border-[#fecaca]">
                   <BarChart3 className="h-5 w-5 text-[#b91c1c]" />
                 </div>
                 <div className="text-left space-y-1">

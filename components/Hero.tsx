@@ -50,6 +50,27 @@ export function CncHeader() {
 
   const desktopMenuRef = useRef<HTMLDivElement | null>(null);
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
+  const hoverTimeoutRef = useRef<number | null>(null);
+
+  const clearHoverTimeout = () => {
+    if (hoverTimeoutRef.current !== null) {
+      window.clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
+    }
+  };
+
+  const handleDesktopMenuEnter = () => {
+    clearHoverTimeout();
+    setNavMenuOpen(true);
+  };
+
+  const handleDesktopMenuLeave = () => {
+    clearHoverTimeout();
+    // small delay so user can move through any gap between button and menu
+    hoverTimeoutRef.current = window.setTimeout(() => {
+      setNavMenuOpen(false);
+    }, 220);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -131,6 +152,8 @@ export function CncHeader() {
               variants={navItemVariant}
               className="relative"
               ref={desktopMenuRef}
+              onMouseEnter={handleDesktopMenuEnter}
+              onMouseLeave={handleDesktopMenuLeave}
             >
               <button
                 type="button"
