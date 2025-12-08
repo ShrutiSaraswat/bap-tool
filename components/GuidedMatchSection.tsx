@@ -29,6 +29,12 @@ type ProgramScore = {
   score: number;
 };
 
+// Simple in-memory embedding type for semantic similarity
+type TextEmbedding = {
+  weights: Record<string, number>;
+  norm: number;
+};
+
 // These map to IDs used in programsBand.json / bands.json
 const earningBandLabels: Record<string, string> = {
   "earning-entry": "Entry ($18-22/hr approx.)",
@@ -45,8 +51,8 @@ const opportunityLabels: Record<string, string> = {
 };
 
 function matchStrengthLabel(score: number): string {
-  if (score >= 10) return "Strong match";
-  if (score >= 5) return "Good match";
+  if (score >= 14) return "Strong match";
+  if (score >= 7) return "Good match";
   return "Initial match";
 }
 
@@ -83,8 +89,74 @@ function splitWords(text: string): string[] {
     .filter((w) => w && !STOP_WORDS.has(w));
 }
 
-// Simple scoring using only frontend data
-function scoreProgram(program: Program, input: string): number {
+// --- Simple local "semantic" embedding helpers (bag-of-words + cosine) ---
+
+function createEmbeddingFromWords(words: string[]): TextEmbedding {
+  const weights: Record<string, number> = {};
+
+  for (const w of words) {
+    if (!w) continue;
+    weights[w] = (weights[w] || 0) + 1; // term frequency
+  }
+
+  let normSquared = 0;
+  for (const key in weights) {
+    const val = weights[key];
+    normSquared += val * val;
+  }
+
+  return {
+    weights,
+    norm: Math.sqrt(normSquared),
+  };
+}
+
+function createTextEmbedding(text: string): TextEmbedding {
+  const words = splitWords(text);
+  return createEmbeddingFromWords(words);
+}
+
+function cosineSimilarity(a: TextEmbedding, b: TextEmbedding): number {
+  if (!a.norm || !b.norm) return 0;
+
+  let dot = 0;
+  for (const term in a.weights) {
+    const aVal = a.weights[term];
+    const bVal = b.weights[term];
+    if (bVal) {
+      dot += aVal * bVal;
+    }
+  }
+
+  return dot / (a.norm * b.norm);
+}
+
+// Cache program embeddings so they are computed only once per program
+const PROGRAMS: Program[] = programsData as Program[];
+const PROGRAM_BANDS: ProgramBand[] = programBandsData as ProgramBand[];
+
+const PROGRAM_EMBEDDINGS: Record<string, TextEmbedding> = {};
+
+function getProgramEmbedding(program: Program): TextEmbedding {
+  const existing = PROGRAM_EMBEDDINGS[program.id];
+  if (existing) return existing;
+
+  const combinedText = [
+    program.name || "",
+    program.overview || "",
+    ...(program.skills || []),
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const embedding = createTextEmbedding(combinedText);
+  PROGRAM_EMBEDDINGS[program.id] = embedding;
+  return embedding;
+}
+
+// --- Keyword scoring (your original logic, slightly refactored) ---
+
+function keywordScoreProgram(program: Program, input: string): number {
   if (!input.trim()) return 0;
 
   const loweredInput = input.toLowerCase();
@@ -132,6 +204,36 @@ function scoreProgram(program: Program, input: string): number {
   return score;
 }
 
+// --- Semantic scoring using cosine similarity between embeddings ---
+
+function semanticScoreProgram(
+  program: Program,
+  inputEmbedding: TextEmbedding | null
+): number {
+  if (!inputEmbedding) return 0;
+  const programEmbedding = getProgramEmbedding(program);
+  const sim = cosineSimilarity(inputEmbedding, programEmbedding); // 0–1 range (roughly)
+  // Scale to a 0–10 range for blending with keyword score
+  return sim * 10;
+}
+
+// --- Combined hybrid score (keyword + semantic) ---
+
+function scoreProgram(
+  program: Program,
+  input: string,
+  inputEmbedding: TextEmbedding | null
+): number {
+  const keywordScore = keywordScoreProgram(program, input);
+  const semanticScore = semanticScoreProgram(program, inputEmbedding);
+
+  // Blend weights: adjust these if you want semantic to matter more/less
+  const blended = keywordScore * 0.7 + semanticScore * 0.3;
+
+  // Round to a clean integer so the UI stays simple
+  return Math.round(blended);
+}
+
 // Motion variants
 const sectionContainer = {
   hidden: { opacity: 0, y: 24 },
@@ -168,10 +270,6 @@ const resultItem = {
   },
 };
 
-// Static data from JSON imports
-const PROGRAMS: Program[] = programsData as Program[];
-const PROGRAM_BANDS: ProgramBand[] = programBandsData as ProgramBand[];
-
 export function GuidedMatchSection() {
   const [text, setText] = useState("");
   const [results, setResults] = useState<ProgramScore[] | null>(null);
@@ -186,9 +284,12 @@ export function GuidedMatchSection() {
       return;
     }
 
+    // Create a single embedding for the user input and reuse it
+    const inputEmbedding = createTextEmbedding(input);
+
     const scored: ProgramScore[] = PROGRAMS.map((program) => ({
       program,
-      score: scoreProgram(program, input),
+      score: scoreProgram(program, input, inputEmbedding),
     }))
       .filter((p) => p.score > 0)
       .sort((a, b) => b.score - a.score);
