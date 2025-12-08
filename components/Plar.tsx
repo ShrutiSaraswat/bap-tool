@@ -72,13 +72,13 @@ export function PlarSection() {
             {/* >>> UPDATED TYPOGRAPHY + ICON SIZE HERE <<< */}
             <div className="grid gap-5 sm:grid-cols-2 pt-2">
               <div className="flex flex-col items-start gap-3">
-                <div className="mt-1 rounded-full bg-slate-100 p-2.5">
+                <div className="mt-1 rounded-full bg-slate-100 p-2.5 flex items-center gap-3">
                   <BriefcaseBusiness className="h-5 w-5 text-[#005f63]" />
-                </div>
-                <div className="space-y-1.5">
                   <p className="text-base sm:text-lg font-semibold text-slate-900">
                     Recognize real experience
                   </p>
+                </div>
+                <div className="space-y-1.5">
                   <p className="text-base text-slate-700 leading-relaxed">
                     Work in admin, HR, accounting, hospitality, small business,
                     or other business settings may count toward your studies.
@@ -87,13 +87,13 @@ export function PlarSection() {
               </div>
 
               <div className="flex flex-col items-start gap-3">
-                <div className="mt-1 rounded-full bg-slate-100 p-2.5">
+                <div className="mt-1 rounded-full bg-slate-100 p-2.5 flex items-center gap-3">
                   <FastForward className="h-5 w-5 text-[#d97706]" />
-                </div>
-                <div className="space-y-1.5">
                   <p className="text-base sm:text-lg font-semibold text-slate-900">
                     Move faster toward a credential
                   </p>
+                </div>
+                <div className="space-y-1.5">
                   <p className="text-base text-slate-700 leading-relaxed">
                     PLAR can reduce the number of courses you need, helping you
                     reach an associate certificate, certificate, or diploma

@@ -387,24 +387,21 @@ export function ExploreByCards() {
         viewport={{ once: true, amount: 0.2 }}
       >
         {/* Intro */}
-        <motion.div className="space-y-3 text-center" variants={fadeUp}>
+        <motion.div
+          className="space-y-3 text-center pb-6 pt-6"
+          variants={fadeUp}
+        >
           <p className="text-base font-semibold tracking-[0.2em] uppercase text-slate-700">
             Explore CNC business pathways
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
-            Start from a program, course, skill, job or earning range.
+            See the options that fit your goals
           </h2>
-          <p className="max-w-3xl mx-auto text-base text-slate-800">
-            Use any of the cards below to search by program, course, skill, job
-            title, or typical wage band. When you select something, a detailed
-            view matching that theme appears just below.
-          </p>
         </motion.div>
 
         {/* Cards grid */}
-        {/* Cards grid */}
         <motion.div
-          className="grid gap-7 lg:gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-[minmax(0,1fr)] xl:[&>*:nth-child(5)]:col-start-3"
+          className=" grid gap-7 lg:gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-[minmax(0,1fr)] xl:[&>*:nth-child(5)]:col-start-3"
           variants={fadeUp}
         >
           {/* Program card */}
@@ -592,7 +589,6 @@ export function ExploreByCards() {
           </div>
 
           {/* Job card */}
-          {/* Job card */}
           <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#f9fafb] via-white to-[#fef2f2] shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px] xl:translate-x-1/2">
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
@@ -647,7 +643,6 @@ export function ExploreByCards() {
             </div>
           </div>
 
-          {/* Earnings card */}
           {/* Earnings card */}
           <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#f9fafb] via-white to-[#fef2f2] shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl md:col-span-2 xl:col-span-1 xl:col-start-3 xl:-translate-x-1/2 min-h-[260px]">
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />

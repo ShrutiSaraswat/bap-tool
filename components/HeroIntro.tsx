@@ -31,24 +31,24 @@ export function HeroIntro() {
 
         {/* Hero decorative rings */}
         <div className="absolute -right-[720px] -top-[15%] h-[1000px] w-[1000px]">
-          <div className="relative h-full w-full">
+          <div className="relative h-full w-full opacity-50">
             <div className="absolute inset-1 rounded-full bg-[conic-gradient(from_120deg,rgba(0,95,99,0.98),rgba(15,23,42,0.16),rgba(215,25,32,0.2),rgba(244,180,26,0.2),rgba(0,95,99,0.18))] opacity-90" />
             <div className="absolute inset-3 rounded-full border-[12px] border-white/78 shadow-[0_0_0_1px_rgba(148,163,184,0.35)]" />
-            <div className="absolute inset-11 rounded-full border-[8px] border-[#0f172a]/22" />
+            <div className="absolute inset-11 rounded-full border-[8px] border-[#0f172a]/12" />
           </div>
         </div>
 
         <div className="absolute right-0 bottom-0 h-100 w-100">
-          <div className="relative h-full w-full">
+          <div className="relative h-full w-full opacity-40">
             <div className="absolute inset-1 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9),rgba(148,163,184,0.32),transparent_70%)]" />
             <div className="absolute inset-3 rounded-full border-[6px] border-white/75 shadow-[0_0_0_1px_rgba(148,163,184,0.3)]" />
           </div>
         </div>
 
         <div className="absolute -left-[10%] top-[35%] h-80 w-80">
-          <div className="relative h-full w-full">
-            <div className="absolute inset-1 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9),rgba(148,163,184,0.32),transparent_70%)]" />
-            <div className="absolute inset-3 rounded-full border-[6px] border-white/75 shadow-[0_0_0_1px_rgba(148,163,184,0.3)]" />
+          <div className="relative h-full w-full opacity-40">
+            <div className="absolute inset-1 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9),rgba(148,163,184,0.62),transparent_70%)]" />
+            <div className="absolute inset-3 rounded-full border-[6px] border-white/75 shadow-[0_0_0_1px_rgba(148,163,184,0.1)]" />
           </div>
         </div>
 

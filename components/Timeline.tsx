@@ -32,7 +32,7 @@ export function CompletionTimelineSection() {
   return (
     <section
       id="completion-timeline"
-      className="relative overflow-hidden bg-gradient-to-br from-[#fff1f2] via-red-900/10 to-[#fffbeb] border-b border-slate-200 py-10 sm:py-12"
+      className="relative overflow-hidden bg-gradient-to-br from-[#fff1f2] via-red-900/10 to-slate-200 border-b border-slate-200 py-10 sm:py-12"
     >
       {/* subtle background accents, matching hero vibe */}
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -101,7 +101,7 @@ export function CompletionTimelineSection() {
           </div>
 
           {/* Certificate */}
-          <div className="relative rounded-2xl border border-amber-200 bg-white/95 shadow-[0_14px_40px_rgba(180,83,9,0.16)] px-4 py-4 sm:px-5 sm:py-5 flex flex-col gap-3">
+          <div className="relative rounded-2xl border border-slate-300 bg-white/95 shadow-[0_14px_40px_rgba(180,83,9,0.16)] px-4 py-4 sm:px-5 sm:py-5 flex flex-col gap-3">
             <div className="flex items-center justify-between gap-2">
               <div>
                 <p className="text-sm font-semibold tracking-[0.16em] uppercase text-amber-700">
