@@ -390,11 +390,18 @@ export function ExploreByCards() {
         <motion.div
           className="space-y-3 text-center pb-6 pt-6"
           variants={fadeUp}
+          id="programs"
         >
-          <p className="text-base font-semibold tracking-[0.2em] uppercase text-slate-700">
+          <p
+            className="text-base font-semibold tracking-[0.2em] uppercase text-slate-700"
+            id="courses"
+          >
             Explore CNC business pathways
           </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
+          <h2
+            className="text-2xl sm:text-3xl font-semibold text-slate-900"
+            id="skills"
+          >
             See the options that fit your goals
           </h2>
         </motion.div>
@@ -501,7 +508,7 @@ export function ExploreByCards() {
                     ))}
                   </select>
                 </div>
-                <p className="mt-auto pt-1 text-base text-slate-700">
+                <p className="mt-auto pt-1 text-base text-slate-700" id="jobs">
                   Helpful if you already know a course you are interested in.
                 </p>
               </div>
@@ -580,7 +587,10 @@ export function ExploreByCards() {
                     )}
                   </select>
                 </div>
-                <p className="mt-auto pt-1 text-base text-slate-700">
+                <p
+                  className="mt-auto pt-1 text-base text-slate-700"
+                  id="earnings"
+                >
                   Works well if you know the kind of work you enjoy but are not
                   sure which credential to start with.
                 </p>
