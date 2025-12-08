@@ -24,15 +24,12 @@ export function HeroIntro() {
     <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-br from-[#fff7f7] via-[#eff6ff] to-[#ecfeff]">
       {/* Background accents */}
       <div className="pointer-events-none absolute inset-0">
-        {/* <div className="absolute inset-0 opacity-[0.07] bg-[url('/bg1.png')] bg-cover bg-center bg-no-repeat" /> */}
-
         {/* Soft color blobs */}
         <div className="absolute -left-16 -top-10 h-56 w-56 rounded-full bg-[#d71920]/10 blur-3xl" />
         <div className="absolute right-[-32px] top-6 h-64 w-64 rounded-full bg-[#005f63]/20 blur-3xl" />
         <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/45 blur-3xl" />
 
-        {/* Hero decorative rings - no text, just colorful shapes */}
-        {/* Large multi ring - top right */}
+        {/* Hero decorative rings */}
         <div className="absolute -right-[720px] -top-[15%] h-[1000px] w-[1000px]">
           <div className="relative h-full w-full">
             <div className="absolute inset-1 rounded-full bg-[conic-gradient(from_120deg,rgba(0,95,99,0.98),rgba(15,23,42,0.16),rgba(215,25,32,0.2),rgba(244,180,26,0.2),rgba(0,95,99,0.18))] opacity-90" />
@@ -41,7 +38,6 @@ export function HeroIntro() {
           </div>
         </div>
 
-        {/* Large multi ring - bottom right */}
         <div className="absolute right-0 bottom-0 h-100 w-100">
           <div className="relative h-full w-full">
             <div className="absolute inset-1 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9),rgba(148,163,184,0.32),transparent_70%)]" />
@@ -49,7 +45,6 @@ export function HeroIntro() {
           </div>
         </div>
 
-        {/* Small accent ring - mid left */}
         <div className="absolute -left-[10%] top-[35%] h-80 w-80">
           <div className="relative h-full w-full">
             <div className="absolute inset-1 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9),rgba(148,163,184,0.32),transparent_70%)]" />
@@ -57,10 +52,8 @@ export function HeroIntro() {
           </div>
         </div>
 
-        {/* Bottom soft band */}
         <div className="absolute inset-x-6 bottom-[-4rem] h-40 rounded-[3rem] bg-gradient-to-r from-[#0f172a]/7 via-transparent to-[#0f172a]/7 blur-2xl" />
 
-        {/* Subtle radial tint */}
         <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.22),_transparent_60%)]" />
       </div>
 
@@ -90,21 +83,44 @@ export function HeroIntro() {
           >
             Start small, build{" "}
             <span className="text-[#d71920]">real business skills</span>, &
-            stack them into bigger opportunities - your pace, your path, your
-            choice.
+            stack them into bigger opportunities.
           </motion.h1>
 
+          {/* NEW: tagline on its own line, smaller + different color */}
+          <motion.p
+            variants={fadeUp}
+            className="text-base sm:text-lg font-semibold font-medium text-[#005f63]"
+          >
+            Your pace, your path, your choice.
+          </motion.p>
+
+          {/* Shorter main line + bullets */}
           <motion.p
             variants={fadeUp}
             className="text-base lg:text-lg text-slate-800 max-w-2xl"
           >
-            Begin with a flexible associate certificate that can be finished in
-            4 months with 3 courses. You can also take one course at a time.
-            Every course stacks into a full certificate and diploma when
-            you&apos;re ready.
+            A flexible set of business credentials you can build one step at a
+            time.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="mt-1 flex flex-wrap gap-3">
+          <motion.ul
+            variants={fadeUp}
+            className="space-y-1.5 text-base text-slate-800 max-w-2xl list-disc pl-5"
+          >
+            <li>
+              Finish an associate certificate in about 4 months - usually 3
+              courses.
+            </li>
+            <li>
+              Or start with just one course and see how it fits your life.
+            </li>
+            <li>
+              Every course stacks toward a full certificate and diploma when
+              you&apos;re ready.
+            </li>
+          </motion.ul>
+
+          <motion.div variants={fadeUp} className="mt-2 flex flex-wrap gap-3">
             <a
               href="#programs"
               className="inline-flex items-center cursor-pointer rounded-md bg-[#d71920] px-5 py-3 text-base font-semibold text-white shadow-sm hover:bg-[#b8141b] hover:shadow-md transition"
@@ -119,7 +135,7 @@ export function HeroIntro() {
             </a>
           </motion.div>
 
-          {/* Quick facts - full width */}
+          {/* Quick facts */}
           <motion.div
             variants={fadeUp}
             className="mt-4 grid max-w-7xl gap-3 text-base text-slate-800 sm:grid-cols-5"
@@ -134,9 +150,9 @@ export function HeroIntro() {
                     7 Associate Certificates
                   </p>
                   <p>
-                    <p className="text-green-700">(1 Semester Each)</p> Business
-                    Essentials and Fundamentals, Hospitality and Guest
-                    Experience Management.
+                    <span className="text-green-700">(One Semester Each)</span>{" "}
+                    Business Essentials, Fundamentals, Hospitality, Guest
+                    Experience and more.
                   </p>
                 </div>
               </div>
@@ -234,7 +250,6 @@ export function HeroIntro() {
                 Choose the way you like to explore:
               </p>
 
-              {/* Visual map of the 4 exploration paths with full descriptions */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="flex flex-col sm:flex-row items-start gap-3 rounded-xl border border-slate-200 bg-slate-50/80 px-3 py-3">
                   <div className="mt-0.5 flex h-10 w-10 aspect-square shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#d71920] to-[#f97316] text-white shadow-md">
@@ -242,12 +257,11 @@ export function HeroIntro() {
                   </div>
                   <div className="space-y-1">
                     <p className="text-base font-semibold text-slate-900">
-                      By program
+                      By program or course
                     </p>
                     <p className="text-base text-slate-600 leading-snug">
-                      See the time commitment, job prospects and earning
-                      potential for each CNC business credential. Compare short
-                      starting points and longer pathways.
+                      See time commitment, jobs and wages for each CNC business
+                      credential & its key courses.
                     </p>
                   </div>
                 </div>
@@ -261,8 +275,8 @@ export function HeroIntro() {
                       By skills you want to build
                     </p>
                     <p className="text-base text-slate-600 leading-snug">
-                      Choose the skills you want to grow and see which programs
-                      support your development.
+                      Pick skills you want to grow and see programs that support
+                      them.
                     </p>
                   </div>
                 </div>
@@ -276,8 +290,8 @@ export function HeroIntro() {
                       By job title or earning potential
                     </p>
                     <p className="text-base text-slate-600 leading-snug">
-                      If you already have a role or wage range in mind, explore
-                      the CNC pathways that connect directly to that goal.
+                      Start from a role or wage range and explore matching
+                      pathways.
                     </p>
                   </div>
                 </div>
@@ -291,50 +305,54 @@ export function HeroIntro() {
                       Guided match
                     </p>
                     <p className="text-base text-slate-600 leading-snug">
-                      Describe yourself in a few words and the tool will
-                      recommend a starting point, whether that&apos;s one course
-                      or a short certificate.
+                      Describe yourself in a few sentences and get a suggested
+                      starting point.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-3 flex flex-wrap gap-3">
+              {/* <div className="pt-4 border-t border-slate-200/70 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm sm:text-base text-slate-700">
+                <span className="font-semibold">Jump to:</span>
                 <a
                   href="#programs"
-                  className="inline-flex items-center cursor-pointer rounded-md bg-[#d71920] px-4 py-2.5 text-base font-semibold text-white hover:bg-[#b8141b] transition"
+                  className="cursor-pointer text-slate-900 underline-offset-2 hover:underline"
                 >
-                  Explore by Program
+                  Program
                 </a>
+                <span className="text-slate-300">·</span>
                 <a
                   href="#skills"
-                  className="inline-flex items-center cursor-pointer rounded-md border border-slate-300 bg-white px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
+                  className="cursor-pointer text-slate-900 underline-offset-2 hover:underline"
                 >
-                  Explore by Skills
+                  Skills
                 </a>
+                <span className="text-slate-300">·</span>
                 <a
                   href="#jobs"
-                  className="inline-flex items-center cursor-pointer rounded-md border border-slate-300 bg-slate-50 px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
+                  className="cursor-pointer text-slate-900 underline-offset-2 hover:underline"
                 >
-                  Explore by Job Title
+                  Job title
                 </a>
+                <span className="text-slate-300">·</span>
                 <a
                   href="#earnings"
-                  className="inline-flex items-center cursor-pointer rounded-md border border-slate-300 bg-slate-50 px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
+                  className="cursor-pointer text-slate-900 underline-offset-2 hover:underline"
                 >
-                  Explore by Earning Potential
+                  Earning potential
                 </a>
+                <span className="text-slate-300">·</span>
                 <a
                   href="#guided-match"
-                  className="inline-flex items-center cursor-pointer rounded-md border-2 border-red-200 bg-slate-50 px-4 py-2.5 text-base font-semibold text-slate-900 hover:bg-slate-100 transition"
+                  className="cursor-pointer text-slate-900 underline-offset-2 hover:underline"
                 >
-                  Guided Match
+                  Guided match
                 </a>
-              </div>
+              </div> */}
 
-              <p className="pt-1 text-base text-slate-700">
-                You can use this tool on your own or with an advisor to compare
-                your options and plan your next steps in business at CNC.
+              <p className="pt-1 text-sm sm:text-base text-slate-700">
+                Use these tools on your own or with an advisor to compare
+                options and plan your next steps in business at CNC.
               </p>
             </div>
           </div>

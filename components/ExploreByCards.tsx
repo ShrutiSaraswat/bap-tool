@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 
 import { TimeComparisonInline } from "./TimeComparisonInline";
+import { NocLink } from "./NocLink";
 
 import programsData from "../public/programs.json";
 import jobsData from "../public/jobs.json";
@@ -401,8 +402,9 @@ export function ExploreByCards() {
         </motion.div>
 
         {/* Cards grid */}
+        {/* Cards grid */}
         <motion.div
-          className="grid gap-7 lg:gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-[minmax(0,1fr)]"
+          className="grid gap-7 lg:gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-[minmax(0,1fr)] xl:[&>*:nth-child(5)]:col-start-3"
           variants={fadeUp}
         >
           {/* Program card */}
@@ -590,7 +592,8 @@ export function ExploreByCards() {
           </div>
 
           {/* Job card */}
-          <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#f9fafb] via-white to-[#fef2f2] shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]">
+          {/* Job card */}
+          <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#f9fafb] via-white to-[#fef2f2] shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px] xl:translate-x-1/2">
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
@@ -645,7 +648,8 @@ export function ExploreByCards() {
           </div>
 
           {/* Earnings card */}
-          <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#f9fafb] via-white to-[#fef2f2] shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl md:col-span-2 xl:col-span-1 min-h-[260px]">
+          {/* Earnings card */}
+          <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#f9fafb] via-white to-[#fef2f2] shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl md:col-span-2 xl:col-span-1 xl:col-start-3 xl:-translate-x-1/2 min-h-[260px]">
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
@@ -838,8 +842,13 @@ export function ExploreByCards() {
                               </p>
                               {j.noc2021 && (
                                 <p className="text-sm text-slate-700">
-                                  NOC {j.noc2021}
-                                  {j.nocTitle ? ` · ${j.nocTitle}` : ""}
+                                  <NocLink code={j.noc2021} />
+                                  {j.nocTitle && (
+                                    <>
+                                      {" · "}
+                                      {j.nocTitle}
+                                    </>
+                                  )}
                                 </p>
                               )}
                             </div>
@@ -1082,7 +1091,7 @@ export function ExploreByCards() {
                                 </p>
                                 {job.noc2021 && (
                                   <p className="text-sm text-slate-700">
-                                    NOC {job.noc2021}
+                                    <NocLink code={job.noc2021} />
                                   </p>
                                 )}
                               </div>
@@ -1279,10 +1288,13 @@ export function ExploreByCards() {
                     </h3>
                     {selectedJob.noc2021 && (
                       <p className="mt-1 text-base text-slate-700">
-                        NOC {selectedJob.noc2021}
-                        {selectedJob.nocTitle
-                          ? ` · ${selectedJob.nocTitle}`
-                          : ""}
+                        <NocLink code={selectedJob.noc2021} />
+                        {selectedJob.nocTitle && (
+                          <>
+                            {" · "}
+                            {selectedJob.nocTitle}
+                          </>
+                        )}
                       </p>
                     )}
                   </div>
@@ -1625,8 +1637,13 @@ export function ExploreByCards() {
                               </p>
                               {job.noc2021 && (
                                 <p className="text-sm text-slate-700">
-                                  NOC {job.noc2021}
-                                  {job.nocTitle ? ` · ${job.nocTitle}` : ""}
+                                  <NocLink code={job.noc2021} />
+                                  {job.nocTitle && (
+                                    <>
+                                      {" · "}
+                                      {job.nocTitle}
+                                    </>
+                                  )}
                                 </p>
                               )}
                             </div>

@@ -213,7 +213,7 @@ export function GuidedMatchSection() {
       className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 py-10 sm:py-12 border-t border-slate-200"
     >
       {/* soft background accent with college image */}
-      <div className="pointer-events-none absolute inset-0">
+      {/* <div className="pointer-events-none absolute inset-0">
         <Image
           src={collegeBg}
           alt="College campus background"
@@ -222,7 +222,7 @@ export function GuidedMatchSection() {
         />
         <div className="absolute -left-32 top-16 h-64 w-64 rounded-full bg-[#005f63]/10 blur-3xl" />
         <div className="absolute -right-24 bottom-0 h-64 w-64 rounded-full bg-[#d71920]/10 blur-3xl" />
-      </div>
+      </div> */}
 
       <motion.div
         className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7"

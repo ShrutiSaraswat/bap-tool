@@ -1,16 +1,46 @@
 // components/CncHeader.tsx
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const mainLinks = [
-  { label: "Home", href: "#top" },
-  { label: "By Program", href: "#programs" },
-  { label: "By Skills", href: "#skills" },
-  { label: "By Job Title", href: "#jobs" },
-  { label: "By Earning Potential", href: "#earnings" },
-  { label: "Guided Match", href: "#guided-match" },
+  {
+    label: "Home",
+    href: "#top",
+    description: "Return to the main overview of this planning tool.",
+  },
+  {
+    label: "By Program",
+    href: "#programs",
+    description: "Explore jobs, wages and pathways for each CNC program.",
+  },
+  {
+    label: "By Course",
+    href: "#courses",
+    description: "Start from a specific course and see linked programs.",
+  },
+  {
+    label: "By Skills",
+    href: "#skills",
+    description: "Match programs to the skills you want to build.",
+  },
+  {
+    label: "By Job Title",
+    href: "#jobs",
+    description: "Find programs connected to a job you have in mind.",
+  },
+  {
+    label: "By Earning Potential",
+    href: "#earnings",
+    description: "Browse pathways based on typical wage ranges.",
+  },
+  {
+    label: "Guided Match",
+    href: "#guided-match",
+    description: "Describe yourself and get a tailored starting point.",
+  },
 ];
 
 const navItemVariant = {
@@ -19,8 +49,12 @@ const navItemVariant = {
 };
 
 export function CncHeader() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // mobile menu
   const [scrolled, setScrolled] = useState(false);
+  const [navMenuOpen, setNavMenuOpen] = useState(false); // dropdown open
+
+  const desktopMenuRef = useRef<HTMLDivElement | null>(null);
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -28,6 +62,26 @@ export function CncHeader() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close dropdown when clicking anywhere outside
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (!navMenuOpen) return;
+      const target = e.target as Node;
+
+      if (desktopMenuRef.current && desktopMenuRef.current.contains(target)) {
+        return;
+      }
+      if (mobileMenuRef.current && mobileMenuRef.current.contains(target)) {
+        return;
+      }
+
+      setNavMenuOpen(false);
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [navMenuOpen]);
 
   return (
     <header
@@ -57,9 +111,9 @@ export function CncHeader() {
             </div>
           </motion.a>
 
-          {/* Desktop nav */}
+          {/* Desktop nav: dropdown + apply button */}
           <motion.nav
-            className="hidden md:flex items-center gap-7 text-base font-medium text-slate-800"
+            className="hidden md:flex items-center gap-4 text-base font-medium text-slate-800"
             initial="hidden"
             animate="visible"
             variants={{
@@ -69,21 +123,70 @@ export function CncHeader() {
               },
             }}
           >
-            {mainLinks.map((link) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                variants={navItemVariant}
-                className="relative group pb-1 hover:text-[#005f63] transition-colors"
+            {/* Dropdown */}
+            <motion.div
+              variants={navItemVariant}
+              className="relative"
+              ref={desktopMenuRef}
+            >
+              <button
+                type="button"
+                onClick={() => setNavMenuOpen((prev) => !prev)}
+                className="cursor-pointer inline-flex items-center justify-center rounded-md bg-[#d71920] px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white shadow-sm hover:bg-[#b8141b] hover:shadow-md transition"
               >
-                {link.label}
-                <span className="pointer-events-none absolute left-0 -bottom-0.5 h-0.5 w-full scale-x-0 origin-left bg-[#005f63] transition-transform group-hover:scale-x-100" />
-              </motion.a>
-            ))}
+                Select a feature type
+                {navMenuOpen ? (
+                  <ChevronUp className="ml-2 h-4 w-4" />
+                ) : (
+                  <ChevronDown className="ml-2 h-4 w-4" />
+                )}
+              </button>
+
+              <AnimatePresence>
+                {navMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -4, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -4, scale: 0.98 }}
+                    transition={{ duration: 0.16 }}
+                    className="absolute right-0 mt-3 w-96 rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/5 z-40"
+                  >
+                    <div className="px-4 pt-3 pb-2 border-b border-slate-100 bg-gray-100">
+                      <p className="text-base font-semibold tracking-[0.18em] uppercase text-slate-500">
+                        Choose a section
+                      </p>
+                    </div>
+                    <ul className="py-1 max-h-80 overflow-y-auto">
+                      {mainLinks.map((link) => (
+                        <li
+                          key={link.label}
+                          className="border-b border-slate-100 last:border-b-0"
+                        >
+                          <a
+                            href={link.href}
+                            onClick={() => setNavMenuOpen(false)}
+                            className="block px-4 py-3 text-base hover:bg-[#fee2e2] hover:text-[#b8141b] transition-colors"
+                          >
+                            <span className="font-semibold text-slate-900">
+                              {link.label}
+                            </span>
+                            <span className="block text-base text-slate-500 leading-snug">
+                              {link.description}
+                            </span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+
+            {/* Apply button (unchanged) */}
             <motion.a
               href="#apply"
               variants={navItemVariant}
-              className="ml-2 inline-flex items-center rounded-md bg-gradient-to-r from-[#d71920] to-[#b8141b] px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white shadow-sm hover:shadow-md hover:brightness-105"
+              className="inline-flex items-center rounded-md bg-gradient-to-r from-[#d71920] to-[#b8141b] px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white shadow-sm hover:shadow-md hover:brightness-105"
             >
               Apply to BAP
             </motion.a>
@@ -92,7 +195,10 @@ export function CncHeader() {
           {/* Mobile toggle */}
           <button
             className="md:hidden inline-flex items-center justify-center w-10 h-10 border border-slate-300 rounded-md bg-white/90"
-            onClick={() => setOpen((o) => !o)}
+            onClick={() => {
+              if (open) setNavMenuOpen(false);
+              setOpen((o) => !o);
+            }}
             aria-label="Toggle navigation"
           >
             <span className="sr-only">Toggle navigation</span>
@@ -130,20 +236,64 @@ export function CncHeader() {
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 space-y-1.5 text-base font-medium text-slate-800">
-              {mainLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="block px-1 py-2 rounded hover:bg-slate-100"
-                  onClick={() => setOpen(false)}
+            <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 space-y-3 text-base font-medium text-slate-800">
+              <p className="text-base text-slate-600">Choose a section</p>
+
+              <div className="relative" ref={mobileMenuRef}>
+                <button
+                  type="button"
+                  onClick={() => setNavMenuOpen((prev) => !prev)}
+                  className="inline-flex w-full items-center justify-between rounded-md bg-[#d71920] px-4 py-2.5 text-sm font-semibold uppercase tracking-wide text-white shadow-sm hover:bg-[#b8141b] hover:shadow-md transition"
                 >
-                  {link.label}
-                </a>
-              ))}
+                  Select a feature type
+                  {navMenuOpen ? (
+                    <ChevronUp className="ml-2 h-4 w-4" />
+                  ) : (
+                    <ChevronDown className="ml-2 h-4 w-4" />
+                  )}
+                </button>
+
+                <AnimatePresence>
+                  {navMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -4, scale: 0.98 }}
+                      transition={{ duration: 0.16 }}
+                      className="absolute inset-x-0 mt-2 rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/10 ring-1 ring-slate-900/5 z-40"
+                    >
+                      <ul className="py-1 max-h-80 overflow-y-auto">
+                        {mainLinks.map((link) => (
+                          <li
+                            key={link.label}
+                            className="border-b border-slate-100 last:border-b-0"
+                          >
+                            <a
+                              href={link.href}
+                              onClick={() => {
+                                setNavMenuOpen(false);
+                                setOpen(false);
+                              }}
+                              className="block px-4 py-3 text-base hover:bg-[#fee2e2] hover:text-[#b8141b] transition-colors"
+                            >
+                              <span className="font-semibold text-slate-900">
+                                {link.label}
+                              </span>
+                              <span className="block text-base text-slate-500 leading-snug">
+                                {link.description}
+                              </span>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <a
                 href="#apply"
-                className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-gradient-to-r from-[#d71920] to-[#b8141b] px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white shadow-sm hover:shadow-md"
+                className="mt-1 inline-flex w-full items-center justify-center rounded-md bg-gradient-to-r from-[#d71920] to-[#b8141b] px-4 py-2 text-sm font-semibold uppercase tracking-wide text-white shadow-sm hover:shadow-md"
                 onClick={() => setOpen(false)}
               >
                 Apply to BAP
