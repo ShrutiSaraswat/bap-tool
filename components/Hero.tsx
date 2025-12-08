@@ -7,11 +7,6 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 const mainLinks = [
   {
-    label: "Home",
-    href: "#top",
-    description: "Return to the main overview of this planning tool.",
-  },
-  {
     label: "By Program",
     href: "#programs",
     description: "Explore jobs, wages and pathways for each CNC program.",
@@ -110,7 +105,6 @@ export function CncHeader() {
               </span>
             </div>
           </motion.a>
-
           {/* Desktop nav: dropdown + apply button */}
           <motion.nav
             className="hidden md:flex items-center gap-4 text-base font-medium text-slate-800"
@@ -123,6 +117,15 @@ export function CncHeader() {
               },
             }}
           >
+            <motion.a
+              href="#top"
+              className="flex items-stretch gap-3 hover:text-red-600"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+            >
+              Home
+            </motion.a>
             {/* Dropdown */}
             <motion.div
               variants={navItemVariant}
@@ -160,12 +163,12 @@ export function CncHeader() {
                       {mainLinks.map((link) => (
                         <li
                           key={link.label}
-                          className="border-b border-slate-100 last:border-b-0"
+                          className="border-b border-slate-200/80 last:border-b-0"
                         >
                           <a
                             href={link.href}
                             onClick={() => setNavMenuOpen(false)}
-                            className="block px-4 py-3 text-base hover:bg-[#fee2e2] hover:text-[#b8141b] transition-colors"
+                            className="block px-4 py-3 text-base hover:bg-[#fee2e2]/50 hover:text-[#b8141b] transition-colors"
                           >
                             <span className="font-semibold text-slate-900">
                               {link.label}
