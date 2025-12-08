@@ -30,7 +30,7 @@ export function HeroIntro() {
         <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/45 blur-3xl" />
 
         {/* Hero decorative rings */}
-        <div className="absolute -right-[720px] -top-[15%] h-[1000px] w-[1000px]">
+        {/* <div className="absolute -right-[720px] -top-[15%] h-[1000px] w-[1000px]">
           <div className="relative h-full w-full opacity-50">
             <div className="absolute inset-1 rounded-full bg-[conic-gradient(from_120deg,rgba(0,95,99,0.98),rgba(15,23,42,0.16),rgba(215,25,32,0.2),rgba(244,180,26,0.2),rgba(0,95,99,0.18))] opacity-90" />
             <div className="absolute inset-3 rounded-full border-[12px] border-white/78 shadow-[0_0_0_1px_rgba(148,163,184,0.35)]" />
@@ -50,7 +50,7 @@ export function HeroIntro() {
             <div className="absolute inset-1 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.9),rgba(148,163,184,0.52),transparent_70%)]" />
             <div className="absolute inset-3 rounded-full border-[6px] border-white/75 shadow-[0_0_0_1px_rgba(148,163,184,0.1)]" />
           </div>
-        </div>
+        </div> */}
 
         <div className="absolute inset-x-6 bottom-[-4rem] h-40 rounded-[3rem] bg-gradient-to-r from-[#0f172a]/7 via-transparent to-[#0f172a]/7 blur-2xl" />
 
@@ -95,7 +95,7 @@ export function HeroIntro() {
           </motion.p>
 
           {/* Shorter main line + bullets */}
-          <motion.p
+          {/* <motion.p
             variants={fadeUp}
             className="text-base lg:text-lg text-slate-800 max-w-2xl"
           >
@@ -117,7 +117,7 @@ export function HeroIntro() {
               Every course stacks toward a full certificate and diploma when
               you&apos;re ready.
             </li>
-          </motion.ul>
+          </motion.ul> */}
 
           <motion.div variants={fadeUp} className="mt-2 flex flex-wrap gap-3">
             <a
