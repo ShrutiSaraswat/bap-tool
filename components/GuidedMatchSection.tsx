@@ -782,8 +782,15 @@ export function GuidedMatchSection() {
   return (
     <section
       id="guided-match"
-      className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50 py-10 sm:py-12 border-t border-slate-200"
+      className="relative overflow-hidden bg-gradient-to-br from-indigo-100 via-white to-indigo-800/15 bg-dots py-10 sm:py-12 border-t border-gray-200"
     >
+      {/* soft gradient background accents matching hero */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(129,140,248,0.16),transparent_65%)]" />
+        <div className="hidden md:block absolute -left-40 top-24 h-72 w-72 rounded-full bg-gradient-to-tr from-pink-200/60 to-purple-300/60 blur-3xl" />
+        <div className="hidden md:block absolute -right-40 bottom-40 h-80 w-80 rounded-full bg-gradient-to-tr from-indigo-200/60 to-sky-200/60 blur-3xl" />
+      </div>
+
       {/* soft background accent with college image */}
       {/* <div className="pointer-events-none absolute inset-0">
         <Image
@@ -797,7 +804,7 @@ export function GuidedMatchSection() {
       </div> */}
 
       <motion.div
-        className="relative max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 space-y-7"
+        className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-0 space-y-7"
         variants={sectionContainer}
         initial="hidden"
         whileInView="visible"
@@ -805,13 +812,13 @@ export function GuidedMatchSection() {
       >
         {/* Heading block */}
         <motion.div className="max-w-3xl space-y-3" variants={fadeChild}>
-          <p className="text-base font-semibold tracking-[0.2em] uppercase text-[#005f63]">
+          <p className="text-base font-semibold tracking-[0.2em] uppercase text-indigo-600">
             Guided match
           </p>
-          <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
+          <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900">
             Not sure where to start? Use the guided match.
           </h2>
-          <p className="text-base text-slate-800">
+          <p className="text-base text-gray-700">
             Describe the kind of business work you want to do or the experience
             you already have. The tool compares your interests with CNC&apos;s
             business programs and suggests a flexible starting point you can
@@ -828,7 +835,7 @@ export function GuidedMatchSection() {
           <div className="space-y-4">
             <label
               htmlFor="guided-text"
-              className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700"
+              className="text-base font-semibold uppercase tracking-[0.16em] text-gray-800"
             >
               Tell us a bit about you
             </label>
@@ -837,19 +844,19 @@ export function GuidedMatchSection() {
               rows={7}
               value={text}
               onChange={(e) => setText(e.target.value)}
-              className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#005f63] focus:border-[#005f63] resize-vertical"
+              className="w-full rounded-xl border border-gray-200 bg-white/80 px-4 py-3 text-base text-gray-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 resize-vertical backdrop-blur"
               placeholder="For example: I like working with people in hotels or restaurants, I enjoy planning events, and I want a program that lets me start working sooner and possibly move into management later."
             />
             <div className="flex flex-wrap gap-3">
               <button
                 type="submit"
-                className="inline-flex items-center rounded-md bg-[#d71920] px-5 py-3 text-base font-semibold text-white hover:bg-[#b8141b] shadow-sm hover:shadow-md transition cursor-pointer"
+                className="inline-flex items-center rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-6 py-3 text-base font-semibold text-white shadow-lg transition duration-300 hover:from-indigo-700 hover:to-purple-700 hover:shadow-xl cursor-pointer"
               >
                 See Suggested Programs
               </button>
               <button
                 type="button"
-                className="inline-flex items-center rounded-md border border-slate-300 bg-white px-4 py-3 text-base font-semibold text-slate-900 hover:bg-slate-100 transition cursor-pointer"
+                className="inline-flex items-center rounded-full border border-indigo-100 bg-white/80 px-5 py-3 text-base font-semibold text-indigo-700 shadow-sm hover:bg-indigo-50 hover:border-indigo-200 transition cursor-pointer"
                 onClick={() =>
                   setText(
                     "I like working with people, guests and visitors. I enjoy social media and events, and I want to start in a shorter business program that can lead to management later."
@@ -860,7 +867,7 @@ export function GuidedMatchSection() {
               </button>
             </div>
 
-            <p className="text-base text-slate-700">
+            <p className="text-base text-gray-600">
               This is a planning tool to help you think about options. It does
               not replace speaking with CNC advising or submitting an
               application.
@@ -869,14 +876,14 @@ export function GuidedMatchSection() {
 
           {/* Results panel */}
           <motion.div
-            className="border border-slate-200 rounded-2xl bg-white/95 overflow-hidden shadow-[0_16px_40px_rgba(15,23,42,0.16)]"
+            className="border-4 border-slate-300 rounded-2xl bg-white/80 overflow-hidden shadow-2xl backdrop-blur-md"
             variants={fadeChild}
           >
-            <div className="border-b border-slate-200 bg-gradient-to-r from-slate-100 via-slate-50 to-slate-100 px-5 py-4">
-              <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-700">
+            <div className="border-b-4 border-slate-200 bg-gradient-to-r from-indigo-50 via-white to-pink-900/10 px-5 py-4">
+              <p className="text-base font-semibold uppercase tracking-[0.16em] text-gray-800">
                 Suggested CNC programs
               </p>
-              <p className="mt-2 text-base text-slate-800">
+              <p className="mt-2 text-base text-gray-700">
                 Results are ordered from strongest to lighter match based on how
                 closely your description aligns with each program.
               </p>
@@ -884,7 +891,7 @@ export function GuidedMatchSection() {
 
             <div className="px-5 py-4 space-y-4 max-h-[380px] overflow-y-auto text-base">
               {!touched && (
-                <p className="text-base text-slate-800">
+                <p className="text-base text-gray-700">
                   Type a few sentences and select{" "}
                   <span className="font-semibold">See Suggested Programs</span>{" "}
                   to view matches here.
@@ -892,7 +899,7 @@ export function GuidedMatchSection() {
               )}
 
               {showEmptyState && (
-                <p className="text-base text-slate-800">
+                <p className="text-base text-gray-700">
                   There is not a clear match yet. Try adding more detail about
                   the kinds of tasks you enjoy, the setting you prefer (office,
                   hospitality, finance, marketing) or whether you want to start
@@ -918,31 +925,31 @@ export function GuidedMatchSection() {
                       variants={resultItem}
                       initial="hidden"
                       animate="visible"
-                      className="border border-slate-200 rounded-xl px-4 py-3 bg-slate-50/70 space-y-2"
+                      className="border border-indigo-100/80 rounded-xl px-4 py-3 bg-gradient-to-r from-indigo-50/70 via-white/80 to-pink-50/70 space-y-2"
                     >
                       <div className="flex flex-wrap items-baseline justify-between gap-3">
                         <div>
-                          <p className="font-semibold text-slate-900">
+                          <p className="font-semibold text-gray-900">
                             {p.name}
                           </p>
                           {p.credentialType && (
-                            <p className="text-base text-slate-700">
+                            <p className="text-base text-gray-700">
                               {p.credentialType}
                             </p>
                           )}
                         </div>
-                        <div className="flex items-center gap-2">
-                          <span className="inline-flex items-center rounded-full bg-[#005f63]/10 px-3 py-1 text-base font-semibold text-[#005f63]">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="inline-flex items-center rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1 text-base font-semibold text-indigo-700">
                             {matchLabel}
                           </span>
-                          <span className="text-base text-slate-600">
+                          <span className="text-base text-gray-600">
                             Match score: {result.score}
                           </span>
                         </div>
                       </div>
 
                       {p.overview && (
-                        <p className="text-base text-slate-800">
+                        <p className="text-base text-gray-700">
                           {p.overview.length > 260
                             ? p.overview.slice(0, 257) + "..."
                             : p.overview}
@@ -950,7 +957,7 @@ export function GuidedMatchSection() {
                       )}
 
                       {p.timeCommitment?.label && (
-                        <p className="text-base text-slate-700">
+                        <p className="text-base text-gray-700">
                           <span className="font-semibold">
                             Time commitment:
                           </span>{" "}
@@ -959,7 +966,7 @@ export function GuidedMatchSection() {
                       )}
 
                       {p.stackability?.stackMessage && (
-                        <p className="text-base text-slate-700">
+                        <p className="text-base text-gray-700">
                           <span className="font-semibold">
                             Stackable pathway:
                           </span>{" "}

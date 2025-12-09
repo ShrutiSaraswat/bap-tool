@@ -371,12 +371,15 @@ export function ExploreByCards() {
   return (
     <section
       id="explore"
-      className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 border-b border-slate-200 py-12 sm:py-14"
+      className="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-pink-50 border-b border-indigo-100 py-12 sm:py-14"
     >
       {/* background blobs */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-32 top-10 h-64 w-64 rounded-full bg-rose-100/40 blur-3xl" />
-        <div className="absolute -right-32 bottom-0 h-64 w-64 rounded-full bg-slate-100/40 blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(129,140,248,0.18),transparent_65%)]" />
+        <div className="absolute -left-32 top-10 h-64 w-64 rounded-full bg-indigo-200/45 blur-3xl" />
+        <div className="absolute -right-32 bottom-10 h-72 w-72 rounded-full bg-pink-200/40 blur-3xl" />
+        <div className="absolute -right-8 top-0 h-48 w-48 rounded-full bg-purple-200/40 blur-3xl" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white/80 via-transparent to-transparent" />
       </div>
 
       <motion.div
@@ -393,13 +396,13 @@ export function ExploreByCards() {
           id="programs"
         >
           <p
-            className="text-base font-semibold tracking-[0.2em] uppercase text-slate-700"
+            className="text-base font-semibold tracking-[0.2em] uppercase text-indigo-700"
             id="courses"
           >
             Explore CNC business pathways
           </p>
           <h2
-            className="text-2xl sm:text-3xl font-semibold text-slate-900"
+            className="text-2xl sm:text-3xl font-bold text-slate-900"
             id="skills"
           >
             See the options that fit your goals
@@ -408,19 +411,19 @@ export function ExploreByCards() {
 
         {/* Cards grid */}
         <motion.div
-          className=" grid gap-7 lg:gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-[minmax(0,1fr)] xl:[&>*:nth-child(5)]:col-start-3"
+          className="grid gap-7 lg:gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-[minmax(0,1fr)] xl:[&>*:nth-child(5)]:col-start-3"
           variants={fadeUp}
         >
-          {/* Program card */}
-          <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#f9fafb] via-white to-[#fef2f2] shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]">
-            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
+          {/* Program card (light) */}
+          <div className="group relative h-full overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-pink-50 shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]">
+            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-indigo-200/60 via-transparent to-pink-200/60" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-[#fef2f2] border border-[#fecaca]">
-                  <Timer className="h-5 w-5 text-[#b91c1c]" />
+                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-white border border-indigo-100 shadow-sm">
+                  <Timer className="h-5 w-5 text-indigo-700" />
                 </div>
                 <div className="text-left space-y-1">
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#b91c1c]">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-700">
                     By program
                   </p>
                   <p className="text-base text-slate-800">
@@ -439,7 +442,7 @@ export function ExploreByCards() {
                   </label>
                   <select
                     id="card-program-select"
-                    className="block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#b91c1c] focus:border-[#b91c1c] cursor-pointer"
+                    className="block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 cursor-pointer"
                     value={selectedProgramId}
                     onChange={(e) => {
                       const value = e.target.value;
@@ -463,16 +466,16 @@ export function ExploreByCards() {
             </div>
           </div>
 
-          {/* Course card */}
-          <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#f9fafb] via-white to-[#fef2f2] shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]">
-            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
+          {/* Course card (slightly darker) */}
+          <div className="group relative h-full overflow-hidden rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-100 via-white to-purple-100 shadow-md transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]">
+            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-indigo-300/70 via-transparent to-purple-300/70" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-[#fef2f2] border border-[#fecaca]">
-                  <BookOpen className="h-5 w-5 text-slate-900" />
+                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-white border border-indigo-200 shadow-sm">
+                  <BookOpen className="h-5 w-5 text-indigo-800" />
                 </div>
                 <div className="text-left space-y-1">
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-900">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-800">
                     By course
                   </p>
                   <p className="text-base text-slate-800">
@@ -492,7 +495,7 @@ export function ExploreByCards() {
                   </label>
                   <select
                     id="card-course-select"
-                    className="block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#b91c1c] focus:border-[#b91c1c] cursor-pointer"
+                    className="block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 cursor-pointer"
                     value={selectedCourseId}
                     onChange={(e) => {
                       const value = e.target.value;
@@ -515,17 +518,17 @@ export function ExploreByCards() {
             </div>
           </div>
 
-          {/* Skill card */}
-          <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#f9fafb] via-white to-[#fef2f2] shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]">
-            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
+          {/* Skill card (same light theme) */}
+          <div className="group relative h-full overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-pink-50 shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]">
+            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-purple-200/60 via-transparent to-pink-200/60" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-[#fef2f2] border border-[#fecaca]">
-                  <Sparkles className="h-5 w-5 text-[#b91c1c]" />
+                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-white border border-indigo-100 shadow-sm">
+                  <Sparkles className="h-5 w-5 text-purple-600" />
                 </div>
 
                 <div className="text-left space-y-1">
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#b91c1c]">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-purple-700">
                     By skill
                   </p>
                   <p className="text-base text-slate-800">
@@ -549,7 +552,7 @@ export function ExploreByCards() {
                       id="card-skill-search"
                       type="text"
                       placeholder="Type a skill (customer service, accounting, marketing...)"
-                      className="block w-full rounded-xl border border-slate-300 bg-white pl-9 pr-3 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#b91c1c] focus:border-[#b91c1c]"
+                      className="block w-full rounded-xl border border-slate-300 bg-white pl-9 pr-3 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                       value={skillSearch}
                       onChange={(e) => setSkillSearch(e.target.value)}
                       disabled={!hasAnySkills}
@@ -557,7 +560,7 @@ export function ExploreByCards() {
                   </div>
 
                   <select
-                    className="block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#b91c1c] focus:border-[#b91c1c] cursor-pointer disabled:cursor-default"
+                    className="block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 cursor-pointer disabled:cursor-default"
                     value={selectedSkillId}
                     onChange={(e) => {
                       const value = e.target.value;
@@ -599,17 +602,17 @@ export function ExploreByCards() {
             </div>
           </div>
 
-          {/* Job card */}
-          <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#f9fafb] via-white to-[#fef2f2] shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px] xl:translate-x-1/2">
-            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
+          {/* Job card (slightly darker) */}
+          <div className="group relative h-full overflow-hidden rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-100 via-white to-pink-100 shadow-md transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px] xl:translate-x-1/2">
+            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-indigo-300/70 via-transparent to-pink-300/70" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-[#fef2f2] border border-[#fecaca]">
-                  <BriefcaseBusiness className="h-5 w-5 text-[#b91c1c]" />
+                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-white border border-indigo-200 shadow-sm">
+                  <BriefcaseBusiness className="h-5 w-5 text-indigo-800" />
                 </div>
 
                 <div className="text-left space-y-1">
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#b91c1c]">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-indigo-800">
                     By job title
                   </p>
                   <p className="text-base text-slate-800">
@@ -630,7 +633,7 @@ export function ExploreByCards() {
                     <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
                     <select
                       id="card-job-select"
-                      className="block w-full rounded-xl border border-slate-300 bg-white pl-9 pr-3 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#b91c1c] focus:border-[#b91c1c] cursor-pointer"
+                      className="block w-full rounded-xl border border-slate-300 bg-white pl-9 pr-3 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 cursor-pointer"
                       value={selectedJobId}
                       onChange={(e) => {
                         const value = e.target.value;
@@ -655,16 +658,16 @@ export function ExploreByCards() {
             </div>
           </div>
 
-          {/* Earnings card */}
-          <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-[#f9fafb] via-white to-[#fef2f2] shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl md:col-span-2 xl:col-span-1 xl:col-start-3 xl:-translate-x-1/2 min-h-[260px]">
-            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-[#fee2e2]/50 via-transparent to-slate-100/50" />
+          {/* Earnings card (slightly darker) */}
+          <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-100 via-white to-indigo-100 shadow-md transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl md:col-span-2 xl:col-span-1 xl:col-start-3 xl:-translate-x-1/2 min-h-[260px]">
+            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-slate-300/70 via-transparent to-indigo-300/70" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-[#fef2f2] border border-[#fecaca]">
-                  <BarChart3 className="h-5 w-5 text-[#b91c1c]" />
+                <div className="flex h-12 w-12 aspect-square items-center justify-center rounded-full bg-white border border-slate-200 shadow-sm">
+                  <BarChart3 className="h-5 w-5 text-slate-800" />
                 </div>
                 <div className="text-left space-y-1">
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#b91c1c]">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-900">
                     By earning range
                   </p>
                   <p className="text-base text-slate-800">
@@ -683,7 +686,7 @@ export function ExploreByCards() {
                   </label>
                   <select
                     id="card-earning-band"
-                    className="block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#b91c1c] focus:border-[#b91c1c] cursor-pointer"
+                    className="block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 cursor-pointer"
                     value={selectedBand}
                     onChange={(e) => {
                       const value = e.target.value as BandId | "";
@@ -709,7 +712,7 @@ export function ExploreByCards() {
 
         {/* Results */}
         <div ref={resultsRef} className="pt-4 space-y-8">
-          {/* Program results - amber/red theme */}
+          {/* Program results - rethemed to indigo/purple */}
           {activeMode === "program" && selectedProgram && (
             <motion.div
               key={`program-${selectedProgramId}`}
@@ -720,10 +723,10 @@ export function ExploreByCards() {
             >
               {/* Program overview */}
               <div className="relative">
-                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-amber-100/80 via-white to-[#fee2e2]/80 opacity-90" />
-                <div className="relative border border-amber-200 rounded-3xl bg-white shadow-[0_18px_50px_rgba(120,53,15,0.25)] overflow-hidden">
-                  <div className="border-b border-amber-100 bg-gradient-to-r from-amber-50 via-white to-[#fee2e2] px-6 py-5">
-                    <p className="text-base font-semibold tracking-[0.18em] uppercase text-amber-900">
+                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-indigo-100/80 via-white to-purple-100/80 opacity-90" />
+                <div className="relative border border-indigo-200 rounded-3xl bg-white shadow-[0_18px_50px_rgba(79,70,229,0.25)] overflow-hidden">
+                  <div className="border-b border-indigo-100 bg-gradient-to-r from-indigo-50 via-white to-purple-50 px-6 py-5">
+                    <p className="text-base font-semibold tracking-[0.18em] uppercase text-indigo-900">
                       {selectedProgram.credentialType || "Program"}
                     </p>
                     <h3 className="mt-2 text-2xl sm:text-3xl font-semibold text-slate-900">
@@ -743,8 +746,8 @@ export function ExploreByCards() {
 
                     <div className="flex flex-wrap gap-2.5">
                       {selectedProgram.timeCommitment?.label && (
-                        <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1.5 text-sm font-medium text-amber-900">
-                          <Timer className="h-4 w-4 text-amber-700" />
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-sm font-medium text-indigo-900">
+                          <Timer className="h-4 w-4 text-indigo-700" />
                           <span>
                             {formatCoursesLabel(
                               selectedProgram.timeCommitment.label
@@ -767,8 +770,8 @@ export function ExploreByCards() {
                     </div>
 
                     {selectedProgram.stackability?.stackMessage && (
-                      <div className="border border-amber-200 bg-amber-50/70 px-4 py-3 rounded-2xl">
-                        <p className="text-sm font-semibold text-amber-900 uppercase tracking-[0.16em] mb-1">
+                      <div className="border border-indigo-200 bg-indigo-50/80 px-4 py-3 rounded-2xl">
+                        <p className="text-sm font-semibold text-indigo-900 uppercase tracking-[0.16em] mb-1">
                           Stackable pathway
                         </p>
                         <p>{selectedProgram.stackability.stackMessage}</p>
@@ -809,11 +812,11 @@ export function ExploreByCards() {
 
               {/* Jobs for program */}
               <div className="relative">
-                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-amber-100/70 via-white to-[#fee2e2]/70 opacity-90" />
-                <div className="relative border border-amber-200 rounded-3xl bg-white/95 shadow-[0_18px_50px_rgba(120,53,15,0.2)] overflow-hidden">
-                  <div className="border-b border-amber-100 bg-gradient-to-r from-amber-50 via-white to-[#fee2e2] px-6 py-5">
+                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-indigo-100/75 via-white to-purple-100/75 opacity-90" />
+                <div className="relative border border-indigo-200 rounded-3xl bg-white/95 shadow-[0_18px_50px_rgba(79,70,229,0.2)] overflow-hidden">
+                  <div className="border-b border-indigo-100 bg-gradient-to-r from-indigo-50 via-white to-purple-50 px-6 py-5">
                     <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-900 flex items-center gap-2">
-                      <BriefcaseBusiness className="h-4 w-4 text-[#b91c1c]" />
+                      <BriefcaseBusiness className="h-4 w-4 text-indigo-700" />
                       Job prospects and opportunities
                     </p>
                     <p className="mt-2 text-base text-slate-800">
@@ -928,7 +931,7 @@ export function ExploreByCards() {
             </motion.div>
           )}
 
-          {/* Course results - indigo/sky theme */}
+          {/* Course results - already indigo/sky theme */}
           {activeMode === "course" && selectedCourse && (
             <motion.div
               key={`course-${selectedCourseId}`}
@@ -1156,7 +1159,7 @@ export function ExploreByCards() {
             </motion.div>
           )}
 
-          {/* Skill results - CNC red theme */}
+          {/* Skill results - rethemed to purple/indigo */}
           {activeMode === "skill" && hasAnySkills && selectedSkill && (
             <motion.div
               key={`skill-${selectedSkill.id}`}
@@ -1165,11 +1168,11 @@ export function ExploreByCards() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.35 }}
             >
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-[#fee2e2]/80 via-white to-[#fffbeb]/80 opacity-90" />
-              <div className="relative border border-[#fecaca] rounded-3xl bg-white/95 shadow-[0_18px_50px_rgba(185,28,28,0.25)]">
-                <div className="border-b border-[#fecaca] bg-gradient-to-r from-[#fef2f2] via-white to-[#fffbeb] px-6 py-5">
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-purple-100/80 via-white to-indigo-100/80 opacity-90" />
+              <div className="relative border border-purple-200 rounded-3xl bg-white/95 shadow-[0_18px_50px_rgba(109,40,217,0.25)]">
+                <div className="border-b border-purple-100 bg-gradient-to-r from-purple-50 via-white to-indigo-50 px-6 py-5">
                   <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-900 flex items-center gap-2">
-                    <Sparkles className="h-4 w-4 text-[#b91c1c]" />
+                    <Sparkles className="h-4 w-4 text-purple-600" />
                     Programs that build this skill
                   </p>
                   <p className="mt-2 text-base text-slate-800">
@@ -1248,7 +1251,7 @@ export function ExploreByCards() {
                               <span>{opportunityLabel}</span>
                             </span>
                           )}
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#fee2e2] border border-[#fecaca] px-3 py-1 text-sm text-[#b91c1c]">
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-indigo-50 border border-indigo-200 px-3 py-1 text-sm text-indigo-700">
                             <Star className="h-4 w-4" />
                             <span>Focus on {selectedSkill.name}</span>
                           </span>
@@ -1272,7 +1275,7 @@ export function ExploreByCards() {
             </motion.div>
           )}
 
-          {/* Job results - red/amber theme */}
+          {/* Job results - cool red toned down into indigo/rose mix */}
           {activeMode === "job" && selectedJob && (
             <motion.div
               key={`job-${selectedJobId}`}
@@ -1283,11 +1286,11 @@ export function ExploreByCards() {
             >
               {/* Job details */}
               <div className="relative">
-                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-[#fee2e2]/80 via-white to-[#fffbeb]/80 opacity-90" />
-                <div className="relative border border-[#fecaca] rounded-3xl bg-white shadow-[0_18px_50px_rgba(185,28,28,0.25)] overflow-hidden">
-                  <div className="border-b border-[#fecaca] bg-gradient-to-r from-[#fef2f2] via-white to-[#fffbeb] px-6 py-5">
+                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-rose-100/70 via-white to-indigo-100/80 opacity-90" />
+                <div className="relative border border-rose-200 rounded-3xl bg-white shadow-[0_18px_50px_rgba(190,24,93,0.23)] overflow-hidden">
+                  <div className="border-b border-rose-100 bg-gradient-to-r from-rose-50 via-white to-indigo-50 px-6 py-5">
                     <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-900 flex items-center gap-2">
-                      <BriefcaseBusiness className="h-4 w-4 text-[#b91c1c]" />
+                      <BriefcaseBusiness className="h-4 w-4 text-rose-600" />
                       Job details
                     </p>
                     <h3 className="mt-2 text-2xl sm:text-3xl font-semibold text-slate-900">
@@ -1413,9 +1416,9 @@ export function ExploreByCards() {
 
               {/* Programs linked to job */}
               <div className="relative">
-                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-[#fee2e2]/70 via-white to-[#fffbeb]/70 opacity-90" />
-                <div className="relative border border-[#fecaca] rounded-3xl bg-white/95 shadow-[0_18px_50px_rgba(185,28,28,0.2)] overflow-hidden">
-                  <div className="border-b border-[#fecaca] bg-gradient-to-r from-[#fef2f2] via-white to-[#fffbeb] px-6 py-5">
+                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-rose-100/70 via-white to-indigo-100/70 opacity-90" />
+                <div className="relative border border-rose-200 rounded-3xl bg-white/95 shadow-[0_18px_50px_rgba(190,24,93,0.2)] overflow-hidden">
+                  <div className="border-b border-rose-200 bg-gradient-to-r from-rose-50 via-white to-indigo-50 px-6 py-5">
                     <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-900">
                       CNC programs connected to this job
                     </p>
@@ -1500,7 +1503,7 @@ export function ExploreByCards() {
             </motion.div>
           )}
 
-          {/* Earnings results - amber/indigo theme */}
+          {/* Earnings results - neutralised into indigo/slate */}
           {activeMode === "earnings" && selectedBand !== "" && (
             <motion.div
               key={`earnings-${selectedBand}`}
@@ -1511,11 +1514,11 @@ export function ExploreByCards() {
             >
               {/* Programs in band */}
               <div className="relative">
-                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-amber-100/80 via-white to-slate-100/80 opacity-90" />
-                <div className="relative border border-amber-200 rounded-3xl bg-white/95 shadow-[0_18px_50px_rgba(120,53,15,0.2)]">
-                  <div className="border-b border-amber-100 bg-gradient-to-r from-slate-100 via-white to-amber-50 px-6 py-5">
+                <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-indigo-100/80 via-white to-slate-100/80 opacity-90" />
+                <div className="relative border border-indigo-200 rounded-3xl bg-white/95 shadow-[0_18px_50px_rgba(79,70,229,0.2)]">
+                  <div className="border-b border-indigo-100 bg-gradient-to-r from-slate-100 via-white to-indigo-50 px-6 py-5">
                     <p className="text-base font-semibold uppercase tracking-[0.16em] text-slate-900 flex items-center gap-2">
-                      <CircleDollarSign className="h-4 w-4 text-amber-800" />
+                      <CircleDollarSign className="h-4 w-4 text-indigo-700" />
                       CNC programs in this earning band
                     </p>
                     <p className="mt-2 text-base text-slate-800">
