@@ -83,7 +83,7 @@ export function ScrollToTopButton() {
             cy="20"
             r={radius}
             fill="none"
-            stroke="#005f63"
+            stroke="purple"
             strokeWidth="3"
             strokeLinecap="round"
             strokeDasharray={circumference}
@@ -93,7 +93,7 @@ export function ScrollToTopButton() {
 
         {/* Inner circle + improved arrow icon */}
         <div className="relative flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white">
-          <svg viewBox="0 0 24 24" className="w-5 h-5 text-slate-800">
+          <svg viewBox="0 0 24 24" className="w-5 h-5 text-indigo-800">
             {/* Chevron up + stem for a more refined arrow */}
             <path
               d="M7 12l5-5 5 5"
