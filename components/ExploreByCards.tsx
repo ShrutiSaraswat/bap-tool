@@ -101,7 +101,7 @@ type Job = {
   region?: string;
 };
 
-type BandId = "entry" | "entry_to_medium" | "medium" | "medium_high";
+type EarningRangeId = "18_27" | "28_37" | "37_plus";
 
 type Mode = "program" | "course" | "skill" | "job" | "earnings";
 
@@ -113,7 +113,7 @@ const COURSES: Course[] = coursesData as Course[];
 const SKILL_CLUSTERS: SkillCluster[] = skillsData as SkillCluster[];
 const PROGRAM_BANDS: ProgramBand[] = programBandsData as ProgramBand[];
 
-// Shared earning labels
+// Shared earning labels (used in other sections)
 const earningBandLabels: Record<string, string> = {
   // programBand style ids
   "earning-entry": "Entry (around $18-22/hr)",
@@ -142,12 +142,20 @@ const opportunityLabels: Record<string, string> = {
   emerging: "Emerging or growing area",
 };
 
-const earningBandOptions: { id: BandId; label: string }[] = [
-  { id: "entry", label: "Entry ($18-22/hr approx.)" },
-  { id: "entry_to_medium", label: "Entry to medium ($20-26/hr approx.)" },
-  { id: "medium", label: "Medium ($24-30/hr approx.)" },
-  { id: "medium_high", label: "Medium to high ($28-35+ /hr approx.)" },
+// New earning range options for the client request
+const earningRangeOptions: { id: EarningRangeId; label: string }[] = [
+  { id: "18_27", label: "$18 to $27 an hour" },
+  { id: "28_37", label: "$28 to $37 an hour" },
+  { id: "37_plus", label: "$37+ an hour" },
 ];
+
+// Map existing earning bands to the 3 new ranges
+const bandToRange: Record<string, EarningRangeId> = {
+  entry: "18_27",
+  entry_to_medium: "18_27",
+  medium: "28_37",
+  medium_high: "37_plus",
+};
 
 // ---------- Motion variants ----------
 
@@ -233,24 +241,20 @@ function getJobOpportunityLabel(job: Job): string | null {
   return opportunityLabels[id] ?? null;
 }
 
-/**
- * Find full course details for a program course entry.
- * Tries to match on code + title first, then falls back to code only.
- */
-function getCourseDetail(code: string, title?: string): Course | undefined {
-  const normalizedCode = code.trim().toLowerCase();
-  const normalizedTitle = title?.trim().toLowerCase();
+function getJobWageBand(job: Job): string | null {
+  const anyJob = job as any;
+  return (
+    job.wageBand ??
+    anyJob.wage_band ??
+    job.wageBandId ??
+    anyJob.wage_band_id ??
+    null
+  );
+}
 
-  if (normalizedTitle) {
-    const byBoth = COURSES.find(
-      (c) =>
-        c.code.trim().toLowerCase() === normalizedCode &&
-        c.title.trim().toLowerCase() === normalizedTitle
-    );
-    if (byBoth) return byBoth;
-  }
-
-  return COURSES.find((c) => c.code.trim().toLowerCase() === normalizedCode);
+function getRangeLabel(rangeId: EarningRangeId | "") {
+  const opt = earningRangeOptions.find((o) => o.id === rangeId);
+  return opt?.label ?? "";
 }
 
 /**
@@ -282,7 +286,7 @@ export function ExploreByCards() {
   const [selectedSkillId, setSelectedSkillId] = useState("");
   const [skillSearch, setSkillSearch] = useState("");
   const [selectedJobId, setSelectedJobId] = useState("");
-  const [selectedBand, setSelectedBand] = useState<BandId | "">("");
+  const [selectedBand, setSelectedBand] = useState<EarningRangeId | "">("");
 
   const resultsRef = useRef<HTMLDivElement | null>(null);
 
@@ -364,10 +368,21 @@ export function ExploreByCards() {
   const programsForBand =
     selectedBand === ""
       ? []
-      : PROGRAMS.filter((p) => p.earningBand === selectedBand);
+      : PROGRAMS.filter((p) => {
+          if (!p.earningBand) return false;
+          const range = bandToRange[p.earningBand];
+          return range === selectedBand;
+        });
 
   const jobsForBand =
-    selectedBand === "" ? [] : JOBS.filter((j) => j.wageBand === selectedBand);
+    selectedBand === ""
+      ? []
+      : JOBS.filter((j) => {
+          const band = getJobWageBand(j);
+          if (!band) return false;
+          const range = bandToRange[band];
+          return range === selectedBand;
+        });
 
   // Scroll helper - offset for fixed navbar so content is not hidden
   const scrollToResults = (mode: Mode) => {
@@ -712,15 +727,15 @@ export function ExploreByCards() {
                     className="block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 cursor-pointer"
                     value={selectedBand}
                     onChange={(e) => {
-                      const value = e.target.value as BandId | "";
+                      const value = e.target.value as EarningRangeId | "";
                       setSelectedBand(value);
                       if (value) scrollToResults("earnings");
                     }}
                   >
                     <option value="">Select an earning range...</option>
-                    {earningBandOptions.map((band) => (
-                      <option key={band.id} value={band.id}>
-                        {band.label}
+                    {earningRangeOptions.map((range) => (
+                      <option key={range.id} value={range.id}>
+                        {range.label}
                       </option>
                     ))}
                   </select>
@@ -815,16 +830,22 @@ export function ExploreByCards() {
                           </p>
                           <ul className="grid gap-1.5 text-base">
                             {selectedProgram.courses.map((course) => {
-                              const detail = getCourseDetail(
-                                course.code,
-                                course.title
+                              const detailedCourse = COURSES.find(
+                                (c) =>
+                                  c.code === course.code ||
+                                  c.id ===
+                                    course.code
+                                      .toLowerCase()
+                                      .replace(/\s+/g, "-")
                               );
+
                               const description =
-                                detail?.shortTagline || detail?.overview;
+                                detailedCourse?.shortTagline ||
+                                detailedCourse?.overview;
 
                               return (
                                 <li key={course.code} className="space-y-0.5">
-                                  <div className="flex gap-2">
+                                  <p className="flex gap-2">
                                     <span className="font-semibold text-slate-900">
                                       {course.code}
                                     </span>
@@ -833,9 +854,9 @@ export function ExploreByCards() {
                                         {course.title}
                                       </span>
                                     )}
-                                  </div>
+                                  </p>
                                   {description && (
-                                    <p className="text-sm text-slate-700 pl-14">
+                                    <p className="text-sm text-slate-700">
                                       {description}
                                     </p>
                                   )}
@@ -1561,11 +1582,11 @@ export function ExploreByCards() {
                       CNC programs in this earning band
                     </p>
                     <p className="mt-2 text-base text-slate-800">
-                      Programs usually connected to jobs in the{" "}
+                      Programs usually connected to jobs paying around{" "}
                       <span className="font-semibold">
-                        {earningBandLabels[selectedBand]}
-                      </span>{" "}
-                      range.
+                        {getRangeLabel(selectedBand)}
+                      </span>
+                      .
                     </p>
                   </div>
 
@@ -1624,10 +1645,7 @@ export function ExploreByCards() {
                           <div className="flex flex-wrap gap-2 pt-1">
                             <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-sm text-amber-800">
                               <CircleDollarSign className="h-4 w-4" />
-                              <span>
-                                {earningBandLabels[program.earningBand ?? ""] ??
-                                  earningBandLabels[selectedBand]}
-                              </span>
+                              <span>{getRangeLabel(selectedBand)}</span>
                             </span>
                             {opp && (
                               <span className="inline-flex items-center gap-1.5 rounded-full bg-sky-50 border border-sky-200 px-3 py-1 text-sm text-sky-800">
@@ -1711,10 +1729,7 @@ export function ExploreByCards() {
                           <div className="flex flex-wrap gap-2 pt-1">
                             <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-sm text-amber-800">
                               <CircleDollarSign className="h-4 w-4" />
-                              <span>
-                                {earningBandLabels[job.wageBand ?? ""] ??
-                                  earningBandLabels[selectedBand]}
-                              </span>
+                              <span>{getRangeLabel(selectedBand)}</span>
                             </span>
                             {openings != null && (
                               <span className="inline-flex items-center gap-1.5 rounded-full bg-white border border-slate-200 px-3 py-1 text-sm text-slate-800">
