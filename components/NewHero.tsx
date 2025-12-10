@@ -49,7 +49,7 @@ export function HomeHero() {
   return (
     <section
       id="top"
-      className="relative w-full overflow-x-hidden bg-gradient-to-br from-indigo-50 via-white to-pink-100"
+      className="relative w-full overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-pink-100"
     >
       {/* Background effects */}
       <div className="pointer-events-none absolute inset-0">
@@ -63,7 +63,7 @@ export function HomeHero() {
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/80 via-white/40 to-transparent" />
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 pt-14 pb-16 md:pt-11 md:pb-20 text-center relative z-1">
+      <div className="mx-auto max-w-6xl px-6 pt-14 pb-16 md:pt-18 md:pb-16 text-center relative z-1">
         <motion.div
           variants={container}
           initial="hidden"
@@ -95,14 +95,8 @@ export function HomeHero() {
             Your pace, your path, your choice.
           </motion.p>
 
-          {/* Decorative divider */}
-          <motion.div
-            variants={item}
-            className="mx-auto mt-5 h-1 w-40 rounded-full bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 opacity-90"
-          />
-
-          {/* Tools grid */}
-          <motion.div
+          {/* Tools grid (currently commented out) */}
+          {/* <motion.div
             variants={item}
             className="mt-10 grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-3"
           >
@@ -121,7 +115,6 @@ export function HomeHero() {
                       : "bg-gradient-to-br from-indigo-50 via-white to-pink-50 text-slate-900 shadow-md hover:shadow-xl border border-indigo-100 backdrop-blur-md",
                   ].join(" ")}
                 >
-                  {/* Subtle glow for non-highlight on hover */}
                   {!isHighlight && (
                     <div className="pointer-events-none absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-indigo-200/40 via-transparent to-pink-200/40 opacity-0 blur-2xl transition-opacity duration-200 group-hover:opacity-100" />
                   )}
@@ -130,16 +123,7 @@ export function HomeHero() {
                 </motion.a>
               );
             })}
-          </motion.div>
-
-          {/* Helper text */}
-          <motion.p
-            variants={item}
-            className="mt-6 text-base md:text-lg leading-relaxed text-slate-700 max-w-3xl mx-auto"
-          >
-            Use these tools to see different ways into CNC&apos;s Business
-            Administration Program and compare options that match your life.
-          </motion.p>
+          </motion.div> */}
         </motion.div>
       </div>
     </section>

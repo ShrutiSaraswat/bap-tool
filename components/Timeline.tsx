@@ -32,12 +32,12 @@ export function CompletionTimelineSection() {
   return (
     <section
       id="completion-timeline"
-      className="relative overflow-hidden bg-gradient-to-br from-[#fff1f2] via-red-900/10 to-slate-200 border-b border-slate-200 py-10 sm:py-12"
+      className="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-pink-100 border-b border-indigo-100/70 py-10 sm:py-12"
     >
-      {/* subtle background accents, matching hero vibe */}
+      {/* subtle background accents, matching info-bap hero vibe */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-24 top-10 h-52 w-52 rounded-full bg-rose-200/45 blur-3xl" />
-        <div className="absolute -right-24 bottom-0 h-60 w-60 rounded-full bg-amber-200/45 blur-3xl" />
+        <div className="absolute -left-24 top-10 h-52 w-52 rounded-full bg-gradient-to-tr from-pink-200/55 via-fuchsia-200/45 to-purple-200/45 blur-3xl" />
+        <div className="absolute -right-24 bottom-0 h-60 w-60 rounded-full bg-gradient-to-tr from-indigo-200/55 via-sky-200/45 to-purple-200/45 blur-3xl" />
       </div>
 
       <motion.div
@@ -49,7 +49,7 @@ export function CompletionTimelineSection() {
       >
         {/* Heading and intro copy */}
         <motion.div className="space-y-3 max-w-3xl" variants={fadeUp}>
-          <p className="text-base font-semibold tracking-[0.18em] uppercase text-[#b91c1c] flex items-center gap-2">
+          <p className="text-base font-semibold tracking-[0.18em] uppercase text-indigo-700 flex items-center gap-2">
             Completion timeline
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
@@ -69,31 +69,31 @@ export function CompletionTimelineSection() {
           variants={fadeUp}
         >
           {/* Associate certificate */}
-          <div className="relative rounded-2xl border border-rose-200 bg-white/95 shadow-[0_14px_40px_rgba(127,29,29,0.18)] px-4 py-4 sm:px-5 sm:py-5 flex flex-col gap-3">
+          <div className="relative rounded-2xl border border-indigo-100 bg-white/95 shadow-[0_14px_40px_rgba(79,70,229,0.18)] px-4 py-4 sm:px-5 sm:py-5 flex flex-col gap-3">
             <div className="flex items-center justify-between gap-2">
               <div>
-                <p className="text-sm font-semibold tracking-[0.16em] uppercase text-rose-700">
+                <p className="text-base font-semibold tracking-[0.16em] uppercase text-indigo-700">
                   First step
                 </p>
-                <h3 className="text-lg font-semibold text-slate-900">
+                <h3 className="text-base font-semibold text-slate-900">
                   Associate certificate
                 </h3>
               </div>
-              <CalendarClock className="h-6 w-6 text-rose-600" />
+              <CalendarClock className="h-6 w-6 text-indigo-500" />
             </div>
             <p className="text-base text-slate-800">
               Designed for part-time study while you work or manage other
               responsibilities.
             </p>
             <div className="space-y-1.5">
-              <p className="text-sm font-semibold text-slate-700">
+              <p className="text-base font-semibold text-slate-700">
                 Typical completion:
               </p>
               <div className="flex items-center gap-2">
-                <div className="h-2 flex-1 rounded-full bg-rose-100">
-                  <div className="h-2 w-1/3 rounded-full bg-rose-500" />
+                <div className="h-2 flex-1 rounded-full bg-indigo-100">
+                  <div className="h-2 w-1/3 rounded-full bg-indigo-500" />
                 </div>
-                <p className="text-sm font-medium text-slate-800">
+                <p className="text-base font-medium text-slate-800">
                   About 2 years
                 </p>
               </div>
@@ -101,31 +101,31 @@ export function CompletionTimelineSection() {
           </div>
 
           {/* Certificate */}
-          <div className="relative rounded-2xl border border-slate-300 bg-white/95 shadow-[0_14px_40px_rgba(180,83,9,0.16)] px-4 py-4 sm:px-5 sm:py-5 flex flex-col gap-3">
+          <div className="relative rounded-2xl border border-purple-100 bg-white/95 shadow-[0_14px_40px_rgba(147,51,234,0.16)] px-4 py-4 sm:px-5 sm:py-5 flex flex-col gap-3">
             <div className="flex items-center justify-between gap-2">
               <div>
-                <p className="text-sm font-semibold tracking-[0.16em] uppercase text-amber-700">
+                <p className="text-base font-semibold tracking-[0.16em] uppercase text-purple-700">
                   Build on your start
                 </p>
-                <h3 className="text-lg font-semibold text-slate-900">
+                <h3 className="text-base font-semibold text-slate-900">
                   Certificate
                 </h3>
               </div>
-              <CalendarClock className="h-6 w-6 text-amber-600" />
+              <CalendarClock className="h-6 w-6 text-purple-500" />
             </div>
             <p className="text-base text-slate-800">
               Keep adding courses at a steady part-time pace to complete the
               full certificate.
             </p>
             <div className="space-y-1.5">
-              <p className="text-sm font-semibold text-slate-700">
+              <p className="text-base font-semibold text-slate-700">
                 Typical completion:
               </p>
               <div className="flex items-center gap-2">
-                <div className="h-2 flex-1 rounded-full bg-amber-100">
-                  <div className="h-2 w-1/2 rounded-full bg-amber-500" />
+                <div className="h-2 flex-1 rounded-full bg-purple-100">
+                  <div className="h-2 w-1/2 rounded-full bg-purple-500" />
                 </div>
-                <p className="text-sm font-medium text-slate-800">
+                <p className="text-base font-medium text-slate-800">
                   About 3 years
                 </p>
               </div>
@@ -133,31 +133,31 @@ export function CompletionTimelineSection() {
           </div>
 
           {/* Diploma */}
-          <div className="relative rounded-2xl border border-orange-200 bg-white/95 shadow-[0_14px_40px_rgba(194,65,12,0.18)] px-4 py-4 sm:px-5 sm:py-5 flex flex-col gap-3">
+          <div className="relative rounded-2xl border border-pink-100 bg-white/95 shadow-[0_14px_40px_rgba(236,72,153,0.18)] px-4 py-4 sm:px-5 sm:py-5 flex flex-col gap-3">
             <div className="flex items-center justify-between gap-2">
               <div>
-                <p className="text-sm font-semibold tracking-[0.16em] uppercase text-orange-700">
+                <p className="text-base font-semibold tracking-[0.16em] uppercase text-pink-700">
                   Longer pathway
                 </p>
-                <h3 className="text-lg font-semibold text-slate-900">
+                <h3 className="text-base font-semibold text-slate-900">
                   Diploma
                 </h3>
               </div>
-              <CalendarClock className="h-6 w-6 text-orange-600" />
+              <CalendarClock className="h-6 w-6 text-pink-500" />
             </div>
             <p className="text-base text-slate-800">
               Stack associate certificates and certificate studies into a full
               business diploma.
             </p>
             <div className="space-y-1.5">
-              <p className="text-sm font-semibold text-slate-700">
+              <p className="text-base font-semibold text-slate-700">
                 Typical completion:
               </p>
               <div className="flex items-center gap-2">
-                <div className="h-2 flex-1 rounded-full bg-orange-100">
-                  <div className="h-2 w-full rounded-full bg-orange-500" />
+                <div className="h-2 flex-1 rounded-full bg-pink-100">
+                  <div className="h-2 w-full rounded-full bg-pink-500" />
                 </div>
-                <p className="text-sm font-medium text-slate-800">
+                <p className="text-base font-medium text-slate-800">
                   About 5 years
                 </p>
               </div>
@@ -167,10 +167,10 @@ export function CompletionTimelineSection() {
 
         {/* Small reassurance footer line */}
         <motion.div
-          className="flex items-center gap-2 text-sm sm:text-base text-slate-700"
+          className="flex items-center gap-2 text-base text-slate-700"
           variants={fadeUp}
         >
-          <ArrowRight className="h-4 w-4 text-[#b91c1c]" />
+          <ArrowRight className="h-4 w-4 text-indigo-600" />
           <p>
             You can pause and restart along the way. Credits you earn continue
             to count toward the next level.

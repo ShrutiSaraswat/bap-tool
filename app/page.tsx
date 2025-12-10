@@ -26,8 +26,8 @@ const page = () => {
       <HomeHero />
       {/* <HeroIntro /> */}
       {/* <FeaturesSection /> */}
-      <GuidedMatchSection />
       <ExploreByCards />
+      <GuidedMatchSection />
       {/* <TimeComparisonStrip /> */}
       {/* <ByProgramSection />
       <ByCourseSection />

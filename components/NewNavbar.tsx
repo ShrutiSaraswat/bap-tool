@@ -142,11 +142,19 @@ export function CncHeader() {
             }}
           >
             <motion.a
-              href="#top"
+              href="/"
               variants={navItemVariant}
               className="text-base font-medium text-slate-700 hover:text-indigo-600 transition-colors"
             >
               Home
+            </motion.a>
+
+            <motion.a
+              href="/about"
+              variants={navItemVariant}
+              className="text-base font-medium text-slate-700 hover:text-indigo-600 transition-colors"
+            >
+              About
             </motion.a>
 
             {/* Dropdown */}

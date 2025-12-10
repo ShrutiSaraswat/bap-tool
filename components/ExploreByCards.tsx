@@ -234,6 +234,26 @@ function getJobOpportunityLabel(job: Job): string | null {
 }
 
 /**
+ * Find full course details for a program course entry.
+ * Tries to match on code + title first, then falls back to code only.
+ */
+function getCourseDetail(code: string, title?: string): Course | undefined {
+  const normalizedCode = code.trim().toLowerCase();
+  const normalizedTitle = title?.trim().toLowerCase();
+
+  if (normalizedTitle) {
+    const byBoth = COURSES.find(
+      (c) =>
+        c.code.trim().toLowerCase() === normalizedCode &&
+        c.title.trim().toLowerCase() === normalizedTitle
+    );
+    if (byBoth) return byBoth;
+  }
+
+  return COURSES.find((c) => c.code.trim().toLowerCase() === normalizedCode);
+}
+
+/**
  * If a time label is written like "3 courses" / "2 courses",
  * convert it to the client format:
  *   "One Semester (4 Months)/3 Courses"
@@ -391,7 +411,7 @@ export function ExploreByCards() {
       >
         {/* Intro */}
         <motion.div
-          className="space-y-3 text-center pb-6 pt-6"
+          className="space-y-3 text-center pb-6 pt-4"
           variants={fadeUp}
           id="programs"
         >
@@ -402,16 +422,19 @@ export function ExploreByCards() {
             Explore CNC business pathways
           </p>
           <h2
-            className="text-2xl sm:text-3xl font-bold text-slate-900"
+            className="text-md sm:text-3xl font-bold text-slate-900"
             id="skills"
           >
-            See the options that fit your goals
+            Use these tools to see different ways into CNC&apos;s Business
+            Administration Program & compare options that match your life.
           </h2>
         </motion.div>
+        {/* Decorative divider */}
+        <motion.div className="mx-auto -mt-5 h-1 w-40 rounded-full bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 opacity-90" />
 
         {/* Cards grid */}
         <motion.div
-          className="grid gap-7 lg:gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-[minmax(0,1fr)] xl:[&>*:nth-child(5)]:col-start-3"
+          className="pt-6 grid gap-7 lg:gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-[minmax(0,1fr)] xl:[&>*:nth-child(5)]:col-start-3"
           variants={fadeUp}
         >
           {/* Program card (light) */}
@@ -791,18 +814,34 @@ export function ExploreByCards() {
                             Key courses
                           </p>
                           <ul className="grid gap-1.5 text-base">
-                            {selectedProgram.courses.map((course) => (
-                              <li key={course.code} className="flex gap-2">
-                                <span className="font-semibold text-slate-900">
-                                  {course.code}
-                                </span>
-                                {course.title && (
-                                  <span className="text-slate-800">
-                                    {course.title}
-                                  </span>
-                                )}
-                              </li>
-                            ))}
+                            {selectedProgram.courses.map((course) => {
+                              const detail = getCourseDetail(
+                                course.code,
+                                course.title
+                              );
+                              const description =
+                                detail?.shortTagline || detail?.overview;
+
+                              return (
+                                <li key={course.code} className="space-y-0.5">
+                                  <div className="flex gap-2">
+                                    <span className="font-semibold text-slate-900">
+                                      {course.code}
+                                    </span>
+                                    {course.title && (
+                                      <span className="text-slate-800">
+                                        {course.title}
+                                      </span>
+                                    )}
+                                  </div>
+                                  {description && (
+                                    <p className="text-sm text-slate-700 pl-14">
+                                      {description}
+                                    </p>
+                                  )}
+                                </li>
+                              );
+                            })}
                           </ul>
                         </div>
                       )}
