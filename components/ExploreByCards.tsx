@@ -584,7 +584,7 @@ export function ExploreByCards() {
                     Skill search
                   </label>
 
-                  <div className="relative">
+                  {/* <div className="relative">
                     <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
                     <input
                       id="card-skill-search"
@@ -595,7 +595,7 @@ export function ExploreByCards() {
                       onChange={(e) => setSkillSearch(e.target.value)}
                       disabled={!hasAnySkills}
                     />
-                  </div>
+                  </div> */}
 
                   <select
                     className="block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 cursor-pointer disabled:cursor-default"

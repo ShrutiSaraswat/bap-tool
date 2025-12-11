@@ -14,10 +14,10 @@ const Page = () => {
       <CncHeader />
       <ScrollToTopButton />
       <InfoBapHero />
-      <InfoBapFeaturesSection />
+      {/* <InfoBapFeaturesSection /> */}
       <TimeComparisonStrip />
       <CompletionTimelineSection />
-      <PlarSection />
+      {/* <PlarSection /> */}
       <CncFooter />
     </div>
   );
