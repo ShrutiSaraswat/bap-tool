@@ -816,7 +816,7 @@ export function GuidedMatchSection() {
             Guided match
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900">
-            Not sure where to start? Use the guided match.
+            Not sure where to start?
           </h2>
           <p className="text-base text-gray-700">
             Describe the kind of business work you want to do or the experience

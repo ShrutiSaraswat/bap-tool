@@ -121,10 +121,10 @@ export function CncHeader() {
             <div className="hidden sm:block w-1.5 rounded-full bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500" />
             <div className="flex flex-col justify-center leading-tight">
               <span className="text-xs sm:text-sm font-semibold tracking-[0.18em] uppercase text-slate-600">
-                College of New Caledonia
+                COLLEGE
               </span>
-              <span className="text-lg sm:text-xl font-semibold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent tracking-[0.32em] uppercase">
-                CNC Pathways
+              <span className="text-[10px] sm:text-sm font-semibold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent tracking-[0.32em] uppercase">
+                BUSINESS ADMINISTRATION PROGRAM
               </span>
             </div>
           </motion.a>
@@ -150,11 +150,11 @@ export function CncHeader() {
             </motion.a>
 
             <motion.a
-              href="/about"
+              href="/program-length"
               variants={navItemVariant}
               className="text-base font-medium text-slate-700 hover:text-indigo-600 transition-colors"
             >
-              About
+              Program Length
             </motion.a>
 
             {/* Dropdown */}
@@ -217,15 +217,6 @@ export function CncHeader() {
                 )}
               </AnimatePresence>
             </motion.div>
-
-            {/* Apply button */}
-            <motion.a
-              href="#apply"
-              variants={navItemVariant}
-              className="inline-flex items-center rounded-full bg-white/80 px-4 py-2 text-base font-semibold uppercase tracking-wide text-indigo-700 shadow-md ring-1 ring-indigo-100 hover:bg-white hover:shadow-md"
-            >
-              Apply to BAP
-            </motion.a>
           </motion.nav>
 
           {/* Mobile toggle */}
@@ -282,11 +273,11 @@ export function CncHeader() {
               </a>
 
               <a
-                href="/about"
+                href="/program-length"
                 className="block rounded-md px-3 py-2 text-slate-700 hover:bg-indigo-50 hover:text-indigo-700 transition"
                 onClick={() => setOpen(false)}
               >
-                About
+                Program Length
               </a>
               <div className="relative" ref={mobileMenuRef}>
                 <button

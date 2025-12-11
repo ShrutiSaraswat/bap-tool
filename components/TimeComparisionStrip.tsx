@@ -97,12 +97,8 @@ export function TimeComparisonStrip() {
       >
         {/* Heading */}
         <motion.div className="flex flex-col gap-2" variants={fadeUp}>
-          <p className="text-base font-semibold tracking-[0.18em] uppercase text-indigo-700">
-            How CNC business pathways compare
-          </p>
-          <p className="text-base text-slate-800 max-w-3xl">
-            A quick look at how shorter CNC business programs line up beside
-            longer 2 year and 4 year options.
+          <p className="text-base md:text-2xl font-semibold tracking-[0.18em] text-indigo-700">
+            Full-Time Study Pathway
           </p>
         </motion.div>
 
@@ -118,19 +114,19 @@ export function TimeComparisonStrip() {
             <div className="flex flex-col items-start gap-1">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 shadow-sm border border-indigo-100">
                 <span className="h-2 w-2 rounded-full bg-indigo-500" />
-                <span className="font-semibold">Less than 1 year</span>
+                <span className="font-semibold">One Semester</span>
               </span>
             </div>
             <div className="flex flex-col items-start sm:items-center gap-1">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 shadow-sm border border-purple-100">
                 <span className="h-2 w-2 rounded-full bg-purple-500" />
-                <span className="font-semibold">About 1 year</span>
+                <span className="font-semibold">One Year (2 Semesters)</span>
               </span>
             </div>
             <div className="flex flex-col items-start sm:items-end gap-1">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 shadow-sm border border-pink-100">
                 <span className="h-2 w-2 rounded-full bg-pink-500" />
-                <span className="font-semibold">2 - 4 years</span>
+                <span className="font-semibold">Two Years (4 Semesters)</span>
               </span>
             </div>
           </div>
@@ -148,14 +144,18 @@ export function TimeComparisonStrip() {
           >
             <div className="absolute inset-x-3 -top-1 h-1 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 opacity-80" />
             <p className="text-base font-semibold uppercase tracking-[0.12em] text-indigo-700">
-              Short CNC associate certificates
+              Associate Certificates
             </p>
             <p className="text-base text-slate-800">
-              A focused way to start in business and move into work sooner.
+              A fast, focused way to start your business studies and gain
+              job-ready skills.
             </p>
             <ul className="mt-1 space-y-1.5 text-base text-slate-800">
-              <li>• Less than 1 year of study.</li>
-              <li>• Can be part of a longer CNC pathway.</li>
+              <li>• Completed in one semester (3 courses, 9 credits).</li>
+              <li>• Provides a job-ready credential you can use right away.</li>
+              <li>
+                • Ladders directly into the one-year certificate and diploma.
+              </li>
             </ul>
           </motion.div>
 
@@ -166,15 +166,22 @@ export function TimeComparisonStrip() {
           >
             <div className="absolute inset-x-3 -top-1 h-1 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-90" />
             <p className="text-base font-semibold uppercase tracking-[0.12em] text-purple-700">
-              Business Administration Certificate
+              Certificate
             </p>
             <p className="text-base text-slate-800">
-              About 1 year of study that builds a broader base of business
-              skills.
+              A solid next step that deepens your business skills and expands
+              your career options.
             </p>
             <ul className="mt-1 space-y-1.5 text-base text-slate-800">
-              <li>• Stronger preparation for more roles.</li>
-              <li>• Ladders into the Business Administration Diploma.</li>
+              <li>• Completed in one year of full-time study (30 credits).</li>
+              <li>
+                • Provides a stronger credential for administrative,
+                coordination, and entry-level business roles.
+              </li>
+              <li>
+                • Ladders directly into the two-year Business Administration
+                Diploma.
+              </li>
             </ul>
           </motion.div>
 
@@ -185,15 +192,22 @@ export function TimeComparisonStrip() {
           >
             <div className="absolute inset-x-3 -top-1 h-1 rounded-full bg-gradient-to-r from-pink-500 to-slate-700 opacity-85" />
             <p className="text-base font-semibold uppercase tracking-[0.12em] text-slate-700">
-              Typical 2 year and 4 year paths
+              Diploma
             </p>
             <p className="text-base text-slate-800">
-              Longer college and university programs that sit beyond the CNC
-              options on this page.
+              A comprehensive two-year program that builds advanced business
+              skills and supports stronger career opportunities.
             </p>
             <ul className="mt-1 space-y-1.5 text-base text-slate-800">
-              <li>• 2 year diplomas and 4 year degrees.</li>
-              <li>• CNC pathways can be a shorter starting point.</li>
+              <li>• Completed in two years of full-time study (60 credits).</li>
+              <li>
+                • Choose from a predefined second-year specialization or build
+                your own path from a selection of upper-level courses.
+              </li>
+              <li>
+                • A strong stand-alone credential that also supports future
+                degree pathways.
+              </li>
             </ul>
           </motion.div>
         </motion.div>

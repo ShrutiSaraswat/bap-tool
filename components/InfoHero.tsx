@@ -63,7 +63,7 @@ export function InfoBapHero() {
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/80 via-white/40 to-transparent" />
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 pt-14 pb-16 md:pt-22 md:pb-20 text-center relative z-1">
+      <div className="mx-auto max-w-6xl px-6 pt-14 pb-16 md:pt-30 md:pb-28 text-center relative z-1">
         <motion.div
           variants={container}
           initial="hidden"
@@ -71,20 +71,20 @@ export function InfoBapHero() {
           className="mx-auto flex max-w-5xl flex-col items-center"
         >
           {/* Program tag */}
-          <motion.div variants={item} className="mb-9 flex justify-center">
+          {/* <motion.div variants={item} className="mb-9 flex justify-center">
             <span className="inline-flex items-center rounded-full bg-white px-6 py-2 text-sm md:text-base font-semibold text-indigo-700 shadow-lg ring-1 ring-indigo-100">
               Business Administration Program
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* Heading */}
           <motion.h1
             variants={item}
-            className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl leading-[1.1]"
+            className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-[3.5rem] leading-[1.1]"
           >
-            See how CNC business pathways
+            Find the pace that fits
             <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              fit into your time and your plans.
+              your life.
             </span>
           </motion.h1>
 
@@ -94,16 +94,10 @@ export function InfoBapHero() {
             className="mt-12 flex flex-wrap items-center gap-3"
           >
             <a
-              href="#completion-timeline"
+              href="/#programs"
               className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-5 py-2.5 text-base font-semibold text-white shadow-lg hover:shadow-xl hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 transition"
             >
-              View completion timelines
-            </a>
-            <a
-              href="/#programs"
-              className="inline-flex items-center justify-center rounded-full bg-white/90 px-5 py-2.5 text-base font-semibold text-slate-900 shadow-sm ring-1 ring-indigo-100 hover:bg-indigo-50/80 hover:ring-indigo-200 transition"
-            >
-              Back to program tools
+              Back to Program Tools
             </a>
           </motion.div>
         </motion.div>

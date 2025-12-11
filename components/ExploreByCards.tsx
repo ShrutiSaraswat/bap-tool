@@ -430,18 +430,17 @@ export function ExploreByCards() {
           variants={fadeUp}
           id="programs"
         >
-          <p
+          {/* <p
             className="text-base font-semibold tracking-[0.2em] uppercase text-indigo-700"
             id="courses"
           >
             Explore CNC business pathways
-          </p>
+          </p> */}
           <h2
-            className="text-md sm:text-3xl font-bold text-slate-900"
+            className="text-lg sm:text-3xl font-bold text-slate-900"
             id="skills"
           >
-            Use these tools to see different ways into CNC&apos;s Business
-            Administration Program & compare options that match your life.
+            Discover your business path in the way that works for you.
           </h2>
         </motion.div>
         {/* Decorative divider */}

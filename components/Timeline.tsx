@@ -50,7 +50,7 @@ export function CompletionTimelineSection() {
         {/* Heading and intro copy */}
         <motion.div className="space-y-3 max-w-3xl" variants={fadeUp}>
           <p className="text-base font-semibold tracking-[0.18em] uppercase text-indigo-700 flex items-center gap-2">
-            Completion timeline
+            Part-Time Study Pathway
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold text-slate-900">
             Fit business study around real life.
@@ -72,9 +72,9 @@ export function CompletionTimelineSection() {
           <div className="relative rounded-2xl border border-indigo-100 bg-white/95 shadow-[0_14px_40px_rgba(79,70,229,0.18)] px-4 py-4 sm:px-5 sm:py-5 flex flex-col gap-3">
             <div className="flex items-center justify-between gap-2">
               <div>
-                <p className="text-base font-semibold tracking-[0.16em] uppercase text-indigo-700">
+                {/* <p className="text-base font-semibold tracking-[0.16em] uppercase text-indigo-700">
                   First step
-                </p>
+                </p> */}
                 <h3 className="text-base font-semibold text-slate-900">
                   Associate certificate
                 </h3>
@@ -87,13 +87,13 @@ export function CompletionTimelineSection() {
             </p>
             <div className="space-y-1.5">
               <p className="text-base font-semibold text-slate-700">
-                Typical completion:
+                Suggested Completion Timeline:
               </p>
               <div className="flex items-center gap-2">
-                <div className="h-2 flex-1 rounded-full bg-indigo-100">
+                {/* <div className="h-2 flex-1 rounded-full bg-indigo-100">
                   <div className="h-2 w-1/3 rounded-full bg-indigo-500" />
-                </div>
-                <p className="text-base font-medium text-slate-800">
+                </div> */}
+                <p className="text-base font-medium text-indigo-600">
                   About 2 years
                 </p>
               </div>
@@ -104,9 +104,9 @@ export function CompletionTimelineSection() {
           <div className="relative rounded-2xl border border-purple-100 bg-white/95 shadow-[0_14px_40px_rgba(147,51,234,0.16)] px-4 py-4 sm:px-5 sm:py-5 flex flex-col gap-3">
             <div className="flex items-center justify-between gap-2">
               <div>
-                <p className="text-base font-semibold tracking-[0.16em] uppercase text-purple-700">
+                {/* <p className="text-base font-semibold tracking-[0.16em] uppercase text-purple-700">
                   Build on your start
-                </p>
+                </p> */}
                 <h3 className="text-base font-semibold text-slate-900">
                   Certificate
                 </h3>
@@ -119,13 +119,13 @@ export function CompletionTimelineSection() {
             </p>
             <div className="space-y-1.5">
               <p className="text-base font-semibold text-slate-700">
-                Typical completion:
+                Suggested Completion Timeline:
               </p>
               <div className="flex items-center gap-2">
-                <div className="h-2 flex-1 rounded-full bg-purple-100">
+                {/* <div className="h-2 flex-1 rounded-full bg-purple-100">
                   <div className="h-2 w-1/2 rounded-full bg-purple-500" />
-                </div>
-                <p className="text-base font-medium text-slate-800">
+                </div> */}
+                <p className="text-base font-medium text-purple-600">
                   About 3 years
                 </p>
               </div>
@@ -136,9 +136,9 @@ export function CompletionTimelineSection() {
           <div className="relative rounded-2xl border border-pink-100 bg-white/95 shadow-[0_14px_40px_rgba(236,72,153,0.18)] px-4 py-4 sm:px-5 sm:py-5 flex flex-col gap-3">
             <div className="flex items-center justify-between gap-2">
               <div>
-                <p className="text-base font-semibold tracking-[0.16em] uppercase text-pink-700">
+                {/* <p className="text-base font-semibold tracking-[0.16em] uppercase text-pink-700">
                   Longer pathway
-                </p>
+                </p> */}
                 <h3 className="text-base font-semibold text-slate-900">
                   Diploma
                 </h3>
@@ -151,13 +151,13 @@ export function CompletionTimelineSection() {
             </p>
             <div className="space-y-1.5">
               <p className="text-base font-semibold text-slate-700">
-                Typical completion:
+                Suggested Completion Timeline:
               </p>
               <div className="flex items-center gap-2">
-                <div className="h-2 flex-1 rounded-full bg-pink-100">
+                {/* <div className="h-2 flex-1 rounded-full bg-pink-100">
                   <div className="h-2 w-full rounded-full bg-pink-500" />
-                </div>
-                <p className="text-base font-medium text-slate-800">
+                </div> */}
+                <p className="text-base font-medium text-pink-600">
                   About 5 years
                 </p>
               </div>
@@ -175,6 +175,15 @@ export function CompletionTimelineSection() {
             You can pause and restart along the way. Credits you earn continue
             to count toward the next level.
           </p>
+        </motion.div>
+
+        <motion.div className="mt-12 flex flex-wrap items-center gap-3">
+          <a
+            href="/#programs"
+            className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-5 py-2.5 text-base font-semibold text-white shadow-lg hover:shadow-xl hover:from-indigo-700 hover:via-purple-700 hover:to-pink-700 transition"
+          >
+            Explore Programs
+          </a>
         </motion.div>
       </motion.div>
     </section>

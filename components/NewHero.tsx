@@ -63,37 +63,37 @@ export function HomeHero() {
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/80 via-white/40 to-transparent" />
       </div>
 
-      <div className="mx-auto max-w-6xl px-6 pt-14 pb-16 md:pt-18 md:pb-16 text-center relative z-1">
+      <div className="mx-auto max-w-6xl px-6 pt-14 pb-16 md:pt-40 md:pb-36 text-center relative z-1">
         <motion.div
           variants={container}
           initial="hidden"
           animate="visible"
-          className="mx-auto flex max-w-5xl flex-col items-center"
+          className="mx-auto flex max-w-6xl flex-col items-center"
         >
           {/* Program tag */}
-          <motion.div variants={item} className="mb-9 flex justify-center">
+          {/* <motion.div variants={item} className="mb-9 flex justify-center">
             <span className="inline-flex items-center rounded-full bg-white px-6 py-2 text-sm md:text-base font-semibold text-indigo-700 shadow-lg ring-1 ring-indigo-100">
               Business Administration Program
             </span>
-          </motion.div>
+          </motion.div> */}
 
           {/* Heading */}
           <motion.h1
             variants={item}
-            className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl leading-[1.12] pb-1"
+            className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-[3.5rem] leading-[1.12] pb-1"
           >
-            Start small, build real business skills,{" "}
+            A flexible business path that fits your life -{" "}
             <span className="block bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              and stack them into bigger opportunities.
+              start small and grow your future.
             </span>
           </motion.h1>
 
-          <motion.p
+          {/* <motion.p
             variants={item}
             className="mt-2 text-base md:text-2xl font-semibold text-slate-800 py-5"
           >
             Your pace, your path, your choice.
-          </motion.p>
+          </motion.p> */}
 
           {/* Tools grid (currently commented out) */}
           {/* <motion.div
