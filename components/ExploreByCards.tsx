@@ -406,7 +406,7 @@ export function ExploreByCards() {
   return (
     <section
       id="explore"
-      className="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-pink-50 border-b border-indigo-100 py-12 sm:py-14"
+      className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-pink-50 to-white border-b border-indigo-100 py-12 sm:py-14"
     >
       {/* background blobs */}
       <div className="pointer-events-none absolute inset-0 -z-10">
