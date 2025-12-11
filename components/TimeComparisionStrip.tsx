@@ -93,7 +93,7 @@ export function TimeComparisonStrip() {
         variants={container}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.25 }}
+        viewport={{ once: true, amount: 0 }}
       >
         {/* Heading */}
         <motion.div className="flex flex-col gap-2" variants={fadeUp}>

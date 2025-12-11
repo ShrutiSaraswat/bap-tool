@@ -8,32 +8,32 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 const mainLinks = [
   {
     label: "By Program",
-    href: "#programs",
+    href: "/#programs",
     description: "Explore jobs, wages and pathways for each CNC program.",
   },
   {
     label: "By Course",
-    href: "#courses",
+    href: "/#courses",
     description: "Start from a specific course and see linked programs.",
   },
   {
     label: "By Skills",
-    href: "#skills",
+    href: "/#skills",
     description: "Match programs to the skills you want to build.",
   },
   {
     label: "By Job Title",
-    href: "#jobs",
+    href: "/#jobs",
     description: "Find programs connected to a job you have in mind.",
   },
   {
     label: "By Earning Potential",
-    href: "#earnings",
+    href: "/#earnings",
     description: "Browse pathways based on typical wage ranges.",
   },
   {
     label: "Guided Match",
-    href: "#guided-match",
+    href: "/#guided-match",
     description: "Describe yourself and get a tailored starting point.",
   },
 ];
@@ -331,13 +331,13 @@ export function CncHeader() {
                 </AnimatePresence>
               </div>
 
-              <a
+              {/* <a
                 href="#apply"
                 className="mt-1 inline-flex w-full items-center justify-center rounded-full bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-indigo-700 shadow-sm ring-1 ring-indigo-100 hover:bg-white hover:shadow-md"
                 onClick={() => setOpen(false)}
               >
                 Apply to BAP
-              </a>
+              </a> */}
             </div>
           </motion.nav>
         )}
