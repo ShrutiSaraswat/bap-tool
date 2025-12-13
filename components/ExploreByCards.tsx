@@ -292,7 +292,17 @@ export function ExploreByCards() {
   const toolsRef = useRef<HTMLDivElement | null>(null);
 
   const [showBackToTools, setShowBackToTools] = useState(false);
-  const ignoreHideUntilRef = useRef(0); // ONLY CHANGE (prevents flicker during smooth scroll)
+  const ignoreHideUntilRef = useRef(0);
+
+  // ONLY CHANGE: remember last-used card and scroll back to it
+  const lastUsedModeRef = useRef<Mode | null>(null);
+  const cardRefs = useRef<Record<Mode, HTMLDivElement | null>>({
+    program: null,
+    course: null,
+    skill: null,
+    job: null,
+    earnings: null,
+  });
 
   const hasAnySkills = SKILL_CLUSTERS.length > 0;
 
@@ -399,9 +409,10 @@ export function ExploreByCards() {
 
   // Scroll helper - offset for fixed navbar so content is not hidden
   const scrollToResults = (mode: Mode) => {
+    lastUsedModeRef.current = mode; // ONLY CHANGE
     setActiveMode(mode);
     setShowBackToTools(true);
-    ignoreHideUntilRef.current = Date.now() + 700; // ONLY CHANGE (keeps button stable during scroll)
+    ignoreHideUntilRef.current = Date.now() + 700;
 
     requestAnimationFrame(() => {
       if (!resultsRef.current) return;
@@ -419,11 +430,16 @@ export function ExploreByCards() {
   };
 
   const scrollToTools = () => {
-    if (!toolsRef.current) return;
-
-    const rect = toolsRef.current.getBoundingClientRect();
     const NAVBAR_OFFSET = 96;
 
+    // ONLY CHANGE: scroll to the last used card (fallback to toolsRef)
+    const last = lastUsedModeRef.current;
+    const targetEl = last ? cardRefs.current[last] : null;
+
+    const el = targetEl ?? toolsRef.current;
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
     const targetY = window.scrollY + rect.top - NAVBAR_OFFSET;
 
     window.scrollTo({
@@ -437,12 +453,11 @@ export function ExploreByCards() {
   // Hide button when user comes back to tools (manual scroll or button)
   useEffect(() => {
     const onScroll = () => {
-      if (Date.now() < ignoreHideUntilRef.current) return; // ONLY CHANGE
+      if (Date.now() < ignoreHideUntilRef.current) return;
       if (!toolsRef.current) return;
 
       const top = toolsRef.current.getBoundingClientRect().top;
 
-      // ONLY CHANGE: tighter threshold so it doesn't flicker for nearby results (program/course)
       if (top >= -24) {
         setShowBackToTools(false);
       }
@@ -496,7 +511,12 @@ export function ExploreByCards() {
           variants={fadeUp}
         >
           {/* Program card (light) */}
-          <div className="group relative h-full overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-pink-50 shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]">
+          <div
+            ref={(el) => {
+              cardRefs.current.program = el;
+            }}
+            className="group relative h-full overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-pink-50 shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]"
+          >
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-indigo-200/60 via-transparent to-pink-200/60" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
@@ -548,7 +568,12 @@ export function ExploreByCards() {
           </div>
 
           {/* Course card (slightly darker) */}
-          <div className="group relative h-full overflow-hidden rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-100 via-white to-purple-100 shadow-md transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]">
+          <div
+            ref={(el) => {
+              cardRefs.current.course = el;
+            }}
+            className="group relative h-full overflow-hidden rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-100 via-white to-purple-100 shadow-md transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]"
+          >
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-indigo-300/70 via-transparent to-purple-300/70" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
@@ -600,7 +625,12 @@ export function ExploreByCards() {
           </div>
 
           {/* Skill card (same light theme) */}
-          <div className="group relative h-full overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-pink-50 shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]">
+          <div
+            ref={(el) => {
+              cardRefs.current.skill = el;
+            }}
+            className="group relative h-full overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-br from-indigo-50 via-white to-pink-50 shadow-sm transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px]"
+          >
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-purple-200/60 via-transparent to-pink-200/60" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
@@ -671,7 +701,12 @@ export function ExploreByCards() {
           </div>
 
           {/* Job card (slightly darker) */}
-          <div className="group relative h-full overflow-hidden rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-100 via-white to-pink-100 shadow-md transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px] xl:translate-x-1/2">
+          <div
+            ref={(el) => {
+              cardRefs.current.job = el;
+            }}
+            className="group relative h-full overflow-hidden rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-100 via-white to-pink-100 shadow-md transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl min-h-[260px] xl:translate-x-1/2"
+          >
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-indigo-300/70 via-transparent to-pink-300/70" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
@@ -727,7 +762,12 @@ export function ExploreByCards() {
           </div>
 
           {/* Earnings card (slightly darker) */}
-          <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-100 via-white to-indigo-100 shadow-md transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl md:col-span-2 xl:col-span-1 xl:col-start-3 xl:-translate-x-1/2 min-h-[260px]">
+          <div
+            ref={(el) => {
+              cardRefs.current.earnings = el;
+            }}
+            className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-br from-slate-100 via-white to-indigo-100 shadow-md transition-all duration-200 hover:-translate-y-1.5 hover:shadow-xl md:col-span-2 xl:col-span-1 xl:col-start-3 xl:-translate-x-1/2 min-h-[260px]"
+          >
             <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-br from-slate-300/70 via-transparent to-indigo-300/70" />
             <div className="relative flex h-full flex-col gap-5 p-6 sm:p-7">
               <div className="flex items-start gap-4">
