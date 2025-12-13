@@ -1058,7 +1058,7 @@ export function ExploreByCards() {
                       Programs and job pathways
                     </p>
                     <p className="mt-2 text-base text-slate-800">
-                      CNC credentials that include this course and example jobs
+                      Credentials that include this course and example jobs
                       linked to those pathways.
                     </p>
                   </div>
