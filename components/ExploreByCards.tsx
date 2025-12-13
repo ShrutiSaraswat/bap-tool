@@ -289,11 +289,20 @@ export function ExploreByCards() {
   const [selectedBand, setSelectedBand] = useState<EarningRangeId | "">("");
 
   const resultsRef = useRef<HTMLDivElement | null>(null);
-
   const toolsRef = useRef<HTMLDivElement | null>(null);
+
   const [showBackToTools, setShowBackToTools] = useState(false);
 
   const hasAnySkills = SKILL_CLUSTERS.length > 0;
+
+  // Course sorting (by title A-Z) - ONLY CHANGE for dropdown ordering
+  const sortedCourses = useMemo(() => {
+    return [...COURSES].sort((a, b) =>
+      (a.title || "").localeCompare(b.title || "", "en", {
+        sensitivity: "base",
+      })
+    );
+  }, []);
 
   // Skill search filtering
   const filteredSkills = useMemo(() => {
@@ -423,13 +432,12 @@ export function ExploreByCards() {
     setShowBackToTools(false);
   };
 
+  // Hide button when user comes back to tools (manual scroll or button)
   useEffect(() => {
     const onScroll = () => {
       if (!toolsRef.current) return;
-
-      const rect = toolsRef.current.getBoundingClientRect();
-
-      if (rect.top >= -80) {
+      const top = toolsRef.current.getBoundingClientRect().top;
+      if (top >= -80) {
         setShowBackToTools(false);
       }
     };
@@ -453,7 +461,6 @@ export function ExploreByCards() {
       </div>
 
       <motion.div
-        ref={toolsRef}
         className="relative max-w-6xl mx-auto px-4 lg:px-0 space-y-10"
         variants={containerVariants}
         initial="hidden"
@@ -478,6 +485,7 @@ export function ExploreByCards() {
 
         {/* Cards grid */}
         <motion.div
+          ref={toolsRef}
           className="pt-6 grid gap-7 lg:gap-8 md:grid-cols-2 xl:grid-cols-3 auto-rows-[minmax(0,1fr)] xl:[&>*:nth-child(5)]:col-start-3"
           variants={fadeUp}
         >
@@ -571,7 +579,7 @@ export function ExploreByCards() {
                     }}
                   >
                     <option value="">Select a course...</option>
-                    {COURSES.map((c) => (
+                    {sortedCourses.map((c) => (
                       <option key={c.id} value={c.id}>
                         {c.code} - {c.title}
                       </option>
@@ -766,7 +774,7 @@ export function ExploreByCards() {
 
         {/* Results */}
         <div ref={resultsRef} className="pt-4 space-y-8">
-          {/* Program results - rethemed to indigo/purple */}
+          {/* Program results */}
           {activeMode === "program" && selectedProgram && (
             <motion.div
               key={`program-${selectedProgramId}`}
@@ -1007,7 +1015,7 @@ export function ExploreByCards() {
             </motion.div>
           )}
 
-          {/* Course results - already indigo/sky theme */}
+          {/* Course results */}
           {activeMode === "course" && selectedCourse && (
             <motion.div
               key={`course-${selectedCourseId}`}
@@ -1235,7 +1243,7 @@ export function ExploreByCards() {
             </motion.div>
           )}
 
-          {/* Skill results - rethemed to purple/indigo */}
+          {/* Skill results */}
           {activeMode === "skill" && hasAnySkills && selectedSkill && (
             <motion.div
               key={`skill-${selectedSkill.id}`}
@@ -1351,7 +1359,7 @@ export function ExploreByCards() {
             </motion.div>
           )}
 
-          {/* Job results - cool red toned down into indigo/rose mix */}
+          {/* Job results */}
           {activeMode === "job" && selectedJob && (
             <motion.div
               key={`job-${selectedJobId}`}
@@ -1579,7 +1587,7 @@ export function ExploreByCards() {
             </motion.div>
           )}
 
-          {/* Earnings results - neutralised into indigo/slate */}
+          {/* Earnings results */}
           {activeMode === "earnings" && selectedBand !== "" && (
             <motion.div
               key={`earnings-${selectedBand}`}
@@ -1781,12 +1789,13 @@ export function ExploreByCards() {
         </div>
       </motion.div>
 
+      {/* Back to tools (mobile only) */}
       {showBackToTools && (
         <div className="fixed inset-x-0 bottom-4 z-30 flex justify-center md:hidden">
           <button
             type="button"
             onClick={scrollToTools}
-            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 px-4 py-2 text-base font-semibold text-white shadow-lg shadow-indigo-500/30 active:scale-95 transition"
+            className="cursor-pointer inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-white shadow-lg hover:from-indigo-700 hover:to-purple-700 hover:shadow-xl transition"
           >
             Back to tools
           </button>
