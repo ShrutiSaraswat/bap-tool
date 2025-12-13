@@ -1,7 +1,7 @@
 // components/ExploreByCards.tsx
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, type Variants } from "framer-motion";
 import {
   BriefcaseBusiness,
@@ -290,6 +290,9 @@ export function ExploreByCards() {
 
   const resultsRef = useRef<HTMLDivElement | null>(null);
 
+  const toolsRef = useRef<HTMLDivElement | null>(null);
+  const [showBackToTools, setShowBackToTools] = useState(false);
+
   const hasAnySkills = SKILL_CLUSTERS.length > 0;
 
   // Skill search filtering
@@ -387,6 +390,7 @@ export function ExploreByCards() {
   // Scroll helper - offset for fixed navbar so content is not hidden
   const scrollToResults = (mode: Mode) => {
     setActiveMode(mode);
+    setShowBackToTools(true);
 
     requestAnimationFrame(() => {
       if (!resultsRef.current) return;
@@ -403,6 +407,37 @@ export function ExploreByCards() {
     });
   };
 
+  const scrollToTools = () => {
+    if (!toolsRef.current) return;
+
+    const rect = toolsRef.current.getBoundingClientRect();
+    const NAVBAR_OFFSET = 96;
+
+    const targetY = window.scrollY + rect.top - NAVBAR_OFFSET;
+
+    window.scrollTo({
+      top: targetY,
+      behavior: "smooth",
+    });
+
+    setShowBackToTools(false);
+  };
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (!toolsRef.current) return;
+
+      const rect = toolsRef.current.getBoundingClientRect();
+
+      if (rect.top >= -80) {
+        setShowBackToTools(false);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section
       id="explore"
@@ -418,6 +453,7 @@ export function ExploreByCards() {
       </div>
 
       <motion.div
+        ref={toolsRef}
         className="relative max-w-6xl mx-auto px-4 lg:px-0 space-y-10"
         variants={containerVariants}
         initial="hidden"
@@ -430,12 +466,6 @@ export function ExploreByCards() {
           variants={fadeUp}
           id="programs"
         >
-          {/* <p
-            className="text-base font-semibold tracking-[0.2em] uppercase text-indigo-700"
-            id="courses"
-          >
-            Explore CNC business pathways
-          </p> */}
           <h2
             className="text-lg sm:text-3xl font-bold text-slate-900"
             id="skills"
@@ -582,19 +612,6 @@ export function ExploreByCards() {
                   >
                     Skill search
                   </label>
-
-                  {/* <div className="relative">
-                    <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" />
-                    <input
-                      id="card-skill-search"
-                      type="text"
-                      placeholder="Type a skill (customer service, accounting, marketing...)"
-                      className="block w-full rounded-xl border border-slate-300 bg-white pl-9 pr-3 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                      value={skillSearch}
-                      onChange={(e) => setSkillSearch(e.target.value)}
-                      disabled={!hasAnySkills}
-                    />
-                  </div> */}
 
                   <select
                     className="block w-full rounded-xl border border-slate-300 bg-white px-3.5 py-3 text-base text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 cursor-pointer disabled:cursor-default"
@@ -1763,6 +1780,18 @@ export function ExploreByCards() {
           )}
         </div>
       </motion.div>
+
+      {showBackToTools && (
+        <div className="fixed inset-x-0 bottom-4 z-30 flex justify-center md:hidden">
+          <button
+            type="button"
+            onClick={scrollToTools}
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 px-4 py-2 text-base font-semibold text-white shadow-lg shadow-indigo-500/30 active:scale-95 transition"
+          >
+            Back to tools
+          </button>
+        </div>
+      )}
     </section>
   );
 }
