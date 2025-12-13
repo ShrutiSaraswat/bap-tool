@@ -292,6 +292,7 @@ export function ExploreByCards() {
   const toolsRef = useRef<HTMLDivElement | null>(null);
 
   const [showBackToTools, setShowBackToTools] = useState(false);
+  const ignoreHideUntilRef = useRef(0); // ONLY CHANGE (prevents flicker during smooth scroll)
 
   const hasAnySkills = SKILL_CLUSTERS.length > 0;
 
@@ -400,6 +401,7 @@ export function ExploreByCards() {
   const scrollToResults = (mode: Mode) => {
     setActiveMode(mode);
     setShowBackToTools(true);
+    ignoreHideUntilRef.current = Date.now() + 700; // ONLY CHANGE (keeps button stable during scroll)
 
     requestAnimationFrame(() => {
       if (!resultsRef.current) return;
@@ -435,9 +437,13 @@ export function ExploreByCards() {
   // Hide button when user comes back to tools (manual scroll or button)
   useEffect(() => {
     const onScroll = () => {
+      if (Date.now() < ignoreHideUntilRef.current) return; // ONLY CHANGE
       if (!toolsRef.current) return;
+
       const top = toolsRef.current.getBoundingClientRect().top;
-      if (top >= -80) {
+
+      // ONLY CHANGE: tighter threshold so it doesn't flicker for nearby results (program/course)
+      if (top >= -24) {
         setShowBackToTools(false);
       }
     };
@@ -1091,10 +1097,6 @@ export function ExploreByCards() {
                   <div className="px-6 py-5 space-y-4 max-h-[420px] overflow-y-auto text-base">
                     {/* Programs */}
                     <div className="space-y-2">
-                      {/* <p className="text-sm font-semibold tracking-[0.14em] uppercase text-slate-800">
-                        CNC programs that include this course
-                      </p> */}
-
                       {linkedProgramsForCourse.length === 0 && (
                         <p className="text-slate-800">
                           Program information for this course will be added as
