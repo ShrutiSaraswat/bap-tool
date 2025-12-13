@@ -525,7 +525,7 @@ export function ExploreByCards() {
                       if (value) scrollToResults("program");
                     }}
                   >
-                    <option value="">Select a CNC business program...</option>
+                    <option value="">Select a business program...</option>
                     {PROGRAMS.map((p) => (
                       <option key={p.id} value={p.id}>
                         {p.name}
@@ -1091,9 +1091,9 @@ export function ExploreByCards() {
                   <div className="px-6 py-5 space-y-4 max-h-[420px] overflow-y-auto text-base">
                     {/* Programs */}
                     <div className="space-y-2">
-                      <p className="text-sm font-semibold tracking-[0.14em] uppercase text-slate-800">
+                      {/* <p className="text-sm font-semibold tracking-[0.14em] uppercase text-slate-800">
                         CNC programs that include this course
-                      </p>
+                      </p> */}
 
                       {linkedProgramsForCourse.length === 0 && (
                         <p className="text-slate-800">
