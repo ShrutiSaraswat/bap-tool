@@ -185,9 +185,9 @@ export function CncHeader() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -4, scale: 0.98 }}
                     transition={{ duration: 0.16 }}
-                    className="absolute right-0 mt-3 w-96 rounded-2xl border border-indigo-100 bg-white/95 shadow-2xl shadow-slate-900/10 ring-1 ring-indigo-100 z-40 backdrop-blur-md"
+                    className="absolute right-0 mt-3 w-96 rounded-2xl border border-indigo-100 bg-white shadow-2xl shadow-slate-900/10 ring-1 ring-indigo-100 z-40 backdrop-blur-md"
                   >
-                    <div className="px-4 pt-3 pb-2 border-b border-slate-100 bg-gradient-to-r from-indigo-50 via-white to-pink-50">
+                    <div className="px-4 pt-3 pb-2 border-b border-slate-100 bg-gradient-to-r from-indigo-100 via-white to-pink-100">
                       <p className="text-xs font-semibold tracking-[0.18em] uppercase text-slate-500">
                         Choose a section
                       </p>
@@ -300,7 +300,7 @@ export function CncHeader() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -4, scale: 0.98 }}
                       transition={{ duration: 0.16 }}
-                      className="absolute inset-x-0 mt-2 rounded-2xl border border-indigo-100 bg-white/95 shadow-2xl shadow-slate-900/10 ring-1 ring-indigo-100 z-40 backdrop-blur-md"
+                      className="absolute inset-x-0 mt-2 rounded-2xl border border-indigo-100 bg-white shadow-2xl shadow-slate-900/10 ring-1 ring-indigo-100 z-40 backdrop-blur-md"
                     >
                       <ul className="py-1 max-h-80 overflow-y-auto">
                         {mainLinks.map((link) => (
