@@ -308,11 +308,84 @@ export function ExploreByCards() {
 
   // Course sorting (by title A-Z) - ONLY CHANGE for dropdown ordering
   const sortedCourses = useMemo(() => {
-    return [...COURSES].sort((a, b) =>
-      (a.title || "").localeCompare(b.title || "", "en", {
+    const normalize = (code: string) =>
+      code
+        .toUpperCase()
+        .replace(/[^A-Z0-9\s]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+
+    const parseCourseCode = (code: string) => {
+      const c = normalize(code);
+
+      // Pattern: "COM W60"
+      let m = c.match(/^([A-Z]+)\s+([A-Z]+)\s*(\d+)([A-Z]*)$/);
+      if (m) {
+        return {
+          subject: m[1],
+          alpha: m[2],
+          number: parseInt(m[3], 10),
+          suffix: m[4] ?? "",
+        };
+      }
+
+      // Pattern: "ACC 101A"
+      m = c.match(/^([A-Z]+)\s+(\d+)([A-Z]*)$/);
+      if (m) {
+        return {
+          subject: m[1],
+          alpha: "",
+          number: parseInt(m[2], 10),
+          suffix: m[3] ?? "",
+        };
+      }
+
+      // Pattern: "COM115A"
+      m = c.match(/^([A-Z]+)(\d+)([A-Z]*)$/);
+      if (m) {
+        return {
+          subject: m[1],
+          alpha: "",
+          number: parseInt(m[2], 10),
+          suffix: m[3] ?? "",
+        };
+      }
+
+      return {
+        subject: c,
+        alpha: "",
+        number: Number.MAX_SAFE_INTEGER,
+        suffix: "",
+      };
+    };
+
+    return [...COURSES].sort((a, b) => {
+      const A = parseCourseCode(a.code || "");
+      const B = parseCourseCode(b.code || "");
+
+      // Subject (ACC, COM, ECON...)
+      const subjCmp = A.subject.localeCompare(B.subject, "en", {
         sensitivity: "base",
-      })
-    );
+      });
+      if (subjCmp !== 0) return subjCmp;
+
+      // Numeric courses first, then alpha-coded ones (like W60)
+      const AIsAlpha = A.alpha.length > 0;
+      const BIsAlpha = B.alpha.length > 0;
+      if (AIsAlpha !== BIsAlpha) return AIsAlpha ? 1 : -1;
+
+      // If both numeric (or both alpha-coded), sort by number
+      if (A.number !== B.number) return A.number - B.number;
+
+      // If both alpha-coded, sort by alpha tag next
+      const alphaCmp = A.alpha.localeCompare(B.alpha, "en", {
+        sensitivity: "base",
+      });
+      if (alphaCmp !== 0) return alphaCmp;
+
+      // Finally suffix (A, B, etc.)
+      return A.suffix.localeCompare(B.suffix, "en", { sensitivity: "base" });
+    });
   }, []);
 
   // Skill search filtering
