@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata = {
-  title: "CNC Business Administration Pathways",
+  title: "Academic Pathways",
   description:
     "Explore CNC Business Administration programs, jobs and earning potential.",
 };
