@@ -569,13 +569,16 @@ export function ExploreByCards() {
         >
           <h2
             className="text-lg sm:text-3xl font-bold text-slate-900"
-            id="skills"
+            id="courses"
           >
             Discover your business path in the way that works for you.
           </h2>
         </motion.div>
         {/* Decorative divider */}
-        <motion.div className="mx-auto -mt-5 h-1 w-40 rounded-full bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 opacity-90" />
+        <motion.div
+          id="skills"
+          className="mx-auto -mt-5 h-1 w-40 rounded-full bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 opacity-90"
+        />
 
         {/* Cards grid */}
         <motion.div
