@@ -23,7 +23,10 @@
     "id": "audit-risk-assurance",
     "name": "Audit, Risk, and Assurance",
     "description": "Evaluating internal controls, assessing risk, testing financial information, documenting evidence, and supporting external or internal audits.",
-    "programIds": ["assoc-auditing-data-analytics"],
+    "programIds": [
+      "assoc-auditing-data-analytics",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "financial-auditor-accountant-11100",
       "accounting-clerk-14200",
@@ -159,7 +162,8 @@
     "programIds": [
       "assoc-business-essentials",
       "assoc-auditing-data-analytics",
-      "cert-business-administration"
+      "cert-business-administration",
+      "business-administration-diploma"
     ],
     "jobIds": [
       "junior-analyst-41402",

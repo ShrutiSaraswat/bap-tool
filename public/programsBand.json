@@ -38,5 +38,10 @@
     "programId": "cert-business-administration",
     "earningBandId": "earning-good",
     "opportunityBandId": "opportunity-strong"
+  },
+  {
+    "programId": "business-administration-diploma",
+    "earningBandId": "earning-strong",
+    "opportunityBandId": "opportunity-strong"
   }
 ]

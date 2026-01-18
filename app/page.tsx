@@ -37,6 +37,8 @@ const page = () => {
       {/* <CompletionTimelineSection /> */}
       <PlarSection />
       <CncFooter />
+      public/programs.json public/programsBand.json public/jobs.json
+      public/courses.json public/skills.json public/programInsights.json
     </div>
   );
 };

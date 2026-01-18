@@ -476,5 +476,59 @@
       "business statistics and data interpretation",
       "professional writing and communication"
     ]
+  },
+  {
+    "id": "business-administration-diploma",
+    "name": "Diploma in Business Administration",
+    "credentialType": "Diploma",
+    "shortTagline": "A comprehensive 60 credit credential that combines foundational business education with applied specialization.",
+    "overview": "The Diploma in Business Administration is the culminating credential within the Business Administration Program. It is designed for learners who seek broad-based business competence combined with focused specialization aligned to career goals, transfer objectives, or workforce advancement. Building on the Certificate in Business Administration and one or more Associate Certificates, the diploma integrates core business knowledge with applied learning in accounting, marketing, human resources, project management, analytics, hospitality, recruitment, or small business operations. The diploma prepares graduates for supervisory, coordination, and entry-level professional roles across private industry, public sector organizations, non-profits, and Indigenous governments. It also supports transfer to university business degrees where applicable.",
+    "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
+    "earningBand": "medium_high",
+    "opportunityBand": "very_high",
+    "timeCommitment": {
+      "label": "60 credits (two years full-time study)",
+      "approxMonths": 24
+    },
+    "stackability": {
+      "isStackable": true,
+      "stackLevel": 3,
+      "stacksInto": [],
+      "stackMessage": "Capstone credential within the Business Administration Program. Built by completing the Business Administration certificate, one or more associate certificates, and additional 200 level business electives to reach 60 total credits."
+    },
+    "employmentSummary": "Graduates are prepared for roles that require broader responsibility, coordination, or specialization beyond entry-level positions. Over 33,000 projected openings across administrative, accounting, HR, and business coordination roles in BC through 2034. Strong regional demand in the Cariboo and northern BC for multi-skilled business graduates. Employers increasingly value adaptable graduates with both general business knowledge and targeted specialization. The stackable model improves completion, flexibility, and learner persistence.",
+    "jobIds": [
+      "financial-auditor-accountant-11100",
+      "accounting-technician-bookkeeper-12200",
+      "accounting-clerk-14200",
+      "database-analyst-21223",
+      "project-coordinator-13100",
+      "business-systems-specialist-21221",
+      "administrative-assistant-13110",
+      "administrative-officer-13100",
+      "hr-recruitment-officer-12101",
+      "financial-sales-rep-63102",
+      "small-business-owner-self-employment",
+      "marketing-public-relations-officer-11202",
+      "restaurant-food-service-manager-60030",
+      "accommodation-service-manager-60031",
+      "food-service-supervisor-62020",
+      "hotel-front-desk-clerk-64314",
+      "compensation-staffing-clerk-14102",
+      "customer-service-representative-64409",
+      "junior-analyst-41402"
+    ],
+    "skills": [
+      "broad business competence across functions",
+      "business coordination and supervision",
+      "accounting and finance fundamentals",
+      "marketing and customer focus",
+      "human resources foundations and recruitment support",
+      "project planning and execution",
+      "data and analytics literacy for business decisions",
+      "hospitality operations and guest experience (by specialization)",
+      "small business operations and entrepreneurship",
+      "professional communication and workplace collaboration"
+    ]
   }
 ]

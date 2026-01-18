@@ -7,7 +7,10 @@
     "shortTagline": "Link data analytics and information systems with financial reporting.",
     "overview": "Introduces data analytics and information systems concepts for accounting, including systems components, information quality, data modelling, infrastructure, internal controls, risk, and reporting systems.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-auditing-data-analytics"],
+    "programIds": [
+      "assoc-auditing-data-analytics",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "financial-auditor-accountant-11100",
       "accounting-technician-bookkeeper-12200",
@@ -30,7 +33,10 @@
     "shortTagline": "Hands on work with accounting software and full cycle bookkeeping.",
     "overview": "Covers company setup, full cycle accounting, GST and PST, payroll, foreign currency, budgeting, project costing, inventory, and reconciliations using computerized accounting tools.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-auditing-data-analytics"],
+    "programIds": [
+      "assoc-auditing-data-analytics",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "financial-auditor-accountant-11100",
       "accounting-technician-bookkeeper-12200",
@@ -53,7 +59,10 @@
     "shortTagline": "Foundations of audit and assurance work with a focus on risk and controls.",
     "overview": "Covers the audit process, internal controls, audit evidence, materiality, risk, independence, ethics, audit data analytics, and audit reporting from planning through documentation.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-auditing-data-analytics"],
+    "programIds": [
+      "assoc-auditing-data-analytics",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "financial-auditor-accountant-11100",
       "accounting-technician-bookkeeper-12200",
@@ -76,7 +85,10 @@
     "shortTagline": "How organizations use information systems to support decisions and operations.",
     "overview": "Introduces how organizations use information systems to support decisions, strengthen operations, improve security, and enhance performance, including decision support, e business, business intelligence, networks, enterprise systems, and AI enabled tools.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-business-analysis-project-management"],
+    "programIds": [
+      "assoc-business-analysis-project-management",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "project-coordinator-13100",
       "business-systems-specialist-21221",
@@ -101,7 +113,8 @@
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
     "programIds": [
       "assoc-business-analysis-project-management",
-      "assoc-small-business"
+      "assoc-small-business",
+      "business-administration-diploma"
     ],
     "jobIds": [
       "project-coordinator-13100",
@@ -130,7 +143,8 @@
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
     "programIds": [
       "assoc-business-analysis-project-management",
-      "assoc-small-business"
+      "assoc-small-business",
+      "business-administration-diploma"
     ],
     "jobIds": [
       "project-coordinator-13100",
@@ -160,7 +174,8 @@
     "programIds": [
       "assoc-business-essentials",
       "assoc-small-business",
-      "cert-business-administration"
+      "cert-business-administration",
+      "business-administration-diploma"
     ],
     "jobIds": [
       "administrative-officer-13100",
@@ -189,7 +204,10 @@
     "shortTagline": "Fundamental finance concepts and financial literacy for business.",
     "overview": "Covers foundational finance concepts and financial literacy for business decision making, including the time value of money, basic financial analysis, and interpreting financial information.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-business-essentials"],
+    "programIds": [
+      "assoc-business-essentials",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "administrative-officer-13100",
       "hr-recruitment-officer-12101",
@@ -212,7 +230,11 @@
     "shortTagline": "Explore entrepreneurial thinking and early stage venture planning.",
     "overview": "Focuses on entrepreneurial mindset, opportunity identification, feasibility analysis, business models, value propositions, and early stage venture planning for small and growing enterprises.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-business-essentials", "assoc-small-business"],
+    "programIds": [
+      "assoc-business-essentials",
+      "assoc-small-business",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "administrative-officer-13100",
       "hr-recruitment-officer-12101",
@@ -236,7 +258,11 @@
     "shortTagline": "Use data and statistics to support business decisions.",
     "overview": "Focuses on applied statistics for business, including descriptive measures, probability concepts, and data informed decisions that support analysis in finance, marketing, and operations.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-business-essentials", "cert-business-administration"],
+    "programIds": [
+      "assoc-business-essentials",
+      "cert-business-administration",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "administrative-officer-13100",
       "hr-recruitment-officer-12101",
@@ -264,7 +290,10 @@
     "shortTagline": "Core accounting cycle and financial statement preparation.",
     "overview": "Introduces the accounting cycle, financial reporting, and the preparation and interpretation of basic financial statements used by small businesses and organizations.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-business-fundamentals"],
+    "programIds": [
+      "assoc-business-fundamentals",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "administrative-assistant-13110",
       "accounting-clerk-14200",
@@ -288,7 +317,8 @@
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
     "programIds": [
       "assoc-business-fundamentals",
-      "cert-business-administration"
+      "cert-business-administration",
+      "business-administration-diploma"
     ],
     "jobIds": [
       "administrative-assistant-13110",
@@ -316,7 +346,8 @@
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
     "programIds": [
       "assoc-business-fundamentals",
-      "cert-business-administration"
+      "cert-business-administration",
+      "business-administration-diploma"
     ],
     "jobIds": [
       "administrative-assistant-13110",
@@ -344,7 +375,8 @@
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
     "programIds": [
       "assoc-business-fundamentals",
-      "cert-business-administration"
+      "cert-business-administration",
+      "business-administration-diploma"
     ],
     "jobIds": [
       "administrative-assistant-13110",
@@ -370,7 +402,10 @@
     "shortTagline": "Plan and execute small projects that improve hospitality operations.",
     "overview": "Introduces project management concepts and basic tools for planning and executing small projects that support operational improvements in hospitality settings.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "programIds": [
+      "assoc-hospitality-guest-experience-management",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "restaurant-food-service-manager-60030",
       "accommodation-service-manager-60031",
@@ -393,7 +428,10 @@
     "shortTagline": "Understand how hotels are managed and measured for performance.",
     "overview": "Examines hotel operations, the role of the general manager, quality standards, legislation, human resources, sustainability practices, and emerit based hotel management standards.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "programIds": [
+      "assoc-hospitality-guest-experience-management",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "restaurant-food-service-manager-60030",
       "accommodation-service-manager-60031",
@@ -416,7 +454,10 @@
     "shortTagline": "Manage food and beverage operations for safety, service, and profit.",
     "overview": "Focuses on food and beverage operations, internal controls, menu design and costing, marketing, legal and safety requirements, and service management for profitability and guest satisfaction.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "programIds": [
+      "assoc-hospitality-guest-experience-management",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "restaurant-food-service-manager-60030",
       "accommodation-service-manager-60031",
@@ -439,7 +480,10 @@
     "shortTagline": "Plan workforce needs using labour market and organizational data.",
     "overview": "Covers strategic HR planning, environmental influences, forecasting, succession management, HR metrics, restructuring, outsourcing, and alignment of HR strategies with organizational goals.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-recruitment-specialist"],
+    "programIds": [
+      "assoc-recruitment-specialist",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "hr-recruitment-officer-12101",
       "administrative-assistant-13110",
@@ -461,7 +505,10 @@
     "shortTagline": "Design and evaluate compensation and benefits systems.",
     "overview": "Explores compensation strategy, pay structures, job evaluation, market analysis, performance pay, indirect compensation, and system design with attention to Indigenous labour market contexts.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-recruitment-specialist"],
+    "programIds": [
+      "assoc-recruitment-specialist",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "hr-recruitment-officer-12101",
       "administrative-assistant-13110",
@@ -483,7 +530,10 @@
     "shortTagline": "Plan and run fair, legally compliant recruitment processes.",
     "overview": "Examines recruitment legislation, protected groups, Indigenous focused hiring approaches, job analysis, screening tools, interviewing, decision making, and employment contracting.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-recruitment-specialist"],
+    "programIds": [
+      "assoc-recruitment-specialist",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "hr-recruitment-officer-12101",
       "administrative-assistant-13110",
@@ -505,7 +555,7 @@
     "shortTagline": "Understand key legal duties and risks for small businesses.",
     "overview": "Introduces legal frameworks for small businesses including contracts, torts, business structures, employment law, intellectual property, and consumer protection with application to everyday business decisions.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["assoc-small-business"],
+    "programIds": ["assoc-small-business", "business-administration-diploma"],
     "jobIds": [
       "small-business-owner-self-employment",
       "administrative-officer-13100",
@@ -528,7 +578,10 @@
     "shortTagline": "Core accounting for the Business Administration certificate.",
     "overview": "Builds financial accounting skills for preparing and interpreting financial statements, with emphasis on the accounting cycle, recording transactions, and using information for decision making.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["cert-business-administration"],
+    "programIds": [
+      "cert-business-administration",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "administrative-officer-13100",
       "administrative-assistant-13110",
@@ -553,7 +606,10 @@
     "shortTagline": "Study how households and firms make choices in markets.",
     "overview": "Introduces supply and demand, elasticity, consumer and producer behaviour, market structures, and the role of government in micro level economic activity.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["cert-business-administration"],
+    "programIds": [
+      "cert-business-administration",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "administrative-officer-13100",
       "administrative-assistant-13110",
@@ -578,7 +634,10 @@
     "shortTagline": "Explore the behaviour of the economy as a whole.",
     "overview": "Introduces GDP, unemployment, inflation, fiscal and monetary policy, international trade, and how macroeconomic trends influence business and public decisions.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["cert-business-administration"],
+    "programIds": [
+      "cert-business-administration",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "administrative-officer-13100",
       "administrative-assistant-13110",
@@ -603,7 +662,10 @@
     "shortTagline": "Develop clear, professional written and oral communication.",
     "overview": "Strengthens academic and professional writing, editing, and presentation skills with a focus on clarity, organization, audience awareness, and effective workplace communication.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["cert-business-administration"],
+    "programIds": [
+      "cert-business-administration",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "administrative-officer-13100",
       "administrative-assistant-13110",
@@ -628,7 +690,10 @@
     "shortTagline": "Mathematical tools that support business and economic analysis.",
     "overview": "Introduces finite mathematics topics such as linear functions, matrices, systems of equations, and basic optimization that support models in business, economics, and social sciences.",
     "region": "Northern British Columbia (Cariboo, Nechako, Prince George)",
-    "programIds": ["cert-business-administration"],
+    "programIds": [
+      "cert-business-administration",
+      "business-administration-diploma"
+    ],
     "jobIds": [
       "administrative-officer-13100",
       "administrative-assistant-13110",

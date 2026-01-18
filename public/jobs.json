@@ -12,7 +12,10 @@
       "internal auditor"
     ],
     "typicalEmployers": "Public practice accounting firms, corporate finance departments, government ministries, Indigenous organizations, non profit agencies, and small or medium sized businesses.",
-    "programIds": ["assoc-auditing-data-analytics"],
+    "programIds": [
+      "assoc-auditing-data-analytics",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": 40,
     "medianAnnualSalary": null,
     "wageBand": "medium_high",
@@ -33,7 +36,10 @@
       "full cycle bookkeeper"
     ],
     "typicalEmployers": "Public practice firms, small and medium businesses, retail and service companies, non profit and Indigenous organizations, and municipal or regional governments.",
-    "programIds": ["assoc-auditing-data-analytics"],
+    "programIds": [
+      "assoc-auditing-data-analytics",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": 28,
     "medianAnnualSalary": null,
     "wageBand": "medium",
@@ -57,7 +63,8 @@
     "programIds": [
       "assoc-auditing-data-analytics",
       "assoc-business-fundamentals",
-      "cert-business-administration"
+      "cert-business-administration",
+      "business-administration-diploma"
     ],
     "medianHourlyWage": 26.5,
     "medianAnnualSalary": null,
@@ -81,7 +88,8 @@
     "typicalEmployers": "IT consulting firms, corporate IT departments, government agencies, health and education organizations, and large Indigenous or community based organizations with complex data needs.",
     "programIds": [
       "assoc-auditing-data-analytics",
-      "assoc-business-analysis-project-management"
+      "assoc-business-analysis-project-management",
+      "business-administration-diploma"
     ],
     "medianHourlyWage": 38,
     "medianAnnualSalary": null,
@@ -103,7 +111,10 @@
       "operations coordinator"
     ],
     "typicalEmployers": "Municipal and regional governments, health and education organizations, construction and resource companies, non profit and Indigenous organizations, and professional services firms.",
-    "programIds": ["assoc-business-analysis-project-management"],
+    "programIds": [
+      "assoc-business-analysis-project-management",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": 32,
     "medianAnnualSalary": null,
     "wageBand": "medium_high",
@@ -124,7 +135,10 @@
       "systems analyst"
     ],
     "typicalEmployers": "IT consulting and software firms, corporate IT departments, government ministries and Crown corporations, financial institutions, and larger Indigenous or community organizations.",
-    "programIds": ["assoc-business-analysis-project-management"],
+    "programIds": [
+      "assoc-business-analysis-project-management",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": 39,
     "medianAnnualSalary": null,
     "wageBand": "medium_high",
@@ -150,7 +164,8 @@
       "assoc-business-fundamentals",
       "assoc-recruitment-specialist",
       "assoc-small-business",
-      "cert-business-administration"
+      "cert-business-administration",
+      "business-administration-diploma"
     ],
     "medianHourlyWage": 26.37,
     "medianAnnualSalary": null,
@@ -175,7 +190,8 @@
     "programIds": [
       "assoc-business-essentials",
       "assoc-small-business",
-      "cert-business-administration"
+      "cert-business-administration",
+      "business-administration-diploma"
     ],
     "medianHourlyWage": 31.25,
     "medianAnnualSalary": null,
@@ -200,7 +216,8 @@
     "programIds": [
       "assoc-business-essentials",
       "assoc-recruitment-specialist",
-      "assoc-small-business"
+      "assoc-small-business",
+      "business-administration-diploma"
     ],
     "medianHourlyWage": 35,
     "medianAnnualSalary": null,
@@ -222,7 +239,10 @@
       "client advisor banking"
     ],
     "typicalEmployers": "Banks, credit unions, trust companies, and other financial institutions that serve individuals and small and medium businesses.",
-    "programIds": ["assoc-business-essentials"],
+    "programIds": [
+      "assoc-business-essentials",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": 24,
     "medianAnnualSalary": null,
     "wageBand": "medium",
@@ -243,7 +263,11 @@
       "self employed operator"
     ],
     "typicalEmployers": "Self employment in sectors such as retail, tourism, trades, transportation, technology, creative industries, and community based services.",
-    "programIds": ["assoc-business-essentials", "assoc-small-business"],
+    "programIds": [
+      "assoc-business-essentials",
+      "assoc-small-business",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": null,
     "medianAnnualSalary": 65000,
     "wageBand": "medium",
@@ -266,7 +290,8 @@
     "typicalEmployers": "Private companies, tourism and economic development agencies, non profit and Indigenous organizations, post secondary institutions, and marketing or communications firms.",
     "programIds": [
       "assoc-business-fundamentals",
-      "cert-business-administration"
+      "cert-business-administration",
+      "business-administration-diploma"
     ],
     "medianHourlyWage": 30,
     "medianAnnualSalary": null,
@@ -288,7 +313,10 @@
       "catering manager"
     ],
     "typicalEmployers": "Independent restaurants, franchise chains, hotel food and beverage departments, catering companies, and institutional food service providers.",
-    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "programIds": [
+      "assoc-hospitality-guest-experience-management",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": 26.44,
     "medianAnnualSalary": null,
     "wageBand": "medium",
@@ -309,7 +337,10 @@
       "resort manager"
     ],
     "typicalEmployers": "Hotels, motels, resorts, lodges, student residences, and other accommodation establishments in urban, rural, and tourism based communities.",
-    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "programIds": [
+      "assoc-hospitality-guest-experience-management",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": 32.97,
     "medianAnnualSalary": null,
     "wageBand": "medium_high",
@@ -330,7 +361,10 @@
       "cafeteria supervisor"
     ],
     "typicalEmployers": "Restaurants, quick service outlets, cafeterias, hospitals and care facilities, catering companies, and other food service operations.",
-    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "programIds": [
+      "assoc-hospitality-guest-experience-management",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": 22,
     "medianAnnualSalary": null,
     "wageBand": "entry_to_medium",
@@ -351,7 +385,10 @@
       "reservations clerk"
     ],
     "typicalEmployers": "Hotels, motels, inns, resorts, lodges, and other accommodation providers in cities, small towns, and tourism destinations.",
-    "programIds": ["assoc-hospitality-guest-experience-management"],
+    "programIds": [
+      "assoc-hospitality-guest-experience-management",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": 20,
     "medianAnnualSalary": null,
     "wageBand": "entry",
@@ -372,7 +409,10 @@
       "personnel clerk"
     ],
     "typicalEmployers": "Human resources departments in government, health care, education, large private companies, and Indigenous and community organizations.",
-    "programIds": ["assoc-recruitment-specialist"],
+    "programIds": [
+      "assoc-recruitment-specialist",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": 27,
     "medianAnnualSalary": null,
     "wageBand": "medium",
@@ -393,7 +433,10 @@
       "client services representative"
     ],
     "typicalEmployers": "Retailers, utilities, telecommunications providers, financial institutions, public sector contact centres, and education or community service organizations.",
-    "programIds": ["cert-business-administration"],
+    "programIds": [
+      "cert-business-administration",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": null,
     "medianAnnualSalary": 50054,
     "wageBand": "entry_to_medium",
@@ -414,7 +457,10 @@
       "program evaluation analyst"
     ],
     "typicalEmployers": "Government and regional development agencies, market research firms, banks, large corporations, Indigenous economic development organizations, and consulting companies.",
-    "programIds": ["cert-business-administration"],
+    "programIds": [
+      "cert-business-administration",
+      "business-administration-diploma"
+    ],
     "medianHourlyWage": 30,
     "medianAnnualSalary": null,
     "wageBand": "medium_high",
