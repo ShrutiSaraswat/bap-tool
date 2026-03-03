@@ -1,29 +1,5 @@
 [
   {
-    "id": "financial-auditor-accountant-11100",
-    "title": "Financial auditor or accountant",
-    "noc2021": "11100",
-    "nocTitle": "Financial auditors and accountants",
-    "shortSummary": "Examine and analyze financial records to ensure accuracy and compliance, prepare financial statements and reports, design or maintain accounting systems, and provide advice on taxation and internal controls.",
-    "typicalJobTitles": [
-      "financial auditor",
-      "accountant",
-      "senior accountant",
-      "internal auditor"
-    ],
-    "typicalEmployers": "Public practice accounting firms, corporate finance departments, government ministries, Indigenous organizations, non profit agencies, and small or medium sized businesses.",
-    "programIds": [
-      "assoc-auditing-data-analytics",
-      "business-administration-diploma"
-    ],
-    "medianHourlyWage": 40,
-    "medianAnnualSalary": null,
-    "wageBand": "medium_high",
-    "projectedOpeningsBC": 8200,
-    "opportunityLevel": "high",
-    "region": "British Columbia"
-  },
-  {
     "id": "accounting-technician-bookkeeper-12200",
     "title": "Accounting technician or bookkeeper",
     "noc2021": "12200",
