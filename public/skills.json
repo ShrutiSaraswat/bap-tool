@@ -11,7 +11,6 @@
       "cert-business-administration"
     ],
     "jobIds": [
-      "financial-auditor-accountant-11100",
       "accounting-technician-bookkeeper-12200",
       "accounting-clerk-14200",
       "financial-sales-rep-63102",
@@ -28,7 +27,6 @@
       "business-administration-diploma"
     ],
     "jobIds": [
-      "financial-auditor-accountant-11100",
       "accounting-clerk-14200",
       "accounting-technician-bookkeeper-12200"
     ]
@@ -46,8 +44,7 @@
     "jobIds": [
       "database-analyst-21223",
       "business-systems-specialist-21221",
-      "junior-analyst-41402",
-      "financial-auditor-accountant-11100"
+      "junior-analyst-41402"
     ]
   },
   {
@@ -165,11 +162,7 @@
       "cert-business-administration",
       "business-administration-diploma"
     ],
-    "jobIds": [
-      "junior-analyst-41402",
-      "database-analyst-21223",
-      "financial-auditor-accountant-11100"
-    ]
+    "jobIds": ["junior-analyst-41402", "database-analyst-21223"]
   },
   {
     "id": "writing-communication",
