@@ -1,7 +1,7 @@
 // components/GuidedMatchSection.tsx
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import programsData from "../public/programs.json";
@@ -442,7 +442,7 @@ function getBandScores(program: Program): {
 function keywordScoreProgram(
   program: Program,
   input: string,
-  inputWordsSet: Set<string>
+  inputWordsSet: Set<string>,
 ): number {
   if (!input.trim()) return 0;
 
@@ -513,7 +513,7 @@ function keywordScoreProgram(
 
 function semanticScoreProgram(
   program: Program,
-  inputEmbedding: TextEmbedding | null
+  inputEmbedding: TextEmbedding | null,
 ): number {
   if (!inputEmbedding) return 0;
   const programEmbedding = getProgramEmbedding(program);
@@ -685,7 +685,7 @@ function scoreProgram(
   input: string,
   inputEmbedding: TextEmbedding | null,
   inputWordsSet: Set<string>,
-  intents: Set<string>
+  intents: Set<string>,
 ): number {
   const keywordScore = keywordScoreProgram(program, input, inputWordsSet);
   const semanticScore = semanticScoreProgram(program, inputEmbedding);
@@ -737,6 +737,7 @@ export function GuidedMatchSection() {
   const [text, setText] = useState("");
   const [results, setResults] = useState<ProgramScore[] | null>(null);
   const [touched, setTouched] = useState(false);
+  const resultsRef = useRef<HTMLDivElement | null>(null);
 
   function runMatch() {
     const input = text.trim();
@@ -744,6 +745,16 @@ export function GuidedMatchSection() {
 
     if (!input || PROGRAMS.length === 0) {
       setResults(null);
+      requestAnimationFrame(() => {
+        if (!resultsRef.current) return;
+        window.scrollTo({
+          top:
+            resultsRef.current.getBoundingClientRect().top +
+            window.pageYOffset -
+            110,
+          behavior: "smooth",
+        });
+      });
       return;
     }
 
@@ -759,13 +770,24 @@ export function GuidedMatchSection() {
         input,
         inputEmbedding,
         inputWordsSet,
-        intents
+        intents,
       ),
     }))
       .filter((p) => p.score > 0)
       .sort((a, b) => b.score - a.score);
 
     setResults(scored.length > 0 ? scored : null);
+
+    requestAnimationFrame(() => {
+      if (!resultsRef.current) return;
+      window.scrollTo({
+        top:
+          resultsRef.current.getBoundingClientRect().top +
+          window.pageYOffset -
+          110,
+        behavior: "smooth",
+      });
+    });
   }
 
   function handleSubmit(e: React.FormEvent) {
@@ -859,7 +881,7 @@ export function GuidedMatchSection() {
                 className="inline-flex items-center rounded-full border border-indigo-100 bg-white/80 px-5 py-3 text-base font-semibold text-indigo-700 shadow-sm hover:bg-indigo-50 hover:border-indigo-200 transition cursor-pointer"
                 onClick={() =>
                   setText(
-                    "I like working with people, guests and visitors. I enjoy social media and events, and I want to start in a shorter business program that can lead to management later."
+                    "I like working with people, guests and visitors. I enjoy social media and events, and I want to start in a shorter business program that can lead to management later.",
                   )
                 }
               >
@@ -876,6 +898,7 @@ export function GuidedMatchSection() {
 
           {/* Results panel */}
           <motion.div
+            ref={resultsRef}
             className="border-4 border-slate-300 rounded-2xl bg-white/80 overflow-hidden shadow-2xl backdrop-blur-md"
             variants={fadeChild}
           >
