@@ -1,4 +1,5 @@
 // app/layout.tsx
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { ReactNode } from "react";
 import "./globals.css";
 
@@ -14,6 +15,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="min-h-screen bg-slate-50 text-slate-900" id="top">
         <main className="min-h-[calc(100vh-120px)]">{children}</main>
       </body>
+      <GoogleAnalytics gaId="G-88KFQJJYER" />
     </html>
   );
 }
